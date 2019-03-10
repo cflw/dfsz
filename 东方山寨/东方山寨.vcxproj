@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8D4D0C20-F29D-4090-8ECA-C7FAB23A3313}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>东方山寨</RootNamespace>
+    <SccProjectName>SAK</SccProjectName>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(cflw_compile)\$(ProjectName)\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(OutDir)</IntDir>
+    <LibraryPath>$(boost)\stage\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(cflw_compile)\$(ProjectName)\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(OutDir)</IntDir>
+    <LibraryPath>$(boost)\stage\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(cflw_develop)\cflw代码库;$(cflw_develop)\用户界面;$(boost);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <EnableModules>
+      </EnableModules>
+      <AdditionalOptions>/await %(AdditionalOptions)</AdditionalOptions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <BuildLog>
+      <Path>$(OutDir)$(MSBuildProjectName).log</Path>
+    </BuildLog>
+    <Manifest>
+      <EnableDpiAwareness>true</EnableDpiAwareness>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>$(cflw_develop)\cflw代码库;$(cflw_develop)\用户界面;$(boost);</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <EnableModules>
+      </EnableModules>
+      <AdditionalOptions>/await %(AdditionalOptions)</AdditionalOptions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <BuildLog>
+      <Path>$(OutDir)$(MSBuildProjectName).log</Path>
+    </BuildLog>
+    <Manifest>
+      <EnableDpiAwareness>true</EnableDpiAwareness>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="东方月亮船1.cpp" />
+    <ClCompile Include="关卡.cpp" />
+    <ClCompile Include="关卡效果.cpp" />
+    <ClCompile Include="判定处理_子弹与玩家炸弹.cpp" />
+    <ClCompile Include="判定处理_敌机与玩家子弹.cpp" />
+    <ClCompile Include="判定处理_自机与子弹.cpp" />
+    <ClCompile Include="取文本.cpp" />
+    <ClCompile Include="图形_三维.cpp" />
+    <ClCompile Include="图形_图片.cpp" />
+    <ClCompile Include="动画.cpp" />
+    <ClCompile Include="图形_对话.cpp" />
+    <ClCompile Include="图形_抬显.cpp" />
+    <ClCompile Include="图形_玩家成绩.cpp" />
+    <ClCompile Include="图形基础.cpp" />
+    <ClCompile Include="图形管理.cpp" />
+    <ClCompile Include="图形工厂.cpp" />
+    <ClCompile Include="图形引擎.cpp" />
+    <ClCompile Include="图形引擎_资源工厂.cpp" />
+    <ClCompile Include="敌机图形模板.cpp" />
+    <ClCompile Include="场景.cpp" />
+    <ClCompile Include="基础.cpp" />
+    <ClCompile Include="子弹_大子弹.cpp" />
+    <ClCompile Include="子弹_射线激光.cpp" />
+    <ClCompile Include="子弹_普通子弹.cpp" />
+    <ClCompile Include="子弹_曲线激光.cpp" />
+    <ClCompile Include="子弹_直线激光.cpp" />
+    <ClCompile Include="子弹_连续子弹.cpp" />
+    <ClCompile Include="子弹制造机.cpp" />
+    <ClCompile Include="子弹图形接口.cpp" />
+    <ClCompile Include="子弹基础.cpp" />
+    <ClCompile Include="子机.cpp" />
+    <ClCompile Include="子机移动_位置.cpp" />
+    <ClCompile Include="子机移动接口.cpp" />
+    <ClCompile Include="对话.cpp" />
+    <ClCompile Include="敌机基础.cpp" />
+    <ClCompile Include="敌机制造机.cpp" />
+    <ClCompile Include="数学基础.cpp" />
+    <ClCompile Include="日志.cpp" />
+    <ClCompile Include="测试关卡.cpp" />
+    <ClCompile Include="游戏.cpp" />
+    <ClCompile Include="游戏_名称标识.cpp" />
+    <ClCompile Include="游戏设置.cpp" />
+    <ClCompile Include="王战.cpp" />
+    <ClCompile Include="玩家.cpp" />
+    <ClCompile Include="玩家子弹发射扩展.cpp" />
+    <ClCompile Include="玩家子弹发射_发散.cpp" />
+    <ClCompile Include="玩家子弹发射基础.cpp" />
+    <ClCompile Include="玩家子弹图形模板.cpp" />
+    <ClCompile Include="玩家子弹基础.cpp" />
+    <ClCompile Include="图形_子弹.cpp" />
+    <ClCompile Include="玩家子弹扩展.cpp" />
+    <ClCompile Include="玩家子弹制造机.cpp" />
+    <ClCompile Include="玩家炸弹扩展.cpp" />
+    <ClCompile Include="玩家炸弹基础.cpp" />
+    <ClCompile Include="界面_窗口类.cpp" />
+    <ClCompile Include="界面图形.cpp" />
+    <ClCompile Include="界面引擎.cpp" />
+    <ClCompile Include="程序.cpp" />
+    <ClCompile Include="程序设置.cpp" />
+    <ClCompile Include="自机.cpp" />
+    <ClCompile Include="计算.cpp" />
+    <ClCompile Include="载入.cpp" />
+    <ClCompile Include="输入.cpp" />
+    <ClCompile Include="道具.cpp" />
+    <ClCompile Include="道具动画.cpp" />
+    <ClCompile Include="音频引擎.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="关卡.h" />
+    <ClInclude Include="关卡效果.h" />
+    <ClInclude Include="判定处理_子弹与玩家炸弹.h" />
+    <ClInclude Include="判定处理_敌机与玩家子弹.h" />
+    <ClInclude Include="判定处理_自机与子弹.h" />
+    <ClInclude Include="取文本.h" />
+    <ClInclude Include="图形_三维.h" />
+    <ClInclude Include="图形_图片.h" />
+    <ClInclude Include="动画.h" />
+    <ClInclude Include="动画接口.h" />
+    <ClInclude Include="图形_对话.h" />
+    <ClInclude Include="图形_抬显.h" />
+    <ClInclude Include="图形_玩家成绩.h" />
+    <ClInclude Include="图形包含.h" />
+    <ClInclude Include="图形管理.h" />
+    <ClInclude Include="图形工厂.h" />
+    <ClInclude Include="图形引擎.h" />
+    <ClInclude Include="图形引擎_资源工厂.h" />
+    <ClInclude Include="图形基础.h" />
+    <ClInclude Include="敌机图形模板.h" />
+    <ClInclude Include="场景.h" />
+    <ClInclude Include="基础.h" />
+    <ClInclude Include="基础_数组.h" />
+    <ClInclude Include="对话.h" />
+    <ClInclude Include="对话基础.h" />
+    <ClInclude Include="常量.h" />
+    <ClInclude Include="数学包含.h" />
+    <ClInclude Include="数学基础.h" />
+    <ClInclude Include="日志.h" />
+    <ClInclude Include="标识.h" />
+    <ClInclude Include="子弹_大子弹.h" />
+    <ClInclude Include="子弹_射线激光.h" />
+    <ClInclude Include="子弹_普通子弹.h" />
+    <ClInclude Include="子弹_曲线激光.h" />
+    <ClInclude Include="子弹_直线激光.h" />
+    <ClInclude Include="子弹_连续子弹.h" />
+    <ClInclude Include="子弹制造机.h" />
+    <ClInclude Include="子弹图形接口.h" />
+    <ClInclude Include="子弹基础.h" />
+    <ClInclude Include="子机.h" />
+    <ClInclude Include="子机移动_位置.h" />
+    <ClInclude Include="子机移动接口.h" />
+    <ClInclude Include="敌机制造机.h" />
+    <ClInclude Include="敌机基础.h" />
+    <ClInclude Include="游戏.h" />
+    <ClInclude Include="游戏_名称标识.h" />
+    <ClInclude Include="游戏设置.h" />
+    <ClInclude Include="王战.h" />
+    <ClInclude Include="玩家.h" />
+    <ClInclude Include="玩家子弹发射扩展.h" />
+    <ClInclude Include="玩家子弹发射_发散.h" />
+    <ClInclude Include="图形_子弹.h" />
+    <ClInclude Include="玩家子弹图形模板.h" />
+    <ClInclude Include="玩家子弹扩展.h" />
+    <ClInclude Include="玩家子弹制造机.h" />
+    <ClInclude Include="玩家子弹发射基础.h" />
+    <ClInclude Include="玩家子弹基础.h" />
+    <ClInclude Include="玩家炸弹扩展.h" />
+    <ClInclude Include="玩家炸弹基础.h" />
+    <ClInclude Include="界面_窗口类.h" />
+    <ClInclude Include="界面图形.h" />
+    <ClInclude Include="界面引擎.h" />
+    <ClInclude Include="程序.h" />
+    <ClInclude Include="程序设置.h" />
+    <ClInclude Include="脚本.h" />
+    <ClInclude Include="自机.h" />
+    <ClInclude Include="计算.h" />
+    <ClInclude Include="载入.h" />
+    <ClInclude Include="输入.h" />
+    <ClInclude Include="道具.h" />
+    <ClInclude Include="道具动画.h" />
+    <ClInclude Include="音频包含.h" />
+    <ClInclude Include="音频引擎.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cflw代码库\cflw代码库.vcxproj">
+      <Project>{ad010d5b-4048-48c8-9be6-82484bec32b1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\用户界面\用户界面.vcxproj">
+      <Project>{b241c66b-8a81-4160-be52-a3fdaac8e6af}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="着色器\着色器.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="着色器\ps_stage0.hlsl">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ps_stage</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ps_stage</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">~\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">~\shader\%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="着色器\vs_stage0.hlsl">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">vs_stage</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vs_stage</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">~\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">~\shader\%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

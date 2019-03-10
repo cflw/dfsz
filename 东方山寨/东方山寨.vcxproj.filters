@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="关卡">
+      <UniqueIdentifier>{ac1d2691-9e79-479b-8a7a-6598682ea88c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏本体">
+      <UniqueIdentifier>{ea0bb17e-3419-4447-af89-728ef49d30bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="载入">
+      <UniqueIdentifier>{5a305281-d7d3-44c8-a51c-09760a0d2d2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏本体\子弹扩展">
+      <UniqueIdentifier>{b257209d-ea08-4135-86a9-3fb3ba79eb9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏本体\子弹基础">
+      <UniqueIdentifier>{a79af31d-5912-4560-961c-ce30a1549f47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏本体\敌机">
+      <UniqueIdentifier>{cc5ea6ee-669d-45a1-9ef0-ef0ba85eb1c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏本体\游戏基础">
+      <UniqueIdentifier>{ac4a07ec-7248-4f33-9b82-2106f17fd6bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏本体\玩家子弹基础">
+      <UniqueIdentifier>{56516671-06e7-4ee4-b8ff-b85017401363}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏本体\玩家子弹扩展">
+      <UniqueIdentifier>{f768507d-b2e9-47b4-820c-66f2aa11156f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏本体\玩家炸弹扩展">
+      <UniqueIdentifier>{ece59f7c-647d-4fdd-844d-3a36ba848714}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏本体\玩家">
+      <UniqueIdentifier>{d4d343fb-bedb-4e30-ad77-67a167a90641}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏本体\判定处理">
+      <UniqueIdentifier>{658e3263-a3ff-4077-8502-50d94b325c18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="图形引擎">
+      <UniqueIdentifier>{ca0a04e7-a7e9-49ab-ae2c-4dfb81492cd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏本体\图形">
+      <UniqueIdentifier>{8268c501-c640-4630-8ae7-cf379d767372}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏本体\道具">
+      <UniqueIdentifier>{75cabf0b-0048-4328-a4db-40c3a4c5a0a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏本体\关卡">
+      <UniqueIdentifier>{ade34d8e-b0ca-4f51-af03-dafc94a449e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="图形引擎\着色器">
+      <UniqueIdentifier>{d1cab524-ade4-49d0-b1b2-ce1a3f5bb13f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="程序">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="音频引擎">
+      <UniqueIdentifier>{7ce84a3a-9d39-4d4e-b270-f4073bacad5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="界面">
+      <UniqueIdentifier>{90f65e75-e769-4549-a0ef-77773da6c56d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="图形引擎\图形基础">
+      <UniqueIdentifier>{453bc29f-61f8-4815-a540-7958f9fd570a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="程序.cpp">
+      <Filter>程序</Filter>
+    </ClCompile>
+    <ClCompile Include="输入.cpp">
+      <Filter>程序</Filter>
+    </ClCompile>
+    <ClCompile Include="测试关卡.cpp">
+      <Filter>关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="计算.cpp">
+      <Filter>程序</Filter>
+    </ClCompile>
+    <ClCompile Include="载入.cpp">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="子弹基础.cpp">
+      <Filter>游戏本体\子弹基础</Filter>
+    </ClCompile>
+    <ClCompile Include="子弹制造机.cpp">
+      <Filter>游戏本体\子弹基础</Filter>
+    </ClCompile>
+    <ClCompile Include="子弹_大子弹.cpp">
+      <Filter>游戏本体\子弹扩展</Filter>
+    </ClCompile>
+    <ClCompile Include="子弹_连续子弹.cpp">
+      <Filter>游戏本体\子弹扩展</Filter>
+    </ClCompile>
+    <ClCompile Include="子弹_普通子弹.cpp">
+      <Filter>游戏本体\子弹扩展</Filter>
+    </ClCompile>
+    <ClCompile Include="子弹_曲线激光.cpp">
+      <Filter>游戏本体\子弹扩展</Filter>
+    </ClCompile>
+    <ClCompile Include="子弹_射线激光.cpp">
+      <Filter>游戏本体\子弹扩展</Filter>
+    </ClCompile>
+    <ClCompile Include="子弹_直线激光.cpp">
+      <Filter>游戏本体\子弹扩展</Filter>
+    </ClCompile>
+    <ClCompile Include="子弹图形接口.cpp">
+      <Filter>游戏本体\子弹基础</Filter>
+    </ClCompile>
+    <ClCompile Include="敌机制造机.cpp">
+      <Filter>游戏本体\敌机</Filter>
+    </ClCompile>
+    <ClCompile Include="敌机基础.cpp">
+      <Filter>游戏本体\敌机</Filter>
+    </ClCompile>
+    <ClCompile Include="游戏.cpp">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClCompile>
+    <ClCompile Include="玩家子弹制造机.cpp">
+      <Filter>游戏本体\玩家子弹基础</Filter>
+    </ClCompile>
+    <ClCompile Include="玩家子弹基础.cpp">
+      <Filter>游戏本体\玩家子弹基础</Filter>
+    </ClCompile>
+    <ClCompile Include="玩家炸弹基础.cpp">
+      <Filter>游戏本体\玩家子弹基础</Filter>
+    </ClCompile>
+    <ClCompile Include="基础.cpp">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClCompile>
+    <ClCompile Include="玩家.cpp">
+      <Filter>游戏本体\玩家</Filter>
+    </ClCompile>
+    <ClCompile Include="自机.cpp">
+      <Filter>游戏本体\玩家</Filter>
+    </ClCompile>
+    <ClCompile Include="子机.cpp">
+      <Filter>游戏本体\玩家</Filter>
+    </ClCompile>
+    <ClCompile Include="子机移动接口.cpp">
+      <Filter>游戏本体\玩家</Filter>
+    </ClCompile>
+    <ClCompile Include="子机移动_位置.cpp">
+      <Filter>游戏本体\玩家</Filter>
+    </ClCompile>
+    <ClCompile Include="判定处理_敌机与玩家子弹.cpp">
+      <Filter>游戏本体\判定处理</Filter>
+    </ClCompile>
+    <ClCompile Include="判定处理_子弹与玩家炸弹.cpp">
+      <Filter>游戏本体\判定处理</Filter>
+    </ClCompile>
+    <ClCompile Include="判定处理_自机与子弹.cpp">
+      <Filter>游戏本体\判定处理</Filter>
+    </ClCompile>
+    <ClCompile Include="玩家子弹发射基础.cpp">
+      <Filter>游戏本体\玩家子弹基础</Filter>
+    </ClCompile>
+    <ClCompile Include="图形引擎.cpp">
+      <Filter>图形引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="图形引擎_资源工厂.cpp">
+      <Filter>图形引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_图片.cpp">
+      <Filter>游戏本体\图形</Filter>
+    </ClCompile>
+    <ClCompile Include="道具.cpp">
+      <Filter>游戏本体\道具</Filter>
+    </ClCompile>
+    <ClCompile Include="道具动画.cpp">
+      <Filter>游戏本体\道具</Filter>
+    </ClCompile>
+    <ClCompile Include="动画.cpp">
+      <Filter>游戏本体\图形</Filter>
+    </ClCompile>
+    <ClCompile Include="关卡.cpp">
+      <Filter>游戏本体\关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="关卡效果.cpp">
+      <Filter>游戏本体\关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="玩家子弹发射_发散.cpp">
+      <Filter>游戏本体\玩家子弹扩展</Filter>
+    </ClCompile>
+    <ClCompile Include="玩家子弹发射扩展.cpp">
+      <Filter>游戏本体\玩家子弹扩展</Filter>
+    </ClCompile>
+    <ClCompile Include="玩家子弹扩展.cpp">
+      <Filter>游戏本体\玩家子弹扩展</Filter>
+    </ClCompile>
+    <ClCompile Include="游戏_名称标识.cpp">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_抬显.cpp">
+      <Filter>游戏本体\图形</Filter>
+    </ClCompile>
+    <ClCompile Include="王战.cpp">
+      <Filter>游戏本体\关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_三维.cpp">
+      <Filter>游戏本体\图形</Filter>
+    </ClCompile>
+    <ClCompile Include="场景.cpp">
+      <Filter>游戏本体\关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="对话.cpp">
+      <Filter>游戏本体\关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_对话.cpp">
+      <Filter>游戏本体\图形</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_子弹.cpp">
+      <Filter>游戏本体\子弹基础</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_玩家成绩.cpp">
+      <Filter>游戏本体\玩家</Filter>
+    </ClCompile>
+    <ClCompile Include="玩家炸弹扩展.cpp">
+      <Filter>游戏本体\玩家炸弹扩展</Filter>
+    </ClCompile>
+    <ClCompile Include="音频引擎.cpp">
+      <Filter>音频引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="数学基础.cpp">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClCompile>
+    <ClCompile Include="日志.cpp">
+      <Filter>程序</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_窗口类.cpp">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="界面引擎.cpp">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="游戏设置.cpp">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClCompile>
+    <ClCompile Include="东方月亮船1.cpp">
+      <Filter>关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="玩家子弹图形模板.cpp">
+      <Filter>游戏本体\玩家子弹基础</Filter>
+    </ClCompile>
+    <ClCompile Include="敌机图形模板.cpp">
+      <Filter>游戏本体\敌机</Filter>
+    </ClCompile>
+    <ClCompile Include="程序设置.cpp">
+      <Filter>程序</Filter>
+    </ClCompile>
+    <ClCompile Include="取文本.cpp">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClCompile>
+    <ClCompile Include="图形管理.cpp">
+      <Filter>图形引擎\图形基础</Filter>
+    </ClCompile>
+    <ClCompile Include="图形基础.cpp">
+      <Filter>图形引擎\图形基础</Filter>
+    </ClCompile>
+    <ClCompile Include="界面图形.cpp">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="图形工厂.cpp">
+      <Filter>图形引擎</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="脚本.h">
+      <Filter>关卡</Filter>
+    </ClInclude>
+    <ClInclude Include="子弹基础.h">
+      <Filter>游戏本体\子弹基础</Filter>
+    </ClInclude>
+    <ClInclude Include="子弹制造机.h">
+      <Filter>游戏本体\子弹基础</Filter>
+    </ClInclude>
+    <ClInclude Include="子弹_大子弹.h">
+      <Filter>游戏本体\子弹扩展</Filter>
+    </ClInclude>
+    <ClInclude Include="子弹_连续子弹.h">
+      <Filter>游戏本体\子弹扩展</Filter>
+    </ClInclude>
+    <ClInclude Include="子弹_普通子弹.h">
+      <Filter>游戏本体\子弹扩展</Filter>
+    </ClInclude>
+    <ClInclude Include="子弹_曲线激光.h">
+      <Filter>游戏本体\子弹扩展</Filter>
+    </ClInclude>
+    <ClInclude Include="子弹_射线激光.h">
+      <Filter>游戏本体\子弹扩展</Filter>
+    </ClInclude>
+    <ClInclude Include="子弹_直线激光.h">
+      <Filter>游戏本体\子弹扩展</Filter>
+    </ClInclude>
+    <ClInclude Include="子弹图形接口.h">
+      <Filter>游戏本体\子弹基础</Filter>
+    </ClInclude>
+    <ClInclude Include="敌机制造机.h">
+      <Filter>游戏本体\敌机</Filter>
+    </ClInclude>
+    <ClInclude Include="敌机基础.h">
+      <Filter>游戏本体\敌机</Filter>
+    </ClInclude>
+    <ClInclude Include="基础.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="基础_数组.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="游戏.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="玩家子弹制造机.h">
+      <Filter>游戏本体\玩家子弹基础</Filter>
+    </ClInclude>
+    <ClInclude Include="玩家子弹基础.h">
+      <Filter>游戏本体\玩家子弹基础</Filter>
+    </ClInclude>
+    <ClInclude Include="玩家炸弹基础.h">
+      <Filter>游戏本体\玩家子弹基础</Filter>
+    </ClInclude>
+    <ClInclude Include="玩家.h">
+      <Filter>游戏本体\玩家</Filter>
+    </ClInclude>
+    <ClInclude Include="自机.h">
+      <Filter>游戏本体\玩家</Filter>
+    </ClInclude>
+    <ClInclude Include="子机.h">
+      <Filter>游戏本体\玩家</Filter>
+    </ClInclude>
+    <ClInclude Include="子机移动接口.h">
+      <Filter>游戏本体\玩家</Filter>
+    </ClInclude>
+    <ClInclude Include="子机移动_位置.h">
+      <Filter>游戏本体\玩家</Filter>
+    </ClInclude>
+    <ClInclude Include="判定处理_敌机与玩家子弹.h">
+      <Filter>游戏本体\判定处理</Filter>
+    </ClInclude>
+    <ClInclude Include="判定处理_子弹与玩家炸弹.h">
+      <Filter>游戏本体\判定处理</Filter>
+    </ClInclude>
+    <ClInclude Include="判定处理_自机与子弹.h">
+      <Filter>游戏本体\判定处理</Filter>
+    </ClInclude>
+    <ClInclude Include="玩家子弹发射基础.h">
+      <Filter>游戏本体\玩家子弹基础</Filter>
+    </ClInclude>
+    <ClInclude Include="图形引擎.h">
+      <Filter>图形引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="图形引擎_资源工厂.h">
+      <Filter>图形引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="载入.h">
+      <Filter>载入</Filter>
+    </ClInclude>
+    <ClInclude Include="标识.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_图片.h">
+      <Filter>游戏本体\图形</Filter>
+    </ClInclude>
+    <ClInclude Include="道具.h">
+      <Filter>游戏本体\道具</Filter>
+    </ClInclude>
+    <ClInclude Include="道具动画.h">
+      <Filter>游戏本体\道具</Filter>
+    </ClInclude>
+    <ClInclude Include="动画接口.h">
+      <Filter>游戏本体\图形</Filter>
+    </ClInclude>
+    <ClInclude Include="动画.h">
+      <Filter>游戏本体\图形</Filter>
+    </ClInclude>
+    <ClInclude Include="关卡.h">
+      <Filter>游戏本体\关卡</Filter>
+    </ClInclude>
+    <ClInclude Include="关卡效果.h">
+      <Filter>游戏本体\关卡</Filter>
+    </ClInclude>
+    <ClInclude Include="玩家子弹发射_发散.h">
+      <Filter>游戏本体\玩家子弹扩展</Filter>
+    </ClInclude>
+    <ClInclude Include="玩家子弹发射扩展.h">
+      <Filter>游戏本体\玩家子弹扩展</Filter>
+    </ClInclude>
+    <ClInclude Include="玩家子弹扩展.h">
+      <Filter>游戏本体\玩家子弹扩展</Filter>
+    </ClInclude>
+    <ClInclude Include="游戏_名称标识.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_抬显.h">
+      <Filter>游戏本体\图形</Filter>
+    </ClInclude>
+    <ClInclude Include="王战.h">
+      <Filter>游戏本体\关卡</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_三维.h">
+      <Filter>游戏本体\图形</Filter>
+    </ClInclude>
+    <ClInclude Include="场景.h">
+      <Filter>游戏本体\关卡</Filter>
+    </ClInclude>
+    <ClInclude Include="对话.h">
+      <Filter>游戏本体\关卡</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_对话.h">
+      <Filter>游戏本体\图形</Filter>
+    </ClInclude>
+    <ClInclude Include="程序.h">
+      <Filter>程序</Filter>
+    </ClInclude>
+    <ClInclude Include="计算.h">
+      <Filter>程序</Filter>
+    </ClInclude>
+    <ClInclude Include="输入.h">
+      <Filter>程序</Filter>
+    </ClInclude>
+    <ClInclude Include="对话基础.h">
+      <Filter>游戏本体\关卡</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_子弹.h">
+      <Filter>游戏本体\子弹基础</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_玩家成绩.h">
+      <Filter>游戏本体\玩家</Filter>
+    </ClInclude>
+    <ClInclude Include="玩家炸弹扩展.h">
+      <Filter>游戏本体\玩家炸弹扩展</Filter>
+    </ClInclude>
+    <ClInclude Include="音频引擎.h">
+      <Filter>音频引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="音频包含.h">
+      <Filter>音频引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="数学基础.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="数学包含.h">
+      <Filter>程序</Filter>
+    </ClInclude>
+    <ClInclude Include="图形包含.h">
+      <Filter>图形引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="日志.h">
+      <Filter>程序</Filter>
+    </ClInclude>
+    <ClInclude Include="界面_窗口类.h">
+      <Filter>界面</Filter>
+    </ClInclude>
+    <ClInclude Include="界面引擎.h">
+      <Filter>界面</Filter>
+    </ClInclude>
+    <ClInclude Include="游戏设置.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="玩家子弹图形模板.h">
+      <Filter>游戏本体\玩家子弹基础</Filter>
+    </ClInclude>
+    <ClInclude Include="敌机图形模板.h">
+      <Filter>游戏本体\敌机</Filter>
+    </ClInclude>
+    <ClInclude Include="程序设置.h">
+      <Filter>程序</Filter>
+    </ClInclude>
+    <ClInclude Include="取文本.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="常量.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="图形基础.h">
+      <Filter>图形引擎\图形基础</Filter>
+    </ClInclude>
+    <ClInclude Include="图形管理.h">
+      <Filter>图形引擎\图形基础</Filter>
+    </ClInclude>
+    <ClInclude Include="界面图形.h">
+      <Filter>界面</Filter>
+    </ClInclude>
+    <ClInclude Include="图形工厂.h">
+      <Filter>图形引擎</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="着色器\着色器.hlsl">
+      <Filter>图形引擎\着色器</Filter>
+    </FxCompile>
+    <FxCompile Include="着色器\ps_stage0.hlsl">
+      <Filter>图形引擎\着色器</Filter>
+    </FxCompile>
+    <FxCompile Include="着色器\vs_stage0.hlsl">
+      <Filter>图形引擎\着色器</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>
