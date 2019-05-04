@@ -1,160 +1,160 @@
-#include "�ӵ�_ֱ�߼���.h"
-#include "�ӵ�ͼ�νӿ�.h"
-namespace ����ɽկ {
-void Cֱ�߼���::f�ӿ�_��ʼ��() {
-	assert(m��ʼ��_����.x >= 1);
-	mĿ�� = m��ʼ��_����;
-	if (mĿ��.y < 1) {
-		mĿ��.y = 1;
+﻿#include "子弹_直线激光.h"
+#include "子弹图形接口.h"
+namespace 东方山寨 {
+void C直线激光::f接口_初始化() {
+	assert(m初始化_长宽.x >= 1);
+	m目标 = m初始化_长宽;
+	if (m目标.y < 1) {
+		m目标.y = 1;
 	}
-	m����.f��ʼ��();
-	const int v���� = (int)m��ʼ��_����.x;
-	ma�ڵ�.resize(v����);
-	for (auto &v�ڵ� : ma�ڵ�) {
-		v�ڵ�.v��ʧ.f��ʼ��();
+	m出现.f初始化();
+	const int v数量 = (int)m初始化_长宽.x;
+	ma节点.resize(v数量);
+	for (auto &v节点 : ma节点) {
+		v节点.v消失.f初始化();
 	}
 }
-void Cֱ�߼���::f�ӿ�_������ʼ��(const S�ӵ����� &a) {
-	C�ӵ�::f�ӿ�_������ʼ��(a);
-	f��ʼ��_����(a.m����.x, a.m����.y);
+void C直线激光::f接口_参数初始化(const S子弹参数 &a) {
+	C子弹::f接口_参数初始化(a);
+	f初始化_长宽(a.m长宽.x, a.m长宽.y);
 }
-void Cֱ�߼���::f�ӿ�_����() {
-	//����&��ʧ
-	m����.f����();
-	bool vȫ����ʧ = true;
-	for (auto &v�ڵ� : ma�ڵ�) {
-		v�ڵ�.v��ʧ.f����();
-		if (v�ڵ�.v��ʧ.fi��û��ʧ()) {
-			vȫ����ʧ = false;
+void C直线激光::f接口_计算() {
+	//渐变&消失
+	m出现.f计算();
+	bool v全部消失 = true;
+	for (auto &v节点 : ma节点) {
+		v节点.v消失.f计算();
+		if (v节点.v消失.fi还没消失()) {
+			v全部消失 = false;
 		}
 	}
-	if (vȫ����ʧ) {
-		f����_����();
+	if (v全部消失) {
+		f对象_销毁();
 		return;
 	}
-	//�ƶ�&����
-	t����2 v�ƶ��ٶ� = m�ٶ� * m��Ϸ�ٶ�->fg��();
-	float &vĿ�곤�� = mĿ��.x;
-	float &vʵ�ʳ��� = m����.x;
-	if (vʵ�ʳ��� < vĿ�곤��) {
-		const float v�����ٶ� =  v�ƶ��ٶ�.fg��С() / m�ӵ�����->m�ж�.x * 0.5f;	//�����ٶȸ��ƶ��ٶȳ�����, ����Ҫ������������
-		if (vĿ�곤�� - vʵ�ʳ��� > v�����ٶ�) {
-			vʵ�ʳ��� += v�����ٶ�;
+	//移动&长度
+	t向量2 v移动速度 = m速度 * m游戏速度->fg秒();
+	float &v目标长度 = m目标.x;
+	float &v实际长度 = m缩放.x;
+	if (v实际长度 < v目标长度) {
+		const float v缩放速度 =  v移动速度.fg大小() / m子弹属性->m判定.x * 0.5f;	//缩放速度跟移动速度成正比, 这里要除以完整长度
+		if (v目标长度 - v实际长度 > v缩放速度) {
+			v实际长度 += v缩放速度;
 		} else {
-			vʵ�ʳ��� = vĿ�곤��;
+			v实际长度 = v目标长度;
 		}
-		v�ƶ��ٶ� *= 0.5f;
+		v移动速度 *= 0.5f;
 	}
-	m���� += v�ƶ��ٶ�;
-	f����_���㷽��();
-	//����
-	const float vĿ����� = mĿ��.y;
-	float &vʵ�ʿ��� = m����.y;
-	if (vʵ�ʿ��� != vĿ�����) {
-		vʵ�ʿ��� = ��ѧ::f���Խ���<float>(vʵ�ʿ���, vĿ�����, 0.05f);
+	m坐标 += v移动速度;
+	f基础_计算方向();
+	//宽度
+	const float v目标宽度 = m目标.y;
+	float &v实际宽度 = m缩放.y;
+	if (v实际宽度 != v目标宽度) {
+		v实际宽度 = 数学::f线性渐变<float>(v实际宽度, v目标宽度, 0.05f);
 	}
 }
-void Cֱ�߼���::f�ӿ�_����() {
-	const int v���� = ma�ڵ�.size();
-	C�ӵ�����::Cֱ��::ta���� vaԭʼ����((unsigned)v����);
-	const float v������ = (float)(v���� - 1) / 2.f;
-	for (int i = 0; i != v����; ++i) {
-		auto &vԭʼ���� = vaԭʼ����[i];
-		auto &v�ڵ� = ma�ڵ�[i];
-		vԭʼ����.mλ�� = (float)i / (float)(v���� - 1);
-		vԭʼ����.m��ʧ = v�ڵ�.v��ʧ.m֡;
+void C直线激光::f接口_更新() {
+	const int v数量 = ma节点.size();
+	C子弹顶点::C直线::ta顶点 va原始顶点((unsigned)v数量);
+	const float v半数量 = (float)(v数量 - 1) / 2.f;
+	for (int i = 0; i != v数量; ++i) {
+		auto &v原始顶点 = va原始顶点[i];
+		auto &v节点 = ma节点[i];
+		v原始顶点.m位置 = (float)i / (float)(v数量 - 1);
+		v原始顶点.m消失 = v节点.v消失.m帧;
 	}
-	C�ӵ�����::Cֱ�� v�ӵ�����{this, v����};
-	v�ӵ�����.m����.m���� = m����.m֡;
-	mͼ������ = m����->f����ֱ��(v�ӵ�����, vaԭʼ����);
+	C子弹顶点::C直线 v子弹顶点{this, v数量};
+	v子弹顶点.m中心.m出现 = m出现.m帧;
+	m图形数据 = m绘制->f生成直线(v子弹顶点, va原始顶点);
 }
-void Cֱ�߼���::f�ӿ�_��ʾ() const {
-	m����->f����ͼ������(mͼ������);
+void C直线激光::f接口_显示() const {
+	m绘制->f绘制图形数据(m图形数据);
 }
-void Cֱ�߼���::f�ӿ�_�Ի��ж�(C�Ի����ӵ��ж� &p�ж�) {
-	if (m����.fi���ڳ���()) {
+void C直线激光::f接口_自机判定(C自机与子弹判定 &p判定) {
+	if (m出现.fi正在出现()) {
 		return;
 	}
-	const t��ת���� v�ж�{m����, m�ӵ�����->fg�ж�(m����), m����};
-	if (p�ж�.f�ӵ�_�ύ�ж�(v�ж�)) {
-		auto &v�ڵ� = f��չ_ȡ��������ڵ�(p�ж�.fg�Ի�����());
-		if (!v�ڵ�.v��ʧ.fi�Ѿ���ʧ()) {
-			p�ж�.f�ӵ�_�ж���Ч();
-			if (p�ж�.f�ӵ�_i��ײ()) {
-				v�ڵ�.v��ʧ.f��ʧ(2);
+	const t旋转矩形 v判定{m坐标, m子弹属性->fg判定(m缩放), m方向};
+	if (p判定.f子弹_提交判定(v判定)) {
+		auto &v节点 = f扩展_取坐标最近节点(p判定.fg自机坐标());
+		if (!v节点.v消失.fi已经消失()) {
+			p判定.f子弹_判定有效();
+			if (p判定.f子弹_i碰撞()) {
+				v节点.v消失.f消失(2);
 			}
 		}
 	}
 }
-bool Cֱ�߼���::f�ӿ�_i�ڴ�����() {
-	const float v�뾶 = m�ӵ�����->fg��ʾx();
-	bool v = C�߽�::c����.f����ж�(f��չ_ȡ��ʾ�˵�(1), v�뾶);
-	v &= C�߽�::c����.f����ж�(f��չ_ȡ��ʾ�˵�(-1), v�뾶);
+bool C直线激光::f接口_i在窗口外() {
+	const float v半径 = m子弹属性->fg显示x();
+	bool v = C边界::c窗口.f外边判断(f扩展_取显示端点(1), v半径);
+	v &= C边界::c窗口.f外边判断(f扩展_取显示端点(-1), v半径);
 	return v;
 }
-bool Cֱ�߼���::f�ӿ�_ը���ж�(C�ӵ������ը���ж� &p�ж�) {
-	const float v���뾶 = m�ӵ�����->fg�ж�x(m����.x);
-	if (p�ж�.f�ӵ�_�ύ�ж�(m����, v���뾶)) {
-		bool v�� = false;
-		const float v�̰뾶 = m�ӵ�����->fg�ж�x();
-		const int v���� = ma�ڵ�.size();
-		for (int i = 0; i != v����; ++i) {
-			S�ڵ� &v�ڵ� = f��չ_ȡ�ڵ�(i);
-			if (v�ڵ�.v��ʧ.fiȫ��ʧ()) {
+bool C直线激光::f接口_炸弹判定(C子弹与玩家炸弹判定 &p判定) {
+	const float v长半径 = m子弹属性->fg判定x(m缩放.x);
+	if (p判定.f子弹_提交判定(m坐标, v长半径)) {
+		bool v真 = false;
+		const float v短半径 = m子弹属性->fg判定x();
+		const int v数量 = ma节点.size();
+		for (int i = 0; i != v数量; ++i) {
+			S节点 &v节点 = f扩展_取节点(i);
+			if (v节点.v消失.fi全消失()) {
 				continue;
 			}
-			const t����2 v�ڵ����� = f��չ_ȡ�ڵ�����(i);
-			if (p�ж�.f�ӵ�_�ύ�ж�(v�ڵ�����, v�̰뾶)) {
-				p�ж�.f�ӵ�_��������(v�ڵ�����, m�ٶ�);
-				v�ڵ�.v��ʧ.f��ʧ(2);
-				v�� = true;
+			const t向量2 v节点坐标 = f扩展_取节点坐标(i);
+			if (p判定.f子弹_提交判定(v节点坐标, v短半径)) {
+				p判定.f子弹_产生道具(v节点坐标, m速度);
+				v节点.v消失.f消失(2);
+				v真 = true;
 			}
 		}
-		return v��;
+		return v真;
 	} else {
 		return false;
 	}
 }
-//��ʼ��
-void Cֱ�߼���::f��ʼ��_����(float x, float y) {
-	m��ʼ��_����.x = x;
-	m��ʼ��_����.y = y;
+//初始化
+void C直线激光::f初始化_长宽(float x, float y) {
+	m初始化_长宽.x = x;
+	m初始化_长宽.y = y;
 }
-//����
-void Cֱ�߼���::f����_��ʧ(bool p) {
+//动作
+void C直线激光::f动作_消失(bool p) {
 	if (p) {
-		for (auto &v�ڵ� : ma�ڵ�) {
-			v�ڵ�.v��ʧ.f��ʧ(1);
+		for (auto &v节点 : ma节点) {
+			v节点.v消失.f消失(1);
 		}
 	} else {
-		f����_����();
+		f对象_销毁();
 	}
 }
-//��չ
-t����2 Cֱ�߼���::f��չ_ȡ�̶��˵�(float p, float p�볤) {
-	return m���� + t����2::fc����r(p�볤 * p, m����);
+//扩展
+t向量2 C直线激光::f扩展_取固定端点(float p, float p半长) {
+	return m坐标 + t向量2::fc方向r(p半长 * p, m方向);
 }
-t����2 Cֱ�߼���::f��չ_ȡ��ʾ�˵�(float p) {
-	return f��չ_ȡ�̶��˵�(p, m�ӵ�����->fg��ʾx(m����.x));
+t向量2 C直线激光::f扩展_取显示端点(float p) {
+	return f扩展_取固定端点(p, m子弹属性->fg显示x(m缩放.x));
 }
-t����2 Cֱ�߼���::f��չ_ȡ�ж��˵�(float p) {
-	return f��չ_ȡ�̶��˵�(p, m�ӵ�����->fg�ж�x(m����.x));
+t向量2 C直线激光::f扩展_取判定端点(float p) {
+	return f扩展_取固定端点(p, m子弹属性->fg判定x(m缩放.x));
 }
-t����2 Cֱ�߼���::f��չ_ȡ�ڵ�����(int p) {
-	const int v���� = ma�ڵ�.size();
-	const float v�� = (float)(v���� - 1) / 2;
-	return f��չ_ȡ��ʾ�˵�((p - v��) / v��);
+t向量2 C直线激光::f扩展_取节点坐标(int p) {
+	const int v数量 = ma节点.size();
+	const float v半 = (float)(v数量 - 1) / 2;
+	return f扩展_取显示端点((p - v半) / v半);
 }
-Cֱ�߼���::S�ڵ� &Cֱ�߼���::f��չ_ȡ�ڵ�(int p) {
-	return ma�ڵ�[p];
+C直线激光::S节点 &C直线激光::f扩展_取节点(int p) {
+	return ma节点[p];
 }
-Cֱ�߼���::S�ڵ� &Cֱ�߼���::f��չ_ȡ��������ڵ�(const t����2 &p����) {
-	const int v���� = ma�ڵ�.size();
-	const float v��λx = m����.f���㷽λr(p����, m����).x;
-	const float v�ж�x = m�ӵ�����->fg��ʾx(m����.x);	//ʹ����ʾ����,����ȡ�ĵ���ܺͿ�����һ��
-	const float vλ�� = ��ѧ::C��Χ�任����<float>::f�任����({-v�ж�x, v�ж�x}, {0, (float)(v���� - 1)}, v��λx);
-	const int v��� = (int)��ѧ::f��������<float>(vλ��);	//λ�õ���������
-	const int v������ = ��ѧ::f����<int>(v���, 0, v���� - 1);
-	return ma�ڵ�[v������];
+C直线激光::S节点 &C直线激光::f扩展_取坐标最近节点(const t向量2 &p坐标) {
+	const int v数量 = ma节点.size();
+	const float v方位x = m坐标.f到点方位r(p坐标, m方向).x;
+	const float v判定x = m子弹属性->fg显示x(m缩放.x);	//使用显示长度,这样取的点才能和看到的一样
+	const float v位置 = 数学::C范围变换计算<float>::f变换计算({-v判定x, v判定x}, {0, (float)(v数量 - 1)}, v方位x);
+	const int v序号 = (int)数学::f四舍五入<float>(v位置);	//位置的四舍五入
+	const int v最后序号 = 数学::f夹取<int>(v序号, 0, v数量 - 1);
+	return ma节点[v最后序号];
 }
-}	//namespace ����ɽկ
+}	//namespace 东方山寨

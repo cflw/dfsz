@@ -1,47 +1,49 @@
-#pragma once
+ï»¿#pragma once
 #include <map>
 #include <memory>
 #include <string>
 #include <filesystem>
 #include <Windows.h>
-namespace ¶«·½É½Õ¯ {
-enum class EÓÎÏ·×´Ì¬ {
-	eÎŞ,
-	eÔØÈëÖĞ,
-	eÖ÷²Ëµ¥,
-	eÓÎÏ·ÖĞ,
-	eÓÎÏ·²Ëµ¥,
-	eÍË³ö,
+namespace ä¸œæ–¹å±±å¯¨ {
+enum class Eæ¸¸æˆçŠ¶æ€ {
+	eæ— ,
+	eè½½å…¥ä¸­,
+	eä¸»èœå•,
+	eæ¸¸æˆä¸­,
+	eæ¸¸æˆèœå•,
+	eé€€å‡º,
 };
-enum class EÓÎÏ·±êÖ¾ {
-	eÔØÈë0,
-	eÔØÈë1,
-	e±àÒë,
+enum class Eæ¸¸æˆæ ‡å¿— {
+	eè½½å…¥0,
+	eè½½å…¥1,
+	eç¼–è¯‘,
 };
-class CÓÎÏ·;
-class CÊäÈëÒıÇæ;
-class CÍ¼ĞÎÒıÇæ;
-class CÒôÆµÒıÇæ;
-class C½çÃæÍ¼ĞÎ¿ØÖÆ;
-class C³ÌĞò {
+class Cæ¸¸æˆ;
+class Cè¾“å…¥å¼•æ“;
+class Cå›¾å½¢å¼•æ“;
+class CéŸ³é¢‘å¼•æ“;
+class Cç•Œé¢å›¾å½¢æ§åˆ¶;
+class Cç¨‹åº {
 public:
-	static void f³õÊ¼»¯(HINSTANCE);
-	static void fÔËĞĞ();
-	static void fÏú»Ù();
-	static CÓÎÏ· &fgÓÎÏ·();
-	static CÊäÈëÒıÇæ &fgÊäÈë();
-	static CÍ¼ĞÎÒıÇæ &fgÍ¼ĞÎ();
-	static CÒôÆµÒıÇæ &fgÒôÆµ();
-	static C½çÃæÍ¼ĞÎ¿ØÖÆ &fg½çÃæÍ¼ĞÎ();
-	static std::filesystem::path f¼ÆËãÂ·¾¶(const std::filesystem::path &Ä¿±ê, const std::filesystem::path & pµ±Ç°ÎÄ¼ş = L"");
-	static const std::filesystem::path &fgÊı¾İÄ¿Â¼();
-	static void fÊäÈë·¨¿ª¹Ø(bool);
-	static int fgäÖÈ¾¼ä¸ô();
-	static void fÇĞ»»ÓÎÏ·×´Ì¬(EÓÎÏ·×´Ì¬);
-	static void fsÓÎÏ·±êÖ¾(int ±êÖ¾, bool Öµ = true);
-	static void fÈÕÖ¾(int ¼¶±ğ, const std::wstring &);
+	static void fåˆå§‹åŒ–(HINSTANCE);
+	static void fè¿è¡Œ();
+	static void fé”€æ¯();
+	static Cæ¸¸æˆ &fgæ¸¸æˆ();
+	static Cè¾“å…¥å¼•æ“ &fgè¾“å…¥();
+	static Cå›¾å½¢å¼•æ“ &fgå›¾å½¢();
+	static CéŸ³é¢‘å¼•æ“ &fgéŸ³é¢‘();
+	static Cç•Œé¢å›¾å½¢æ§åˆ¶ &fgç•Œé¢å›¾å½¢();
+	static std::filesystem::path fè®¡ç®—è·¯å¾„(const std::filesystem::path &ç›®æ ‡, const std::filesystem::path & på½“å‰æ–‡ä»¶ = L"");
+	static const std::filesystem::path &fgæ•°æ®ç›®å½•();
+	static void fè¾“å…¥æ³•å¼€å…³(bool);
+	static int fgæ¸²æŸ“é—´éš”();
+	static void fåˆ‡æ¢æ¸¸æˆçŠ¶æ€(Eæ¸¸æˆçŠ¶æ€);
+	static void fsæ¸¸æˆæ ‡å¿—(int æ ‡å¿—, bool å€¼ = true);
+	static void fæ—¥å¿—(int çº§åˆ«, const std::wstring &);
+	static void fså…¨å±(bool);
+	static void fsçª—å£å¤§å°(int, int);
 private:
-	class CÊµÏÖ;
-	static std::unique_ptr<CÊµÏÖ> mÊµÏÖ;
+	class Cå®ç°;
+	static std::unique_ptr<Cå®ç°> må®ç°;
 };
-}	//namespace ¶«·½É½Õ¯
+}	//namespace ä¸œæ–¹å±±å¯¨

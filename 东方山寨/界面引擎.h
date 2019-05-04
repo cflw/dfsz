@@ -1,27 +1,29 @@
-#pragma once
-#include <ÓÃ»§½çÃæ_»ù´¡.h>
-#include "Í¼ĞÎ°üº¬.h"
-#include "ÊäÈë.h"
-namespace ¶«·½É½Õ¯ {
-enum class E´°¿Ú {
-	eÖ÷²Ëµ¥,
-	eÑ¡ÔñÄÑ¶È,
-	eÑ¡ÔñÍæ¼Ò,
+ï»¿#pragma once
+#include <ç”¨æˆ·ç•Œé¢_åŸºç¡€.h>
+#include "å›¾å½¢åŒ…å«.h"
+#include "è¾“å…¥.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+enum class Eçª—å£ {
+	eä¸»èœå•,
+	eé€‰æ‹©éš¾åº¦,
+	eé€‰æ‹©é£æœº,
+	eé€‰é¡¹,
 };
-class C½çÃæÒıÇæ {
+class Cç•Œé¢å¼•æ“ {
 public:
-	static C½çÃæÒıÇæ *gÕâ;
-	C½çÃæÒıÇæ();
-	~C½çÃæÒıÇæ();
-	void f³õÊ¼»¯(¶şÎ¬::C¶şÎ¬ &, CÊäÈëÒıÇæ &);
-	void f¼ÆËã();
-	void f¸üĞÂ();
-	void fÏÔÊ¾();
-	void fsÊ±ÖÓÆµÂÊ(float, float);
-	void fÇĞ»»´°¿Ú(E´°¿Ú);
-	void f¹Ø±Õ´°¿Ú();
+	static Cç•Œé¢å¼•æ“ *gè¿™;
+	Cç•Œé¢å¼•æ“();
+	~Cç•Œé¢å¼•æ“();
+	void fåˆå§‹åŒ–(äºŒç»´::CäºŒç»´ &, Cè¾“å…¥å¼•æ“ &);
+	void fè¾“å…¥_æ¥æ”¶å­—ç¬¦(wchar_t);//åœ¨çª—å£è¿‡ç¨‹WM_CHARæ¶ˆæ¯ä¸­è°ƒç”¨
+	void fè®¡ç®—();
+	void fæ›´æ–°();
+	void fæ˜¾ç¤º();
+	void fsæ—¶é’Ÿé¢‘ç‡(float, float);
+	void fåˆ‡æ¢çª—å£(Eçª—å£);
+	void få…³é—­çª—å£();
 private:
-	class CÊµÏÖ;
-	std::unique_ptr<CÊµÏÖ> mÊµÏÖ;
+	class Cå®ç°;
+	std::unique_ptr<Cå®ç°> må®ç°;
 };
-}	//namespace ¶«·½É½Õ¯
+}	//namespace ä¸œæ–¹å±±å¯¨

@@ -410,7 +410,7 @@ void C游戏::C实现::f显示() {
 	std::map<int, std::vector<const I图形 *>> va图层;
 	auto &va图形 = fg图形().fg图形数组();
 	va图形.fe使用([&](I图形 &a当前图形) {
-		va图层[a当前图形.m层].push_back(&a当前图形);
+		va图层[a当前图形.m图层].push_back(&a当前图形);
 	});
 	auto f显示图形 = [&va图层](int p层) {
 		for (const auto &v图形 : va图层[p层]) {

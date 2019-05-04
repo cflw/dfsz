@@ -28,8 +28,8 @@ void C图形管理::f游戏外显示() {
 		va图形.push_back(&a);
 	});
 	std::sort(va图形.begin(), va图形.end(), [](const I图形 *a0, const I图形 *a1)->bool {
-		if (a0->m层 != a1->m层) {
-			return a0->m层 < a1->m层;
+		if (a0->m图层 != a1->m图层) {
+			return a0->m图层 < a1->m图层;
 		} else {
 			return a0->m显示编号 < a1->m显示编号;
 		}

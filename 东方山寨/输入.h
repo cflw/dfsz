@@ -1,70 +1,71 @@
-#pragma once
+ï»¿#pragma once
 #include <map>
-#include <cflwÊäÈë_win.h>
-#include <cflwÊäÈë_xi.h>
-namespace ¶«·½É½Õ¯ {
-namespace ÊäÈë = cflw::ÊäÈë;
-namespace ÊäÈëw = cflw::ÊäÈë::win;
-namespace ÊäÈëx = cflw::ÊäÈë::xi;
-//Ã¶¾Ù
-enum class E°´¼ü : ÊäÈë::tË÷Òý {
-	eÉÏ, eÏÂ, e×ó, eÓÒ,
-	eÈ·¶¨,
-	eÈ¡Ïû,
-	eÇÐ»»,
-	eÉä»÷,
-	eÕ¨µ¯,
-	eµÍËÙ,
-	eÊÍ·Å,
-	eÌø¹ý,
-	eÊýÁ¿
+#include <cflwè¾“å…¥_win.h>
+#include <cflwè¾“å…¥_xi.h>
+namespace ä¸œæ–¹å±±å¯¨ {
+namespace è¾“å…¥ = cflw::è¾“å…¥;
+namespace è¾“å…¥w = cflw::è¾“å…¥::win;
+namespace è¾“å…¥x = cflw::è¾“å…¥::xi;
+//æžšä¸¾
+enum class EæŒ‰é”® : è¾“å…¥::tç´¢å¼• {
+	eä¸Š, eä¸‹, eå·¦, eå³,
+	eç¡®å®š,
+	eå–æ¶ˆ,
+	eåˆ‡æ¢,
+	eå°„å‡»,
+	eç‚¸å¼¹,
+	eä½Žé€Ÿ,
+	eé‡Šæ”¾,
+	eè·³è¿‡,
+	eæ•°é‡
 };
-//Ó³Éä
-inline const std::map<E°´¼ü, ÊäÈëw::E¼üÅÌ°´¼ü> ca¼üÅÌÓ³Éä = {
-	{E°´¼ü::eÉÏ, ÊäÈëw::E¼üÅÌ°´¼ü::eÉÏ},
-	{E°´¼ü::eÏÂ, ÊäÈëw::E¼üÅÌ°´¼ü::eÏÂ},
-	{E°´¼ü::e×ó, ÊäÈëw::E¼üÅÌ°´¼ü::e×ó},
-	{E°´¼ü::eÓÒ, ÊäÈëw::E¼üÅÌ°´¼ü::eÓÒ},
-	{E°´¼ü::eÈ·¶¨, ÊäÈëw::E¼üÅÌ°´¼ü::z},
-	{E°´¼ü::eÈ¡Ïû, ÊäÈëw::E¼üÅÌ°´¼ü::x},
-	{E°´¼ü::eÇÐ»», ÊäÈëw::E¼üÅÌ°´¼ü::e×óÉÏµµ},
-	{E°´¼ü::eÉä»÷, ÊäÈëw::E¼üÅÌ°´¼ü::z},
-	{E°´¼ü::eÕ¨µ¯, ÊäÈëw::E¼üÅÌ°´¼ü::x},
-	{E°´¼ü::eÊÍ·Å, ÊäÈëw::E¼üÅÌ°´¼ü::c},
-	{E°´¼ü::eµÍËÙ, ÊäÈëw::E¼üÅÌ°´¼ü::e×óÉÏµµ},
-	{E°´¼ü::eÌø¹ý, ÊäÈëw::E¼üÅÌ°´¼ü::e×ó¿ØÖÆ}
+//æ˜ å°„
+inline const std::map<EæŒ‰é”®, è¾“å…¥w::Eé”®ç›˜æŒ‰é”®> caé”®ç›˜æ˜ å°„ = {
+	{EæŒ‰é”®::eä¸Š, è¾“å…¥w::Eé”®ç›˜æŒ‰é”®::eä¸Š},
+	{EæŒ‰é”®::eä¸‹, è¾“å…¥w::Eé”®ç›˜æŒ‰é”®::eä¸‹},
+	{EæŒ‰é”®::eå·¦, è¾“å…¥w::Eé”®ç›˜æŒ‰é”®::eå·¦},
+	{EæŒ‰é”®::eå³, è¾“å…¥w::Eé”®ç›˜æŒ‰é”®::eå³},
+	{EæŒ‰é”®::eç¡®å®š, è¾“å…¥w::Eé”®ç›˜æŒ‰é”®::z},
+	{EæŒ‰é”®::eå–æ¶ˆ, è¾“å…¥w::Eé”®ç›˜æŒ‰é”®::x},
+	{EæŒ‰é”®::eåˆ‡æ¢, è¾“å…¥w::Eé”®ç›˜æŒ‰é”®::eå·¦ä¸Šæ¡£},
+	{EæŒ‰é”®::eå°„å‡», è¾“å…¥w::Eé”®ç›˜æŒ‰é”®::z},
+	{EæŒ‰é”®::eç‚¸å¼¹, è¾“å…¥w::Eé”®ç›˜æŒ‰é”®::x},
+	{EæŒ‰é”®::eé‡Šæ”¾, è¾“å…¥w::Eé”®ç›˜æŒ‰é”®::c},
+	{EæŒ‰é”®::eä½Žé€Ÿ, è¾“å…¥w::Eé”®ç›˜æŒ‰é”®::eå·¦ä¸Šæ¡£},
+	{EæŒ‰é”®::eè·³è¿‡, è¾“å…¥w::Eé”®ç›˜æŒ‰é”®::eå·¦æŽ§åˆ¶}
 };
-inline const std::map<E°´¼ü, ÊäÈëx::EÊÖ±ú°´¼ü> caÊÖ±úÓ³Éä = {
-	{E°´¼ü::eÉÏ, ÊäÈëx::EÊÖ±ú°´¼ü::eÉÏ},
-	{E°´¼ü::eÏÂ, ÊäÈëx::EÊÖ±ú°´¼ü::eÏÂ},
-	{E°´¼ü::e×ó, ÊäÈëx::EÊÖ±ú°´¼ü::e×ó},
-	{E°´¼ü::eÓÒ, ÊäÈëx::EÊÖ±ú°´¼ü::eÓÒ},
-	{E°´¼ü::eÈ·¶¨, ÊäÈëx::EÊÖ±ú°´¼ü::a},
-	{E°´¼ü::eÈ¡Ïû, ÊäÈëx::EÊÖ±ú°´¼ü::b},
-	{E°´¼ü::eÇÐ»», ÊäÈëx::EÊÖ±ú°´¼ü::x},
-	{E°´¼ü::eÉä»÷, ÊäÈëx::EÊÖ±ú°´¼ü::a},
-	{E°´¼ü::eÕ¨µ¯, ÊäÈëx::EÊÖ±ú°´¼ü::b},
-	{E°´¼ü::eµÍËÙ, ÊäÈëx::EÊÖ±ú°´¼ü::e×ó¼ç},
-	{E°´¼ü::eÊÍ·Å, ÊäÈëx::EÊÖ±ú°´¼ü::eÓÒ¼ç},
+inline const std::map<EæŒ‰é”®, è¾“å…¥x::Eæ‰‹æŸ„æŒ‰é”®> caæ‰‹æŸ„æ˜ å°„ = {
+	{EæŒ‰é”®::eä¸Š, è¾“å…¥x::Eæ‰‹æŸ„æŒ‰é”®::eä¸Š},
+	{EæŒ‰é”®::eä¸‹, è¾“å…¥x::Eæ‰‹æŸ„æŒ‰é”®::eä¸‹},
+	{EæŒ‰é”®::eå·¦, è¾“å…¥x::Eæ‰‹æŸ„æŒ‰é”®::eå·¦},
+	{EæŒ‰é”®::eå³, è¾“å…¥x::Eæ‰‹æŸ„æŒ‰é”®::eå³},
+	{EæŒ‰é”®::eç¡®å®š, è¾“å…¥x::Eæ‰‹æŸ„æŒ‰é”®::a},
+	{EæŒ‰é”®::eå–æ¶ˆ, è¾“å…¥x::Eæ‰‹æŸ„æŒ‰é”®::b},
+	{EæŒ‰é”®::eåˆ‡æ¢, è¾“å…¥x::Eæ‰‹æŸ„æŒ‰é”®::x},
+	{EæŒ‰é”®::eå°„å‡», è¾“å…¥x::Eæ‰‹æŸ„æŒ‰é”®::a},
+	{EæŒ‰é”®::eç‚¸å¼¹, è¾“å…¥x::Eæ‰‹æŸ„æŒ‰é”®::b},
+	{EæŒ‰é”®::eä½Žé€Ÿ, è¾“å…¥x::Eæ‰‹æŸ„æŒ‰é”®::eå·¦è‚©},
+	{EæŒ‰é”®::eé‡Šæ”¾, è¾“å…¥x::Eæ‰‹æŸ„æŒ‰é”®::eå³è‚©},
 };
-//ÊäÈëÒýÇæ
-class CÊäÈëÒýÇæ {
+//è¾“å…¥å¼•æ“Ž
+class Cè¾“å…¥å¼•æ“Ž {
 public:
-	CÊäÈëÒýÇæ();
-	void f³õÊ¼»¯(HWND, float Ëõ·Å);
-	void f¸üÐÂ();
-	const ÊäÈë::C°´¼ü×é &fg°´¼ü×é() const;
-	ÊäÈë::S·½Ïò fg·½Ïò() const;
+	Cè¾“å…¥å¼•æ“Ž();
+	void fåˆå§‹åŒ–(HWND, float ç¼©æ”¾);
+	void fæ›´æ–°();
+	const è¾“å…¥::CæŒ‰é”®ç»„ &fgæŒ‰é”®ç»„() const;
+	è¾“å…¥::Sæ–¹å‘ fgæ–¹å‘() const;
+	void fsç¼©æ”¾(float);
 public:
-	ÊäÈëw::CÊäÈë mÊäÈëw;
-	ÊäÈëx::CÊäÈë mÊäÈëx;
-	ÊäÈë::tp¼üÅÌ m¼üÅÌ = nullptr;
-	ÊäÈë::tpÊó±ê mÊó±ê = nullptr;
-	ÊäÈë::tpÊÖ±ú mÊÖ±ú = nullptr;
-	std::map<ÊäÈë::tË÷Òý, ÊäÈë::tË÷Òý> m¼üÅÌÓ³Éä;	//<-
-	std::map<ÊäÈë::tË÷Òý, ÊäÈë::tË÷Òý> mÊÖ±úÓ³Éä;	//<-
-	ÊäÈë::C°´¼ü×é m°´¼ü×é{(size_t)E°´¼ü::eÊýÁ¿};
-	ÊäÈë::C·½Ïò¼ü m·½Ïò¼ü[2] = {};
-	ÊäÈë::S·½Ïò mÊÖ±ú·½Ïò;
+	è¾“å…¥w::Cè¾“å…¥ mè¾“å…¥w;
+	è¾“å…¥x::Cè¾“å…¥ mè¾“å…¥x;
+	è¾“å…¥::tpé”®ç›˜ mé”®ç›˜ = nullptr;
+	è¾“å…¥::tpé¼ æ ‡ mé¼ æ ‡ = nullptr;
+	è¾“å…¥::tpæ‰‹æŸ„ mæ‰‹æŸ„ = nullptr;
+	std::map<è¾“å…¥::tç´¢å¼•, è¾“å…¥::tç´¢å¼•> mé”®ç›˜æ˜ å°„;	//<-
+	std::map<è¾“å…¥::tç´¢å¼•, è¾“å…¥::tç´¢å¼•> mæ‰‹æŸ„æ˜ å°„;	//<-
+	è¾“å…¥::CæŒ‰é”®ç»„ mæŒ‰é”®ç»„{(size_t)EæŒ‰é”®::eæ•°é‡};
+	è¾“å…¥::Cæ–¹å‘é”® mæ–¹å‘é”®[2] = {};
+	è¾“å…¥::Sæ–¹å‘ mæ‰‹æŸ„æ–¹å‘;
 };
-}	//namespace ¶«·½É½Õ¯
+}	//namespace ä¸œæ–¹å±±å¯¨

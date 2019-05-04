@@ -34,7 +34,7 @@ public:
 	bool f对象_i使用();
 	void f动作_结束();//图形直接消失
 public:
-	int m层 = 0;
+	int m图层 = 0;
 	int m显示编号 = 0;
 	t标志 m标志;
 	const C游戏速度 *m游戏速度 = nullptr;

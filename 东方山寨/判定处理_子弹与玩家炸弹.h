@@ -1,28 +1,28 @@
-#pragma once
-#include "ÊıÑ§°üº¬.h"
-namespace ¶«·½É½Õ¯ {
-class C×Óµ¯;
-class CÍæ¼Ò;
-class CÍæ¼ÒÕ¨µ¯;
-class CµÀ¾ßÖÆÔì»ú;
-class C×Óµ¯ÓëÍæ¼ÒÕ¨µ¯ÅĞ¶¨ {
+ï»¿#pragma once
+#include "æ•°å­¦åŒ…å«.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cå­å¼¹;
+class Cç©å®¶;
+class Cç©å®¶ç‚¸å¼¹;
+class Cé“å…·åˆ¶é€ æœº;
+class Cå­å¼¹ä¸ç©å®¶ç‚¸å¼¹åˆ¤å®š {
 public:
-	typedef std::function<bool(const tÏòÁ¿2 &, float)> tfÅĞ¶¨;
-	void f°ó¶¨µÀ¾ß(CµÀ¾ßÖÆÔì»ú *);
-	void f°ó¶¨×Óµ¯(C×Óµ¯ *);
-	void f°ó¶¨Õ¨µ¯(CÍæ¼ÒÕ¨µ¯ *);
-	void f¼ÆËãÅĞ¶¨();	//ÓÉÒıÇæµ÷ÓÃ
-	bool fi²úÉúµÀ¾ß() const;	//¸ú¾İÓÎÏ·×´Ì¬È·¶¨ÊÇ·ñ¿ÉÒÔ²úÉúµÀ¾ß
-	bool fÕ¨µ¯_Ìá½»ÅĞ¶¨(tfÅĞ¶¨);
-	bool fÕ¨µ¯_Ìá½»ÅĞ¶¨(const tÔ²ĞÎ &);
-	bool f×Óµ¯_Ìá½»ÅĞ¶¨(const tÏòÁ¿2 &, float) const;
-	void f×Óµ¯_²úÉúµÀ¾ß(const tÏòÁ¿2 &×ø±ê, const tÏòÁ¿2 &ËÙ¶È) const;
+	typedef std::function<bool(const tå‘é‡2 &, float)> tfåˆ¤å®š;
+	void fç»‘å®šé“å…·(Cé“å…·åˆ¶é€ æœº *);
+	void fç»‘å®šå­å¼¹(Cå­å¼¹ *);
+	void fç»‘å®šç‚¸å¼¹(Cç©å®¶ç‚¸å¼¹ *);
+	void fè®¡ç®—åˆ¤å®š();	//ç”±å¼•æ“è°ƒç”¨
+	bool fiäº§ç”Ÿé“å…·() const;	//è·Ÿæ®æ¸¸æˆçŠ¶æ€ç¡®å®šæ˜¯å¦å¯ä»¥äº§ç”Ÿé“å…·
+	bool fç‚¸å¼¹_æäº¤åˆ¤å®š(tfåˆ¤å®š);
+	bool fç‚¸å¼¹_æäº¤åˆ¤å®š(const tåœ†å½¢ &);
+	bool få­å¼¹_æäº¤åˆ¤å®š(const tå‘é‡2 &, float) const;
+	void få­å¼¹_äº§ç”Ÿé“å…·(const tå‘é‡2 &åæ ‡, const tå‘é‡2 &é€Ÿåº¦) const;
 private:
-	CÍæ¼Ò *mÍæ¼Ò = nullptr;
-	C×Óµ¯ *m×Óµ¯ = nullptr;
-	CÍæ¼ÒÕ¨µ¯ *mÕ¨µ¯ = nullptr;
-	CµÀ¾ßÖÆÔì»ú *mµÀ¾ßÖÆÔì»ú = nullptr;
-	tfÅĞ¶¨ mfÅĞ¶¨ = nullptr;
+	Cç©å®¶ *mç©å®¶ = nullptr;
+	Cå­å¼¹ *må­å¼¹ = nullptr;
+	Cç©å®¶ç‚¸å¼¹ *mç‚¸å¼¹ = nullptr;
+	Cé“å…·åˆ¶é€ æœº *mé“å…·åˆ¶é€ æœº = nullptr;
+	tfåˆ¤å®š mfåˆ¤å®š = nullptr;
 };
 
 }

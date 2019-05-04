@@ -269,6 +269,9 @@
     <ClCompile Include="图形工厂.cpp">
       <Filter>图形引擎</Filter>
     </ClCompile>
+    <ClCompile Include="界面_选项.cpp">
+      <Filter>界面</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="脚本.h">
@@ -490,16 +493,33 @@
     <ClInclude Include="图形工厂.h">
       <Filter>图形引擎</Filter>
     </ClInclude>
+    <ClInclude Include="界面_选项.h">
+      <Filter>界面</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="着色器\着色器.hlsl">
-      <Filter>图形引擎\着色器</Filter>
-    </FxCompile>
     <FxCompile Include="着色器\ps_stage0.hlsl">
       <Filter>图形引擎\着色器</Filter>
     </FxCompile>
     <FxCompile Include="着色器\vs_stage0.hlsl">
       <Filter>图形引擎\着色器</Filter>
     </FxCompile>
+    <FxCompile Include="着色器\ps_tint0.hlsl">
+      <Filter>图形引擎\着色器</Filter>
+    </FxCompile>
+    <FxCompile Include="着色器\vs_tint0.hlsl">
+      <Filter>图形引擎\着色器</Filter>
+    </FxCompile>
+    <FxCompile Include="着色器\vs_image0.hlsl">
+      <Filter>图形引擎\着色器</Filter>
+    </FxCompile>
+    <FxCompile Include="着色器\ps_image0.hlsl">
+      <Filter>图形引擎\着色器</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="着色器\image.hlsli">
+      <Filter>图形引擎\着色器</Filter>
+    </None>
   </ItemGroup>
 </Project>
