@@ -1,61 +1,62 @@
-#include <tuple>
+ï»¿#include <tuple>
 #include <boost/property_tree/json_parser.hpp>
-#include <cflwÎÄ¼ş_json.h>
-//»ù´¡
-#include "³£Á¿.h"
-#include "ÔØÈë.h"
-#include "³ÌĞò.h"
-#include "¼ÆËã.h"
-#include "ÓÎÏ·.h"
-#include "±êÊ¶.h"
-#include "È¡ÎÄ±¾.h"
-//Í¼ĞÎ
-#include "Í¼ĞÎÒıÇæ.h"
-#include "Í¼ĞÎÒıÇæ_×ÊÔ´¹¤³§.h"
-#include "Í¼ĞÎ_ÈıÎ¬.h"
-#include "¶¯»­½Ó¿Ú.h"
-#include "¶¯»­.h"
-#include "Í¼ĞÎ_×Óµ¯.h"
-#include "µÀ¾ß¶¯»­.h"
-//ÆäËü
-#include "µÀ¾ß.h"
-#include "×Óµ¯»ù´¡.h"
-#include "ÒôÆµÒıÇæ.h"
-//Íæ¼Ò
-#include "Íæ¼Ò.h"
-#include "×Ô»ú.h"
-#include "×Ó»úÒÆ¶¯_Î»ÖÃ.h"
-#include "Íæ¼Ò×Óµ¯»ù´¡.h"
-#include "Íæ¼Ò×Óµ¯·¢Éä»ù´¡.h"
-#include "Íæ¼Ò×Óµ¯·¢Éä_·¢É¢.h"
-#include "Íæ¼Ò×Óµ¯·¢ÉäÀ©Õ¹.h"
-#include "Íæ¼ÒÕ¨µ¯À©Õ¹.h"
-//µĞ»ú
-#include "µĞ»ú»ù´¡.h"
-namespace ¶«·½É½Õ¯ {
-using tÊôĞÔÎÄ¼ş = cflw::ÎÄ¼ş::json::CÎÄ¼ş;
-using tÊôĞÔÊ÷ = boost::property_tree::wptree;
+#include <cflwæ–‡ä»¶_json.h>
+//åŸºç¡€
+#include "ç¨‹åºå¸¸é‡.h"
+#include "æ¸¸æˆå¸¸é‡.h"
+#include "è½½å…¥.h"
+#include "ç¨‹åº.h"
+#include "è®¡ç®—.h"
+#include "æ¸¸æˆ.h"
+#include "æ ‡è¯†.h"
+#include "å–æ–‡æœ¬.h"
+//å›¾å½¢
+#include "å›¾å½¢å¼•æ“.h"
+#include "å›¾å½¢å¼•æ“_èµ„æºå·¥å‚.h"
+#include "å›¾å½¢_ä¸‰ç»´.h"
+#include "åŠ¨ç”»æ¥å£.h"
+#include "åŠ¨ç”».h"
+#include "å›¾å½¢_å­å¼¹.h"
+#include "é“å…·åŠ¨ç”».h"
+//å…¶å®ƒ
+#include "é“å…·.h"
+#include "å­å¼¹åŸºç¡€.h"
+#include "éŸ³é¢‘å¼•æ“.h"
+//ç©å®¶
+#include "ç©å®¶.h"
+#include "è‡ªæœº.h"
+#include "å­æœºç§»åŠ¨_ä½ç½®.h"
+#include "ç©å®¶å­å¼¹åŸºç¡€.h"
+#include "ç©å®¶å­å¼¹å‘å°„åŸºç¡€.h"
+#include "ç©å®¶å­å¼¹å‘å°„_å‘æ•£.h"
+#include "ç©å®¶å­å¼¹å‘å°„æ‰©å±•.h"
+#include "ç©å®¶ç‚¸å¼¹æ‰©å±•.h"
+//æ•Œæœº
+#include "æ•ŒæœºåŸºç¡€.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+using tå±æ€§æ–‡ä»¶ = cflw::æ–‡ä»¶::json::Cæ–‡ä»¶;
+using tå±æ€§æ ‘ = boost::property_tree::wptree;
 //=============================================================================
-// ¶Ájson
+// è¯»json
 //=============================================================================
-class C¶ÁjsonÎÄ¼ş {
+class Cè¯»jsonæ–‡ä»¶ {
 public:
-	static bool f¶ÁÈ¡(boost::property_tree::wptree &aÊä³öÊ÷, const std::filesystem::path &aÂ·¾¶) {
-		tÊôĞÔÎÄ¼ş vÎÄ¼ş;
-		const std::filesystem::path vÂ·¾¶ = C³ÌĞò::f¼ÆËãÂ·¾¶(aÂ·¾¶, L"");
-		if (vÎÄ¼ş.f´ò¿ª(vÂ·¾¶.c_str())) {
-			vÎÄ¼ş.f¶ÁÈ¡(aÊä³öÊ÷);
+	static bool fè¯»å–(boost::property_tree::wptree &aè¾“å‡ºæ ‘, const std::filesystem::path &aè·¯å¾„) {
+		tå±æ€§æ–‡ä»¶ væ–‡ä»¶;
+		const std::filesystem::path vè·¯å¾„ = Cç¨‹åº::fè®¡ç®—è·¯å¾„(aè·¯å¾„, L"");
+		if (væ–‡ä»¶.fæ‰“å¼€(vè·¯å¾„.c_str())) {
+			væ–‡ä»¶.fè¯»å–(aè¾“å‡ºæ ‘);
 			return true;
 		} else {
 			return false;
 		}
 	}
-	static bool f¶ÁÈ¡(boost::property_tree::wptree &aÊä³öÊ÷, const SÔØÈë²ÎÊı &a²ÎÊı, const std::filesystem::path &aÂ·¾¶, std::filesystem::path &aÊä³öÂ·¾¶) {
-		tÊôĞÔÎÄ¼ş vÎÄ¼ş;
-		const std::filesystem::path vÂ·¾¶ = C³ÌĞò::f¼ÆËãÂ·¾¶(aÂ·¾¶, a²ÎÊı.mÂ·¾¶);
-		if (vÎÄ¼ş.f´ò¿ª(vÂ·¾¶.c_str())) {
-			vÎÄ¼ş.f¶ÁÈ¡(aÊä³öÊ÷);
-			aÊä³öÂ·¾¶ = vÂ·¾¶;
+	static bool fè¯»å–(boost::property_tree::wptree &aè¾“å‡ºæ ‘, const Sè½½å…¥å‚æ•° &aå‚æ•°, const std::filesystem::path &aè·¯å¾„, std::filesystem::path &aè¾“å‡ºè·¯å¾„) {
+		tå±æ€§æ–‡ä»¶ væ–‡ä»¶;
+		const std::filesystem::path vè·¯å¾„ = Cç¨‹åº::fè®¡ç®—è·¯å¾„(aè·¯å¾„, aå‚æ•°.mè·¯å¾„);
+		if (væ–‡ä»¶.fæ‰“å¼€(vè·¯å¾„.c_str())) {
+			væ–‡ä»¶.fè¯»å–(aè¾“å‡ºæ ‘);
+			aè¾“å‡ºè·¯å¾„ = vè·¯å¾„;
 			return true;
 		} else {
 			__debugbreak();
@@ -64,21 +65,21 @@ public:
 	}
 };
 //=============================================================================
-// ½âÎöÊı¾İ
+// è§£ææ•°æ®
 //=============================================================================
-class C½âÎöÒıÓÃ {
+class Cè§£æå¼•ç”¨ {
 public:
-	C½âÎöÒıÓÃ(int aÒıÓÃ, bool a´æÔÚ = true) :
-		mÒıÓÃ(aÒıÓÃ),
-		m´æÔÚ(a´æÔÚ) {
+	Cè§£æå¼•ç”¨(int aå¼•ç”¨, bool aå­˜åœ¨ = true) :
+		må¼•ç”¨(aå¼•ç”¨),
+		må­˜åœ¨(aå­˜åœ¨) {
 	}
 	template<typename t>
-	static void f½âÎö¸³Öµ(t &a, const C½âÎöÒıÓÃ &aÈ«¾ÖÒıÓÃ, const boost::optional<const boost::property_tree::wptree &> &aÊ÷) {
-		if (aÊ÷) {
-			if (const std::wstring vÃû³Æ = aÈ«¾ÖÒıÓÃ.f½âÎöÃû³Æ±êÊ¶(*aÊ÷); !vÃû³Æ.empty()) {
-				a = vÃû³Æ;
-			} else if (const auto &vÒıÓÃ = aÈ«¾ÖÒıÓÃ.f½âÎöÊı×Ö±êÊ¶(*aÊ÷)) {
-				a = vÒıÓÃ.fgÖµ();
+	static void fè§£æèµ‹å€¼(t &a, const Cè§£æå¼•ç”¨ &aå…¨å±€å¼•ç”¨, const boost::optional<const boost::property_tree::wptree &> &aæ ‘) {
+		if (aæ ‘) {
+			if (const std::wstring våç§° = aå…¨å±€å¼•ç”¨.fè§£æåç§°æ ‡è¯†(*aæ ‘); !våç§°.empty()) {
+				a = våç§°;
+			} else if (const auto &vå¼•ç”¨ = aå…¨å±€å¼•ç”¨.fè§£ææ•°å­—æ ‡è¯†(*aæ ‘)) {
+				a = vå¼•ç”¨.fgå€¼();
 			} else {
 				a = 0;
 			}
@@ -87,10 +88,10 @@ public:
 		}
 	}
 	template<typename t>
-	static void f½âÎöÃû³Æ¸³Öµ(t &a, const boost::optional<const boost::property_tree::wptree &> &aÊ÷) {
-		if (aÊ÷) {
-			if (const auto &vÃû³Æ±êÊ¶ = aÊ÷->get_optional<std::wstring>(L"Ãû³Æ")) {
-				a = *vÃû³Æ±êÊ¶;
+	static void fè§£æåç§°èµ‹å€¼(t &a, const boost::optional<const boost::property_tree::wptree &> &aæ ‘) {
+		if (aæ ‘) {
+			if (const auto &våç§°æ ‡è¯† = aæ ‘->get_optional<std::wstring>(L"åç§°")) {
+				a = *våç§°æ ‡è¯†;
 			} else {
 				a = 0;
 			}
@@ -99,462 +100,462 @@ public:
 		}
 	}
 	operator bool() const {
-		return fi´æÔÚ();
+		return fiå­˜åœ¨();
 	}
-	std::wstring f½âÎöÃû³Æ±êÊ¶(const boost::property_tree::wptree &aÊ÷) const {
-		if (const auto &vÃû³Æ±êÊ¶ = aÊ÷.get_optional<std::wstring>(L"Ãû³Æ")) {
-			return *vÃû³Æ±êÊ¶;
+	std::wstring fè§£æåç§°æ ‡è¯†(const boost::property_tree::wptree &aæ ‘) const {
+		if (const auto &våç§°æ ‡è¯† = aæ ‘.get_optional<std::wstring>(L"åç§°")) {
+			return *våç§°æ ‡è¯†;
 		} else {
 			return L"";
 		}
 	}
-	C½âÎöÒıÓÃ f½âÎöÊı×Ö±êÊ¶(const boost::property_tree::wptree &aÊ÷) const {
-		bool v´æÔÚ = false;
-		int vÒıÓÃ = 0;
-		int v×ÓÒıÓÃ = 0;
-		if (const auto &vÒıÓÃ½Úµã = aÊ÷.get_optional<int>(L"±êÊ¶")) {
-			vÒıÓÃ = *vÒıÓÃ½Úµã;
-			v´æÔÚ = true;
+	Cè§£æå¼•ç”¨ fè§£ææ•°å­—æ ‡è¯†(const boost::property_tree::wptree &aæ ‘) const {
+		bool vå­˜åœ¨ = false;
+		int vå¼•ç”¨ = 0;
+		int vå­å¼•ç”¨ = 0;
+		if (const auto &vå¼•ç”¨èŠ‚ç‚¹ = aæ ‘.get_optional<int>(L"æ ‡è¯†")) {
+			vå¼•ç”¨ = *vå¼•ç”¨èŠ‚ç‚¹;
+			vå­˜åœ¨ = true;
 		}
-		if (const auto &v×ÓÒıÓÃ½Úµã = aÊ÷.get_optional<int>(L"×Ó±êÊ¶")) {
-			v×ÓÒıÓÃ = *v×ÓÒıÓÃ½Úµã;
-			v´æÔÚ = true;
+		if (const auto &vå­å¼•ç”¨èŠ‚ç‚¹ = aæ ‘.get_optional<int>(L"å­æ ‡è¯†")) {
+			vå­å¼•ç”¨ = *vå­å¼•ç”¨èŠ‚ç‚¹;
+			vå­˜åœ¨ = true;
 		}
-		if (aÊ÷.get<bool>(L"¾ø¶Ô", false)) {
-			return {¼ÆËã::f±êÊ¶(vÒıÓÃ, 0, v×ÓÒıÓÃ), v´æÔÚ};
+		if (aæ ‘.get<bool>(L"ç»å¯¹", false)) {
+			return {è®¡ç®—::fæ ‡è¯†(vå¼•ç”¨, 0, vå­å¼•ç”¨), vå­˜åœ¨};
 		} else {
-			return {¼ÆËã::f±êÊ¶(mÒıÓÃ, vÒıÓÃ, v×ÓÒıÓÃ), v´æÔÚ};
+			return {è®¡ç®—::fæ ‡è¯†(må¼•ç”¨, vå¼•ç”¨, vå­å¼•ç”¨), vå­˜åœ¨};
 		}
 	}
-	bool fi´æÔÚ() const {
-		return m´æÔÚ;
+	bool fiå­˜åœ¨() const {
+		return må­˜åœ¨;
 	}
-	int fgÖµ() const {
-		return mÒıÓÃ;
+	int fgå€¼() const {
+		return må¼•ç”¨;
 	}
 private:
-	int mÒıÓÃ;
-	bool m´æÔÚ;
+	int må¼•ç”¨;
+	bool må­˜åœ¨;
 };
-//ÎÆÀí
-class C½âÎöÎÆÀíjson {
+//çº¹ç†
+class Cè§£æçº¹ç†json {
 public:
-	static std::wstring f½âÎöÂ·¾¶(const boost::property_tree::wptree &aÊ÷) {
-		return aÊ÷.get<std::wstring>(L"Â·¾¶");
+	static std::wstring fè§£æè·¯å¾„(const boost::property_tree::wptree &aæ ‘) {
+		return aæ ‘.get<std::wstring>(L"è·¯å¾„");
 	}
-	static tÏòÁ¿2 f½âÎö³ß´ç(const boost::property_tree::wptree &aÊ÷) {
-		const float x = aÊ÷.get<float>(L"³ß´ç.¿í");
-		const float y = aÊ÷.get<float>(L"³ß´ç.¸ß");
+	static tå‘é‡2 fè§£æå°ºå¯¸(const boost::property_tree::wptree &aæ ‘) {
+		const float x = aæ ‘.get<float>(L"å°ºå¯¸.å®½");
+		const float y = aæ ‘.get<float>(L"å°ºå¯¸.é«˜");
 		return {x, y};
 	}
 };
-//¶¥µã
-class C½âÎö¶¥µãjson {
+//é¡¶ç‚¹
+class Cè§£æé¡¶ç‚¹json {
 public:
-	static void f½âÎö(int p±êÊ¶, const tÏòÁ¿2 &pÎÆÀí³ß´ç, const boost::property_tree::wptree &aÊ÷) {
-		auto &v¶¥µã¹¤³§ = CÓÎÏ·::g×ÊÔ´.fg¶¥µã¹¤³§();
+	static void fè§£æ(int pæ ‡è¯†, const tå‘é‡2 &pçº¹ç†å°ºå¯¸, const boost::property_tree::wptree &aæ ‘) {
+		auto &vé¡¶ç‚¹å·¥å‚ = Cæ¸¸æˆ::gèµ„æº.fgé¡¶ç‚¹å·¥å‚();
 	}
 };
-//×Ó»úÒÆ¶¯
-class C½âÎö×Ó»úÒÆ¶¯json {
+//å­æœºç§»åŠ¨
+class Cè§£æå­æœºç§»åŠ¨json {
 public:
-	typedef std::unique_ptr<I¹¤³§<I×Ó»úÒÆ¶¯>> t·µ»ØÖµ;
-	typedef std::unique_ptr<I¹¤³§<I×Ó»úÒÆ¶¯>> (*tf½âÎö)(int, const boost::property_tree::wptree &);
-	static std::unique_ptr<I¹¤³§<I×Ó»úÒÆ¶¯>> f»ã×Ü(int pÀàĞÍ, int p×Ó»úÊı, const boost::property_tree::wptree &aÊ÷) {
-		static const std::map<int, tf½âÎö> v½âÎöº¯Êı{
-			{0, fÎ»ÖÃ}
+	typedef std::unique_ptr<Iå·¥å‚<Iå­æœºç§»åŠ¨>> tè¿”å›å€¼;
+	typedef std::unique_ptr<Iå·¥å‚<Iå­æœºç§»åŠ¨>> (*tfè§£æ)(int, const boost::property_tree::wptree &);
+	static std::unique_ptr<Iå·¥å‚<Iå­æœºç§»åŠ¨>> fæ±‡æ€»(int pç±»å‹, int på­æœºæ•°, const boost::property_tree::wptree &aæ ‘) {
+		static const std::map<int, tfè§£æ> vè§£æå‡½æ•°{
+			{0, fä½ç½®}
 		};
-		return v½âÎöº¯Êı.at(pÀàĞÍ)(p×Ó»úÊı, aÊ÷);
+		return vè§£æå‡½æ•°.at(pç±»å‹)(på­æœºæ•°, aæ ‘);
 	}
-	static std::unique_ptr<I¹¤³§<I×Ó»úÒÆ¶¯>> fÎ»ÖÃ(int p×Ó»úÊı, const boost::property_tree::wptree &aÊ÷) {
-		const int vÊıÁ¿ = (1 + p×Ó»úÊı) * p×Ó»úÊı / 2;//=1+2+..+×Ó»úÊı
-		const int v×ÜÊıÁ¿ = vÊıÁ¿ * 2;
-		std::vector<tÏòÁ¿2> vÊı×é;
+	static std::unique_ptr<Iå·¥å‚<Iå­æœºç§»åŠ¨>> fä½ç½®(int på­æœºæ•°, const boost::property_tree::wptree &aæ ‘) {
+		const int væ•°é‡ = (1 + på­æœºæ•°) * på­æœºæ•° / 2;//=1+2+..+å­æœºæ•°
+		const int væ€»æ•°é‡ = væ•°é‡ * 2;
+		std::vector<tå‘é‡2> væ•°ç»„;
 		//int i1 = 0;
-		for (auto &v1 : aÊ÷) {
-			const auto &v½Úµã1 = v1.second;
-			const float x = v½Úµã1.get<float>(L"x", 0);
-			const float y = v½Úµã1.get<float>(L"y", 0);
-			vÊı×é.emplace_back(x, y);
-			assert(vÊı×é.size() <= v×ÜÊıÁ¿);
+		for (auto &v1 : aæ ‘) {
+			const auto &vèŠ‚ç‚¹1 = v1.second;
+			const float x = vèŠ‚ç‚¹1.get<float>(L"x", 0);
+			const float y = vèŠ‚ç‚¹1.get<float>(L"y", 0);
+			væ•°ç»„.emplace_back(x, y);
+			assert(væ•°ç»„.size() <= væ€»æ•°é‡);
 		}
-		auto vaÊôĞÔ = std::make_shared<×Ó»úÒÆ¶¯::CÎ»ÖÃ::SÊôĞÔ>(vÊı×é.data());
-		return std::make_unique<×Ó»úÒÆ¶¯::CÎ»ÖÃ::C¹¤³§>(vaÊôĞÔ);
+		auto vaå±æ€§ = std::make_shared<å­æœºç§»åŠ¨::Cä½ç½®::Så±æ€§>(væ•°ç»„.data());
+		return std::make_unique<å­æœºç§»åŠ¨::Cä½ç½®::Cå·¥å‚>(vaå±æ€§);
 	}
 };
 //=============================================================================
-// ÔØÈëÊı¾İ
+// è½½å…¥æ•°æ®
 //=============================================================================
-void CÔØÈë::f»ã×Ü(const SÔØÈë²ÎÊı &a) {
-	static const std::map<std::wstring, tfÔØÈëÊı¾İ> vÔØÈëº¯Êı{
-		{L"ÔØÈëÁĞ±í0", f»ã×Ü},
-		{L"Í¼ĞÎ", fÍ¼ĞÎ},
-		{L"¶¯»­", f¶¯»­},
-		{L"µĞÈË×Óµ¯", f×Óµ¯},
-		{L"µĞÈË·É»ú", fµĞ»ú},
-		{L"Íæ¼Ò·É»ú", f×Ô»ú},
-		{L"Íæ¼Ò×Ó·É»ú", f×Ó»ú},
-		{L"Íæ¼Ò×Ó·É»ú.Î»ÖÃ", f×Ó»úÎ»ÖÃ},
-		//{L"Íæ¼Ò·¢Éä", fÍæ¼Ò·¢Éä},
-		{L"Íæ¼Ò×Óµ¯", fÍæ¼Ò×Óµ¯},
-		{L"ÎÆÀíÁĞ±í0", fÎÆÀíÁĞ±í0},
-		{L"Ä£ĞÍÁĞ±í0", fÄ£ĞÍÁĞ±í0},
-		{L"ÉùÒôÁĞ±í0", fÉùÒôÁĞ±í0},
-		{L"ÉùÒôÁĞ±í1", fÉùÒôÁĞ±í1},
-		{L"ÎÄ±¾", fÎÄ±¾},
+void Cè½½å…¥::fæ±‡æ€»(const Sè½½å…¥å‚æ•° &a) {
+	static const std::map<std::wstring, tfè½½å…¥æ•°æ®> vè½½å…¥å‡½æ•°{
+		{L"è½½å…¥åˆ—è¡¨0", fæ±‡æ€»},
+		{L"å›¾å½¢", få›¾å½¢},
+		{L"åŠ¨ç”»", fåŠ¨ç”»},
+		{L"æ•Œäººå­å¼¹", få­å¼¹},
+		{L"æ•Œäººé£æœº", fæ•Œæœº},
+		{L"ç©å®¶é£æœº", fè‡ªæœº},
+		{L"ç©å®¶å­é£æœº", få­æœº},
+		{L"ç©å®¶å­é£æœº.ä½ç½®", få­æœºä½ç½®},
+		//{L"ç©å®¶å‘å°„", fç©å®¶å‘å°„},
+		{L"ç©å®¶å­å¼¹", fç©å®¶å­å¼¹},
+		{L"çº¹ç†åˆ—è¡¨0", fçº¹ç†åˆ—è¡¨0},
+		{L"æ¨¡å‹åˆ—è¡¨0", fæ¨¡å‹åˆ—è¡¨0},
+		{L"å£°éŸ³åˆ—è¡¨0", få£°éŸ³åˆ—è¡¨0},
+		{L"å£°éŸ³åˆ—è¡¨1", få£°éŸ³åˆ—è¡¨1},
+		{L"æ–‡æœ¬", fæ–‡æœ¬},
 	};
-	const boost::property_tree::wptree &vÊı¾İ = a.mÊ÷.get_child(L"Êı¾İ");
-	for (const auto &v0 : vÊı¾İ) {
-		const std::wstring &vÎÄ¼şÃû = v0.second.get_value<std::wstring>();
-		boost::property_tree::wptree vÊ÷;
-		std::filesystem::path vÂ·¾¶;
-		C¶ÁjsonÎÄ¼ş::f¶ÁÈ¡(vÊ÷, a, vÎÄ¼şÃû, vÂ·¾¶);
-		const std::wstring vÀàĞÍ = vÊ÷.get<std::wstring>(L"È«¾Ö.ÀàĞÍ", L"");
-		if (vÀàĞÍ.empty()) {
+	const boost::property_tree::wptree &væ•°æ® = a.mæ ‘.get_child(L"æ•°æ®");
+	for (const auto &v0 : væ•°æ®) {
+		const std::wstring &væ–‡ä»¶å = v0.second.get_value<std::wstring>();
+		boost::property_tree::wptree væ ‘;
+		std::filesystem::path vè·¯å¾„;
+		Cè¯»jsonæ–‡ä»¶::fè¯»å–(væ ‘, a, væ–‡ä»¶å, vè·¯å¾„);
+		const std::wstring vç±»å‹ = væ ‘.get<std::wstring>(L"å…¨å±€.ç±»å‹", L"");
+		if (vç±»å‹.empty()) {
 			throw;
 		}
-		vÔØÈëº¯Êı.at(vÀàĞÍ)(SÔØÈë²ÎÊı{vÊ÷, vÂ·¾¶});
+		vè½½å…¥å‡½æ•°.at(vç±»å‹)(Sè½½å…¥å‚æ•°{væ ‘, vè·¯å¾„});
 	}
 }
-void CÔØÈë::fÍ¼ĞÎ(const SÔØÈë²ÎÊı &a) {
-	const int vÈ«¾Ö±êÊ¶ = a.mÊ÷.get<int>(L"È«¾Ö.±êÊ¶", ¼ÆËã::fcËæ»ú±êÊ¶());
-	const std::wstring &vÈ«¾ÖÃû³Æ = a.mÊ÷.get<std::wstring>(L"È«¾Ö.Ãû³Æ");
-	const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶0(vÈ«¾ÖÃû³Æ, vÈ«¾Ö±êÊ¶);
-	const boost::property_tree::wptree &vaÊı¾İ = a.mÊ÷.get_child(L"Êı¾İ");
-	auto &vÎÆÀí¹¤³§ = CÓÎÏ·::g×ÊÔ´.fgÎÆÀí¹¤³§();
-	auto &v¶¥µã¹¤³§ = CÓÎÏ·::g×ÊÔ´.fg¶¥µã¹¤³§();
-	int vÖ÷±êÊ¶ = -1;
-	for (const auto &[vÃû³Æ0_, v½Úµã0] : vaÊı¾İ) {
-		vÖ÷±êÊ¶ = v½Úµã0.get<int>(L"±êÊ¶", ++vÖ÷±êÊ¶);
-		const int vÍ¼ĞÎ±êÊ¶ = ¼ÆËã::f±êÊ¶(vÈ«¾Ö±êÊ¶, vÖ÷±êÊ¶, 0);
-		const std::wstring &vÍ¼ĞÎÃû³Æ = v½Úµã0.get<std::wstring>(L"Ãû³Æ", std::wstring(L"Í¼ĞÎ") + std::to_wstring(vÖ÷±êÊ¶));
-		const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶1 = vÃû³Æ±êÊ¶0.f´´½¨²ã(vÍ¼ĞÎÃû³Æ);
-		//ÎÆÀí
-		const tÊ÷ &vÎÆÀí½Úµã = v½Úµã0.get_child(L"ÎÆÀí");
-		if (const std::wstring vÎÆÀíÂ·¾¶ = vÎÆÀí½Úµã.get<std::wstring>(L"Â·¾¶", L""); !vÎÆÀíÂ·¾¶.empty()) {
-			vÎÆÀí¹¤³§.f´´½¨ÎÆÀí(vÍ¼ĞÎ±êÊ¶, C³ÌĞò::f¼ÆËãÂ·¾¶(vÎÆÀíÂ·¾¶, a.mÂ·¾¶).native());
+void Cè½½å…¥::få›¾å½¢(const Sè½½å…¥å‚æ•° &a) {
+	const int vå…¨å±€æ ‡è¯† = a.mæ ‘.get<int>(L"å…¨å±€.æ ‡è¯†", è®¡ç®—::fcéšæœºæ ‡è¯†());
+	const std::wstring &vå…¨å±€åç§° = a.mæ ‘.get<std::wstring>(L"å…¨å±€.åç§°");
+	const Cåç§°æ ‡è¯† våç§°æ ‡è¯†0(vå…¨å±€åç§°, vå…¨å±€æ ‡è¯†);
+	const boost::property_tree::wptree &vaæ•°æ® = a.mæ ‘.get_child(L"æ•°æ®");
+	auto &vçº¹ç†å·¥å‚ = Cæ¸¸æˆ::gèµ„æº.fgçº¹ç†å·¥å‚();
+	auto &vé¡¶ç‚¹å·¥å‚ = Cæ¸¸æˆ::gèµ„æº.fgé¡¶ç‚¹å·¥å‚();
+	int vä¸»æ ‡è¯† = -1;
+	for (const auto &[våç§°0_, vèŠ‚ç‚¹0] : vaæ•°æ®) {
+		vä¸»æ ‡è¯† = vèŠ‚ç‚¹0.get<int>(L"æ ‡è¯†", ++vä¸»æ ‡è¯†);
+		const int vå›¾å½¢æ ‡è¯† = è®¡ç®—::fæ ‡è¯†(vå…¨å±€æ ‡è¯†, vä¸»æ ‡è¯†, 0);
+		const std::wstring &vå›¾å½¢åç§° = vèŠ‚ç‚¹0.get<std::wstring>(L"åç§°", std::wstring(L"å›¾å½¢") + std::to_wstring(vä¸»æ ‡è¯†));
+		const Cåç§°æ ‡è¯† våç§°æ ‡è¯†1 = våç§°æ ‡è¯†0.fåˆ›å»ºå±‚(vå›¾å½¢åç§°);
+		//çº¹ç†
+		const tæ ‘ &vçº¹ç†èŠ‚ç‚¹ = vèŠ‚ç‚¹0.get_child(L"çº¹ç†");
+		if (const std::wstring vçº¹ç†è·¯å¾„ = vçº¹ç†èŠ‚ç‚¹.get<std::wstring>(L"è·¯å¾„", L""); !vçº¹ç†è·¯å¾„.empty()) {
+			vçº¹ç†å·¥å‚.fåˆ›å»ºçº¹ç†(vå›¾å½¢æ ‡è¯†, Cç¨‹åº::fè®¡ç®—è·¯å¾„(vçº¹ç†è·¯å¾„, a.mè·¯å¾„).native());
 		}
-		const float vÎÆÀí³ß´çx = vÎÆÀí½Úµã.get<float>(L"³ß´ç.¿í", 0);
-		const float vÎÆÀí³ß´çy = vÎÆÀí½Úµã.get<float>(L"³ß´ç.¸ß", 0);
-		const tÏòÁ¿2 vÎÆÀí³ß´ç{vÎÆÀí³ß´çx, vÎÆÀí³ß´çy};
-		v¶¥µã¹¤³§.m²ÎÊı.fsÎÆÀí³ß´ç(vÎÆÀí³ß´ç);
-		//¶¥µã
-		int v¶¥µãÖ÷±êÊ¶ = -1;
-		int v¶¥µã×Ü±êÊ¶ = -1;
-		for (const auto &[vÃû³Æ1_, v½Úµã1] : v½Úµã0.get_child(L"¶¥µã")) {
-			const std::wstring v¶¥µãÃû³Æ = v½Úµã1.get<std::wstring>(L"Ãû³Æ", std::wstring(L"¶¥µã") + std::to_wstring(++v¶¥µãÖ÷±êÊ¶));
-			const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶2 = vÃû³Æ±êÊ¶1.f´´½¨²ã(v¶¥µãÃû³Æ);
-			const float x = v½Úµã1.get<float>(L"x", 0);
-			const float y = v½Úµã1.get<float>(L"y", 0);
-			const float v¿í = v½Úµã1.get<float>(L"¿í", vÎÆÀí³ß´ç.x - x);
-			const float v¸ß = v½Úµã1.get<float>(L"¸ß", vÎÆÀí³ß´ç.y - y);
-			const int vĞĞÊı = v½Úµã1.get<int>(L"ĞĞÊı", 1);
-			const int vÁĞÊı = v½Úµã1.get<int>(L"ÁĞÊı", 1);
-			const float vÆ«ÒÆx = v½Úµã1.get<float>(L"Æ«ÒÆx", 0);
-			const float vÆ«ÒÆy = v½Úµã1.get<float>(L"Æ«ÒÆy", 0);
-			const float v·Ö¿í = v¿í / (float)vÁĞÊı;
-			const float v·Ö¸ß = v¸ß / (float)vĞĞÊı;
-			//´´½¨¾ØĞÎ
-			const tÏòÁ¿2 v¶¥µã³ß´ç{v·Ö¿í, v·Ö¸ß};
-			v¶¥µã¹¤³§.m²ÎÊı.fsÓ³Éäµã_×óÉÏ({x, y});
-			v¶¥µã¹¤³§.m²ÎÊı.fs¶¥µã³ß´ç(v¶¥µã³ß´ç);
-			v¶¥µã¹¤³§.m²ÎÊı.fs¶¥µãÖĞĞÄÆ«ÒÆ({vÆ«ÒÆx, vÆ«ÒÆy});
-			int v¶¥µã×Ó±êÊ¶ = -1;
-			for (auto &vÑ­»· : v¶¥µã¹¤³§.fÑ­»·(vÁĞÊı, vĞĞÊı)) {
-				const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶3 = vÃû³Æ±êÊ¶2.f´´½¨²ã(std::to_wstring(++v¶¥µã×Ó±êÊ¶));
-				vÑ­»·.f±ä»»_Æ½ÒÆ(v¶¥µã³ß´ç);
-				v¶¥µã¹¤³§.f´´½¨¾ØĞÎ(¼ÆËã::f±êÊ¶(vÍ¼ĞÎ±êÊ¶, 0, ++v¶¥µã×Ü±êÊ¶));
+		const float vçº¹ç†å°ºå¯¸x = vçº¹ç†èŠ‚ç‚¹.get<float>(L"å°ºå¯¸.å®½", 0);
+		const float vçº¹ç†å°ºå¯¸y = vçº¹ç†èŠ‚ç‚¹.get<float>(L"å°ºå¯¸.é«˜", 0);
+		const tå‘é‡2 vçº¹ç†å°ºå¯¸{vçº¹ç†å°ºå¯¸x, vçº¹ç†å°ºå¯¸y};
+		vé¡¶ç‚¹å·¥å‚.må‚æ•°.fsçº¹ç†å°ºå¯¸(vçº¹ç†å°ºå¯¸);
+		//é¡¶ç‚¹
+		int vé¡¶ç‚¹ä¸»æ ‡è¯† = -1;
+		int vé¡¶ç‚¹æ€»æ ‡è¯† = -1;
+		for (const auto &[våç§°1_, vèŠ‚ç‚¹1] : vèŠ‚ç‚¹0.get_child(L"é¡¶ç‚¹")) {
+			const std::wstring vé¡¶ç‚¹åç§° = vèŠ‚ç‚¹1.get<std::wstring>(L"åç§°", std::wstring(L"é¡¶ç‚¹") + std::to_wstring(++vé¡¶ç‚¹ä¸»æ ‡è¯†));
+			const Cåç§°æ ‡è¯† våç§°æ ‡è¯†2 = våç§°æ ‡è¯†1.fåˆ›å»ºå±‚(vé¡¶ç‚¹åç§°);
+			const float x = vèŠ‚ç‚¹1.get<float>(L"x", 0);
+			const float y = vèŠ‚ç‚¹1.get<float>(L"y", 0);
+			const float vå®½ = vèŠ‚ç‚¹1.get<float>(L"å®½", vçº¹ç†å°ºå¯¸.x - x);
+			const float vé«˜ = vèŠ‚ç‚¹1.get<float>(L"é«˜", vçº¹ç†å°ºå¯¸.y - y);
+			const int vè¡Œæ•° = vèŠ‚ç‚¹1.get<int>(L"è¡Œæ•°", 1);
+			const int våˆ—æ•° = vèŠ‚ç‚¹1.get<int>(L"åˆ—æ•°", 1);
+			const float våç§»x = vèŠ‚ç‚¹1.get<float>(L"åç§»x", 0);
+			const float våç§»y = vèŠ‚ç‚¹1.get<float>(L"åç§»y", 0);
+			const float våˆ†å®½ = vå®½ / (float)våˆ—æ•°;
+			const float våˆ†é«˜ = vé«˜ / (float)vè¡Œæ•°;
+			//åˆ›å»ºçŸ©å½¢
+			const tå‘é‡2 vé¡¶ç‚¹å°ºå¯¸{våˆ†å®½, våˆ†é«˜};
+			vé¡¶ç‚¹å·¥å‚.må‚æ•°.fsæ˜ å°„ç‚¹_å·¦ä¸Š({x, y});
+			vé¡¶ç‚¹å·¥å‚.må‚æ•°.fsé¡¶ç‚¹å°ºå¯¸(vé¡¶ç‚¹å°ºå¯¸);
+			vé¡¶ç‚¹å·¥å‚.må‚æ•°.fsé¡¶ç‚¹ä¸­å¿ƒåç§»({våç§»x, våç§»y});
+			int vé¡¶ç‚¹å­æ ‡è¯† = -1;
+			for (auto &vå¾ªç¯ : vé¡¶ç‚¹å·¥å‚.få¾ªç¯(våˆ—æ•°, vè¡Œæ•°)) {
+				const Cåç§°æ ‡è¯† våç§°æ ‡è¯†3 = våç§°æ ‡è¯†2.fåˆ›å»ºå±‚(std::to_wstring(++vé¡¶ç‚¹å­æ ‡è¯†));
+				vå¾ªç¯.få˜æ¢_å¹³ç§»(vé¡¶ç‚¹å°ºå¯¸);
+				vé¡¶ç‚¹å·¥å‚.fåˆ›å»ºçŸ©å½¢(è®¡ç®—::fæ ‡è¯†(vå›¾å½¢æ ‡è¯†, 0, ++vé¡¶ç‚¹æ€»æ ‡è¯†));
 			}
 		}
 
-		//if (const auto &vÇĞ¸î = v½Úµã0.get_child_optional(L"¶¥µãÇĞ¸î")) {
-		//	const int vÁĞÊı = vÇĞ¸î->get<int>(L"ÁĞÊı", 1);
-		//	const int vĞĞÊı = vÇĞ¸î->get<int>(L"ĞĞÊı", 1);
-		//	v¶¥µã¹¤³§.f×Ô¶¯»¯_ÍêÕûÇĞ¸î(vÍ¼ĞÎ±êÊ¶, vÎÆÀí³ß´ç, vÁĞÊı, vĞĞÊı);
+		//if (const auto &våˆ‡å‰² = vèŠ‚ç‚¹0.get_child_optional(L"é¡¶ç‚¹åˆ‡å‰²")) {
+		//	const int våˆ—æ•° = våˆ‡å‰²->get<int>(L"åˆ—æ•°", 1);
+		//	const int vè¡Œæ•° = våˆ‡å‰²->get<int>(L"è¡Œæ•°", 1);
+		//	vé¡¶ç‚¹å·¥å‚.fè‡ªåŠ¨åŒ–_å®Œæ•´åˆ‡å‰²(vå›¾å½¢æ ‡è¯†, vçº¹ç†å°ºå¯¸, våˆ—æ•°, vè¡Œæ•°);
 		//} else {
-		//	v¶¥µã¹¤³§.f×Ô¶¯»¯_ÍêÕûÎÆÀí(vÍ¼ĞÎ±êÊ¶, vÎÆÀí³ß´ç);
+		//	vé¡¶ç‚¹å·¥å‚.fè‡ªåŠ¨åŒ–_å®Œæ•´çº¹ç†(vå›¾å½¢æ ‡è¯†, vçº¹ç†å°ºå¯¸);
 		//}
 	}
 
 }
-void CÔØÈë::f¶¯»­(const SÔØÈë²ÎÊı &a) {
-	const int vÈ«¾Ö±êÊ¶ = a.mÊ÷.get<int>(L"È«¾Ö.±êÊ¶", ¼ÆËã::fcËæ»ú±êÊ¶());
-	const std::wstring vÈ«¾ÖÃû³Æ = a.mÊ÷.get<std::wstring>(L"È«¾Ö.Ãû³Æ");
-	const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶0 = CÃû³Æ±êÊ¶(vÈ«¾ÖÃû³Æ, vÈ«¾Ö±êÊ¶);
-	const boost::property_tree::wptree &vaÊı¾İ = a.mÊ÷.get_child(L"Êı¾İ");
-	auto &va¶¯»­ = CÓÎÏ·::g×ÊÔ´.fg¶¯»­();
-	int vÖ÷±êÊ¶ = -1;
-	for (const auto &v0 : vaÊı¾İ) {
-		const auto &v½Úµã0 = v0.second;
-		vÖ÷±êÊ¶ = v½Úµã0.get<int>(L"±êÊ¶", ++vÖ÷±êÊ¶);
-		const std::wstring v¶¯»­Ãû³Æ = v½Úµã0.get<std::wstring>(L"Ãû³Æ", L"");
-		const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶1 = vÃû³Æ±êÊ¶0.f´´½¨²ã(v¶¯»­Ãû³Æ, vÖ÷±êÊ¶);
-		const int v¶¯»­±êÊ¶ = ¼ÆËã::f±êÊ¶(vÈ«¾Ö±êÊ¶, vÖ÷±êÊ¶, 0);
-		C½ÇÉ«¶¯»­::SÊôĞÔ vÊôĞÔ;
-		const float v±ä»¯ËÙ¶È = v½Úµã0.get<float>(L"±ä»¯ËÙ¶È", 8);
-		const float vÑ­»·ËÙ¶È = v½Úµã0.get<float>(L"Ñ­»·ËÙ¶È", 8);
-		auto f¶Á×é = [&](C½ÇÉ«¶¯»­::SÊôĞÔ::S¶¯»­·½Ïò &a½á¹¹, const boost::property_tree::wptree &aÊı¾İ) {
-			a½á¹¹.mĞòºÅ = aÊı¾İ.get<int>(L"¿ªÊ¼", 0);
-			a½á¹¹.mÑ­»· = aÊı¾İ.get<int>(L"Ñ­»·", 0);
-			a½á¹¹.mÖ¡Êı = aÊı¾İ.get<int>(L"Ö¡Êı", 0);
-			a½á¹¹.m±ä»¯ËÙ¶È = aÊı¾İ.get<float>(L"±ä»¯ËÙ¶È", v±ä»¯ËÙ¶È) / (float)c¼ÆËãÆµÂÊ;
-			a½á¹¹.mÑ­»·ËÙ¶È = aÊı¾İ.get<float>(L"Ñ­»·ËÙ¶È", vÑ­»·ËÙ¶È) / (float)c¼ÆËãÆµÂÊ;
-			a½á¹¹.m¾³Ïñ = aÊı¾İ.get<bool>(L"¾µÏñ", false);
+void Cè½½å…¥::fåŠ¨ç”»(const Sè½½å…¥å‚æ•° &a) {
+	const int vå…¨å±€æ ‡è¯† = a.mæ ‘.get<int>(L"å…¨å±€.æ ‡è¯†", è®¡ç®—::fcéšæœºæ ‡è¯†());
+	const std::wstring vå…¨å±€åç§° = a.mæ ‘.get<std::wstring>(L"å…¨å±€.åç§°");
+	const Cåç§°æ ‡è¯† våç§°æ ‡è¯†0 = Cåç§°æ ‡è¯†(vå…¨å±€åç§°, vå…¨å±€æ ‡è¯†);
+	const boost::property_tree::wptree &vaæ•°æ® = a.mæ ‘.get_child(L"æ•°æ®");
+	auto &vaåŠ¨ç”» = Cæ¸¸æˆ::gèµ„æº.fgåŠ¨ç”»();
+	int vä¸»æ ‡è¯† = -1;
+	for (const auto &v0 : vaæ•°æ®) {
+		const auto &vèŠ‚ç‚¹0 = v0.second;
+		vä¸»æ ‡è¯† = vèŠ‚ç‚¹0.get<int>(L"æ ‡è¯†", ++vä¸»æ ‡è¯†);
+		const std::wstring våŠ¨ç”»åç§° = vèŠ‚ç‚¹0.get<std::wstring>(L"åç§°", L"");
+		const Cåç§°æ ‡è¯† våç§°æ ‡è¯†1 = våç§°æ ‡è¯†0.fåˆ›å»ºå±‚(våŠ¨ç”»åç§°, vä¸»æ ‡è¯†);
+		const int våŠ¨ç”»æ ‡è¯† = è®¡ç®—::fæ ‡è¯†(vå…¨å±€æ ‡è¯†, vä¸»æ ‡è¯†, 0);
+		Cè§’è‰²åŠ¨ç”»::Så±æ€§ vå±æ€§;
+		const float vå˜åŒ–é€Ÿåº¦ = vèŠ‚ç‚¹0.get<float>(L"å˜åŒ–é€Ÿåº¦", 8);
+		const float vå¾ªç¯é€Ÿåº¦ = vèŠ‚ç‚¹0.get<float>(L"å¾ªç¯é€Ÿåº¦", 8);
+		auto fè¯»ç»„ = [&](Cè§’è‰²åŠ¨ç”»::Så±æ€§::SåŠ¨ç”»æ–¹å‘ &aç»“æ„, const boost::property_tree::wptree &aæ•°æ®) {
+			aç»“æ„.måºå· = aæ•°æ®.get<int>(L"å¼€å§‹", 0);
+			aç»“æ„.må¾ªç¯ = aæ•°æ®.get<int>(L"å¾ªç¯", 0);
+			aç»“æ„.må¸§æ•° = aæ•°æ®.get<int>(L"å¸§æ•°", 0);
+			aç»“æ„.må˜åŒ–é€Ÿåº¦ = aæ•°æ®.get<float>(L"å˜åŒ–é€Ÿåº¦", vå˜åŒ–é€Ÿåº¦) / (float)cè®¡ç®—é¢‘ç‡;
+			aç»“æ„.må¾ªç¯é€Ÿåº¦ = aæ•°æ®.get<float>(L"å¾ªç¯é€Ÿåº¦", vå¾ªç¯é€Ÿåº¦) / (float)cè®¡ç®—é¢‘ç‡;
+			aç»“æ„.må¢ƒåƒ = aæ•°æ®.get<bool>(L"é•œåƒ", false);
 		};
-		f¶Á×é(vÊôĞÔ.mÕı³£, v½Úµã0.get_child(L"Õı³£¶¯»­"));
-		f¶Á×é(vÊôĞÔ.m×óÒÆ, v½Úµã0.get_child(L"×óÒÆ¶¯»­"));
-		f¶Á×é(vÊôĞÔ.mÓÒÒÆ, v½Úµã0.get_child(L"ÓÒÒÆ¶¯»­"));
-		va¶¯»­.fÌí¼Ó(v¶¯»­±êÊ¶, new C½ÇÉ«¶¯»­::C¹¤³§(std::make_shared<C½ÇÉ«¶¯»­::SÊôĞÔ>(vÊôĞÔ)));
+		fè¯»ç»„(vå±æ€§.mæ­£å¸¸, vèŠ‚ç‚¹0.get_child(L"æ­£å¸¸åŠ¨ç”»"));
+		fè¯»ç»„(vå±æ€§.må·¦ç§», vèŠ‚ç‚¹0.get_child(L"å·¦ç§»åŠ¨ç”»"));
+		fè¯»ç»„(vå±æ€§.må³ç§», vèŠ‚ç‚¹0.get_child(L"å³ç§»åŠ¨ç”»"));
+		vaåŠ¨ç”».fæ·»åŠ (våŠ¨ç”»æ ‡è¯†, new Cè§’è‰²åŠ¨ç”»::Cå·¥å‚(std::make_shared<Cè§’è‰²åŠ¨ç”»::Så±æ€§>(vå±æ€§)));
 	}
 }
-void CÔØÈë::f×Óµ¯(const SÔØÈë²ÎÊı &a) {
-	const int vÈ«¾Ö±êÊ¶ = a.mÊ÷.get<int>(L"È«¾Ö.±êÊ¶", ¼ÆËã::fcËæ»ú±êÊ¶());
-	const std::wstring vÈ«¾ÖÃû³Æ = a.mÊ÷.get<std::wstring>(L"È«¾Ö.Ãû³Æ");
-	const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶0 = CÃû³Æ±êÊ¶(vÈ«¾ÖÃû³Æ, vÈ«¾Ö±êÊ¶);
-	assert(c×Óµ¯±êÊ¶ == vÈ«¾Ö±êÊ¶);
-	const boost::property_tree::wptree &vaÊı¾İ = a.mÊ÷.get_child(L"Êı¾İ");
-	auto &vÎÆÀí¹¤³§ = CÓÎÏ·::g×ÊÔ´.fgÎÆÀí¹¤³§();
-	auto &v¶¥µã¹¤³§ = CÓÎÏ·::g×ÊÔ´.fg¶¥µã¹¤³§();
-	auto &va×Óµ¯ÊôĞÔ = CÓÎÏ·::g×ÊÔ´.fg×Óµ¯ÊôĞÔ();
-	int vÖ÷±êÊ¶ = -1;
-	for (const auto &v0 : vaÊı¾İ) {
-		const auto &v×Óµ¯½Úµã = v0.second;
-		vÖ÷±êÊ¶ = v×Óµ¯½Úµã.get<int>(L"±êÊ¶", ++vÖ÷±êÊ¶);
-		const std::wstring v×Óµ¯Ãû³Æ = v×Óµ¯½Úµã.get<std::wstring>(L"Ãû³Æ", L"");
-		const int v×Óµ¯±êÊ¶ = ¼ÆËã::f±êÊ¶(vÈ«¾Ö±êÊ¶, vÖ÷±êÊ¶, 0);
-		//ÎÆÀí
-		const tÊ÷ &vÎÆÀí½Úµã = v×Óµ¯½Úµã.get_child(L"ÎÆÀí");
-		const std::wstring vÎÆÀíÂ·¾¶ = vÎÆÀí½Úµã.get<std::wstring>(L"Â·¾¶");
-		vÎÆÀí¹¤³§.f´´½¨ÎÆÀí(v×Óµ¯±êÊ¶, C³ÌĞò::f¼ÆËãÂ·¾¶(vÎÆÀíÂ·¾¶, a.mÂ·¾¶).native());
-		//¶¥µã
-		const float vÎÆÀí³ß´çx = vÎÆÀí½Úµã.get<float>(L"³ß´ç.¿í");
-		const float vÎÆÀí³ß´çy = vÎÆÀí½Úµã.get<float>(L"³ß´ç.¸ß");
-		v¶¥µã¹¤³§.f×Ô¶¯»¯_ÍêÕûÎÆÀí(v×Óµ¯±êÊ¶, tÏòÁ¿2{vÎÆÀí³ß´çx, vÎÆÀí³ß´çy});
-		//ÊôĞÔ
-		S×Óµ¯ÊôĞÔ &vÊôĞÔ = va×Óµ¯ÊôĞÔ.fÈ¡¿Õ(v×Óµ¯±êÊ¶);
-		const int vÅĞ¶¨ÀàĞÍ = v×Óµ¯½Úµã.get<int>(L"ÅĞ¶¨.ÀàĞÍ");
-		switch (vÅĞ¶¨ÀàĞÍ) {
-			case 0: {	//Ô²ĞÎ
-				const float vÎÆÀí³ß´çd = (vÎÆÀí³ß´çx + vÎÆÀí³ß´çy) / 2;
-				const float vÅĞ¶¨r = v×Óµ¯½Úµã.get<float>(L"ÅĞ¶¨.ÅĞ¶¨r", vÎÆÀí³ß´çd / 2);
-				const float vĞŞÕır = v×Óµ¯½Úµã.get<float>(L"ÅĞ¶¨.ĞŞÕır", vÎÆÀí³ß´çd / 4);
-				vÊôĞÔ.mÅĞ¶¨ = tÏòÁ¿2{vÅĞ¶¨r, 0};
-				vÊôĞÔ.mÅĞ¶¨ĞŞÕı = tÏòÁ¿2{vĞŞÕır, vĞŞÕır};
+void Cè½½å…¥::få­å¼¹(const Sè½½å…¥å‚æ•° &a) {
+	const int vå…¨å±€æ ‡è¯† = a.mæ ‘.get<int>(L"å…¨å±€.æ ‡è¯†", è®¡ç®—::fcéšæœºæ ‡è¯†());
+	const std::wstring vå…¨å±€åç§° = a.mæ ‘.get<std::wstring>(L"å…¨å±€.åç§°");
+	const Cåç§°æ ‡è¯† våç§°æ ‡è¯†0 = Cåç§°æ ‡è¯†(vå…¨å±€åç§°, vå…¨å±€æ ‡è¯†);
+	assert(cå­å¼¹æ ‡è¯† == vå…¨å±€æ ‡è¯†);
+	const boost::property_tree::wptree &vaæ•°æ® = a.mæ ‘.get_child(L"æ•°æ®");
+	auto &vçº¹ç†å·¥å‚ = Cæ¸¸æˆ::gèµ„æº.fgçº¹ç†å·¥å‚();
+	auto &vé¡¶ç‚¹å·¥å‚ = Cæ¸¸æˆ::gèµ„æº.fgé¡¶ç‚¹å·¥å‚();
+	auto &vaå­å¼¹å±æ€§ = Cæ¸¸æˆ::gèµ„æº.fgå­å¼¹å±æ€§();
+	int vä¸»æ ‡è¯† = -1;
+	for (const auto &v0 : vaæ•°æ®) {
+		const auto &vå­å¼¹èŠ‚ç‚¹ = v0.second;
+		vä¸»æ ‡è¯† = vå­å¼¹èŠ‚ç‚¹.get<int>(L"æ ‡è¯†", ++vä¸»æ ‡è¯†);
+		const std::wstring vå­å¼¹åç§° = vå­å¼¹èŠ‚ç‚¹.get<std::wstring>(L"åç§°", L"");
+		const int vå­å¼¹æ ‡è¯† = è®¡ç®—::fæ ‡è¯†(vå…¨å±€æ ‡è¯†, vä¸»æ ‡è¯†, 0);
+		//çº¹ç†
+		const tæ ‘ &vçº¹ç†èŠ‚ç‚¹ = vå­å¼¹èŠ‚ç‚¹.get_child(L"çº¹ç†");
+		const std::wstring vçº¹ç†è·¯å¾„ = vçº¹ç†èŠ‚ç‚¹.get<std::wstring>(L"è·¯å¾„");
+		vçº¹ç†å·¥å‚.fåˆ›å»ºçº¹ç†(vå­å¼¹æ ‡è¯†, Cç¨‹åº::fè®¡ç®—è·¯å¾„(vçº¹ç†è·¯å¾„, a.mè·¯å¾„).native());
+		//é¡¶ç‚¹
+		const float vçº¹ç†å°ºå¯¸x = vçº¹ç†èŠ‚ç‚¹.get<float>(L"å°ºå¯¸.å®½");
+		const float vçº¹ç†å°ºå¯¸y = vçº¹ç†èŠ‚ç‚¹.get<float>(L"å°ºå¯¸.é«˜");
+		vé¡¶ç‚¹å·¥å‚.fè‡ªåŠ¨åŒ–_å®Œæ•´çº¹ç†(vå­å¼¹æ ‡è¯†, tå‘é‡2{vçº¹ç†å°ºå¯¸x, vçº¹ç†å°ºå¯¸y});
+		//å±æ€§
+		Så­å¼¹å±æ€§ &vå±æ€§ = vaå­å¼¹å±æ€§.få–ç©º(vå­å¼¹æ ‡è¯†);
+		const int våˆ¤å®šç±»å‹ = vå­å¼¹èŠ‚ç‚¹.get<int>(L"åˆ¤å®š.ç±»å‹");
+		switch (våˆ¤å®šç±»å‹) {
+			case 0: {	//åœ†å½¢
+				const float vçº¹ç†å°ºå¯¸d = (vçº¹ç†å°ºå¯¸x + vçº¹ç†å°ºå¯¸y) / 2;
+				const float våˆ¤å®šr = vå­å¼¹èŠ‚ç‚¹.get<float>(L"åˆ¤å®š.åˆ¤å®šr", vçº¹ç†å°ºå¯¸d / 2);
+				const float vä¿®æ­£r = vå­å¼¹èŠ‚ç‚¹.get<float>(L"åˆ¤å®š.ä¿®æ­£r", vçº¹ç†å°ºå¯¸d / 4);
+				vå±æ€§.måˆ¤å®š = tå‘é‡2{våˆ¤å®šr, 0};
+				vå±æ€§.måˆ¤å®šä¿®æ­£ = tå‘é‡2{vä¿®æ­£r, vä¿®æ­£r};
 				break;
 			}
-			case 1: {	//¾ØĞÎ
-				const float vÅĞ¶¨x = v×Óµ¯½Úµã.get<float>(L"ÅĞ¶¨.ÅĞ¶¨x", vÎÆÀí³ß´çx / 2);
-				const float vÅĞ¶¨y = v×Óµ¯½Úµã.get<float>(L"ÅĞ¶¨.ÅĞ¶¨y", vÎÆÀí³ß´çy / 2);
-				const float vĞŞÕıx = v×Óµ¯½Úµã.get<float>(L"ÅĞ¶¨.ĞŞÕıx", vÎÆÀí³ß´çx / 4);
-				const float vĞŞÕıy = v×Óµ¯½Úµã.get<float>(L"ÅĞ¶¨.ĞŞÕıy", vÎÆÀí³ß´çy / 4);
-				vÊôĞÔ.mÅĞ¶¨ = tÏòÁ¿2{vÅĞ¶¨x, vÅĞ¶¨y};
-				vÊôĞÔ.mÅĞ¶¨ĞŞÕı = tÏòÁ¿2{vĞŞÕıx, vĞŞÕıy};
+			case 1: {	//çŸ©å½¢
+				const float våˆ¤å®šx = vå­å¼¹èŠ‚ç‚¹.get<float>(L"åˆ¤å®š.åˆ¤å®šx", vçº¹ç†å°ºå¯¸x / 2);
+				const float våˆ¤å®šy = vå­å¼¹èŠ‚ç‚¹.get<float>(L"åˆ¤å®š.åˆ¤å®šy", vçº¹ç†å°ºå¯¸y / 2);
+				const float vä¿®æ­£x = vå­å¼¹èŠ‚ç‚¹.get<float>(L"åˆ¤å®š.ä¿®æ­£x", vçº¹ç†å°ºå¯¸x / 4);
+				const float vä¿®æ­£y = vå­å¼¹èŠ‚ç‚¹.get<float>(L"åˆ¤å®š.ä¿®æ­£y", vçº¹ç†å°ºå¯¸y / 4);
+				vå±æ€§.måˆ¤å®š = tå‘é‡2{våˆ¤å®šx, våˆ¤å®šy};
+				vå±æ€§.måˆ¤å®šä¿®æ­£ = tå‘é‡2{vä¿®æ­£x, vä¿®æ­£y};
 				break;
 			}
 			default:
 				break;
 		}
-		vÊôĞÔ.mÎÆÀí = v×Óµ¯±êÊ¶;
-		vÊôĞÔ.m¶¥µã = v×Óµ¯±êÊ¶;
-		vÊôĞÔ.m¶¯»­Ö¡Êı = 1;
-		//va×Óµ¯ÊôĞÔ.fÌí¼Ó(v×Óµ¯±êÊ¶, vÊôĞÔ);
+		vå±æ€§.mçº¹ç† = vå­å¼¹æ ‡è¯†;
+		vå±æ€§.mé¡¶ç‚¹ = vå­å¼¹æ ‡è¯†;
+		vå±æ€§.måŠ¨ç”»å¸§æ•° = 1;
+		//vaå­å¼¹å±æ€§.fæ·»åŠ (vå­å¼¹æ ‡è¯†, vå±æ€§);
 	}
 }
-void CÔØÈë::fµĞ»ú(const SÔØÈë²ÎÊı &a) {
-	const int vÈ«¾Ö±êÊ¶ = a.mÊ÷.get<int>(L"È«¾Ö.±êÊ¶", ¼ÆËã::fcËæ»ú±êÊ¶());
-	const std::wstring vÈ«¾ÖÃû³Æ = a.mÊ÷.get<std::wstring>(L"È«¾Ö.Ãû³Æ");
-	const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶0 = CÃû³Æ±êÊ¶(vÈ«¾ÖÃû³Æ, vÈ«¾Ö±êÊ¶);
-	const int vÈ«¾Ö¶¯»­ÒıÓÃ = a.mÊ÷.get<int>(L"È«¾Ö.¶¯»­.ÒıÓÃ.±êÊ¶", 0);
-	const int vÈ«¾Ö¶¥µãÒıÓÃ = a.mÊ÷.get<int>(L"È«¾Ö.¶¥µã.ÒıÓÃ.±êÊ¶", 0);
-	auto &vaµĞ»úÊôĞÔ = CÓÎÏ·::g×ÊÔ´.fgµĞ»úÊôĞÔ();
-	auto &vÎÆÀí¹¤³§ = CÓÎÏ·::g×ÊÔ´.fgÎÆÀí¹¤³§();
-	const auto &vaÊı¾İ = a.mÊ÷.get_child(L"Êı¾İ");
-	int vÖ÷±êÊ¶ = -1;
-	for (const auto &v0 : vaÊı¾İ) {
-		const auto &v½Úµã0 = v0.second;
-		vÖ÷±êÊ¶ = v½Úµã0.get<int>(L"±êÊ¶", ++vÖ÷±êÊ¶);
-		const int vµĞ»ú±êÊ¶ = ¼ÆËã::f±êÊ¶(vÈ«¾Ö±êÊ¶, vÖ÷±êÊ¶, 0);
-		const std::wstring vµĞ»úÃû³Æ = v½Úµã0.get<std::wstring>(L"Ãû³Æ", L""); 
-		const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶1 = vÃû³Æ±êÊ¶0.f´´½¨²ã(vµĞ»úÃû³Æ, vÖ÷±êÊ¶);
-		auto &vÊôĞÔ = vaµĞ»úÊôĞÔ.fÈ¡¿Õ(vµĞ»ú±êÊ¶);
-		vÊôĞÔ.mÅĞ¶¨°ë¾¶ = v½Úµã0.get<float>(L"ÅĞ¶¨°ë¾¶", 16);
-		const auto &vÎÆÀíÂ·¾¶ = v½Úµã0.get_optional<std::wstring>(L"ÎÆÀí.Â·¾¶");
-		if (vÎÆÀíÂ·¾¶) {
-			vÎÆÀí¹¤³§.f´´½¨ÎÆÀí(vµĞ»ú±êÊ¶, C³ÌĞò::f¼ÆËãÂ·¾¶(*vÎÆÀíÂ·¾¶, a.mÂ·¾¶).native());
-			vÊôĞÔ.mÎÆÀí = vµĞ»ú±êÊ¶;
+void Cè½½å…¥::fæ•Œæœº(const Sè½½å…¥å‚æ•° &a) {
+	const int vå…¨å±€æ ‡è¯† = a.mæ ‘.get<int>(L"å…¨å±€.æ ‡è¯†", è®¡ç®—::fcéšæœºæ ‡è¯†());
+	const std::wstring vå…¨å±€åç§° = a.mæ ‘.get<std::wstring>(L"å…¨å±€.åç§°");
+	const Cåç§°æ ‡è¯† våç§°æ ‡è¯†0 = Cåç§°æ ‡è¯†(vå…¨å±€åç§°, vå…¨å±€æ ‡è¯†);
+	const int vå…¨å±€åŠ¨ç”»å¼•ç”¨ = a.mæ ‘.get<int>(L"å…¨å±€.åŠ¨ç”».å¼•ç”¨.æ ‡è¯†", 0);
+	const int vå…¨å±€é¡¶ç‚¹å¼•ç”¨ = a.mæ ‘.get<int>(L"å…¨å±€.é¡¶ç‚¹.å¼•ç”¨.æ ‡è¯†", 0);
+	auto &vaæ•Œæœºå±æ€§ = Cæ¸¸æˆ::gèµ„æº.fgæ•Œæœºå±æ€§();
+	auto &vçº¹ç†å·¥å‚ = Cæ¸¸æˆ::gèµ„æº.fgçº¹ç†å·¥å‚();
+	const auto &vaæ•°æ® = a.mæ ‘.get_child(L"æ•°æ®");
+	int vä¸»æ ‡è¯† = -1;
+	for (const auto &v0 : vaæ•°æ®) {
+		const auto &vèŠ‚ç‚¹0 = v0.second;
+		vä¸»æ ‡è¯† = vèŠ‚ç‚¹0.get<int>(L"æ ‡è¯†", ++vä¸»æ ‡è¯†);
+		const int væ•Œæœºæ ‡è¯† = è®¡ç®—::fæ ‡è¯†(vå…¨å±€æ ‡è¯†, vä¸»æ ‡è¯†, 0);
+		const std::wstring væ•Œæœºåç§° = vèŠ‚ç‚¹0.get<std::wstring>(L"åç§°", L""); 
+		const Cåç§°æ ‡è¯† våç§°æ ‡è¯†1 = våç§°æ ‡è¯†0.fåˆ›å»ºå±‚(væ•Œæœºåç§°, vä¸»æ ‡è¯†);
+		auto &vå±æ€§ = vaæ•Œæœºå±æ€§.få–ç©º(væ•Œæœºæ ‡è¯†);
+		vå±æ€§.måˆ¤å®šåŠå¾„ = vèŠ‚ç‚¹0.get<float>(L"åˆ¤å®šåŠå¾„", 16);
+		const auto &vçº¹ç†è·¯å¾„ = vèŠ‚ç‚¹0.get_optional<std::wstring>(L"çº¹ç†.è·¯å¾„");
+		if (vçº¹ç†è·¯å¾„) {
+			vçº¹ç†å·¥å‚.fåˆ›å»ºçº¹ç†(væ•Œæœºæ ‡è¯†, Cç¨‹åº::fè®¡ç®—è·¯å¾„(*vçº¹ç†è·¯å¾„, a.mè·¯å¾„).native());
+			vå±æ€§.mçº¹ç† = væ•Œæœºæ ‡è¯†;
 		} else {
-			vÊôĞÔ.mÎÆÀí = nullptr;
+			vå±æ€§.mçº¹ç† = nullptr;
 		}
-		C½âÎöÒıÓÃ::f½âÎö¸³Öµ(vÊôĞÔ.m¶¯»­, vÈ«¾Ö¶¯»­ÒıÓÃ, v½Úµã0.get_child_optional(L"¶¯»­.ÒıÓÃ"));
-		C½âÎöÒıÓÃ::f½âÎö¸³Öµ(vÊôĞÔ.m¶¥µã, vÈ«¾Ö¶¥µãÒıÓÃ, v½Úµã0.get_child_optional(L"¶¥µã.ÒıÓÃ"));
+		Cè§£æå¼•ç”¨::fè§£æèµ‹å€¼(vå±æ€§.måŠ¨ç”», vå…¨å±€åŠ¨ç”»å¼•ç”¨, vèŠ‚ç‚¹0.get_child_optional(L"åŠ¨ç”».å¼•ç”¨"));
+		Cè§£æå¼•ç”¨::fè§£æèµ‹å€¼(vå±æ€§.mé¡¶ç‚¹, vå…¨å±€é¡¶ç‚¹å¼•ç”¨, vèŠ‚ç‚¹0.get_child_optional(L"é¡¶ç‚¹.å¼•ç”¨"));
 	}
 }
-void CÔØÈë::f×Ô»ú(const SÔØÈë²ÎÊı &a) {
-	const int vÈ«¾Ö±êÊ¶ = a.mÊ÷.get<int>(L"È«¾Ö.±êÊ¶", ¼ÆËã::fcËæ»ú±êÊ¶());
-	const std::wstring vÈ«¾ÖÃû³Æ = a.mÊ÷.get<std::wstring>(L"È«¾Ö.Ãû³Æ");
-	const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶0 = CÃû³Æ±êÊ¶(vÈ«¾ÖÃû³Æ, vÈ«¾Ö±êÊ¶);
-	const int vÈ«¾Ö·¢ÉäÒıÓÃ = a.mÊ÷.get<int>(L"È«¾Ö.·¢Éä.ÒıÓÃ.±êÊ¶", 0);
-	const int vÈ«¾Ö¶¯»­ÒıÓÃ = a.mÊ÷.get<int>(L"È«¾Ö.¶¯»­.ÒıÓÃ.±êÊ¶", 0);
-	const int vÈ«¾Ö¶¥µãÒıÓÃ = a.mÊ÷.get<int>(L"È«¾Ö.¶¥µã.ÒıÓÃ.±êÊ¶", 0);
-	const C½âÎöÒıÓÃ vÈ«¾Ö×Óµ¯ÒıÓÃ = {a.mÊ÷.get<int>(L"È«¾Ö.×Óµ¯.ÒıÓÃ.±êÊ¶", 0)};
-	const auto &vaÊı¾İ = a.mÊ÷.get_child(L"Êı¾İ");
-	auto &vÎÆÀí¹¤³§ = CÓÎÏ·::g×ÊÔ´.fgÎÆÀí¹¤³§();
-	auto &va×Ô»úÊôĞÔ = CÓÎÏ·::g×ÊÔ´.fg×Ô»úÊôĞÔ();
-	int vÖ÷±êÊ¶ = -1;
-	for (const auto &v0 : vaÊı¾İ) {
-		const auto &v½Úµã0 = v0.second;
-		vÖ÷±êÊ¶ = v½Úµã0.get<int>(L"±êÊ¶", ++vÖ÷±êÊ¶);
-		const int v×Ô»ú±êÊ¶ = ¼ÆËã::f±êÊ¶(vÈ«¾Ö±êÊ¶, vÖ÷±êÊ¶, 0);
-		const std::wstring v×Ô»úÃû³Æ = v½Úµã0.get<std::wstring>(L"Ãû³Æ", L"");
-		const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶1 = vÃû³Æ±êÊ¶0.f´´½¨²ã(v×Ô»úÃû³Æ, vÖ÷±êÊ¶);
-		auto &vÊôĞÔ = va×Ô»úÊôĞÔ.fÈ¡¿Õ(v×Ô»ú±êÊ¶);
-		//ÎÆÀí
-		const auto &vÎÆÀíÂ·¾¶ = v½Úµã0.get_optional<std::wstring>(L"ÎÆÀí.Â·¾¶");
-		if (vÎÆÀíÂ·¾¶) {
-			vÎÆÀí¹¤³§.f´´½¨ÎÆÀí(v×Ô»ú±êÊ¶, C³ÌĞò::f¼ÆËãÂ·¾¶(*vÎÆÀíÂ·¾¶, a.mÂ·¾¶).native());
-			vÊôĞÔ.mÎÆÀí = v×Ô»ú±êÊ¶;
+void Cè½½å…¥::fè‡ªæœº(const Sè½½å…¥å‚æ•° &a) {
+	const int vå…¨å±€æ ‡è¯† = a.mæ ‘.get<int>(L"å…¨å±€.æ ‡è¯†", è®¡ç®—::fcéšæœºæ ‡è¯†());
+	const std::wstring vå…¨å±€åç§° = a.mæ ‘.get<std::wstring>(L"å…¨å±€.åç§°");
+	const Cåç§°æ ‡è¯† våç§°æ ‡è¯†0 = Cåç§°æ ‡è¯†(vå…¨å±€åç§°, vå…¨å±€æ ‡è¯†);
+	const int vå…¨å±€å‘å°„å¼•ç”¨ = a.mæ ‘.get<int>(L"å…¨å±€.å‘å°„.å¼•ç”¨.æ ‡è¯†", 0);
+	const int vå…¨å±€åŠ¨ç”»å¼•ç”¨ = a.mæ ‘.get<int>(L"å…¨å±€.åŠ¨ç”».å¼•ç”¨.æ ‡è¯†", 0);
+	const int vå…¨å±€é¡¶ç‚¹å¼•ç”¨ = a.mæ ‘.get<int>(L"å…¨å±€.é¡¶ç‚¹.å¼•ç”¨.æ ‡è¯†", 0);
+	const Cè§£æå¼•ç”¨ vå…¨å±€å­å¼¹å¼•ç”¨ = {a.mæ ‘.get<int>(L"å…¨å±€.å­å¼¹.å¼•ç”¨.æ ‡è¯†", 0)};
+	const auto &vaæ•°æ® = a.mæ ‘.get_child(L"æ•°æ®");
+	auto &vçº¹ç†å·¥å‚ = Cæ¸¸æˆ::gèµ„æº.fgçº¹ç†å·¥å‚();
+	auto &vaè‡ªæœºå±æ€§ = Cæ¸¸æˆ::gèµ„æº.fgè‡ªæœºå±æ€§();
+	int vä¸»æ ‡è¯† = -1;
+	for (const auto &v0 : vaæ•°æ®) {
+		const auto &vèŠ‚ç‚¹0 = v0.second;
+		vä¸»æ ‡è¯† = vèŠ‚ç‚¹0.get<int>(L"æ ‡è¯†", ++vä¸»æ ‡è¯†);
+		const int vè‡ªæœºæ ‡è¯† = è®¡ç®—::fæ ‡è¯†(vå…¨å±€æ ‡è¯†, vä¸»æ ‡è¯†, 0);
+		const std::wstring vè‡ªæœºåç§° = vèŠ‚ç‚¹0.get<std::wstring>(L"åç§°", L"");
+		const Cåç§°æ ‡è¯† våç§°æ ‡è¯†1 = våç§°æ ‡è¯†0.fåˆ›å»ºå±‚(vè‡ªæœºåç§°, vä¸»æ ‡è¯†);
+		auto &vå±æ€§ = vaè‡ªæœºå±æ€§.få–ç©º(vè‡ªæœºæ ‡è¯†);
+		//çº¹ç†
+		const auto &vçº¹ç†è·¯å¾„ = vèŠ‚ç‚¹0.get_optional<std::wstring>(L"çº¹ç†.è·¯å¾„");
+		if (vçº¹ç†è·¯å¾„) {
+			vçº¹ç†å·¥å‚.fåˆ›å»ºçº¹ç†(vè‡ªæœºæ ‡è¯†, Cç¨‹åº::fè®¡ç®—è·¯å¾„(*vçº¹ç†è·¯å¾„, a.mè·¯å¾„).native());
+			vå±æ€§.mçº¹ç† = vè‡ªæœºæ ‡è¯†;
 		} else {
-			vÊôĞÔ.mÎÆÀí = nullptr;
+			vå±æ€§.mçº¹ç† = nullptr;
 		}
-		//ÊôĞÔ
-		vÊôĞÔ.mÅĞ¶¨°ë¾¶ = v½Úµã0.get<float>(L"ÅĞ¶¨°ë¾¶", C×Ô»ú::cÅĞ¶¨°ë¾¶);
-		vÊôĞÔ.m²Áµ¯°ë¾¶ = v½Úµã0.get<float>(L"²Áµ¯°ë¾¶", C×Ô»ú::c²Áµ¯°ë¾¶);
-		vÊôĞÔ.mµÀ¾ß°ë¾¶ = v½Úµã0.get<float>(L"µÀ¾ß°ë¾¶", C×Ô»ú::cµÀ¾ß°ë¾¶);
-		vÊôĞÔ.mÒÆ¶¯ËÙ¶È = v½Úµã0.get<float>(L"ÒÆ¶¯ËÙ¶È", C×Ô»ú::cÒÆ¶¯ËÙ¶È);
-		C½âÎöÒıÓÃ::f½âÎö¸³Öµ(vÊôĞÔ.m¶¯»­, vÈ«¾Ö¶¯»­ÒıÓÃ, v½Úµã0.get_child_optional(L"¶¯»­.ÒıÓÃ"));
-		C½âÎöÒıÓÃ::f½âÎö¸³Öµ(vÊôĞÔ.m¶¥µã, vÈ«¾Ö¶¥µãÒıÓÃ, v½Úµã0.get_child_optional(L"¶¥µã.ÒıÓÃ"));
-		C½âÎöÒıÓÃ::f½âÎö¸³Öµ(vÊôĞÔ.m·¢Éä×Óµ¯, vÈ«¾Ö·¢ÉäÒıÓÃ, v½Úµã0.get_child_optional(L"·¢Éä.ÒıÓÃ"));
-		C½âÎöÒıÓÃ::f½âÎö¸³Öµ(vÊôĞÔ.m×Óµ¯ÊôĞÔ, vÈ«¾Ö×Óµ¯ÒıÓÃ, v½Úµã0.get_child_optional(L"×Óµ¯.ÒıÓÃ"));
+		//å±æ€§
+		vå±æ€§.måˆ¤å®šåŠå¾„ = vèŠ‚ç‚¹0.get<float>(L"åˆ¤å®šåŠå¾„", Cè‡ªæœº::cåˆ¤å®šåŠå¾„);
+		vå±æ€§.mæ“¦å¼¹åŠå¾„ = vèŠ‚ç‚¹0.get<float>(L"æ“¦å¼¹åŠå¾„", Cè‡ªæœº::cæ“¦å¼¹åŠå¾„);
+		vå±æ€§.mé“å…·åŠå¾„ = vèŠ‚ç‚¹0.get<float>(L"é“å…·åŠå¾„", Cè‡ªæœº::cé“å…·åŠå¾„);
+		vå±æ€§.mç§»åŠ¨é€Ÿåº¦ = vèŠ‚ç‚¹0.get<float>(L"ç§»åŠ¨é€Ÿåº¦", Cè‡ªæœº::cç§»åŠ¨é€Ÿåº¦);
+		Cè§£æå¼•ç”¨::fè§£æèµ‹å€¼(vå±æ€§.måŠ¨ç”», vå…¨å±€åŠ¨ç”»å¼•ç”¨, vèŠ‚ç‚¹0.get_child_optional(L"åŠ¨ç”».å¼•ç”¨"));
+		Cè§£æå¼•ç”¨::fè§£æèµ‹å€¼(vå±æ€§.mé¡¶ç‚¹, vå…¨å±€é¡¶ç‚¹å¼•ç”¨, vèŠ‚ç‚¹0.get_child_optional(L"é¡¶ç‚¹.å¼•ç”¨"));
+		Cè§£æå¼•ç”¨::fè§£æèµ‹å€¼(vå±æ€§.må‘å°„å­å¼¹, vå…¨å±€å‘å°„å¼•ç”¨, vèŠ‚ç‚¹0.get_child_optional(L"å‘å°„.å¼•ç”¨"));
+		Cè§£æå¼•ç”¨::fè§£æèµ‹å€¼(vå±æ€§.må­å¼¹å±æ€§, vå…¨å±€å­å¼¹å¼•ç”¨, vèŠ‚ç‚¹0.get_child_optional(L"å­å¼¹.å¼•ç”¨"));
 	}
 }
-void CÔØÈë::f×Ó»ú(const SÔØÈë²ÎÊı &a) {
-	const int vÈ«¾Ö±êÊ¶ = a.mÊ÷.get<int>(L"È«¾Ö.±êÊ¶", ¼ÆËã::fcËæ»ú±êÊ¶());
-	const std::wstring vÈ«¾ÖÃû³Æ = a.mÊ÷.get<std::wstring>(L"È«¾Ö.Ãû³Æ");
-	const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶0 = CÃû³Æ±êÊ¶(vÈ«¾ÖÃû³Æ, vÈ«¾Ö±êÊ¶);
-	assert(c×Ó»ú±êÊ¶ == vÈ«¾Ö±êÊ¶);
-	const C½âÎöÒıÓÃ vÈ«¾ÖÎÆÀíÒıÓÃ = {a.mÊ÷.get<int>(L"È«¾Ö.ÎÆÀí.ÒıÓÃ.±êÊ¶", 0)};
-	const C½âÎöÒıÓÃ vÈ«¾Ö¶¥µãÒıÓÃ = {a.mÊ÷.get<int>(L"È«¾Ö.¶¥µã.ÒıÓÃ.±êÊ¶", 0)};
-	const C½âÎöÒıÓÃ vÈ«¾ÖÒÆ¶¯ÒıÓÃ = {a.mÊ÷.get<int>(L"È«¾Ö.ÒÆ¶¯.ÒıÓÃ.±êÊ¶", 0)};
-	const C½âÎöÒıÓÃ vÈ«¾Ö·¢ÉäÒıÓÃ = {a.mÊ÷.get<int>(L"È«¾Ö.·¢Éä.ÒıÓÃ.±êÊ¶", 0)};
-	const C½âÎöÒıÓÃ vÈ«¾Ö×Óµ¯ÒıÓÃ = {a.mÊ÷.get<int>(L"È«¾Ö.×Óµ¯.ÒıÓÃ.±êÊ¶", 0)};
-	const auto &vaÊı¾İ = a.mÊ÷.get_child(L"Êı¾İ");
-	auto &va×Ó»ú = CÓÎÏ·::g×ÊÔ´.fg×Ó»úÊôĞÔ();
-	auto &va×Ó»úÒÆ¶¯ = CÓÎÏ·::g×ÊÔ´.fg×Ó»úÒÆ¶¯();
-	int vÖ÷±êÊ¶ = -1;
-	for (const auto &v0 : vaÊı¾İ) {
-		const auto &v½Úµã0 = v0.second;
-		vÖ÷±êÊ¶ = v½Úµã0.get<int>(L"±êÊ¶", ++vÖ÷±êÊ¶);
-		const int v×Ó»ú±êÊ¶ = ¼ÆËã::f±êÊ¶(vÈ«¾Ö±êÊ¶, vÖ÷±êÊ¶, 0);
-		const std::wstring v×Ó»úÃû³Æ = v½Úµã0.get<std::wstring>(L"Ãû³Æ", L"");
-		const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶1 = vÃû³Æ±êÊ¶0.f´´½¨²ã(v×Ó»úÃû³Æ, vÖ÷±êÊ¶);
-		auto &v×Ó»úÊôĞÔ = va×Ó»ú.fÈ¡¿Õ(v×Ó»ú±êÊ¶);
-		const int vÀàĞÍ = v½Úµã0.get<int>(L"ÀàĞÍ", 0);
-		//×Ó»úÊı
-		const int v×Ó»úÊı = v½Úµã0.get<int>(L"×Ó»úÊı", 0);
-		v×Ó»úÊôĞÔ.mÊıÁ¿ÉÏÏŞ = v×Ó»úÊı;
+void Cè½½å…¥::få­æœº(const Sè½½å…¥å‚æ•° &a) {
+	const int vå…¨å±€æ ‡è¯† = a.mæ ‘.get<int>(L"å…¨å±€.æ ‡è¯†", è®¡ç®—::fcéšæœºæ ‡è¯†());
+	const std::wstring vå…¨å±€åç§° = a.mæ ‘.get<std::wstring>(L"å…¨å±€.åç§°");
+	const Cåç§°æ ‡è¯† våç§°æ ‡è¯†0 = Cåç§°æ ‡è¯†(vå…¨å±€åç§°, vå…¨å±€æ ‡è¯†);
+	assert(cå­æœºæ ‡è¯† == vå…¨å±€æ ‡è¯†);
+	const Cè§£æå¼•ç”¨ vå…¨å±€çº¹ç†å¼•ç”¨ = {a.mæ ‘.get<int>(L"å…¨å±€.çº¹ç†.å¼•ç”¨.æ ‡è¯†", 0)};
+	const Cè§£æå¼•ç”¨ vå…¨å±€é¡¶ç‚¹å¼•ç”¨ = {a.mæ ‘.get<int>(L"å…¨å±€.é¡¶ç‚¹.å¼•ç”¨.æ ‡è¯†", 0)};
+	const Cè§£æå¼•ç”¨ vå…¨å±€ç§»åŠ¨å¼•ç”¨ = {a.mæ ‘.get<int>(L"å…¨å±€.ç§»åŠ¨.å¼•ç”¨.æ ‡è¯†", 0)};
+	const Cè§£æå¼•ç”¨ vå…¨å±€å‘å°„å¼•ç”¨ = {a.mæ ‘.get<int>(L"å…¨å±€.å‘å°„.å¼•ç”¨.æ ‡è¯†", 0)};
+	const Cè§£æå¼•ç”¨ vå…¨å±€å­å¼¹å¼•ç”¨ = {a.mæ ‘.get<int>(L"å…¨å±€.å­å¼¹.å¼•ç”¨.æ ‡è¯†", 0)};
+	const auto &vaæ•°æ® = a.mæ ‘.get_child(L"æ•°æ®");
+	auto &vaå­æœº = Cæ¸¸æˆ::gèµ„æº.fgå­æœºå±æ€§();
+	auto &vaå­æœºç§»åŠ¨ = Cæ¸¸æˆ::gèµ„æº.fgå­æœºç§»åŠ¨();
+	int vä¸»æ ‡è¯† = -1;
+	for (const auto &v0 : vaæ•°æ®) {
+		const auto &vèŠ‚ç‚¹0 = v0.second;
+		vä¸»æ ‡è¯† = vèŠ‚ç‚¹0.get<int>(L"æ ‡è¯†", ++vä¸»æ ‡è¯†);
+		const int vå­æœºæ ‡è¯† = è®¡ç®—::fæ ‡è¯†(vå…¨å±€æ ‡è¯†, vä¸»æ ‡è¯†, 0);
+		const std::wstring vå­æœºåç§° = vèŠ‚ç‚¹0.get<std::wstring>(L"åç§°", L"");
+		const Cåç§°æ ‡è¯† våç§°æ ‡è¯†1 = våç§°æ ‡è¯†0.fåˆ›å»ºå±‚(vå­æœºåç§°, vä¸»æ ‡è¯†);
+		auto &vå­æœºå±æ€§ = vaå­æœº.få–ç©º(vå­æœºæ ‡è¯†);
+		const int vç±»å‹ = vèŠ‚ç‚¹0.get<int>(L"ç±»å‹", 0);
+		//å­æœºæ•°
+		const int vå­æœºæ•° = vèŠ‚ç‚¹0.get<int>(L"å­æœºæ•°", 0);
+		vå­æœºå±æ€§.mæ•°é‡ä¸Šé™ = vå­æœºæ•°;
 
-		C½âÎöÒıÓÃ::f½âÎö¸³Öµ(v×Ó»úÊôĞÔ.mÎÆÀí, vÈ«¾ÖÎÆÀíÒıÓÃ, v½Úµã0.get_child_optional(L"ÎÆÀí.ÒıÓÃ"));
-		C½âÎöÒıÓÃ::f½âÎö¸³Öµ(v×Ó»úÊôĞÔ.m¶¥µã, vÈ«¾Ö¶¥µãÒıÓÃ, v½Úµã0.get_child_optional(L"¶¥µã.ÒıÓÃ"));
-		C½âÎöÒıÓÃ::f½âÎö¸³Öµ(v×Ó»úÊôĞÔ.m·¢Éä, vÈ«¾Ö·¢ÉäÒıÓÃ, v½Úµã0.get_child_optional(L"·¢Éä.ÒıÓÃ"));
-		C½âÎöÒıÓÃ::f½âÎö¸³Öµ(v×Ó»úÊôĞÔ.m×Óµ¯ÊôĞÔ, vÈ«¾Ö×Óµ¯ÒıÓÃ, v½Úµã0.get_child_optional(L"×Óµ¯.ÒıÓÃ"));
-		//ÒÆ¶¯
-		if (const auto &v×Ó»úÒÆ¶¯½Úµã = v½Úµã0.get_child_optional(L"ÒÆ¶¯")) {
-			if (const auto &v×Ó»úÒÆ¶¯ÒıÓÃ½Úµã = v×Ó»úÒÆ¶¯½Úµã->get_child_optional(L"ÒıÓÃ")) {
-				C½âÎöÒıÓÃ::f½âÎö¸³Öµ(v×Ó»úÊôĞÔ.mÒÆ¶¯, vÈ«¾ÖÒÆ¶¯ÒıÓÃ, v×Ó»úÒÆ¶¯ÒıÓÃ½Úµã);
-			} else if (const auto &v×Ó»úÒÆ¶¯ÀàĞÍ = v×Ó»úÒÆ¶¯½Úµã->get_optional<int>(L"ÀàĞÍ")) {
-				v×Ó»úÊôĞÔ.mÒÆ¶¯ = v×Ó»ú±êÊ¶;
-				va×Ó»úÒÆ¶¯.fÌí¼Ó(v×Ó»ú±êÊ¶, C½âÎö×Ó»úÒÆ¶¯json::f»ã×Ü(*v×Ó»úÒÆ¶¯ÀàĞÍ, v×Ó»úÊı, v×Ó»úÒÆ¶¯½Úµã->get_child(L"Öµ")).release());
+		Cè§£æå¼•ç”¨::fè§£æèµ‹å€¼(vå­æœºå±æ€§.mçº¹ç†, vå…¨å±€çº¹ç†å¼•ç”¨, vèŠ‚ç‚¹0.get_child_optional(L"çº¹ç†.å¼•ç”¨"));
+		Cè§£æå¼•ç”¨::fè§£æèµ‹å€¼(vå­æœºå±æ€§.mé¡¶ç‚¹, vå…¨å±€é¡¶ç‚¹å¼•ç”¨, vèŠ‚ç‚¹0.get_child_optional(L"é¡¶ç‚¹.å¼•ç”¨"));
+		Cè§£æå¼•ç”¨::fè§£æèµ‹å€¼(vå­æœºå±æ€§.må‘å°„, vå…¨å±€å‘å°„å¼•ç”¨, vèŠ‚ç‚¹0.get_child_optional(L"å‘å°„.å¼•ç”¨"));
+		Cè§£æå¼•ç”¨::fè§£æèµ‹å€¼(vå­æœºå±æ€§.må­å¼¹å±æ€§, vå…¨å±€å­å¼¹å¼•ç”¨, vèŠ‚ç‚¹0.get_child_optional(L"å­å¼¹.å¼•ç”¨"));
+		//ç§»åŠ¨
+		if (const auto &vå­æœºç§»åŠ¨èŠ‚ç‚¹ = vèŠ‚ç‚¹0.get_child_optional(L"ç§»åŠ¨")) {
+			if (const auto &vå­æœºç§»åŠ¨å¼•ç”¨èŠ‚ç‚¹ = vå­æœºç§»åŠ¨èŠ‚ç‚¹->get_child_optional(L"å¼•ç”¨")) {
+				Cè§£æå¼•ç”¨::fè§£æèµ‹å€¼(vå­æœºå±æ€§.mç§»åŠ¨, vå…¨å±€ç§»åŠ¨å¼•ç”¨, vå­æœºç§»åŠ¨å¼•ç”¨èŠ‚ç‚¹);
+			} else if (const auto &vå­æœºç§»åŠ¨ç±»å‹ = vå­æœºç§»åŠ¨èŠ‚ç‚¹->get_optional<int>(L"ç±»å‹")) {
+				vå­æœºå±æ€§.mç§»åŠ¨ = vå­æœºæ ‡è¯†;
+				vaå­æœºç§»åŠ¨.fæ·»åŠ (vå­æœºæ ‡è¯†, Cè§£æå­æœºç§»åŠ¨json::fæ±‡æ€»(*vå­æœºç§»åŠ¨ç±»å‹, vå­æœºæ•°, vå­æœºç§»åŠ¨èŠ‚ç‚¹->get_child(L"å€¼")).release());
 			} else {
-				v×Ó»úÊôĞÔ.mÒÆ¶¯ = vÈ«¾ÖÒÆ¶¯ÒıÓÃ.fgÖµ();
+				vå­æœºå±æ€§.mç§»åŠ¨ = vå…¨å±€ç§»åŠ¨å¼•ç”¨.fgå€¼();
 			}
 		} else {
-			v×Ó»úÊôĞÔ.mÒÆ¶¯ = vÈ«¾ÖÒÆ¶¯ÒıÓÃ.fgÖµ();
+			vå­æœºå±æ€§.mç§»åŠ¨ = vå…¨å±€ç§»åŠ¨å¼•ç”¨.fgå€¼();
 		}
 	}
 }
-void CÔØÈë::f×Ó»úÎ»ÖÃ(const SÔØÈë²ÎÊı &a) {
-	const int vÈ«¾Ö±êÊ¶ = a.mÊ÷.get<int>(L"È«¾Ö.±êÊ¶", ¼ÆËã::fcËæ»ú±êÊ¶());
-	assert(c×Ó»úÒÆ¶¯±êÊ¶ == vÈ«¾Ö±êÊ¶);
-	const auto &vaÊı¾İ = a.mÊ÷.get_child(L"Êı¾İ");
-	auto &va×Ó»úÒÆ¶¯ = CÓÎÏ·::g×ÊÔ´.fg×Ó»úÒÆ¶¯();
-	for (const auto &v0 : vaÊı¾İ) {
-		const auto &v½Úµã0 = v0.second;
-		const int v×Ó»úÒÆ¶¯±êÊ¶ = vÈ«¾Ö±êÊ¶ + v½Úµã0.get<int>(L"±êÊ¶");
-		const int vÀàĞÍ = v½Úµã0.get<int>(L"ÀàĞÍ", 0);
-		const int v×Ó»úÊı = v½Úµã0.get<int>(L"×Ó»úÊı", 0);
-		const auto &vaÖµ = v½Úµã0.get_child(L"Öµ");
-		va×Ó»úÒÆ¶¯.fÌí¼Ó(v×Ó»úÒÆ¶¯±êÊ¶, C½âÎö×Ó»úÒÆ¶¯json::f»ã×Ü(vÀàĞÍ, v×Ó»úÊı, vaÖµ).release());
+void Cè½½å…¥::få­æœºä½ç½®(const Sè½½å…¥å‚æ•° &a) {
+	const int vå…¨å±€æ ‡è¯† = a.mæ ‘.get<int>(L"å…¨å±€.æ ‡è¯†", è®¡ç®—::fcéšæœºæ ‡è¯†());
+	assert(cå­æœºç§»åŠ¨æ ‡è¯† == vå…¨å±€æ ‡è¯†);
+	const auto &vaæ•°æ® = a.mæ ‘.get_child(L"æ•°æ®");
+	auto &vaå­æœºç§»åŠ¨ = Cæ¸¸æˆ::gèµ„æº.fgå­æœºç§»åŠ¨();
+	for (const auto &v0 : vaæ•°æ®) {
+		const auto &vèŠ‚ç‚¹0 = v0.second;
+		const int vå­æœºç§»åŠ¨æ ‡è¯† = vå…¨å±€æ ‡è¯† + vèŠ‚ç‚¹0.get<int>(L"æ ‡è¯†");
+		const int vç±»å‹ = vèŠ‚ç‚¹0.get<int>(L"ç±»å‹", 0);
+		const int vå­æœºæ•° = vèŠ‚ç‚¹0.get<int>(L"å­æœºæ•°", 0);
+		const auto &vaå€¼ = vèŠ‚ç‚¹0.get_child(L"å€¼");
+		vaå­æœºç§»åŠ¨.fæ·»åŠ (vå­æœºç§»åŠ¨æ ‡è¯†, Cè§£æå­æœºç§»åŠ¨json::fæ±‡æ€»(vç±»å‹, vå­æœºæ•°, vaå€¼).release());
 	}
 }
-void CÔØÈë::fÍæ¼Ò×Óµ¯(const SÔØÈë²ÎÊı &a) {
-	const int vÈ«¾Ö±êÊ¶ = a.mÊ÷.get<int>(L"È«¾Ö.±êÊ¶", ¼ÆËã::fcËæ»ú±êÊ¶());
-	const std::wstring vÈ«¾ÖÃû³Æ = a.mÊ÷.get<std::wstring>(L"È«¾Ö.Ãû³Æ");
-	const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶0 = CÃû³Æ±êÊ¶(vÈ«¾ÖÃû³Æ, vÈ«¾Ö±êÊ¶);
-	const C½âÎöÒıÓÃ vÈ«¾Ö¶¥µãÒıÓÃ = {a.mÊ÷.get<int>(L"È«¾Ö.¶¥µã.ÒıÓÃ.±êÊ¶", 0)};
-	const C½âÎöÒıÓÃ vÈ«¾ÖÎÆÀíÒıÓÃ = {a.mÊ÷.get<int>(L"È«¾Ö.ÎÆÀí.ÒıÓÃ.±êÊ¶", 0)};
-	const auto &vaÊı¾İ = a.mÊ÷.get_child(L"Êı¾İ");
-	auto &vaÍæ¼Ò×Óµ¯ÊôĞÔ = CÓÎÏ·::fg×ÊÔ´().fgÍæ¼Ò×Óµ¯ÊôĞÔ();
-	int vÖ÷±êÊ¶ = -1;
-	for (const auto &[vÃû³Æ0_, v½Úµã0] : vaÊı¾İ) {
-		vÖ÷±êÊ¶ = v½Úµã0.get<int>(L"±êÊ¶", ++vÖ÷±êÊ¶);
-		const std::wstring vÍæ¼Ò×Óµ¯Ãû³Æ = v½Úµã0.get<std::wstring>(L"Ãû³Æ", L"");
-		const int vÍæ¼Ò×Óµ¯±êÊ¶ = ¼ÆËã::f±êÊ¶(vÈ«¾Ö±êÊ¶, vÖ÷±êÊ¶, 0);
-		const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶1 = vÃû³Æ±êÊ¶0.f´´½¨²ã(vÍæ¼Ò×Óµ¯Ãû³Æ, vÖ÷±êÊ¶);
-		auto &vÍæ¼Ò×Óµ¯ÊôĞÔ = vaÍæ¼Ò×Óµ¯ÊôĞÔ.fÈ¡¿Õ(vÍæ¼Ò×Óµ¯±êÊ¶);
-		//Í¼ĞÎ
-		C½âÎöÒıÓÃ::f½âÎö¸³Öµ(vÍæ¼Ò×Óµ¯ÊôĞÔ.mÎÆÀí, vÈ«¾ÖÎÆÀíÒıÓÃ, v½Úµã0.get_child_optional(L"ÎÆÀí.ÒıÓÃ"));
-		C½âÎöÒıÓÃ::f½âÎö¸³Öµ(vÍæ¼Ò×Óµ¯ÊôĞÔ.m¶¥µã, vÈ«¾Ö¶¥µãÒıÓÃ, v½Úµã0.get_child_optional(L"¶¥µã.ÒıÓÃ"));
-		if (auto vÏûÊ§ÎÆÀí = v½Úµã0.get_child_optional(L"ÏûÊ§ÎÆÀí.ÒıÓÃ")) {
-			C½âÎöÒıÓÃ::f½âÎö¸³Öµ(vÍæ¼Ò×Óµ¯ÊôĞÔ.mÏûÊ§ÎÆÀí, vÈ«¾ÖÎÆÀíÒıÓÃ, vÏûÊ§ÎÆÀí);
+void Cè½½å…¥::fç©å®¶å­å¼¹(const Sè½½å…¥å‚æ•° &a) {
+	const int vå…¨å±€æ ‡è¯† = a.mæ ‘.get<int>(L"å…¨å±€.æ ‡è¯†", è®¡ç®—::fcéšæœºæ ‡è¯†());
+	const std::wstring vå…¨å±€åç§° = a.mæ ‘.get<std::wstring>(L"å…¨å±€.åç§°");
+	const Cåç§°æ ‡è¯† våç§°æ ‡è¯†0 = Cåç§°æ ‡è¯†(vå…¨å±€åç§°, vå…¨å±€æ ‡è¯†);
+	const Cè§£æå¼•ç”¨ vå…¨å±€é¡¶ç‚¹å¼•ç”¨ = {a.mæ ‘.get<int>(L"å…¨å±€.é¡¶ç‚¹.å¼•ç”¨.æ ‡è¯†", 0)};
+	const Cè§£æå¼•ç”¨ vå…¨å±€çº¹ç†å¼•ç”¨ = {a.mæ ‘.get<int>(L"å…¨å±€.çº¹ç†.å¼•ç”¨.æ ‡è¯†", 0)};
+	const auto &vaæ•°æ® = a.mæ ‘.get_child(L"æ•°æ®");
+	auto &vaç©å®¶å­å¼¹å±æ€§ = Cæ¸¸æˆ::fgèµ„æº().fgç©å®¶å­å¼¹å±æ€§();
+	int vä¸»æ ‡è¯† = -1;
+	for (const auto &[våç§°0_, vèŠ‚ç‚¹0] : vaæ•°æ®) {
+		vä¸»æ ‡è¯† = vèŠ‚ç‚¹0.get<int>(L"æ ‡è¯†", ++vä¸»æ ‡è¯†);
+		const std::wstring vç©å®¶å­å¼¹åç§° = vèŠ‚ç‚¹0.get<std::wstring>(L"åç§°", L"");
+		const int vç©å®¶å­å¼¹æ ‡è¯† = è®¡ç®—::fæ ‡è¯†(vå…¨å±€æ ‡è¯†, vä¸»æ ‡è¯†, 0);
+		const Cåç§°æ ‡è¯† våç§°æ ‡è¯†1 = våç§°æ ‡è¯†0.fåˆ›å»ºå±‚(vç©å®¶å­å¼¹åç§°, vä¸»æ ‡è¯†);
+		auto &vç©å®¶å­å¼¹å±æ€§ = vaç©å®¶å­å¼¹å±æ€§.få–ç©º(vç©å®¶å­å¼¹æ ‡è¯†);
+		//å›¾å½¢
+		Cè§£æå¼•ç”¨::fè§£æèµ‹å€¼(vç©å®¶å­å¼¹å±æ€§.mçº¹ç†, vå…¨å±€çº¹ç†å¼•ç”¨, vèŠ‚ç‚¹0.get_child_optional(L"çº¹ç†.å¼•ç”¨"));
+		Cè§£æå¼•ç”¨::fè§£æèµ‹å€¼(vç©å®¶å­å¼¹å±æ€§.mé¡¶ç‚¹, vå…¨å±€é¡¶ç‚¹å¼•ç”¨, vèŠ‚ç‚¹0.get_child_optional(L"é¡¶ç‚¹.å¼•ç”¨"));
+		if (auto væ¶ˆå¤±çº¹ç† = vèŠ‚ç‚¹0.get_child_optional(L"æ¶ˆå¤±çº¹ç†.å¼•ç”¨")) {
+			Cè§£æå¼•ç”¨::fè§£æèµ‹å€¼(vç©å®¶å­å¼¹å±æ€§.mæ¶ˆå¤±çº¹ç†, vå…¨å±€çº¹ç†å¼•ç”¨, væ¶ˆå¤±çº¹ç†);
 		} else {
-			vÍæ¼Ò×Óµ¯ÊôĞÔ.mÏûÊ§ÎÆÀí = vÍæ¼Ò×Óµ¯ÊôĞÔ.mÎÆÀí;
+			vç©å®¶å­å¼¹å±æ€§.mæ¶ˆå¤±çº¹ç† = vç©å®¶å­å¼¹å±æ€§.mçº¹ç†;
 		}
-		if (auto vÏûÊ§¶¥µã = v½Úµã0.get_child_optional(L"ÏûÊ§¶¥µã.ÒıÓÃ")) {
-			C½âÎöÒıÓÃ::f½âÎö¸³Öµ(vÍæ¼Ò×Óµ¯ÊôĞÔ.mÏûÊ§¶¥µã, vÈ«¾Ö¶¥µãÒıÓÃ, vÏûÊ§¶¥µã);
+		if (auto væ¶ˆå¤±é¡¶ç‚¹ = vèŠ‚ç‚¹0.get_child_optional(L"æ¶ˆå¤±é¡¶ç‚¹.å¼•ç”¨")) {
+			Cè§£æå¼•ç”¨::fè§£æèµ‹å€¼(vç©å®¶å­å¼¹å±æ€§.mæ¶ˆå¤±é¡¶ç‚¹, vå…¨å±€é¡¶ç‚¹å¼•ç”¨, væ¶ˆå¤±é¡¶ç‚¹);
 		} else {
-			vÍæ¼Ò×Óµ¯ÊôĞÔ.mÏûÊ§¶¥µã = vÍæ¼Ò×Óµ¯ÊôĞÔ.m¶¥µã;
+			vç©å®¶å­å¼¹å±æ€§.mæ¶ˆå¤±é¡¶ç‚¹ = vç©å®¶å­å¼¹å±æ€§.mé¡¶ç‚¹;
 		}
-		vÍæ¼Ò×Óµ¯ÊôĞÔ.m¶¯»­Ö¡Êı = v½Úµã0.get<int>(L"¶¯»­Ö¡Êı", 0);
-		vÍæ¼Ò×Óµ¯ÊôĞÔ.mÏûÊ§Ö¡Êı = v½Úµã0.get<int>(L"ÏûÊ§Ö¡Êı", 0);
-		vÍæ¼Ò×Óµ¯ÊôĞÔ.mÉËº¦ = v½Úµã0.get<int>(L"ÉËº¦", 10);
-		//ÅĞ¶¨
-		if (const auto &vÅĞ¶¨½Úµã = v½Úµã0.get_child_optional(L"ÅĞ¶¨")) {
-			const int vÀàĞÍ = vÅĞ¶¨½Úµã->get<int>(L"ÀàĞÍ", 0);
-			switch (vÀàĞÍ) {
-			case 0:	//Ô²ĞÎ
-				vÍæ¼Ò×Óµ¯ÊôĞÔ.mÅĞ¶¨.x = vÅĞ¶¨½Úµã->get<float>(L"ÅĞ¶¨r", 4);
+		vç©å®¶å­å¼¹å±æ€§.måŠ¨ç”»å¸§æ•° = vèŠ‚ç‚¹0.get<int>(L"åŠ¨ç”»å¸§æ•°", 0);
+		vç©å®¶å­å¼¹å±æ€§.mæ¶ˆå¤±å¸§æ•° = vèŠ‚ç‚¹0.get<int>(L"æ¶ˆå¤±å¸§æ•°", 0);
+		vç©å®¶å­å¼¹å±æ€§.mä¼¤å®³ = vèŠ‚ç‚¹0.get<int>(L"ä¼¤å®³", 10);
+		//åˆ¤å®š
+		if (const auto &våˆ¤å®šèŠ‚ç‚¹ = vèŠ‚ç‚¹0.get_child_optional(L"åˆ¤å®š")) {
+			const int vç±»å‹ = våˆ¤å®šèŠ‚ç‚¹->get<int>(L"ç±»å‹", 0);
+			switch (vç±»å‹) {
+			case 0:	//åœ†å½¢
+				vç©å®¶å­å¼¹å±æ€§.måˆ¤å®š.x = våˆ¤å®šèŠ‚ç‚¹->get<float>(L"åˆ¤å®šr", 4);
 				break;
-			case 1:	//¾ØĞÎ
-				vÍæ¼Ò×Óµ¯ÊôĞÔ.mÅĞ¶¨.x = vÅĞ¶¨½Úµã->get<float>(L"ÅĞ¶¨x", 4);
-				vÍæ¼Ò×Óµ¯ÊôĞÔ.mÅĞ¶¨.y = vÅĞ¶¨½Úµã->get<float>(L"ÅĞ¶¨y", 4);
+			case 1:	//çŸ©å½¢
+				vç©å®¶å­å¼¹å±æ€§.måˆ¤å®š.x = våˆ¤å®šèŠ‚ç‚¹->get<float>(L"åˆ¤å®šx", 4);
+				vç©å®¶å­å¼¹å±æ€§.måˆ¤å®š.y = våˆ¤å®šèŠ‚ç‚¹->get<float>(L"åˆ¤å®šy", 4);
 				break;
 			default:
-				vÍæ¼Ò×Óµ¯ÊôĞÔ.mÅĞ¶¨.x = 4;
+				vç©å®¶å­å¼¹å±æ€§.måˆ¤å®š.x = 4;
 				break;
 			}
 		}
 	}
 }
-void CÔØÈë::fÍæ¼Ò·¢Éä(const SÔØÈë²ÎÊı &a) {
-	const int vÈ«¾Ö±êÊ¶ = a.mÊ÷.get<int>(L"È«¾Ö.±êÊ¶", ¼ÆËã::fcËæ»ú±êÊ¶());
-	assert(cÍæ¼Ò·¢Éä±êÊ¶ == vÈ«¾Ö±êÊ¶);
-	const auto &vaÊı¾İ = a.mÊ÷.get_child(L"Êı¾İ");
-	auto &vaÍæ¼Ò·¢Éä = CÓÎÏ·::g×ÊÔ´.fgÍæ¼Ò·¢Éä();
-	for (const auto &v0 : vaÊı¾İ) {
-		const auto &vÉä»÷½Úµã = v0.second;
-		const int vÉä»÷±êÊ¶ = ¼ÆËã::f±êÊ¶(vÈ«¾Ö±êÊ¶, vÉä»÷½Úµã.get<int>(L"±êÊ¶"), 0);
-		const int vÉä»÷ÀàĞÍ = vÉä»÷½Úµã.get<int>(L"ÀàĞÍ");
-		switch (vÉä»÷ÀàĞÍ) {
+void Cè½½å…¥::fç©å®¶å‘å°„(const Sè½½å…¥å‚æ•° &a) {
+	const int vå…¨å±€æ ‡è¯† = a.mæ ‘.get<int>(L"å…¨å±€.æ ‡è¯†", è®¡ç®—::fcéšæœºæ ‡è¯†());
+	assert(cç©å®¶å‘å°„æ ‡è¯† == vå…¨å±€æ ‡è¯†);
+	const auto &vaæ•°æ® = a.mæ ‘.get_child(L"æ•°æ®");
+	auto &vaç©å®¶å‘å°„ = Cæ¸¸æˆ::gèµ„æº.fgç©å®¶å‘å°„();
+	for (const auto &v0 : vaæ•°æ®) {
+		const auto &vå°„å‡»èŠ‚ç‚¹ = v0.second;
+		const int vå°„å‡»æ ‡è¯† = è®¡ç®—::fæ ‡è¯†(vå…¨å±€æ ‡è¯†, vå°„å‡»èŠ‚ç‚¹.get<int>(L"æ ‡è¯†"), 0);
+		const int vå°„å‡»ç±»å‹ = vå°„å‡»èŠ‚ç‚¹.get<int>(L"ç±»å‹");
+		switch (vå°„å‡»ç±»å‹) {
 			case 1:
-			{	//·¢É¢
-				const int vÊıÁ¿ = vÉä»÷½Úµã.get<int>(L"ÊıÁ¿");
-				const int v·¢É¢0 = vÉä»÷½Úµã.get<int>(L"·¢É¢0");
-				const int v·¢É¢1 = vÉä»÷½Úµã.get<int>(L"·¢É¢1");
-				const int v²¢ÁĞ0 = vÉä»÷½Úµã.get<int>(L"²¢ÁĞ0");
-				const int v²¢ÁĞ1 = vÉä»÷½Úµã.get<int>(L"²¢ÁĞ1");
-				const auto vÉä»÷ÊôĞÔ = Íæ¼Ò×Óµ¯·¢Éä::C·¢É¢::SÊôĞÔ::fc×Ü(vÊıÁ¿, v·¢É¢0, v·¢É¢1, v²¢ÁĞ0, v²¢ÁĞ1);
-				//vaÍæ¼Ò·¢Éä.fÌí¼Ó(vÉä»÷±êÊ¶, new Íæ¼Ò×Óµ¯·¢Éä::C·¢É¢::C¹¤³§(vÉä»÷ÊôĞÔ));
-				vaÍæ¼Ò·¢Éä.f¹¹Ôì<Íæ¼Ò×Óµ¯·¢Éä::C·¢É¢::C¹¤³§>(vÉä»÷±êÊ¶, vÉä»÷ÊôĞÔ);
+			{	//å‘æ•£
+				const int væ•°é‡ = vå°„å‡»èŠ‚ç‚¹.get<int>(L"æ•°é‡");
+				const int vå‘æ•£0 = vå°„å‡»èŠ‚ç‚¹.get<int>(L"å‘æ•£0");
+				const int vå‘æ•£1 = vå°„å‡»èŠ‚ç‚¹.get<int>(L"å‘æ•£1");
+				const int vå¹¶åˆ—0 = vå°„å‡»èŠ‚ç‚¹.get<int>(L"å¹¶åˆ—0");
+				const int vå¹¶åˆ—1 = vå°„å‡»èŠ‚ç‚¹.get<int>(L"å¹¶åˆ—1");
+				const auto vå°„å‡»å±æ€§ = ç©å®¶å­å¼¹å‘å°„::Cå‘æ•£::Så±æ€§::fcæ€»(væ•°é‡, vå‘æ•£0, vå‘æ•£1, vå¹¶åˆ—0, vå¹¶åˆ—1);
+				//vaç©å®¶å‘å°„.fæ·»åŠ (vå°„å‡»æ ‡è¯†, new ç©å®¶å­å¼¹å‘å°„::Cå‘æ•£::Cå·¥å‚(vå°„å‡»å±æ€§));
+				vaç©å®¶å‘å°„.fæ„é€ <ç©å®¶å­å¼¹å‘å°„::Cå‘æ•£::Cå·¥å‚>(vå°„å‡»æ ‡è¯†, vå°„å‡»å±æ€§);
 				break;
 			}
 			default:
@@ -563,251 +564,251 @@ void CÔØÈë::fÍæ¼Ò·¢Éä(const SÔØÈë²ÎÊı &a) {
 	}
 
 }
-void CÔØÈë::fÎÆÀíÁĞ±í0(const SÔØÈë²ÎÊı &a) {
-	const int vÈ«¾Ö±êÊ¶ = a.mÊ÷.get<int>(L"È«¾Ö.±êÊ¶", ¼ÆËã::fcËæ»ú±êÊ¶());
-	const std::wstring vÈ«¾ÖÃû³Æ = std::wstring(L"ÎÆÀí.") + a.mÊ÷.get<std::wstring>(L"È«¾Ö.Ãû³Æ");
-	const auto &vaÊı¾İ = a.mÊ÷.get_child(L"Êı¾İ");
-	auto &vÎÆÀí¹¤³§ = CÓÎÏ·::fg×ÊÔ´().fgÎÆÀí¹¤³§();
-	const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶0 = CÃû³Æ±êÊ¶(vÈ«¾ÖÃû³Æ, vÈ«¾Ö±êÊ¶);
-	int vÖ÷±êÊ¶ = -1;
-	for (const auto &[vÃû³Æ0, vÊ÷0] : vaÊı¾İ) {
-		const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶1 = vÃû³Æ±êÊ¶0.f´´½¨²ã(vÃû³Æ0, ++vÖ÷±êÊ¶);
-		vÎÆÀí¹¤³§.f´´½¨ÎÆÀí(vÃû³Æ±êÊ¶1.fg±êÊ¶(), C³ÌĞò::f¼ÆËãÂ·¾¶(vÊ÷0.get_value<std::wstring>(), a.mÂ·¾¶));
+void Cè½½å…¥::fçº¹ç†åˆ—è¡¨0(const Sè½½å…¥å‚æ•° &a) {
+	const int vå…¨å±€æ ‡è¯† = a.mæ ‘.get<int>(L"å…¨å±€.æ ‡è¯†", è®¡ç®—::fcéšæœºæ ‡è¯†());
+	const std::wstring vå…¨å±€åç§° = std::wstring(L"çº¹ç†.") + a.mæ ‘.get<std::wstring>(L"å…¨å±€.åç§°");
+	const auto &vaæ•°æ® = a.mæ ‘.get_child(L"æ•°æ®");
+	auto &vçº¹ç†å·¥å‚ = Cæ¸¸æˆ::fgèµ„æº().fgçº¹ç†å·¥å‚();
+	const Cåç§°æ ‡è¯† våç§°æ ‡è¯†0 = Cåç§°æ ‡è¯†(vå…¨å±€åç§°, vå…¨å±€æ ‡è¯†);
+	int vä¸»æ ‡è¯† = -1;
+	for (const auto &[våç§°0, væ ‘0] : vaæ•°æ®) {
+		const Cåç§°æ ‡è¯† våç§°æ ‡è¯†1 = våç§°æ ‡è¯†0.fåˆ›å»ºå±‚(våç§°0, ++vä¸»æ ‡è¯†);
+		vçº¹ç†å·¥å‚.fåˆ›å»ºçº¹ç†(våç§°æ ‡è¯†1.fgæ ‡è¯†(), Cç¨‹åº::fè®¡ç®—è·¯å¾„(væ ‘0.get_value<std::wstring>(), a.mè·¯å¾„));
 	}
 }
-void CÔØÈë::fÄ£ĞÍÁĞ±í0(const SÔØÈë²ÎÊı &a) {
-	const std::wstring cÄ£ĞÍÃû³Æ = L"Ä£ĞÍ";
-	const int vÈ«¾Ö±êÊ¶ = a.mÊ÷.get<int>(L"È«¾Ö.±êÊ¶", ¼ÆËã::fcËæ»ú±êÊ¶());
-	const std::wstring vÈ«¾ÖÃû³Æ = std::wstring(L"Ä£ĞÍ.") + a.mÊ÷.get<std::wstring>(L"È«¾Ö.Ãû³Æ");
-	const auto &vaÊı¾İ = a.mÊ÷.get_child(L"Êı¾İ");
-	auto &vÄ£ĞÍ¹¤³§ = CÓÎÏ·::fgÍ¼ĞÎ().fgÄ£ĞÍ¹¤³§();
-	const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶0 = CÃû³Æ±êÊ¶(vÈ«¾ÖÃû³Æ, vÈ«¾Ö±êÊ¶); 
-	int vÖ÷±êÊ¶ = -1;
-	for (const auto &[vÃû³Æ0_, vÊ÷0] : vaÊı¾İ) {
-		const std::wstring &vÃû³Æ0 = vÊ÷0.get<std::wstring>(L"Ãû³Æ", cÄ£ĞÍÃû³Æ + std::to_wstring(++vÖ÷±êÊ¶));
-		const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶1 = vÃû³Æ±êÊ¶0.f´´½¨²ã(vÃû³Æ0, vÖ÷±êÊ¶);
-		std::vector<SÈıÎ¬¶¥µã> va¶¥µã;
-		for (const auto &[vÃû³Æ1_, vÊ÷1] : vÊ÷0.get_child(L"¶¥µã")) {
-			SÈıÎ¬¶¥µã v¶¥µã;
-			v¶¥µã.m×ø±ê.x = vÊ÷1.get<float>(L"×ø±ê.x", 0);
-			v¶¥µã.m×ø±ê.y = vÊ÷1.get<float>(L"×ø±ê.y", 0);
-			v¶¥µã.m×ø±ê.z = vÊ÷1.get<float>(L"×ø±ê.z", 0);
-			v¶¥µã.mÎÆÀí.x = vÊ÷1.get<float>(L"ÎÆÀí.u", 0);
-			v¶¥µã.mÎÆÀí.y = vÊ÷1.get<float>(L"ÎÆÀí.v", 0);
-			va¶¥µã.push_back(v¶¥µã);
+void Cè½½å…¥::fæ¨¡å‹åˆ—è¡¨0(const Sè½½å…¥å‚æ•° &a) {
+	const std::wstring cæ¨¡å‹åç§° = L"æ¨¡å‹";
+	const int vå…¨å±€æ ‡è¯† = a.mæ ‘.get<int>(L"å…¨å±€.æ ‡è¯†", è®¡ç®—::fcéšæœºæ ‡è¯†());
+	const std::wstring vå…¨å±€åç§° = std::wstring(L"æ¨¡å‹.") + a.mæ ‘.get<std::wstring>(L"å…¨å±€.åç§°");
+	const auto &vaæ•°æ® = a.mæ ‘.get_child(L"æ•°æ®");
+	auto &væ¨¡å‹å·¥å‚ = Cæ¸¸æˆ::fgå›¾å½¢().fgæ¨¡å‹å·¥å‚();
+	const Cåç§°æ ‡è¯† våç§°æ ‡è¯†0 = Cåç§°æ ‡è¯†(vå…¨å±€åç§°, vå…¨å±€æ ‡è¯†); 
+	int vä¸»æ ‡è¯† = -1;
+	for (const auto &[våç§°0_, væ ‘0] : vaæ•°æ®) {
+		const std::wstring &våç§°0 = væ ‘0.get<std::wstring>(L"åç§°", cæ¨¡å‹åç§° + std::to_wstring(++vä¸»æ ‡è¯†));
+		const Cåç§°æ ‡è¯† våç§°æ ‡è¯†1 = våç§°æ ‡è¯†0.fåˆ›å»ºå±‚(våç§°0, vä¸»æ ‡è¯†);
+		std::vector<Sä¸‰ç»´é¡¶ç‚¹> vaé¡¶ç‚¹;
+		for (const auto &[våç§°1_, væ ‘1] : væ ‘0.get_child(L"é¡¶ç‚¹")) {
+			Sä¸‰ç»´é¡¶ç‚¹ vé¡¶ç‚¹;
+			vé¡¶ç‚¹.måæ ‡.x = væ ‘1.get<float>(L"åæ ‡.x", 0);
+			vé¡¶ç‚¹.måæ ‡.y = væ ‘1.get<float>(L"åæ ‡.y", 0);
+			vé¡¶ç‚¹.måæ ‡.z = væ ‘1.get<float>(L"åæ ‡.z", 0);
+			vé¡¶ç‚¹.mçº¹ç†.x = væ ‘1.get<float>(L"çº¹ç†.u", 0);
+			vé¡¶ç‚¹.mçº¹ç†.y = væ ‘1.get<float>(L"çº¹ç†.v", 0);
+			vaé¡¶ç‚¹.push_back(vé¡¶ç‚¹);
 		}
-		std::vector<ÈıÎ¬::tË÷Òı> vaË÷Òı;
-		for (const auto &[vÃû³Æ1_, vÊ÷1] : vÊ÷0.get_child(L"Ë÷Òı")) {
-			const ÈıÎ¬::tË÷Òı vË÷Òı = vÊ÷1.get_value<ÈıÎ¬::tË÷Òı>(0);
-			vaË÷Òı.push_back(vË÷Òı);
+		std::vector<ä¸‰ç»´::tç´¢å¼•> vaç´¢å¼•;
+		for (const auto &[våç§°1_, væ ‘1] : væ ‘0.get_child(L"ç´¢å¼•")) {
+			const ä¸‰ç»´::tç´¢å¼• vç´¢å¼• = væ ‘1.get_value<ä¸‰ç»´::tç´¢å¼•>(0);
+			vaç´¢å¼•.push_back(vç´¢å¼•);
 		}
-		vÄ£ĞÍ¹¤³§.m²ÎÊı.fs¶¥µã(va¶¥µã.data(), va¶¥µã.size());
-		vÄ£ĞÍ¹¤³§.m²ÎÊı.fsË÷Òı(vaË÷Òı.data(), vaË÷Òı.size());
-		vÄ£ĞÍ¹¤³§.f´´½¨Ä£ĞÍ(vÃû³Æ±êÊ¶1.fg±êÊ¶());
+		væ¨¡å‹å·¥å‚.må‚æ•°.fsé¡¶ç‚¹(vaé¡¶ç‚¹.data(), vaé¡¶ç‚¹.size());
+		væ¨¡å‹å·¥å‚.må‚æ•°.fsç´¢å¼•(vaç´¢å¼•.data(), vaç´¢å¼•.size());
+		væ¨¡å‹å·¥å‚.fåˆ›å»ºæ¨¡å‹(våç§°æ ‡è¯†1.fgæ ‡è¯†());
 	}
 }
-void CÔØÈë::fÉùÒôÁĞ±í0(const SÔØÈë²ÎÊı &a) {
-	const std::wstring cÄ£ĞÍÃû³Æ = L"Ä£ĞÍ";
-	const int vÈ«¾Ö±êÊ¶ = a.mÊ÷.get<int>(L"È«¾Ö.±êÊ¶", ¼ÆËã::fcËæ»ú±êÊ¶());
-	const std::wstring vÈ«¾ÖÃû³Æ = std::wstring(L"ÉùÒô.") + a.mÊ÷.get<std::wstring>(L"È«¾Ö.Ãû³Æ");
-	const auto &vaÊı¾İ = a.mÊ÷.get_child(L"Êı¾İ");
-	auto &vÉùÒô¹¤³§ = CÓÎÏ·::fgÒôÆµ().fgÉùÒô¹¤³§();
-	const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶0 = CÃû³Æ±êÊ¶(vÈ«¾ÖÃû³Æ, vÈ«¾Ö±êÊ¶);
-	int vÖ÷±êÊ¶ = -1;
-	for (const auto &[vÃû³Æ0, vÊ÷0] : vaÊı¾İ) {
-		const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶1 = vÃû³Æ±êÊ¶0.f´´½¨²ã(vÃû³Æ0, ++vÖ÷±êÊ¶);
-		vÉùÒô¹¤³§.f´´½¨ÉùÒô(vÃû³Æ±êÊ¶1.fg±êÊ¶(), C³ÌĞò::f¼ÆËãÂ·¾¶(vÊ÷0.get_value<std::wstring>(), a.mÂ·¾¶));
+void Cè½½å…¥::få£°éŸ³åˆ—è¡¨0(const Sè½½å…¥å‚æ•° &a) {
+	const std::wstring cæ¨¡å‹åç§° = L"æ¨¡å‹";
+	const int vå…¨å±€æ ‡è¯† = a.mæ ‘.get<int>(L"å…¨å±€.æ ‡è¯†", è®¡ç®—::fcéšæœºæ ‡è¯†());
+	const std::wstring vå…¨å±€åç§° = std::wstring(L"å£°éŸ³.") + a.mæ ‘.get<std::wstring>(L"å…¨å±€.åç§°");
+	const auto &vaæ•°æ® = a.mæ ‘.get_child(L"æ•°æ®");
+	auto &vå£°éŸ³å·¥å‚ = Cæ¸¸æˆ::fgéŸ³é¢‘().fgå£°éŸ³å·¥å‚();
+	const Cåç§°æ ‡è¯† våç§°æ ‡è¯†0 = Cåç§°æ ‡è¯†(vå…¨å±€åç§°, vå…¨å±€æ ‡è¯†);
+	int vä¸»æ ‡è¯† = -1;
+	for (const auto &[våç§°0, væ ‘0] : vaæ•°æ®) {
+		const Cåç§°æ ‡è¯† våç§°æ ‡è¯†1 = våç§°æ ‡è¯†0.fåˆ›å»ºå±‚(våç§°0, ++vä¸»æ ‡è¯†);
+		vå£°éŸ³å·¥å‚.fåˆ›å»ºå£°éŸ³(våç§°æ ‡è¯†1.fgæ ‡è¯†(), Cç¨‹åº::fè®¡ç®—è·¯å¾„(væ ‘0.get_value<std::wstring>(), a.mè·¯å¾„));
 	}
 }
-void CÔØÈë::fÉùÒôÁĞ±í1(const SÔØÈë²ÎÊı &) {
+void Cè½½å…¥::få£°éŸ³åˆ—è¡¨1(const Sè½½å…¥å‚æ•° &) {
 
 }
-void CÔØÈë::fÎÄ±¾(const SÔØÈë²ÎÊı &a) {
-	const int vÈ«¾Ö±êÊ¶ = ¼ÆËã::fcËæ»ú±êÊ¶();
-	const std::wstring vÈ«¾ÖÃû³Æ = a.mÊ÷.get<std::wstring>(L"È«¾Ö.Ãû³Æ");
-	const std::wstring vÓïÑÔ = a.mÊ÷.get<std::wstring>(L"È«¾Ö.ÓïÑÔ");
-	const auto &vaÊı¾İ = a.mÊ÷.get_child(L"Êı¾İ");
-	auto &vaÎÄ±¾ = CÓÎÏ·::fg×ÊÔ´().fĞÂÎÄ±¾Êı×é(vÈ«¾ÖÃû³Æ, vÓïÑÔ);
-	const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶0 = CÃû³Æ±êÊ¶(vÈ«¾ÖÃû³Æ, vÈ«¾Ö±êÊ¶);
-	int vÖ÷±êÊ¶ = -1;
-	for (const auto &[vÃû³Æ0, vÊ÷0] : vaÊı¾İ) {
-		const CÃû³Æ±êÊ¶ vÃû³Æ±êÊ¶1 = vÃû³Æ±êÊ¶0.f´´½¨²ã(vÃû³Æ0, ++vÖ÷±êÊ¶);
-		vaÎÄ±¾.fÌí¼Ó(vÃû³Æ±êÊ¶1.fg±êÊ¶(), vÊ÷0.get_value<std::wstring>());
+void Cè½½å…¥::fæ–‡æœ¬(const Sè½½å…¥å‚æ•° &a) {
+	const int vå…¨å±€æ ‡è¯† = è®¡ç®—::fcéšæœºæ ‡è¯†();
+	const std::wstring vå…¨å±€åç§° = a.mæ ‘.get<std::wstring>(L"å…¨å±€.åç§°");
+	const std::wstring vè¯­è¨€ = a.mæ ‘.get<std::wstring>(L"å…¨å±€.è¯­è¨€");
+	const auto &vaæ•°æ® = a.mæ ‘.get_child(L"æ•°æ®");
+	auto &vaæ–‡æœ¬ = Cæ¸¸æˆ::fgèµ„æº().fæ–°æ–‡æœ¬æ•°ç»„(vå…¨å±€åç§°, vè¯­è¨€);
+	const Cåç§°æ ‡è¯† våç§°æ ‡è¯†0 = Cåç§°æ ‡è¯†(vå…¨å±€åç§°, vå…¨å±€æ ‡è¯†);
+	int vä¸»æ ‡è¯† = -1;
+	for (const auto &[våç§°0, væ ‘0] : vaæ•°æ®) {
+		const Cåç§°æ ‡è¯† våç§°æ ‡è¯†1 = våç§°æ ‡è¯†0.fåˆ›å»ºå±‚(våç§°0, ++vä¸»æ ‡è¯†);
+		vaæ–‡æœ¬.fæ·»åŠ (våç§°æ ‡è¯†1.fgæ ‡è¯†(), væ ‘0.get_value<std::wstring>());
 	}
 }
 //=============================================================================
-// ÄÚ²¿ÔØÈë
+// å†…éƒ¨è½½å…¥
 //=============================================================================
-void CÄÚ²¿ÔØÈë::fµÀ¾ß() {
-	auto &vaµÀ¾ßÊôĞÔ = CÓÎÏ·::fg×ÊÔ´().fgµÀ¾ßÊôĞÔ();
-	struct SµÀ¾ßÊôĞÔ0 {
-		EµÀ¾ß m±êÊ¶;
-		tfµÀ¾ßĞ§¹û mĞ§¹ûº¯Êı;
-		int mĞ§¹ûÖµ;
-		float mÅĞ¶¨°ë¾¶;
-		float m×î´óÍ¸Ã÷;
-		int mÍ¼ĞÎ±êÊ¶;
-		int mÍ¼ĞÎ×Ó±êÊ¶;
-	} vµÀ¾ßÊôĞÔ±í[] = {
-		//ĞòºÅ			Ğ§¹û						Öµ °ë¾¶ Í¸Ã÷	Í¼ĞÎ±êÊ¶
-		{EµÀ¾ß::e²Ğ»ú,		µÀ¾ßĞ§¹û::f²Ğ»ú_Ê®·ÖÖ®Ò»,	10, 8, 1,		0, 1},
-		{EµÀ¾ß::e²Ğ»úËéÆ¬,	µÀ¾ßĞ§¹û::f²Ğ»ú_Ê®·ÖÖ®Ò»,	3, 8, 1	,		0, 0},
-		{EµÀ¾ß::eÕ¨µ¯,		µÀ¾ßĞ§¹û::fÕ¨µ¯_Ê®·ÖÖ®Ò»,	10, 8, 1,		0, 3},
-		{EµÀ¾ß::eÕ¨µ¯ËéÆ¬,	µÀ¾ßĞ§¹û::fÕ¨µ¯_Ê®·ÖÖ®Ò»,	3, 8, 1,		0, 2},
-		{EµÀ¾ß::e»ğÁ¦,		µÀ¾ßĞ§¹û::f»ğÁ¦_°Ù·ÖÖ®Ò»,	1, 4, 1,		1, 0},
-		{EµÀ¾ß::eµÃµã,		µÀ¾ßĞ§¹û::fµÃ·Ö_×î´óµã,		1, 4, 1,		1, 1},
-		{EµÀ¾ß::e×î´óµã,	µÀ¾ßĞ§¹û::f×î´óµã,			1000, 4, 1,		1, 2},
-		{EµÀ¾ß::eÎ¢×î´óµã,	µÀ¾ßĞ§¹û::f×î´óµã,			10, 4, 0.2f,	1, 3},
+void Cå†…éƒ¨è½½å…¥::fé“å…·() {
+	auto &vaé“å…·å±æ€§ = Cæ¸¸æˆ::fgèµ„æº().fgé“å…·å±æ€§();
+	struct Sé“å…·å±æ€§0 {
+		Eé“å…· mæ ‡è¯†;
+		tfé“å…·æ•ˆæœ mæ•ˆæœå‡½æ•°;
+		int mæ•ˆæœå€¼;
+		float måˆ¤å®šåŠå¾„;
+		float mæœ€å¤§é€æ˜;
+		int må›¾å½¢æ ‡è¯†;
+		int må›¾å½¢å­æ ‡è¯†;
+	} vé“å…·å±æ€§è¡¨[] = {
+		//åºå·			æ•ˆæœ						å€¼ åŠå¾„ é€æ˜	å›¾å½¢æ ‡è¯†
+		{Eé“å…·::eæ®‹æœº,		é“å…·æ•ˆæœ::fæ®‹æœº_ååˆ†ä¹‹ä¸€,	10, 8, 1,		0, 1},
+		{Eé“å…·::eæ®‹æœºç¢ç‰‡,	é“å…·æ•ˆæœ::fæ®‹æœº_ååˆ†ä¹‹ä¸€,	3, 8, 1	,		0, 0},
+		{Eé“å…·::eç‚¸å¼¹,		é“å…·æ•ˆæœ::fç‚¸å¼¹_ååˆ†ä¹‹ä¸€,	10, 8, 1,		0, 3},
+		{Eé“å…·::eç‚¸å¼¹ç¢ç‰‡,	é“å…·æ•ˆæœ::fç‚¸å¼¹_ååˆ†ä¹‹ä¸€,	3, 8, 1,		0, 2},
+		{Eé“å…·::eç«åŠ›,		é“å…·æ•ˆæœ::fç«åŠ›_ç™¾åˆ†ä¹‹ä¸€,	1, 4, 1,		1, 0},
+		{Eé“å…·::eå¾—ç‚¹,		é“å…·æ•ˆæœ::få¾—åˆ†_æœ€å¤§ç‚¹,		1, 4, 1,		1, 1},
+		{Eé“å…·::eæœ€å¤§ç‚¹,	é“å…·æ•ˆæœ::fæœ€å¤§ç‚¹,			1000, 4, 1,		1, 2},
+		{Eé“å…·::eå¾®æœ€å¤§ç‚¹,	é“å…·æ•ˆæœ::fæœ€å¤§ç‚¹,			10, 4, 0.2f,	1, 3},
 	};
-	for (auto &v : vµÀ¾ßÊôĞÔ±í) {
-		SµÀ¾ßÊôĞÔ &vÊôĞÔ = vaµÀ¾ßÊôĞÔ.fÈ¡¿Õ((int)v.m±êÊ¶);
-		vÊôĞÔ.mfĞ§¹û = v.mĞ§¹ûº¯Êı;
-		vÊôĞÔ.mÖµ = v.mĞ§¹ûÖµ;
-		vÊôĞÔ.mÅĞ¶¨°ë¾¶ = v.mÅĞ¶¨°ë¾¶;
-		vÊôĞÔ.m×î´óÍ¸Ã÷¶È = v.m×î´óÍ¸Ã÷;
-		const int vµÀ¾ßÍ¼ĞÎ±êÊ¶ = ¼ÆËã::f±êÊ¶(cµÀ¾ß±êÊ¶, v.mÍ¼ĞÎ±êÊ¶, 0);
-		vÊôĞÔ.mÎÆÀí = vµÀ¾ßÍ¼ĞÎ±êÊ¶;
-		vÊôĞÔ.m¶¥µã = ¼ÆËã::f±êÊ¶(vµÀ¾ßÍ¼ĞÎ±êÊ¶, 0, v.mÍ¼ĞÎ×Ó±êÊ¶);
-		vÊôĞÔ.m¶¯»­ = (int)E¶¯»­::eµÀ¾ß;
+	for (auto &v : vé“å…·å±æ€§è¡¨) {
+		Sé“å…·å±æ€§ &vå±æ€§ = vaé“å…·å±æ€§.få–ç©º((int)v.mæ ‡è¯†);
+		vå±æ€§.mfæ•ˆæœ = v.mæ•ˆæœå‡½æ•°;
+		vå±æ€§.må€¼ = v.mæ•ˆæœå€¼;
+		vå±æ€§.måˆ¤å®šåŠå¾„ = v.måˆ¤å®šåŠå¾„;
+		vå±æ€§.mæœ€å¤§é€æ˜åº¦ = v.mæœ€å¤§é€æ˜;
+		const int vé“å…·å›¾å½¢æ ‡è¯† = è®¡ç®—::fæ ‡è¯†(cé“å…·æ ‡è¯†, v.må›¾å½¢æ ‡è¯†, 0);
+		vå±æ€§.mçº¹ç† = vé“å…·å›¾å½¢æ ‡è¯†;
+		vå±æ€§.mé¡¶ç‚¹ = è®¡ç®—::fæ ‡è¯†(vé“å…·å›¾å½¢æ ‡è¯†, 0, v.må›¾å½¢å­æ ‡è¯†);
+		vå±æ€§.måŠ¨ç”» = (int)EåŠ¨ç”»::eé“å…·;
 	}
 }
-void CÄÚ²¿ÔØÈë::f»­×Óµ¯() {
-	auto &vÍ¼ĞÎ = CÓÎÏ·::fgÍ¼ĞÎ();
-	std::pair<E»­×Óµ¯, I»­×Óµ¯*> v»­×Óµ¯±í[] = {
-		{E»­×Óµ¯::e¶¥µã, new C»­×Óµ¯_¶¥µã(vÍ¼ĞÎ, *vÍ¼ĞÎ.mÈıÎ¬)},
-		{E»­×Óµ¯::eÏßÌõ, new C»­×Óµ¯_ÏßÌõ(*vÍ¼ĞÎ.m¶şÎ¬)},
+void Cå†…éƒ¨è½½å…¥::fç”»å­å¼¹() {
+	auto &vå›¾å½¢ = Cæ¸¸æˆ::fgå›¾å½¢();
+	std::pair<Eç”»å­å¼¹, Iç”»å­å¼¹*> vç”»å­å¼¹è¡¨[] = {
+		{Eç”»å­å¼¹::eé¡¶ç‚¹, new Cç”»å­å¼¹_é¡¶ç‚¹(vå›¾å½¢, *vå›¾å½¢.mä¸‰ç»´)},
+		{Eç”»å­å¼¹::eçº¿æ¡, new Cç”»å­å¼¹_çº¿æ¡(*vå›¾å½¢.mäºŒç»´)},
 	};
-	auto &va»­×Óµ¯ = CÓÎÏ·::fg×ÊÔ´().fg»­×Óµ¯();
-	for (auto &v : v»­×Óµ¯±í) {
-		va»­×Óµ¯.fÌí¼Ó((int)v.first, v.second);
+	auto &vaç”»å­å¼¹ = Cæ¸¸æˆ::fgèµ„æº().fgç”»å­å¼¹();
+	for (auto &v : vç”»å­å¼¹è¡¨) {
+		vaç”»å­å¼¹.fæ·»åŠ ((int)v.first, v.second);
 	}
 }
-void CÄÚ²¿ÔØÈë::f×Ó»ú() {
-	auto &va×Ó»úÊôĞÔ = CÓÎÏ·::g×ÊÔ´.fg×Ó»úÊôĞÔ();
+void Cå†…éƒ¨è½½å…¥::få­æœº() {
+	auto &vaå­æœºå±æ€§ = Cæ¸¸æˆ::gèµ„æº.fgå­æœºå±æ€§();
 	struct {
-		E×Ó»ú vÃû³Æ;
-		int vÊıÁ¿;
-		EÍæ¼Ò·¢Éä v·¢Éä;
-		E×Ó»úÒÆ¶¯ vÒÆ¶¯;
-	} v×Ó»úÊôĞÔ±í[] = {
-		//ĞòºÅ			ÊıÁ¿	·¢Éä						ÒÆ¶¯
-		{E×Ó»ú::e²âÊÔ, 4, EÍæ¼Ò·¢Éä::eÁéÃÎÓÕµ¼, E×Ó»úÒÆ¶¯::eÎ»ÖÃ},
+		Eå­æœº våç§°;
+		int væ•°é‡;
+		Eç©å®¶å‘å°„ vå‘å°„;
+		Eå­æœºç§»åŠ¨ vç§»åŠ¨;
+	} vå­æœºå±æ€§è¡¨[] = {
+		//åºå·			æ•°é‡	å‘å°„						ç§»åŠ¨
+		{Eå­æœº::eæµ‹è¯•, 4, Eç©å®¶å‘å°„::eçµæ¢¦è¯±å¯¼, Eå­æœºç§»åŠ¨::eä½ç½®},
 	};
-	for (auto &v : v×Ó»úÊôĞÔ±í) {
-		S×Ó»úÊôĞÔ vÊôĞÔ;
-		vÊôĞÔ.mÊıÁ¿ÉÏÏŞ = v.vÊıÁ¿;
-		vÊôĞÔ.m·¢Éä = (int)v.v·¢Éä;
-		vÊôĞÔ.mÒÆ¶¯ = (int)v.vÒÆ¶¯;
-		va×Ó»úÊôĞÔ.fÌí¼Ó((int)v.vÃû³Æ, vÊôĞÔ);
+	for (auto &v : vå­æœºå±æ€§è¡¨) {
+		Så­æœºå±æ€§ vå±æ€§;
+		vå±æ€§.mæ•°é‡ä¸Šé™ = v.væ•°é‡;
+		vå±æ€§.må‘å°„ = (int)v.vå‘å°„;
+		vå±æ€§.mç§»åŠ¨ = (int)v.vç§»åŠ¨;
+		vaå­æœºå±æ€§.fæ·»åŠ ((int)v.våç§°, vå±æ€§);
 	}
 }
-void CÄÚ²¿ÔØÈë::fÍæ¼Ò×Óµ¯() {
-	typedef std::tuple<EÍæ¼Ò×Óµ¯, tÏòÁ¿2> t;
-	t vÍæ¼Ò×Óµ¯ÊôĞÔ±í[] = {
-		//Ãû³Æ					ÅĞ¶¨
-		t{EÍæ¼Ò×Óµ¯::e²âÊÔ×Óµ¯, {4, 4}}
+void Cå†…éƒ¨è½½å…¥::fç©å®¶å­å¼¹() {
+	typedef std::tuple<Eç©å®¶å­å¼¹, tå‘é‡2> t;
+	t vç©å®¶å­å¼¹å±æ€§è¡¨[] = {
+		//åç§°					åˆ¤å®š
+		t{Eç©å®¶å­å¼¹::eæµ‹è¯•å­å¼¹, {4, 4}}
 	};
-	auto &vaÍæ¼Ò×Óµ¯ÊôĞÔ = CÓÎÏ·::g×ÊÔ´.fgÍæ¼Ò×Óµ¯ÊôĞÔ();
-	for (auto &v : vÍæ¼Ò×Óµ¯ÊôĞÔ±í) {
-		SÍæ¼Ò×Óµ¯ÊôĞÔ &vÊôĞÔ = vaÍæ¼Ò×Óµ¯ÊôĞÔ.fÈ¡¿Õ((int)std::get<0>(v));
-		vÊôĞÔ.mÅĞ¶¨ = std::get<1>(v);
-		vÊôĞÔ.mÎÆÀí = nullptr;
-		vÊôĞÔ.mÖ¡°ë³ß´ç = {};
-		vÊôĞÔ.m¶¯»­Ö¡Êı = 0;
+	auto &vaç©å®¶å­å¼¹å±æ€§ = Cæ¸¸æˆ::gèµ„æº.fgç©å®¶å­å¼¹å±æ€§();
+	for (auto &v : vç©å®¶å­å¼¹å±æ€§è¡¨) {
+		Sç©å®¶å­å¼¹å±æ€§ &vå±æ€§ = vaç©å®¶å­å¼¹å±æ€§.få–ç©º((int)std::get<0>(v));
+		vå±æ€§.måˆ¤å®š = std::get<1>(v);
+		vå±æ€§.mçº¹ç† = nullptr;
+		vå±æ€§.må¸§åŠå°ºå¯¸ = {};
+		vå±æ€§.måŠ¨ç”»å¸§æ•° = 0;
 	}
 }
-void CÄÚ²¿ÔØÈë::fÍæ¼Ò×Óµ¯·¢Éä() {
-	struct SÄÚÖÃ·¢ÉäÊôĞÔ{
-		EÍæ¼Ò·¢Éä m±êÊ¶;
-		I¹¤³§<CÍæ¼Ò×Óµ¯·¢ÉäÆ÷> *m·¢Éä¶ÔÏó;
+void Cå†…éƒ¨è½½å…¥::fç©å®¶å­å¼¹å‘å°„() {
+	struct Så†…ç½®å‘å°„å±æ€§{
+		Eç©å®¶å‘å°„ mæ ‡è¯†;
+		Iå·¥å‚<Cç©å®¶å­å¼¹å‘å°„å™¨> *må‘å°„å¯¹è±¡;
 	};
-	const SÄÚÖÃ·¢ÉäÊôĞÔ vÍæ¼Ò·¢Éä±í[] = {
-		{EÍæ¼Ò·¢Éä::e²âÊÔ×Óµ¯, new C¼òµ¥¹¤³§<CÍæ¼Ò×Óµ¯·¢ÉäÆ÷, Íæ¼Ò×Óµ¯·¢Éä::C×Ô»ú»ù´¡>()},
-		{EÍæ¼Ò·¢Éä::e×Ô»ú»ù´¡, new C¼òµ¥¹¤³§<CÍæ¼Ò×Óµ¯·¢ÉäÆ÷, Íæ¼Ò×Óµ¯·¢Éä::C×Ô»ú»ù´¡>()},
-		{EÍæ¼Ò·¢Éä::eÁéÃÎÓÕµ¼, new C¼òµ¥¹¤³§<CÍæ¼Ò×Óµ¯·¢ÉäÆ÷, Íæ¼Ò×Óµ¯·¢Éä::CÁéÃÎÓÕµ¼>()},
-		{EÍæ¼Ò·¢Éä::eÁéÃÎ¼¯ÖĞ, new C¼òµ¥¹¤³§<CÍæ¼Ò×Óµ¯·¢ÉäÆ÷, Íæ¼Ò×Óµ¯·¢Éä::CÁéÃÎ¼¯ÖĞ>()},
-		{EÍæ¼Ò·¢Éä::eÄ§ÀíÉ³¹á´©, new C¼òµ¥¹¤³§<CÍæ¼Ò×Óµ¯·¢ÉäÆ÷, Íæ¼Ò×Óµ¯·¢Éä::CÄ§ÀíÉ³¹á´©>()},
-		{EÍæ¼Ò·¢Éä::eÄ§ÀíÉ³·¶Î§, new C¼òµ¥¹¤³§<CÍæ¼Ò×Óµ¯·¢ÉäÆ÷, Íæ¼Ò×Óµ¯·¢Éä::CÄ§ÀíÉ³·¶Î§>()},
-		{EÍæ¼Ò·¢Éä::eÈ«ÆÁÇåµ¯, new C¼òµ¥¹¤³§<CÍæ¼Ò×Óµ¯·¢ÉäÆ÷, CÍæ¼ÒÕ¨µ¯¼òµ¥·¢ÉäÆ÷<Íæ¼ÒÕ¨µ¯::CÈ«ÆÁÇåµ¯>>()},
-		{EÍæ¼Ò·¢Éä::e²âÊÔÕ¨µ¯, new C¼òµ¥¹¤³§<CÍæ¼Ò×Óµ¯·¢ÉäÆ÷, CÍæ¼ÒÕ¨µ¯¼òµ¥·¢ÉäÆ÷<Íæ¼ÒÕ¨µ¯::C·çÉñÂ¼>>()},
+	const Så†…ç½®å‘å°„å±æ€§ vç©å®¶å‘å°„è¡¨[] = {
+		{Eç©å®¶å‘å°„::eæµ‹è¯•å­å¼¹, new Cç®€å•å·¥å‚<Cç©å®¶å­å¼¹å‘å°„å™¨, ç©å®¶å­å¼¹å‘å°„::Cè‡ªæœºåŸºç¡€>()},
+		{Eç©å®¶å‘å°„::eè‡ªæœºåŸºç¡€, new Cç®€å•å·¥å‚<Cç©å®¶å­å¼¹å‘å°„å™¨, ç©å®¶å­å¼¹å‘å°„::Cè‡ªæœºåŸºç¡€>()},
+		{Eç©å®¶å‘å°„::eçµæ¢¦è¯±å¯¼, new Cç®€å•å·¥å‚<Cç©å®¶å­å¼¹å‘å°„å™¨, ç©å®¶å­å¼¹å‘å°„::Cçµæ¢¦è¯±å¯¼>()},
+		{Eç©å®¶å‘å°„::eçµæ¢¦é›†ä¸­, new Cç®€å•å·¥å‚<Cç©å®¶å­å¼¹å‘å°„å™¨, ç©å®¶å­å¼¹å‘å°„::Cçµæ¢¦é›†ä¸­>()},
+		{Eç©å®¶å‘å°„::eé­”ç†æ²™è´¯ç©¿, new Cç®€å•å·¥å‚<Cç©å®¶å­å¼¹å‘å°„å™¨, ç©å®¶å­å¼¹å‘å°„::Cé­”ç†æ²™è´¯ç©¿>()},
+		{Eç©å®¶å‘å°„::eé­”ç†æ²™èŒƒå›´, new Cç®€å•å·¥å‚<Cç©å®¶å­å¼¹å‘å°„å™¨, ç©å®¶å­å¼¹å‘å°„::Cé­”ç†æ²™èŒƒå›´>()},
+		{Eç©å®¶å‘å°„::eå…¨å±æ¸…å¼¹, new Cç®€å•å·¥å‚<Cç©å®¶å­å¼¹å‘å°„å™¨, Cç©å®¶ç‚¸å¼¹ç®€å•å‘å°„å™¨<ç©å®¶ç‚¸å¼¹::Cå…¨å±æ¸…å¼¹>>()},
+		{Eç©å®¶å‘å°„::eæµ‹è¯•ç‚¸å¼¹, new Cç®€å•å·¥å‚<Cç©å®¶å­å¼¹å‘å°„å™¨, Cç©å®¶ç‚¸å¼¹ç®€å•å‘å°„å™¨<ç©å®¶ç‚¸å¼¹::Cé£ç¥å½•>>()},
 	};
-	auto &vaÍæ¼Ò·¢Éä = CÓÎÏ·::g×ÊÔ´.fgÍæ¼Ò·¢Éä();
-	for (auto &v : vÍæ¼Ò·¢Éä±í) {
-		vaÍæ¼Ò·¢Éä.fÌí¼Ó((int)v.m±êÊ¶, v.m·¢Éä¶ÔÏó);
+	auto &vaç©å®¶å‘å°„ = Cæ¸¸æˆ::gèµ„æº.fgç©å®¶å‘å°„();
+	for (auto &v : vç©å®¶å‘å°„è¡¨) {
+		vaç©å®¶å‘å°„.fæ·»åŠ ((int)v.mæ ‡è¯†, v.må‘å°„å¯¹è±¡);
 	}
 }
-void CÄÚ²¿ÔØÈë::f¶¯»­() {
-	struct SÄÚÖÃ¶¯»­ÊôĞÔ {
-		E¶¯»­ m¶¯»­±êÊ¶;
-		I¹¤³§<I¶¯»­> *m¶¯»­¶ÔÏó;
+void Cå†…éƒ¨è½½å…¥::fåŠ¨ç”»() {
+	struct Så†…ç½®åŠ¨ç”»å±æ€§ {
+		EåŠ¨ç”» måŠ¨ç”»æ ‡è¯†;
+		Iå·¥å‚<IåŠ¨ç”»> *måŠ¨ç”»å¯¹è±¡;
 	};
-	const SÄÚÖÃ¶¯»­ÊôĞÔ vÄÚÖÃ¶¯»­±í[] = {
-		{E¶¯»­::e¾²Ì¬, new C¼òµ¥¹¤³§<I¶¯»­>},
-		{E¶¯»­::eµÀ¾ß, new C¼òµ¥¹¤³§<I¶¯»­, CµÀ¾ß¶¯»­>},
+	const Så†…ç½®åŠ¨ç”»å±æ€§ vå†…ç½®åŠ¨ç”»è¡¨[] = {
+		{EåŠ¨ç”»::eé™æ€, new Cç®€å•å·¥å‚<IåŠ¨ç”»>},
+		{EåŠ¨ç”»::eé“å…·, new Cç®€å•å·¥å‚<IåŠ¨ç”», Cé“å…·åŠ¨ç”»>},
 	};
-	auto &va¶¯»­À©Õ¹ = CÓÎÏ·::g×ÊÔ´.fg¶¯»­();
-	for (auto &v : vÄÚÖÃ¶¯»­±í) {
-		va¶¯»­À©Õ¹.fÌí¼Ó((int)v.m¶¯»­±êÊ¶, v.m¶¯»­¶ÔÏó);
+	auto &vaåŠ¨ç”»æ‰©å±• = Cæ¸¸æˆ::gèµ„æº.fgåŠ¨ç”»();
+	for (auto &v : vå†…ç½®åŠ¨ç”»è¡¨) {
+		vaåŠ¨ç”»æ‰©å±•.fæ·»åŠ ((int)v.måŠ¨ç”»æ ‡è¯†, v.måŠ¨ç”»å¯¹è±¡);
 	}
 }
-void CÄÚ²¿ÔØÈë::fÄ£ĞÍ() {
-	auto &vÃû³Æ±êÊ¶ = CÓÎÏ·::fg×ÊÔ´().fgÃû³Æ±êÊ¶();
-	//ÎÆÀí
-	ÎÆÀí::C×Ô¶¨ÒåÎÆÀí vÎÆÀí;
-	vÎÆÀí.f³õÊ¼»¯(2, 2);
-	vÎÆÀí.fgÏñËØ(0, 0) = ÊıÑ§::SÑÕÉ«(1, 0, 0);
-	vÎÆÀí.fgÏñËØ(0, 1) = ÊıÑ§::SÑÕÉ«(0, 1, 0);
-	vÎÆÀí.fgÏñËØ(1, 0) = ÊıÑ§::SÑÕÉ«(0, 0, 1);
-	vÎÆÀí.fgÏñËØ(1, 1) = ÊıÑ§::SÑÕÉ«(1, 1, 0);
-	auto &vÍ¼ĞÎ = CÓÎÏ·::fgÍ¼ĞÎ();
-	auto &vÎÆÀí¹¤³§ = vÍ¼ĞÎ.fgÎÆÀí¹¤³§();
-	tpÎÆÀí vĞÂÎÆÀí = vÎÆÀí¹¤³§.f´´½¨ÎÆÀí((int)EÎÆÀí::e²âÊÔ, vÎÆÀí);
-	vÃû³Æ±êÊ¶[L"ÎÆÀí.Î¢Èí"] = ¼ÆËã::fcËæ»ú±êÊ¶();
-	//Ä£ĞÍ
-	auto &vÄ£ĞÍ¹¤³§ = vÍ¼ĞÎ.fgÄ£ĞÍ¹¤³§();
-	int v±êÊ¶ = ¼ÆËã::fcËæ»ú±êÊ¶();
-	const std::wstring c±êÊ¶Ãû³Æ = L"Ä£ĞÍ.Æ½Ãæ.";
-	const uint16_t cÆ½ÃæË÷Òı[] = {
+void Cå†…éƒ¨è½½å…¥::fæ¨¡å‹() {
+	auto &våç§°æ ‡è¯† = Cæ¸¸æˆ::fgèµ„æº().fgåç§°æ ‡è¯†();
+	//çº¹ç†
+	çº¹ç†::Cè‡ªå®šä¹‰çº¹ç† vçº¹ç†;
+	vçº¹ç†.fåˆå§‹åŒ–(2, 2);
+	vçº¹ç†.fgåƒç´ (0, 0) = æ•°å­¦::Sé¢œè‰²(1, 0, 0);
+	vçº¹ç†.fgåƒç´ (0, 1) = æ•°å­¦::Sé¢œè‰²(0, 1, 0);
+	vçº¹ç†.fgåƒç´ (1, 0) = æ•°å­¦::Sé¢œè‰²(0, 0, 1);
+	vçº¹ç†.fgåƒç´ (1, 1) = æ•°å­¦::Sé¢œè‰²(1, 1, 0);
+	auto &vå›¾å½¢ = Cæ¸¸æˆ::fgå›¾å½¢();
+	auto &vçº¹ç†å·¥å‚ = vå›¾å½¢.fgçº¹ç†å·¥å‚();
+	tpçº¹ç† væ–°çº¹ç† = vçº¹ç†å·¥å‚.fåˆ›å»ºçº¹ç†((int)Eçº¹ç†::eæµ‹è¯•, vçº¹ç†);
+	våç§°æ ‡è¯†[L"çº¹ç†.å¾®è½¯"] = è®¡ç®—::fcéšæœºæ ‡è¯†();
+	//æ¨¡å‹
+	auto &væ¨¡å‹å·¥å‚ = vå›¾å½¢.fgæ¨¡å‹å·¥å‚();
+	int væ ‡è¯† = è®¡ç®—::fcéšæœºæ ‡è¯†();
+	const std::wstring cæ ‡è¯†åç§° = L"æ¨¡å‹.å¹³é¢.";
+	const uint16_t cå¹³é¢ç´¢å¼•[] = {
 		0, 1, 2,
 		1, 3, 2
 	};
-	//Æ½ÃæÄ£ĞÍ
+	//å¹³é¢æ¨¡å‹
 	for (int x = 1; x < 8; ++x) {
 		for (int y = 1; y < 8; ++y) {
-			const float v¿í = powf(2, x);
-			const float v¸ß = powf(2, y);
-			const std::wstring vÃû³Æ = c±êÊ¶Ãû³Æ + std::to_wstring((int)v¿í) + L"x" + std::to_wstring((int)v¸ß);
-			const int v±êÊ¶0 = (v±êÊ¶++);
-			vÃû³Æ±êÊ¶[vÃû³Æ] = v±êÊ¶0;
-			const float v°ë¿í = v¿í / 2;
-			const float v°ë¸ß = v¸ß / 2;
-			const SÈıÎ¬¶¥µã v¶¥µã[] = {
-				{{-v°ë¿í, v°ë¸ß, 0}, {0, 0}},
-				{{v°ë¿í, v°ë¸ß, 0}, {0, 1}},
-				{{-v°ë¿í, -v°ë¸ß, 0}, {1, 0}},
-				{{v°ë¿í, -v°ë¸ß, 0}, {1, 1}}
+			const float vå®½ = powf(2, x);
+			const float vé«˜ = powf(2, y);
+			const std::wstring våç§° = cæ ‡è¯†åç§° + std::to_wstring((int)vå®½) + L"x" + std::to_wstring((int)vé«˜);
+			const int væ ‡è¯†0 = (væ ‡è¯†++);
+			våç§°æ ‡è¯†[våç§°] = væ ‡è¯†0;
+			const float våŠå®½ = vå®½ / 2;
+			const float våŠé«˜ = vé«˜ / 2;
+			const Sä¸‰ç»´é¡¶ç‚¹ vé¡¶ç‚¹[] = {
+				{{-våŠå®½, våŠé«˜, 0}, {0, 0}},
+				{{våŠå®½, våŠé«˜, 0}, {0, 1}},
+				{{-våŠå®½, -våŠé«˜, 0}, {1, 0}},
+				{{våŠå®½, -våŠé«˜, 0}, {1, 1}}
 			};
-			vÄ£ĞÍ¹¤³§.m²ÎÊı.fs¶¥µã(v¶¥µã, _countof(v¶¥µã));
-			vÄ£ĞÍ¹¤³§.m²ÎÊı.fsË÷Òı(cÆ½ÃæË÷Òı, _countof(cÆ½ÃæË÷Òı));
-			vÄ£ĞÍ¹¤³§.f´´½¨Ä£ĞÍ(v±êÊ¶0);
+			væ¨¡å‹å·¥å‚.må‚æ•°.fsé¡¶ç‚¹(vé¡¶ç‚¹, _countof(vé¡¶ç‚¹));
+			væ¨¡å‹å·¥å‚.må‚æ•°.fsç´¢å¼•(cå¹³é¢ç´¢å¼•, _countof(cå¹³é¢ç´¢å¼•));
+			væ¨¡å‹å·¥å‚.fåˆ›å»ºæ¨¡å‹(væ ‡è¯†0);
 		}
 	}
 }
 //==============================================================================
-// ×ÜÔØÈë
+// æ€»è½½å…¥
 //==============================================================================
-void fÔØÈë() {
-	const std::filesystem::path vÔØÈëÎÄ¼ş = cÆô¶¯ÎÄ¼ş;
-	boost::property_tree::wptree v¸ùÊ÷;
-	C¶ÁjsonÎÄ¼ş::f¶ÁÈ¡(v¸ùÊ÷, vÔØÈëÎÄ¼ş);
-	CÔØÈë::f»ã×Ü({v¸ùÊ÷ , vÔØÈëÎÄ¼ş});
-	CÄÚ²¿ÔØÈë::f»­×Óµ¯();
-	//CÄÚ²¿ÔØÈë::f×Ó»ú();
-	//CÄÚ²¿ÔØÈë::fÍæ¼Ò×Óµ¯();
-	CÄÚ²¿ÔØÈë::fÍæ¼Ò×Óµ¯·¢Éä();
-	CÄÚ²¿ÔØÈë::fµÀ¾ß();
-	CÄÚ²¿ÔØÈë::f¶¯»­();
-	CÄÚ²¿ÔØÈë::fÄ£ĞÍ();
-	C³ÌĞò::fsÓÎÏ·±êÖ¾((int)EÓÎÏ·±êÖ¾::eÔØÈë0);
+void fè½½å…¥() {
+	const std::filesystem::path vè½½å…¥æ–‡ä»¶ = cå¯åŠ¨æ–‡ä»¶;
+	boost::property_tree::wptree væ ¹æ ‘;
+	Cè¯»jsonæ–‡ä»¶::fè¯»å–(væ ¹æ ‘, vè½½å…¥æ–‡ä»¶);
+	Cè½½å…¥::fæ±‡æ€»({væ ¹æ ‘ , vè½½å…¥æ–‡ä»¶});
+	Cå†…éƒ¨è½½å…¥::fç”»å­å¼¹();
+	//Cå†…éƒ¨è½½å…¥::få­æœº();
+	//Cå†…éƒ¨è½½å…¥::fç©å®¶å­å¼¹();
+	Cå†…éƒ¨è½½å…¥::fç©å®¶å­å¼¹å‘å°„();
+	Cå†…éƒ¨è½½å…¥::fé“å…·();
+	Cå†…éƒ¨è½½å…¥::fåŠ¨ç”»();
+	Cå†…éƒ¨è½½å…¥::fæ¨¡å‹();
+	Cç¨‹åº::fsæ¸¸æˆæ ‡å¿—((int)Eæ¸¸æˆæ ‡å¿—::eè½½å…¥0);
 }
-}	//namespace ¶«·½É½Õ¯
+}	//namespace ä¸œæ–¹å±±å¯¨

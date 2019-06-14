@@ -272,6 +272,9 @@
     <ClCompile Include="界面_选项.cpp">
       <Filter>界面</Filter>
     </ClCompile>
+    <ClCompile Include="界面音频.cpp">
+      <Filter>音频引擎</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="脚本.h">
@@ -478,9 +481,6 @@
     <ClInclude Include="取文本.h">
       <Filter>游戏本体\游戏基础</Filter>
     </ClInclude>
-    <ClInclude Include="常量.h">
-      <Filter>游戏本体\游戏基础</Filter>
-    </ClInclude>
     <ClInclude Include="图形基础.h">
       <Filter>图形引擎\图形基础</Filter>
     </ClInclude>
@@ -495,6 +495,15 @@
     </ClInclude>
     <ClInclude Include="界面_选项.h">
       <Filter>界面</Filter>
+    </ClInclude>
+    <ClInclude Include="界面音频.h">
+      <Filter>音频引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="程序常量.h">
+      <Filter>程序</Filter>
+    </ClInclude>
+    <ClInclude Include="游戏常量.h">
+      <Filter>游戏本体\游戏基础</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

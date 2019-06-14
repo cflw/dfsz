@@ -173,6 +173,7 @@
     <ClCompile Include="界面_选项.cpp" />
     <ClCompile Include="界面图形.cpp" />
     <ClCompile Include="界面引擎.cpp" />
+    <ClCompile Include="界面音频.cpp" />
     <ClCompile Include="程序.cpp" />
     <ClCompile Include="程序设置.cpp" />
     <ClCompile Include="自机.cpp" />
@@ -209,7 +210,7 @@
     <ClInclude Include="基础_数组.h" />
     <ClInclude Include="对话.h" />
     <ClInclude Include="对话基础.h" />
-    <ClInclude Include="常量.h" />
+    <ClInclude Include="游戏常量.h" />
     <ClInclude Include="数学包含.h" />
     <ClInclude Include="数学基础.h" />
     <ClInclude Include="日志.h" />
@@ -247,7 +248,9 @@
     <ClInclude Include="界面_选项.h" />
     <ClInclude Include="界面图形.h" />
     <ClInclude Include="界面引擎.h" />
+    <ClInclude Include="界面音频.h" />
     <ClInclude Include="程序.h" />
+    <ClInclude Include="程序常量.h" />
     <ClInclude Include="程序设置.h" />
     <ClInclude Include="脚本.h" />
     <ClInclude Include="自机.h" />

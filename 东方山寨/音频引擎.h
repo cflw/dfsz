@@ -1,60 +1,60 @@
-#pragma once
-#include "ÒôÆµ°üº¬.h"
-#include "»ù´¡_Êı×é.h"
-namespace ¶«·½É½Õ¯ {
-class CÉùÒô¹¤³§;
-class C²¥·Å¿ØÖÆ;
-//ÒôÆµÒıÇæ
-class CÒôÆµÒıÇæ {
+ï»¿#pragma once
+#include "éŸ³é¢‘åŒ…å«.h"
+#include "åŸºç¡€_æ•°ç»„.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cå£°éŸ³å·¥å‚;
+class Cæ’­æ”¾æ§åˆ¶;
+//éŸ³é¢‘å¼•æ“
+class CéŸ³é¢‘å¼•æ“ {
 public:
-	void f³õÊ¼»¯();
-	void f¼ÆËã();
-	void fÏú»Ù();
-	CÉùÒô¹¤³§ &fgÉùÒô¹¤³§();
-	C²¥·Å¿ØÖÆ &fg²¥·Å¿ØÖÆ();
-	CÊôĞÔÊı×é<tpÉùÒô> &fgÉùÒô();
-	std::unique_ptr<ÒôÆµ::CÒôÆµ> mÒôÆµ;
-	std::unique_ptr<C²¥·Å¿ØÖÆ> m²¥·Å¿ØÖÆ;
-	std::unique_ptr<CÉùÒô¹¤³§> mÉùÒô¹¤³§;
-	CÊôĞÔÊı×é<tpÉùÒô> maÉùÒô;
+	void fåˆå§‹åŒ–();
+	void fè®¡ç®—();
+	void fé”€æ¯();
+	Cå£°éŸ³å·¥å‚ &fgå£°éŸ³å·¥å‚();
+	Cæ’­æ”¾æ§åˆ¶ &fgæ’­æ”¾æ§åˆ¶();
+	Cå±æ€§æ•°ç»„<tpå£°éŸ³> &fgå£°éŸ³();
+	std::unique_ptr<éŸ³é¢‘::CéŸ³é¢‘> méŸ³é¢‘;
+	std::unique_ptr<Cæ’­æ”¾æ§åˆ¶> mæ’­æ”¾æ§åˆ¶;
+	std::unique_ptr<Cå£°éŸ³å·¥å‚> må£°éŸ³å·¥å‚;
+	Cå±æ€§æ•°ç»„<tpå£°éŸ³> maå£°éŸ³;
 };
-//²¥·Å¿ØÖÆ
-class C²¥·Å¿ØÖÆ {
+//æ’­æ”¾æ§åˆ¶
+class Cæ’­æ”¾æ§åˆ¶ {
 public:
-	enum E»ìºÏ {
-		eÒôĞ§s,
-		eÒôĞ§m,
-		eÒôĞ§l,
-		eÒôÀÖ,
-		eÊıÁ¿,
+	enum Eæ··åˆ {
+		eéŸ³æ•ˆs,
+		eéŸ³æ•ˆm,
+		eéŸ³æ•ˆl,
+		eéŸ³ä¹,
+		eæ•°é‡,
 	};
-	static constexpr float c²¥·Å¼ä¸ô = 1.f / 60.f;
-	static constexpr float cÒôĞ§s = 0.25f;
-	static constexpr float cÒôĞ§m = 0.5f;
-	static constexpr float cÒôĞ§l = 1;
-	void f³õÊ¼»¯_½Ó¿Ú(ÒôÆµ::CÒôÆµ &);
-	void f¼ÆËã();
-	void fÏú»Ù();
-	void f²¥·ÅÒôĞ§s(const ÒôÆµ::CÉùÒô &);
-	void f²¥·ÅÒôĞ§m(const ÒôÆµ::CÉùÒô &);
-	void f²¥·ÅÒôĞ§l(const ÒôÆµ::CÉùÒô &);
-	void f²¥·ÅÒôÀÖ(const ÒôÆµ::CÉùÒô &);
-	void fsÒôĞ§ÒôÁ¿(float);
-	void fsÒôÀÖÒôÁ¿(float);
-	float fgÒôĞ§ÒôÁ¿() const;
-	float fgÒôÀÖÒôÁ¿() const;
-	ÒôÆµ::CÒôÆµ *mÒôÆµ = nullptr;
-	std::unique_ptr<ÒôÆµ::C²¥·Å¿ØÖÆ> m²¥·Å;
-	ÒôÆµ::tp²¥·Å mÒôÀÖ = 0;
-	tp»ìºÏ ma»ìºÏ[eÊıÁ¿] = {};
+	static constexpr float cæ’­æ”¾é—´éš” = 1.f / 60.f;
+	static constexpr float céŸ³æ•ˆs = 0.25f;
+	static constexpr float céŸ³æ•ˆm = 0.5f;
+	static constexpr float céŸ³æ•ˆl = 1;
+	void fåˆå§‹åŒ–_æ¥å£(éŸ³é¢‘::CéŸ³é¢‘ &);
+	void fè®¡ç®—();
+	void fé”€æ¯();
+	void fæ’­æ”¾éŸ³æ•ˆs(const éŸ³é¢‘::Cå£°éŸ³ &);
+	void fæ’­æ”¾éŸ³æ•ˆm(const éŸ³é¢‘::Cå£°éŸ³ &);
+	void fæ’­æ”¾éŸ³æ•ˆl(const éŸ³é¢‘::Cå£°éŸ³ &);
+	void fæ’­æ”¾éŸ³ä¹(const éŸ³é¢‘::Cå£°éŸ³ &);
+	void fséŸ³æ•ˆéŸ³é‡(float);
+	void fséŸ³ä¹éŸ³é‡(float);
+	float fgéŸ³æ•ˆéŸ³é‡() const;
+	float fgéŸ³ä¹éŸ³é‡() const;
+	éŸ³é¢‘::CéŸ³é¢‘ *méŸ³é¢‘ = nullptr;
+	éŸ³é¢‘::Cæ’­æ”¾æ§åˆ¶ mæ’­æ”¾;
+	éŸ³é¢‘::tpæ’­æ”¾ méŸ³ä¹ = 0;
+	tpæ··åˆ maæ··åˆ[eæ•°é‡] = {};
 };
-//ÉùÒô¹¤³§
-class CÉùÒô¹¤³§ {
+//å£°éŸ³å·¥å‚
+class Cå£°éŸ³å·¥å‚ {
 public:
-	void f³õÊ¼»¯_½Ó¿Ú(ÒôÆµ::CÒôÆµ &);
-	void f³õÊ¼»¯_Êı×é(CÊôĞÔÊı×é<tpÉùÒô> &);
-	tpÉùÒô f´´½¨ÉùÒô(int ±êÊ¶, const std::wstring &);
-	ÒôÆµ::CÒôÆµ *mÒôÆµ = nullptr;
-	CÊôĞÔÊı×é<tpÉùÒô> *maÉùÒô = nullptr;
+	void fåˆå§‹åŒ–_æ¥å£(éŸ³é¢‘::CéŸ³é¢‘ &);
+	void fåˆå§‹åŒ–_æ•°ç»„(Cå±æ€§æ•°ç»„<tpå£°éŸ³> &);
+	tpå£°éŸ³ fåˆ›å»ºå£°éŸ³(int æ ‡è¯†, const std::wstring &);
+	éŸ³é¢‘::CéŸ³é¢‘ *méŸ³é¢‘ = nullptr;
+	Cå±æ€§æ•°ç»„<tpå£°éŸ³> *maå£°éŸ³ = nullptr;
 };
 }

@@ -1,45 +1,45 @@
-#pragma once
-#include "³£Á¿.h"
-#include "Íæ¼Ò×Óµ¯»ù´¡.h"
-#include "ÓÎÏ·.h"
-namespace ¶«·½É½Õ¯ {
-namespace Íæ¼Ò×Óµ¯ {
+ï»¿#pragma once
+#include "æ¸¸æˆå¸¸é‡.h"
+#include "ç©å®¶å­å¼¹åŸºç¡€.h"
+#include "æ¸¸æˆ.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+namespace ç©å®¶å­å¼¹ {
 //==============================================================================
-// ÓÕµ¼×Óµ¯, ×Ô¶¯¸ú×ÙµĞ»ú
+// è¯±å¯¼å­å¼¹, è‡ªåŠ¨è·Ÿè¸ªæ•Œæœº
 //==============================================================================
-class CÓÕµ¼ : public CÍæ¼Ò×Óµ¯ {
+class Cè¯±å¯¼ : public Cç©å®¶å­å¼¹ {
 private:
-	static constexpr float c³õÊ¼ÉúÃü = 2;
-	static constexpr float c½ÇËÙ¶È = ÊıÑ§::c¶ş¦Ğ<float> / c¼ÆËãÆµÂÊ;
+	static constexpr float cåˆå§‹ç”Ÿå‘½ = 2;
+	static constexpr float cè§’é€Ÿåº¦ = æ•°å­¦::cäºŒÏ€<float> / cè®¡ç®—é¢‘ç‡;
 public:
-	CÓÕµ¼();
-	//½Ó¿Ú
-	void f½Ó¿Ú_¼ÆËã() override;
-private:	//À©Õ¹
-	std::shared_ptr<CµĞ»ú> fÑ°ÕÒÄ¿±ê();
-	std::weak_ptr<CµĞ»ú> mÄ¿±ê;
-	float mÉúÃü = c³õÊ¼ÉúÃü;	//×Óµ¯²úÉúºó´æÔÚµÄÊ±¼ä
-	C¶ÔÏóÊı×é<CµĞ»ú> *maµĞ»ú;
+	Cè¯±å¯¼();
+	//æ¥å£
+	void fæ¥å£_è®¡ç®—() override;
+private:	//æ‰©å±•
+	std::shared_ptr<Cæ•Œæœº> få¯»æ‰¾ç›®æ ‡();
+	std::weak_ptr<Cæ•Œæœº> mç›®æ ‡;
+	float mç”Ÿå‘½ = cåˆå§‹ç”Ÿå‘½;	//å­å¼¹äº§ç”Ÿåå­˜åœ¨çš„æ—¶é—´
+	Cå¯¹è±¡æ•°ç»„<Cæ•Œæœº> *maæ•Œæœº;
 };
 //==============================================================================
-// ¹á´©
+// è´¯ç©¿
 //==============================================================================
-class C¹á´© : public CÍæ¼Ò×Óµ¯ {
+class Cè´¯ç©¿ : public Cç©å®¶å­å¼¹ {
 private:
-	static constexpr float c³¤¶ÈÉÏÏŞ = cÆÁÄ»·¶Î§r * 2;
-	static constexpr float cÏûÊ§ËÙ¶È = 4.f;
-	static constexpr float cÏûÊ§¼ä¸ô = 1.f / 30.f;
+	static constexpr float cé•¿åº¦ä¸Šé™ = cå±å¹•èŒƒå›´r * 2;
+	static constexpr float cæ¶ˆå¤±é€Ÿåº¦ = 4.f;
+	static constexpr float cæ¶ˆå¤±é—´éš” = 1.f / 30.f;
 public:
-	void f½Ó¿Ú_¼ÆËã() override;
-	void f½Ó¿Ú_ÏÔÊ¾() const override;
-	void f½Ó¿Ú_µĞ»úÅĞ¶¨(CµĞ»úÓëÍæ¼Ò×Óµ¯ÅĞ¶¨ &) override;
-	void f½Ó¿Ú_ÃüÖĞµĞ»ú(const CµĞ»ú &) override;
-	tÏòÁ¿2 fgÄ©¶Ë() const;
-	void f³ÖĞø();
+	void fæ¥å£_è®¡ç®—() override;
+	void fæ¥å£_æ˜¾ç¤º() const override;
+	void fæ¥å£_æ•Œæœºåˆ¤å®š(Cæ•Œæœºä¸ç©å®¶å­å¼¹åˆ¤å®š &) override;
+	void fæ¥å£_å‘½ä¸­æ•Œæœº(const Cæ•Œæœº &) override;
+	tå‘é‡2 fgæœ«ç«¯() const;
+	void fæŒç»­();
 private:
-	float m³¤¶È = 0;
-	float mÏûÊ§ = 0;
-	float mÏûÊ§Ê±¼äµã = -1;
+	float mé•¿åº¦ = 0;
+	float mæ¶ˆå¤± = 0;
+	float mæ¶ˆå¤±æ—¶é—´ç‚¹ = -1;
 };
 
 }

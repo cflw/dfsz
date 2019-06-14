@@ -6,7 +6,7 @@
 #include "数学包含.h"
 #include "基础.h"
 #include "基础_数组.h"
-#include "常量.h"
+#include "游戏常量.h"
 namespace 东方山寨 {
 class I图形;
 class I图形管线;

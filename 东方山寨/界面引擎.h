@@ -1,8 +1,9 @@
 ﻿#pragma once
 #include <用户界面_基础.h>
-#include "图形包含.h"
-#include "输入.h"
 namespace 东方山寨 {
+class C图形引擎;
+class C输入引擎;
+class C音频引擎;
 enum class E窗口 {
 	e主菜单,
 	e选择难度,
@@ -14,7 +15,9 @@ public:
 	static C界面引擎 *g这;
 	C界面引擎();
 	~C界面引擎();
-	void f初始化(二维::C二维 &, C输入引擎 &);
+	void f初始化0(C图形引擎 &, C输入引擎 &);	//在程序启动时调用
+	void f初始化0_图形(C图形引擎 &);
+	void f初始化1(C音频引擎 &);	//载入完成时调用
 	void f输入_接收字符(wchar_t);//在窗口过程WM_CHAR消息中调用
 	void f计算();
 	void f更新();

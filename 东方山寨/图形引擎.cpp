@@ -1,5 +1,5 @@
 ﻿#include <cflw视窗.h>
-#include "常量.h"
+#include "游戏常量.h"
 #include "图形引擎.h"
 #include "图形引擎_资源工厂.h"
 #include "图形_三维.h"
@@ -53,7 +53,9 @@ void C图形引擎::f初始化_s渲染间隔(const int &a) {
 	m渲染间隔 = &a;
 }
 void C图形引擎::f初始化_三维(HWND a窗口) {
-	m三维 = std::make_unique<三维::C三维>();
+	if (m三维 == nullptr) {
+		m三维 = std::make_unique<三维::C三维>();
+	}
 	m三维->f初始化窗口(a窗口);
 	m三维->f初始化设备();
 	m三维->f初始化交换链();
@@ -63,11 +65,13 @@ void C图形引擎::f初始化_三维(HWND a窗口) {
 }
 void C图形引擎::f初始化_二维(float a缩放) {
 	m缩放 = a缩放;
-	m二维 = std::make_unique<二维::C二维>();
-	m二维->f初始化_工厂();
-	m二维->f初始化_设备(m三维->fg基础设备().Get());
+	if (m二维 == nullptr) {
+		m二维 = std::make_unique<二维::C二维>();
+		m二维->f初始化_工厂();
+		m二维->f初始化_设备(m三维->fg基础设备().Get());
+		m文本.f初始化();
+	}
 	m二维->f初始化_单个位图(m三维->fg交换链().Get(), m缩放);
-	m文本.f初始化();
 }
 void C图形引擎::f初始化_其它() {
 	m图形管理 = std::make_unique<C图形管理>();
@@ -182,7 +186,7 @@ void C图形引擎::f画十字(const 数学::S向量2 &a坐标, const float &a�
 	if (m画十字 == nullptr) {
 		m画十字 = fc画图形();
 		m画十字->fs线条宽度(1);
-		m画十字->fs颜色(t颜色(1,1,1,1));
+		m画十字->fs颜色(t颜色(1, 1, 1, 1));
 	}
 	m画十字->f绘制线条(t线段(a坐标 + 数学::S向量2{a半径, 0}, a坐标 + 数学::S向量2{-a半径, 0}));
 	m画十字->f绘制线条(t线段(a坐标 + 数学::S向量2{0, a半径}, a坐标 + 数学::S向量2{0, -a半径}));

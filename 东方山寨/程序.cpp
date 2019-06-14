@@ -4,7 +4,8 @@
 #include <cflw图形_d2d.h>
 #include <cflw时间.h>
 #include <cflw视窗.h>
-#include "常量.h"
+#include <cflw工具.h>
+#include "程序常量.h"
 #include "程序.h"
 #include "界面引擎.h"
 #include "图形引擎.h"
@@ -16,9 +17,11 @@
 #include "游戏设置.h"
 #include "图形管理.h"
 #include "界面图形.h"
+#include "界面音频.h"
 namespace 东方山寨 {
 namespace 时间 = cflw::时间;
 namespace 视窗 = cflw::视窗;
+namespace 工具 = cflw::工具;
 void f载入();
 //==============================================================================
 // 画帧速率
@@ -27,7 +30,7 @@ class C画帧速率 {
 public:
 	std::shared_ptr<二维::C画文本> m画文本;
 	时间::C计帧器 m计帧器;
-	int m额定速率;
+	int m额定速率 = 0;
 	C画帧速率(二维::C二维 &a二维):
 		m画文本(a二维.fc画文本()) {
 		m画文本->m矩形 = a二维.fg坐标计算().f矩形_窗口();
@@ -41,8 +44,8 @@ public:
 		m画文本->m格式 = v文本工厂.fc文本格式(v格式);
 		m计帧器.f重置();
 	}
-	void fs额定速率(int p额定) {
-		m额定速率 = p额定;
+	void fs额定速率(int a额定) {
+		m额定速率 = a额定;
 	}
 	void f显示() {
 		const double v帧速率0 = m计帧器.f计算();	//转整数，四舍五入
@@ -59,9 +62,9 @@ public:
 //==============================================================================
 class C程序::C实现 {
 public:
-	HINSTANCE m实例;
-	HWND m窗口;
-	int m窗口大小[2];
+	HINSTANCE m实例 = nullptr;
+	HWND m窗口 = nullptr;
+	int m窗口大小[2] = {};
 	float m缩放 = 0;
 	时间::C计时器 m计时器;
 	工具::C计次器 m计次器;
@@ -70,6 +73,7 @@ public:
 	C音频引擎 m音频;
 	C界面引擎 m界面;
 	C界面图形控制 m界面图形;
+	C界面音频 m界面音频;
 	C游戏 m游戏;
 	std::unique_ptr<C画帧速率> m画帧速率;
 	std::unique_ptr<C日志> m日志;
@@ -139,9 +143,11 @@ public:
 		RegisterClassEx(&wc);
 		//计算窗口大小
 		//RECT v窗口矩形 = {0, 0, 640, 480};
-		const DWORD	c窗口样式 = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX;
-		const DWORD	c窗口样式ex = WS_EX_APPWINDOW | WS_EX_WINDOWEDGE;
-		const 视窗::S客户区尺寸 v窗口尺寸 = 视窗::S客户区尺寸::fc尺寸样式(800, 600, c窗口样式, c窗口样式ex);
+		constexpr int c窗口宽度 = 800;
+		constexpr int c窗口高度 = 600;
+		constexpr DWORD	c窗口样式 = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX;
+		constexpr DWORD	c窗口样式ex = WS_EX_APPWINDOW | WS_EX_WINDOWEDGE;
+		const 视窗::S客户区尺寸 v窗口尺寸 = 视窗::S客户区尺寸::fc尺寸样式(c窗口宽度, c窗口高度, c窗口样式, c窗口样式ex);
 		//创建窗口
 		m窗口 = CreateWindowExW(
 			c窗口样式ex,
@@ -170,12 +176,21 @@ public:
 		m图形.fg图形管理().f初始化_环境(m游戏.fg资源().fg游戏速度());
 		f载入();
 		//m任务_载入 = std::async(f载入);
-		m界面.f初始化(m图形.fg二维(), m输入);
+		m界面.f初始化0(m图形, m输入);
 		m计时器.f重置(c帧秒);
 		m画帧速率 = std::make_unique<C画帧速率>(m图形.fg二维());
 		m日志 = std::make_unique<C日志>(m图形.fg二维());
 		fs渲染间隔(4);
 		f日志(C日志::e调试, L"启动...............");
+	}
+	void f初始化1() {	//重要资源载入完成时调用
+		m游戏.f资源初始化();
+		m界面.f初始化1(m音频);
+		f切换游戏状态(E游戏状态::e主菜单);
+		//f日志(C日志::e调试, L"载入完成，按确定键继续");
+	}
+	void f初始化2() {	//所有资源载入完成时调用
+
 	}
 	void f销毁() {
 		m图形.f销毁();
@@ -186,14 +201,13 @@ public:
 		//状态切换
 		if (m状态 == E游戏状态::e载入中 && m标志[(int)E游戏标志::e载入0]) {
 			//m任务_资源 = std::async(&C游戏::f资源初始化, std::ref(m游戏));
-			m游戏.f资源初始化();
-			f切换游戏状态(E游戏状态::e主菜单);
-			f日志(C日志::e调试, L"载入完成，按确定键继续");
+			f初始化1();
+			f初始化2();
 			//↓快速开始游戏，如果要进入标题画面则把下面注释掉
 			//S游戏设置 &v设置 = C游戏::fg设置();
-			//v设置.m自机标识 = (int)E自机::e魔理沙;
+			//v设置.m自机标识 = (int)E自机::e测试;
 			//v设置.m子机标识 = (int)E子机::e魔理沙贯穿;
-			//v设置.m火力 = 4;
+			//v设置.m火力 = 0;
 			//f切换游戏状态(E游戏状态::e游戏中);
 		} else if (m状态 == E游戏状态::e主菜单) {
 			//const bool v确定 = m输入.m按键组.f按键((输入::t索引)E按键::e确定).f刚按下();
@@ -248,7 +262,7 @@ public:
 			case E游戏状态::e游戏中:
 				//m任务_资源.wait();
 				m游戏.f游戏初始化();
-				m游戏.f进入关卡(C关卡::fg注册关卡(L"东方月亮船1"));
+				m游戏.f进入关卡(C关卡::fg注册关卡(L"测试关卡"));
 				m界面.f关闭窗口();
 				break;
 			case E游戏状态::e退出:
@@ -279,11 +293,12 @@ public:
 		m缩放 = v客户区尺寸.f除以尺寸(c标准尺寸x, c标准尺寸y);
 	}
 	void fs窗口大小(int a宽, int a高) {
-		//m图形.m二维->f销毁();
+		m图形.m二维->fg上下文()->SetTarget(nullptr);
 		m图形.m三维->fs窗口大小(a宽, a高);
-		//m图形.m三维->f重置屏幕资源();
+		m图形.m三维->f重置屏幕资源();
 		f计算窗口尺寸和缩放();
-		//m图形.f初始化_二维(m缩放);
+		m图形.f初始化_二维(m缩放);
+		m界面.f初始化0_图形(m图形);
 		m输入.fs缩放(m缩放);
 	}
 };
@@ -343,8 +358,8 @@ const std::filesystem::path &C程序::fg数据目录() {
 	assert(std::filesystem::exists(v数据目录));
 	return v数据目录;
 }
-void C程序::f输入法开关(bool p) {
-	m实现->f输入法开关(p);
+void C程序::f输入法开关(bool a) {
+	m实现->f输入法开关(a);
 }
 int C程序::fg渲染间隔() {
 	return m实现->m渲染间隔;

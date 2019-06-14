@@ -1,4 +1,4 @@
-﻿#include <cflw数学_函数方程.h>
+﻿#include <cflw数学_平面几何.h>
 #include "子弹_大子弹.h"
 #include "子弹图形接口.h"
 namespace 东方山寨 {
@@ -213,7 +213,7 @@ void C大子弹::f扩展_节点消失(int a序号) {
 		std::vector<int> va节点序号;
 		va节点序号.reserve(m数量 / 8);
 		const float v方向 = v消失节点坐标.fg方向r();
-		const 数学::S直线方程 v直线 = 数学::S直线方程::fc点向(t向量2::c零, v方向);
+		const 数学::S直线2 v直线 = 数学::S直线2::fc点向(t向量2::c零, v方向);
 		for (int i = 0; i != m数量; ++i) {
 			S节点 &v节点 = f扩展_取节点(i);
 			const t向量2 m坐标 = f节点_g相对坐标(i);
