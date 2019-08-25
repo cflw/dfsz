@@ -2,6 +2,7 @@
 #include "界面图形.h"
 #include "游戏.h"
 #include "图形_图片.h"
+#include "图形_背景.h"
 #include "图形管理.h"
 namespace 东方山寨 {
 //==============================================================================
@@ -69,9 +70,9 @@ public:
 class C云 : public C二维图片图形, public C消失 {
 public:
 	static constexpr float c边 = 128;
-	static constexpr float c左边 = -c屏幕范围x - c边;
-	static constexpr float c右边 = c屏幕范围x + c边;
-	static constexpr float c层分界线 = -c屏幕范围y * 0.5f;
+	static constexpr float c左边 = -c框架范围x - c边;
+	static constexpr float c右边 = c框架范围x + c边;
+	static constexpr float c层分界线 = -c框架范围y * 0.5f;
 	C云() {
 		m缩放 = t向量2::fc相同(2);
 	}
@@ -119,7 +120,7 @@ void C界面图形控制::f标题人物(bool a) {
 			auto v图形工厂 = C游戏::fg资源().f工厂_图形();
 			v图形工厂.m参数.m纹理 = C游戏::fg图形().fg纹理()[L"东方月亮船.灵梦"];
 			v图形工厂.m参数.m顶点 = C游戏::fg图形().fg顶点矩形()[L"东方月亮船.灵梦"];
-			v图形工厂.m参数.m坐标 = t向量2(c屏幕范围x, 0);
+			v图形工厂.m参数.m坐标 = t向量2(c框架范围x, 0);
 			v图形工厂.m参数.m图层 = E图层::e人;
 			m标题人物 = v图形工厂.f产生图形<界面图形::C标题人物>();
 		} else {
@@ -134,7 +135,7 @@ void C界面图形控制::f云(bool a) {
 		auto v图形工厂 = C游戏::fg资源().f工厂_图形();
 		auto v随机工厂 = C游戏::fg资源().f工厂_随机数引擎();
 		const std::uniform_real_distribution<float> c坐标分布x{界面图形::C云::c左边,  界面图形::C云::c右边};
-		const std::uniform_real_distribution<float> c坐标分布y{-c屏幕范围y, 0};
+		const std::uniform_real_distribution<float> c坐标分布y{-c框架范围y, 0};
 		const std::uniform_real_distribution<float> c速度分布x{100, 200};
 		v图形工厂.m参数.m纹理 = C游戏::fg图形().fg纹理()[L"东方月亮船.云"];
 		const S顶点矩形 *vp云矩形 = C游戏::fg图形().fg顶点矩形()[L"东方月亮船.云"];

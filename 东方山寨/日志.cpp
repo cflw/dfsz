@@ -47,7 +47,7 @@ void C日志::f计算() {
 			break;
 		}
 	}
-	m显示位置y = 数学::f倍数渐变<float>(m显示位置y, -c屏幕范围y, 0.01f, c帧秒);
+	m显示位置y = 数学::f倍数渐变<float>(m显示位置y, -c框架范围y, 0.01f, c帧秒);
 }
 void C日志::f显示() const {
 	float v显示位置y = m显示位置y;
@@ -56,7 +56,7 @@ void C日志::f显示() const {
 		const S日志 &v日志 = *v;
 		const float v透明度 = v日志.fg透明度();
 		m画文本->fs颜色({1, 1, 1, v透明度});
-		m画文本->fs区域(-c屏幕范围x, v显示位置y);
+		m画文本->fs区域(-c框架范围x, v显示位置y);
 		m画文本->f绘制文本(v日志.m文本);
 		v显示位置y += c行距;
 	}

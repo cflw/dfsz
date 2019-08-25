@@ -26,7 +26,7 @@ private:	//扩展
 //==============================================================================
 class C贯穿 : public C玩家子弹 {
 private:
-	static constexpr float c长度上限 = c屏幕范围r * 2;
+	static constexpr float c长度上限 = c框架范围r * 2;
 	static constexpr float c消失速度 = 4.f;
 	static constexpr float c消失间隔 = 1.f / 30.f;
 public:

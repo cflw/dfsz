@@ -10,12 +10,12 @@ void C敌机制造机::S参数::fs坐标(const t向量2 &a坐标) {
 	const float c向外 = 32;
 	bool v无移动 = false;
 	m目标 = a坐标;
-	if (a坐标.x == -c屏幕范围x) {
-		m坐标.x = -c屏幕范围x - c向外;
-		m目标.x = -c屏幕范围x + c向外;
-	} else if (a坐标.x == c屏幕范围x) {
-		m坐标.x = c屏幕范围x + c向外;
-		m目标.x = c屏幕范围x - c向外;
+	if (a坐标.x == -c框架范围x) {
+		m坐标.x = -c框架范围x - c向外;
+		m目标.x = -c框架范围x + c向外;
+	} else if (a坐标.x == c框架范围x) {
+		m坐标.x = c框架范围x + c向外;
+		m目标.x = c框架范围x - c向外;
 	} else if (a坐标.x == -c边框范围x) {
 		m坐标.x = -c边框范围x - c向外;
 		m目标.x = -c边框范围x + c向外;
@@ -26,12 +26,12 @@ void C敌机制造机::S参数::fs坐标(const t向量2 &a坐标) {
 		m坐标.x = a坐标.x;
 		v无移动 = true;
 	}
-	if (a坐标.y == -c屏幕范围y) {
-		m坐标.y = -c屏幕范围y - c向外;
-		m目标.y = -c屏幕范围y + c向外;
-	} else if (a坐标.y == c屏幕范围y) {
-		m坐标.y = c屏幕范围y + c向外;
-		m目标.y = c屏幕范围y - c向外;
+	if (a坐标.y == -c框架范围y) {
+		m坐标.y = -c框架范围y - c向外;
+		m目标.y = -c框架范围y + c向外;
+	} else if (a坐标.y == c框架范围y) {
+		m坐标.y = c框架范围y + c向外;
+		m目标.y = c框架范围y - c向外;
 	} else if (a坐标.y == -c边框范围y) {
 		m坐标.y = -c边框范围y - c向外;
 		m目标.y = -c边框范围y + c向外;

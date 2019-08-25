@@ -3,6 +3,7 @@
 #include <memory>
 #include <string>
 #include <filesystem>
+#include <utility>
 #include <Windows.h>
 namespace 东方山寨 {
 enum class E游戏状态 {
@@ -42,6 +43,8 @@ public:
 	static void f日志(int 级别, const std::wstring &);
 	static void fs全屏(bool);
 	static void fs窗口大小(int, int);
+	static std::pair<int, int> fg窗口大小();
+	static std::pair<float, float> fg标准窗口大小();
 private:
 	class C实现;
 	static std::unique_ptr<C实现> m实现;

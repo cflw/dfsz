@@ -165,13 +165,13 @@ int C子弹::f动作_屏幕反弹(int a方向, int a次数, std::function<bool(i
 			++v次数;
 		}
 	};
-	f(e左, m坐标.x, m速度.x, false, c屏幕范围x);
-	f(e右, m坐标.x, m速度.x, true, c屏幕范围x);
+	f(e左, m坐标.x, m速度.x, false, c框架范围x);
+	f(e右, m坐标.x, m速度.x, true, c框架范围x);
 	if (v次数 >= a次数) {
 		return v次数;
 	}
-	f(e下, m坐标.y, m速度.y, false, c屏幕范围y);
-	f(e上, m坐标.y, m速度.y, true, c屏幕范围y);
+	f(e下, m坐标.y, m速度.y, false, c框架范围y);
+	f(e上, m坐标.y, m速度.y, true, c框架范围y);
 	return v次数;
 }
 void C子弹::f动作_透明(float a目标, float a变化速度) {

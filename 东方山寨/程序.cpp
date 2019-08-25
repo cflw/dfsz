@@ -5,6 +5,7 @@
 #include <cflw时间.h>
 #include <cflw视窗.h>
 #include <cflw工具.h>
+#include <cflw数学_分辨率.h>
 #include "程序常量.h"
 #include "程序.h"
 #include "界面引擎.h"
@@ -18,10 +19,12 @@
 #include "图形管理.h"
 #include "界面图形.h"
 #include "界面音频.h"
+#include "图形_背景.h"
 namespace 东方山寨 {
 namespace 时间 = cflw::时间;
 namespace 视窗 = cflw::视窗;
 namespace 工具 = cflw::工具;
+namespace 数学 = cflw::数学;
 void f载入();
 //==============================================================================
 // 画帧速率
@@ -298,6 +301,7 @@ public:
 		m图形.m三维->f重置屏幕资源();
 		f计算窗口尺寸和缩放();
 		m图形.f初始化_二维(m缩放);
+		m图形.fs图形资源窗口大小();
 		m界面.f初始化0_图形(m图形);
 		m输入.fs缩放(m缩放);
 	}
@@ -378,6 +382,12 @@ void C程序::fs全屏(bool a) {
 }
 void C程序::fs窗口大小(int a宽, int a高) {
 	m实现->fs窗口大小(a宽, a高);
+}
+std::pair<int, int> C程序::fg窗口大小() {
+	return {m实现->m窗口大小[0], m实现->m窗口大小[1]};
+}
+std::pair<float, float> C程序::fg标准窗口大小() {
+	return 数学::分辨率::f小边相同({m实现->m窗口大小[0], m实现->m窗口大小[1]}, {c标准尺寸x, c标准尺寸y});
 }
 }	//namespace 东方山寨
 //==============================================================================

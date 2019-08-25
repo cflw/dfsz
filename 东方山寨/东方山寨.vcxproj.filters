@@ -275,6 +275,15 @@
     <ClCompile Include="界面音频.cpp">
       <Filter>音频引擎</Filter>
     </ClCompile>
+    <ClCompile Include="图形_画图片.cpp">
+      <Filter>图形引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_背景.cpp">
+      <Filter>游戏本体\图形</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_画边框.cpp">
+      <Filter>图形引擎</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="脚本.h">
@@ -505,6 +514,15 @@
     <ClInclude Include="游戏常量.h">
       <Filter>游戏本体\游戏基础</Filter>
     </ClInclude>
+    <ClInclude Include="图形_背景.h">
+      <Filter>游戏本体\图形</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_画图片.h">
+      <Filter>图形引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_画边框.h">
+      <Filter>图形引擎</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="着色器\ps_stage0.hlsl">
@@ -525,9 +543,18 @@
     <FxCompile Include="着色器\ps_image0.hlsl">
       <Filter>图形引擎\着色器</Filter>
     </FxCompile>
+    <FxCompile Include="着色器\ps_tint1.hlsl">
+      <Filter>图形引擎\着色器</Filter>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="着色器\windows.hlsli">
+      <Filter>图形引擎\着色器</Filter>
+    </None>
     <None Include="着色器\image.hlsli">
+      <Filter>图形引擎\着色器</Filter>
+    </None>
+    <None Include="着色器\tint.hlsli">
       <Filter>图形引擎\着色器</Filter>
     </None>
   </ItemGroup>

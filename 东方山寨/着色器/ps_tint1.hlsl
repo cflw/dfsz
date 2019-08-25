@@ -1,6 +1,9 @@
 #include "windows.hlsli"
 #include "tint.hlsli"
 float4 ps_tint(PS_TINT i) : SV_TARGET {
+	if (isoutframe(i.pos0)) {
+		discard;
+	}
 	float4 tex = tx.Sample(sam, i.tex);
 	if (tex.z <= 0) {
 		discard;

@@ -1,394 +1,395 @@
-#include "½Å±¾.h"
-class C²âÊÔ¹Ø¿¨ : public C¹Ø¿¨ {
+ï»¿#include "è„šæœ¬.h"
+class Cæµ‹è¯•å…³å¡ : public Cå…³å¡ {
 public:
-	C²âÊÔ¹Ø¿¨() {
-		f×¢²á¹Ø¿¨(L"²âÊÔ¹Ø¿¨");
+	Cæµ‹è¯•å…³å¡() {
+		fæ³¨å†Œå…³å¡(L"æµ‹è¯•å…³å¡");
 	}
-	class Cµ¯Ä» : public C¹Ø¿¨ÊÂ¼þ {
+	class Cå¼¹å¹• : public Cå…³å¡äº‹ä»¶ {
 	public:
-		void fÊÂ¼þ_Ö´ÐÐ() override {
-			if (m¼ÆÊ±.fµÎ´ð()) {
-				auto v×Óµ¯ÖÆÔì»ú = CÓÎÏ·::fgÄÚÈÝ().f¹¤³§_×Óµ¯();
-				v×Óµ¯ÖÆÔì»ú.m²ÎÊý.mÑÕÉ«[0] = tÑÕÉ«::fc²Êºç(m²Êºç);
-				v×Óµ¯ÖÆÔì»ú.m²ÎÊý.mËÙ¶È = tÏòÁ¿2::fc·½Ïòr(200, m·½Ïò);
-				//int v½×¶Î = (int)m½¥±ä;
-				//if (m½×¶Î != v½×¶Î) {
-				//	m½×¶Î = v½×¶Î;
-				//	switch (m½×¶Î) {
-				//	case 0:	//Èý½ÇÐÎ
-				//		for (auto vÑ­»·0 : v×Óµ¯ÖÆÔì»ú.fÑ­»·(3)) {
-				//			const tÏòÁ¿2 vÇ° = vÑ­»·0.f¼ÆËã_ËÙ¶È±ä»»(0, ÊýÑ§::c¶þ¦Ð / vÑ­»·0.fg×ÜÊý());
-				//			vÑ­»·0.f±ä»»_Ô²ÐÎ();
-				//			vÑ­»·0.f±ä»»_×ø±êÇ°ÒÆ(50);
-				//			for (auto vÑ­»·1 : v×Óµ¯ÖÆÔì»ú.fÑ­»·(20)) {
+		void fäº‹ä»¶_æ‰§è¡Œ() override {
+			if (mè®¡æ—¶.fæ»´ç­”()) {
+				auto vå­å¼¹åˆ¶é€ æœº = Cæ¸¸æˆ::fgå†…å®¹().få·¥åŽ‚_å­å¼¹();
+				vå­å¼¹åˆ¶é€ æœº.må‚æ•°.mé¢œè‰²[0] = té¢œè‰²::fcå½©è™¹(må½©è™¹);
+				vå­å¼¹åˆ¶é€ æœº.må‚æ•°.mé€Ÿåº¦ = tå‘é‡2::fcæ–¹å‘r(200, mæ–¹å‘);
+				//int vé˜¶æ®µ = (int)mæ¸å˜;
+				//if (mé˜¶æ®µ != vé˜¶æ®µ) {
+				//	mé˜¶æ®µ = vé˜¶æ®µ;
+				//	switch (mé˜¶æ®µ) {
+				//	case 0:	//ä¸‰è§’å½¢
+				//		for (auto vå¾ªçŽ¯0 : vå­å¼¹åˆ¶é€ æœº.få¾ªçŽ¯(3)) {
+				//			const tå‘é‡2 vå‰ = vå¾ªçŽ¯0.fè®¡ç®—_é€Ÿåº¦å˜æ¢(0, æ•°å­¦::cäºŒÏ€ / vå¾ªçŽ¯0.fgæ€»æ•°());
+				//			vå¾ªçŽ¯0.få˜æ¢_åœ†å½¢();
+				//			vå¾ªçŽ¯0.få˜æ¢_åæ ‡å‰ç§»(50);
+				//			for (auto vå¾ªçŽ¯1 : vå­å¼¹åˆ¶é€ æœº.få¾ªçŽ¯(20)) {
 
 				//			}
 				//		}
 
 				//	}
 				//}
-				for (auto vÑ­»·0 : v×Óµ¯ÖÆÔì»ú.fÑ­»·(FÑ­»·Ä£°å_¶Û¶à½ÇÐÇ(7, 10, 0.1f))) {
-					v×Óµ¯ÖÆÔì»ú.f²úÉú×Óµ¯<CÆÕÍ¨×Óµ¯>();
+				for (auto vå¾ªçŽ¯0 : vå­å¼¹åˆ¶é€ æœº.få¾ªçŽ¯(Få¾ªçŽ¯æ¨¡æ¿_é’å¤šè§’æ˜Ÿ(7, 10, 0.1f))) {
+					vå­å¼¹åˆ¶é€ æœº.fäº§ç”Ÿå­å¼¹<Cæ™®é€šå­å¼¹>();
 				}
-				m·½Ïò += ÊýÑ§::c¶þ¦Ð<float> / 329.f;
+				mæ–¹å‘ += æ•°å­¦::cäºŒÏ€<float> / 329.f;
 			}
 		}
-		float m½¥±ä = 0;
-		int m½×¶Î = -1;
-		float m²Êºç = 0;
-		float m·½Ïò = 0;
-		tÏòÁ¿2 ma¾É×ø±ê[60];
-		tÏòÁ¿2 maÐÂ×ø±ê[60];
-		C¼ÆÊ±Æ÷ m¼ÆÊ±{0.5f};
+		float mæ¸å˜ = 0;
+		int mé˜¶æ®µ = -1;
+		float må½©è™¹ = 0;
+		float mæ–¹å‘ = 0;
+		tå‘é‡2 maæ—§åæ ‡[60];
+		tå‘é‡2 maæ–°åæ ‡[60];
+		Cè®¡æ—¶å™¨ mè®¡æ—¶{0.5f};
 	};
-	class C²úÉúµÐ»ú : public C¹Ø¿¨ÊÂ¼þ {
+	class Cäº§ç”Ÿæ•Œæœº : public Cå…³å¡äº‹ä»¶ {
 	public:
-		class CµÐ»ú0 : public CµÐ»ú {
+		class Cæ•Œæœº0 : public Cæ•Œæœº {
 		public:
-			void fÊÂ¼þ_³õÊ¼»¯() override {
+			void fäº‹ä»¶_åˆå§‹åŒ–() override {
 			}
-			void fÊÂ¼þ_Ö´ÐÐ() override {
-				if (v¼ÆÊ±_ÒÆ¶¯.fµÎ´ð()) {
-					const auto &v×Ô»ú = CÓÎÏ·::fgÄÚÈÝ().fg×Ô»ú();
-					fÔË¶¯_Ïà¶Ôºá×ø±êËæ»úÒÆ¶¯(v×Ô»ú.m×ø±ê.x, 50, 10, 100);
-					//fÔË¶¯_ËÙ¶È({-100, 0}, 2);
-					//v¼ÆÊ±_ÒÆ¶¯.fÍ£Ö¹();
+			void fäº‹ä»¶_æ‰§è¡Œ() override {
+				if (vè®¡æ—¶_ç§»åŠ¨.fæ»´ç­”()) {
+					const auto &vè‡ªæœº = Cæ¸¸æˆ::fgå†…å®¹().fgè‡ªæœº();
+					fè¿åŠ¨_ç›¸å¯¹æ¨ªåæ ‡éšæœºç§»åŠ¨(vè‡ªæœº.måæ ‡.x, 50, 10, 100);
+					//fè¿åŠ¨_é€Ÿåº¦({-100, 0}, 2);
+					//vè®¡æ—¶_ç§»åŠ¨.fåœæ­¢();
 				}
-				if (v¼ÆÊ±_·¢Éä.fµÎ´ð()) {
-					v×Óµ¯ÖÆÔì»ú.m²ÎÊý.m×ø±ê = m×ø±ê;
-					v×Óµ¯ÖÆÔì»ú.m²ÎÊý.mËÙ¶È = tÏòÁ¿2::fc·½Ïòr(50, v·½Ïò);
-					for (auto vÑ­»·0 : v×Óµ¯ÖÆÔì»ú.fÑ­»·(10)) {
-						vÑ­»·0.f±ä»»_Ô²ÐÎ();
-						v×Óµ¯ÖÆÔì»ú.f²úÉú×Óµ¯<CÆÕÍ¨×Óµ¯>();
+				if (vè®¡æ—¶_å‘å°„.fæ»´ç­”()) {
+					vå­å¼¹åˆ¶é€ æœº.må‚æ•°.måæ ‡ = måæ ‡;
+					vå­å¼¹åˆ¶é€ æœº.må‚æ•°.mé€Ÿåº¦ = tå‘é‡2::fcæ–¹å‘r(50, væ–¹å‘);
+					for (auto vå¾ªçŽ¯0 : vå­å¼¹åˆ¶é€ æœº.få¾ªçŽ¯(10)) {
+						vå¾ªçŽ¯0.få˜æ¢_åœ†å½¢();
+						vå­å¼¹åˆ¶é€ æœº.fäº§ç”Ÿå­å¼¹<Cæ™®é€šå­å¼¹>();
 					}
-					v·½Ïò += 1;
+					væ–¹å‘ += 1;
 				}
 			}
-			void fÊÂ¼þ_»÷ÆÆ() override {
-				//Í¼ÐÎ
-				Í¼ÐÎÄ£°å::fµÐ»úËÀÍöÐ¡±¬Õ¨(*this);
-				//µÀ¾ß
-				//auto vµÀ¾ßÖÆÔì»ú = CÓÎÏ·::fgÄÚÈÝ().f¹¤³§_µÀ¾ß();
-				//vµÀ¾ßÖÆÔì»ú.m²ÎÊý.m×ø±ê = m×ø±ê;
-				//vµÀ¾ßÖÆÔì»ú.m²ÎÊý.fsÊôÐÔ((int)EµÀ¾ß::e»ðÁ¦);
-				//vµÀ¾ßÖÆÔì»ú.f²úÉúµÀ¾ß(10);
+			void fäº‹ä»¶_å‡»ç ´() override {
+				//å›¾å½¢
+				å›¾å½¢æ¨¡æ¿::fæ•Œæœºæ­»äº¡å°çˆ†ç‚¸(*this);
+				//é“å…·
+				//auto vé“å…·åˆ¶é€ æœº = Cæ¸¸æˆ::fgå†…å®¹().få·¥åŽ‚_é“å…·();
+				//vé“å…·åˆ¶é€ æœº.må‚æ•°.måæ ‡ = måæ ‡;
+				//vé“å…·åˆ¶é€ æœº.må‚æ•°.fså±žæ€§((int)Eé“å…·::eç«åŠ›);
+				//vé“å…·åˆ¶é€ æœº.fäº§ç”Ÿé“å…·(10);
 			}
 		private:
-			float v·½Ïò = 0;
-			C¼ÆÊ±Æ÷ v¼ÆÊ±_ÒÆ¶¯{3};
-			C¼ÆÊ±Æ÷ v¼ÆÊ±_·¢Éä{0.5f};
-			C×Óµ¯ÖÆÔì»ú v×Óµ¯ÖÆÔì»ú = CÓÎÏ·::fgÄÚÈÝ().f¹¤³§_×Óµ¯();
+			float væ–¹å‘ = 0;
+			Cè®¡æ—¶å™¨ vè®¡æ—¶_ç§»åŠ¨{3};
+			Cè®¡æ—¶å™¨ vè®¡æ—¶_å‘å°„{0.5f};
+			Cå­å¼¹åˆ¶é€ æœº vå­å¼¹åˆ¶é€ æœº = Cæ¸¸æˆ::fgå†…å®¹().få·¥åŽ‚_å­å¼¹();
 		};
-		void fÊÂ¼þ_Ö´ÐÐ() override {
-			auto vµÐ»ú¹¤³§ = CÓÎÏ·::fgÄÚÈÝ().f¹¤³§_µÐ»ú();
-			vµÐ»ú¹¤³§.m²ÎÊý.fs×ø±ê({0, cÆÁÄ»·¶Î§y});
-			vµÐ»ú¹¤³§.m²ÎÊý.mÄ¿±ê = tÏòÁ¿2::cÁã;
-			vµÐ»ú¹¤³§.m²ÎÊý.mÒÆ¶¯Ê±¼ä = 5;
-			vµÐ»ú¹¤³§.m²ÎÊý.mÑùÊ½ = (int)EµÐ»ú::eµÐ»ú00À¶;
-			vµÐ»ú¹¤³§.m²ÎÊý.mÉúÃüÖµ = 10000;
-			auto vµÐ»ú = vµÐ»ú¹¤³§.f²úÉúµÐ»ú<CµÐ»ú0>();
-			auto vÍ¼ÐÎ¹¤³§ = CÓÎÏ·::fg×ÊÔ´().f¹¤³§_Í¼ÐÎ();
-			vÍ¼ÐÎ¹¤³§.f²úÉúÍ¼ÐÎ<C·ÖÑªÌõ>(*vµÐ»ú);
-			f¶¯×÷_½áÊø();
+		void fäº‹ä»¶_æ‰§è¡Œ() override {
+			auto væ•Œæœºå·¥åŽ‚ = Cæ¸¸æˆ::fgå†…å®¹().få·¥åŽ‚_æ•Œæœº();
+			væ•Œæœºå·¥åŽ‚.må‚æ•°.fsåæ ‡({0, cæ¡†æž¶èŒƒå›´y});
+			væ•Œæœºå·¥åŽ‚.må‚æ•°.mç›®æ ‡ = tå‘é‡2::cé›¶;
+			væ•Œæœºå·¥åŽ‚.må‚æ•°.mç§»åŠ¨æ—¶é—´ = 5;
+			væ•Œæœºå·¥åŽ‚.må‚æ•°.mæ ·å¼ = (int)Eæ•Œæœº::eæ•Œæœº00è“;
+			væ•Œæœºå·¥åŽ‚.må‚æ•°.mç”Ÿå‘½å€¼ = 10000;
+			auto væ•Œæœº = væ•Œæœºå·¥åŽ‚.fäº§ç”Ÿæ•Œæœº<Cæ•Œæœº0>();
+			auto vå›¾å½¢å·¥åŽ‚ = Cæ¸¸æˆ::fgèµ„æº().få·¥åŽ‚_å›¾å½¢();
+			vå›¾å½¢å·¥åŽ‚.fäº§ç”Ÿå›¾å½¢<Cåˆ†è¡€æ¡>(*væ•Œæœº);
+			fåŠ¨ä½œ_ç»“æŸ();
 		}
 	};
-	class C²úÉúµÀ¾ß : public C¹Ø¿¨ÊÂ¼þ {
-		void fÊÂ¼þ_Ö´ÐÐ() override {
-			if (v¼ÆÊ±.fµÎ´ð()) {
-				vµÀ¾ßÖÆÔì»ú->f²úÉúµÀ¾ß(vµÀ¾ß×é);
+	class Cäº§ç”Ÿé“å…· : public Cå…³å¡äº‹ä»¶ {
+		void fäº‹ä»¶_æ‰§è¡Œ() override {
+			if (vè®¡æ—¶.fæ»´ç­”()) {
+				vé“å…·åˆ¶é€ æœº->fäº§ç”Ÿé“å…·(vé“å…·ç»„);
 			}
 		}
-		C¼ÆÊ±Æ÷ v¼ÆÊ± = {2};
-		std::shared_ptr<CµÀ¾ßÖÆÔì»ú> vµÀ¾ßÖÆÔì»ú = CÓÎÏ·::fgÄÚÈÝ().f¹¤³§_µÀ¾ßp();
-		tµÀ¾ß×é vµÀ¾ß×é = {
-			{EµÀ¾ß::e²Ð»úËéÆ¬, 1},
-			{EµÀ¾ß::e»ðÁ¦, 100},
-			{EµÀ¾ß::eµÃµã, 10}
+		Cè®¡æ—¶å™¨ vè®¡æ—¶ = {2};
+		std::shared_ptr<Cé“å…·åˆ¶é€ æœº> vé“å…·åˆ¶é€ æœº = Cæ¸¸æˆ::fgå†…å®¹().få·¥åŽ‚_é“å…·p();
+		té“å…·ç»„ vé“å…·ç»„ = {
+			{Eé“å…·::eæ®‹æœºç¢Žç‰‡, 1},
+			{Eé“å…·::eç«åŠ›, 100},
+			{Eé“å…·::eå¾—ç‚¹, 10}
 		};
 	};
-	class CÍõÕ½0_1;
-	class CÍõÕ½0_0 : public CÍõÕ½ÊÂ¼þ {
-		void fÊÂ¼þ_³õÊ¼»¯() override {
-			CµÐ»ú *vÍõ = mÍõÕ½->fgÍõ();
-			vÍõ->fsÉúÃüÖµ(100);
-			mÍõÕ½->fsÊ±¼ä(11);
+	class CçŽ‹æˆ˜0_1;
+	class CçŽ‹æˆ˜0_0 : public CçŽ‹æˆ˜äº‹ä»¶ {
+		void fäº‹ä»¶_åˆå§‹åŒ–() override {
+			Cæ•Œæœº *vçŽ‹ = mçŽ‹æˆ˜->fgçŽ‹();
+			vçŽ‹->fsç”Ÿå‘½å€¼(100);
+			mçŽ‹æˆ˜->fsæ—¶é—´(11);
 		}
-		void fÊÂ¼þ_Ö´ÐÐ() override {
-			if (v¼ÆÊ±.fµÎ´ð()) {
-				t×Óµ¯¹¤³§ v×Óµ¯¹¤³§ = CÓÎÏ·::fgÄÚÈÝ().f¹¤³§_×Óµ¯();
-				v×Óµ¯¹¤³§.m²ÎÊý.m×ø±ê = mÍõÕ½->fgÍõ()->m×ø±ê;
-				v×Óµ¯¹¤³§.m²ÎÊý.fsËÙ¶È_µ½×Ô»ú(100);
-				v×Óµ¯¹¤³§.f²úÉú×Óµ¯<CÆÕÍ¨×Óµ¯>();
+		void fäº‹ä»¶_æ‰§è¡Œ() override {
+			if (vè®¡æ—¶.fæ»´ç­”()) {
+				tå­å¼¹å·¥åŽ‚ vå­å¼¹å·¥åŽ‚ = Cæ¸¸æˆ::fgå†…å®¹().få·¥åŽ‚_å­å¼¹();
+				vå­å¼¹å·¥åŽ‚.må‚æ•°.måæ ‡ = mçŽ‹æˆ˜->fgçŽ‹()->måæ ‡;
+				vå­å¼¹å·¥åŽ‚.må‚æ•°.fsé€Ÿåº¦_åˆ°è‡ªæœº(100);
+				vå­å¼¹å·¥åŽ‚.fäº§ç”Ÿå­å¼¹<Cæ™®é€šå­å¼¹>();
 			}
 		}
-		void fÊÂ¼þ_Íõ±»»÷ÆÆ(CµÐ»ú &p) override {
-			Í¼ÐÎÄ£°å::fµÐ»úËÀÍöÐ¡±¬Õ¨(p);
-			m¹Ø¿¨->f¶¯×÷_Ôö¼ÓÄÑ¶È(1);
+		void fäº‹ä»¶_çŽ‹è¢«å‡»ç ´(Cæ•Œæœº &p) override {
+			å›¾å½¢æ¨¡æ¿::fæ•Œæœºæ­»äº¡å°çˆ†ç‚¸(p);
+			må…³å¡->fåŠ¨ä½œ_å¢žåŠ éš¾åº¦(1);
 		}
-		void fÊÂ¼þ_Ê±¼äµ½() override {
+		void fäº‹ä»¶_æ—¶é—´åˆ°() override {
 		}
-		void fÊÂ¼þ_½áÊø() override {
-			mÍõÕ½->fÊÂ¼þ<CÍõÕ½0_1>();
-			mÍõÕ½->f×ÜÑªÌõ¼õÒ»();
-			S¹Ø¿¨±êÌâ v±êÌâ;
-			v±êÌâ.m±êÌâ = L"1";
-			C¹Ø¿¨Ð§¹û::fÏÔÊ¾±êÌâ(v±êÌâ);
+		void fäº‹ä»¶_ç»“æŸ() override {
+			mçŽ‹æˆ˜->fäº‹ä»¶<CçŽ‹æˆ˜0_1>();
+			mçŽ‹æˆ˜->fæ€»è¡€æ¡å‡ä¸€();
+			Så…³å¡æ ‡é¢˜ væ ‡é¢˜;
+			væ ‡é¢˜.mæ ‡é¢˜ = L"1";
+			Cå…³å¡æ•ˆæžœ::fæ˜¾ç¤ºæ ‡é¢˜(væ ‡é¢˜);
 		}
-		C¼ÆÊ±Æ÷ v¼ÆÊ±{0.1f};
+		Cè®¡æ—¶å™¨ vè®¡æ—¶{0.1f};
 	};
-	class CÍõÕ½0_1 : public CÍõÕ½ÊÂ¼þ {
-		void f¼ÆËãÄÑ¶È() {
-			const float v¶¯Ì¬ÄÑ¶È = CÓÎÏ·::fgÄÚÈÝ().fgÄÑ¶È().fg¶¯Ì¬ÄÑ¶È();
-			v¼ÆÊ±.fÖØÖÃ(1 / v¶¯Ì¬ÄÑ¶È);
+	class CçŽ‹æˆ˜0_1 : public CçŽ‹æˆ˜äº‹ä»¶ {
+		void fè®¡ç®—éš¾åº¦() {
+			const float våŠ¨æ€éš¾åº¦ = Cæ¸¸æˆ::fgå†…å®¹().fgéš¾åº¦().fgåŠ¨æ€éš¾åº¦();
+			vè®¡æ—¶.fé‡ç½®(1 / våŠ¨æ€éš¾åº¦);
 		}
-		void fÊÂ¼þ_³õÊ¼»¯() override {
-			CµÐ»ú *vÍõ = mÍõÕ½->fgÍõ();
-			vÍõ->fsÉúÃüÖµ(100);
-			mÍõÕ½->fsÊ±¼ä(11);
-			f¼ÆËãÄÑ¶È();
+		void fäº‹ä»¶_åˆå§‹åŒ–() override {
+			Cæ•Œæœº *vçŽ‹ = mçŽ‹æˆ˜->fgçŽ‹();
+			vçŽ‹->fsç”Ÿå‘½å€¼(100);
+			mçŽ‹æˆ˜->fsæ—¶é—´(11);
+			fè®¡ç®—éš¾åº¦();
 		}
-		void fÊÂ¼þ_Ö´ÐÐ() override {
-			if (v¼ÆÊ±.fµÎ´ð()) {
-				auto v×Óµ¯¹¤³§ = CÓÎÏ·::fgÄÚÈÝ().f¹¤³§_×Óµ¯();
-				v×Óµ¯¹¤³§.m²ÎÊý.m×ø±ê = mÍõÕ½->fgÍõ()->fg×ø±ê();
-				v×Óµ¯¹¤³§.m²ÎÊý.mËÙ¶È = tÏòÁ¿2::fc·½Ïòr(100, v·½Ïò += 1);
-				for (auto vÑ­»·0 : v×Óµ¯¹¤³§.fÑ­»·(10)) {
-					vÑ­»·0.f±ä»»_Ô²ÐÎ();
-					v×Óµ¯¹¤³§.f²úÉú×Óµ¯<CÆÕÍ¨×Óµ¯>();
+		void fäº‹ä»¶_æ‰§è¡Œ() override {
+			if (vè®¡æ—¶.fæ»´ç­”()) {
+				auto vå­å¼¹å·¥åŽ‚ = Cæ¸¸æˆ::fgå†…å®¹().få·¥åŽ‚_å­å¼¹();
+				vå­å¼¹å·¥åŽ‚.må‚æ•°.måæ ‡ = mçŽ‹æˆ˜->fgçŽ‹()->fgåæ ‡();
+				vå­å¼¹å·¥åŽ‚.må‚æ•°.mé€Ÿåº¦ = tå‘é‡2::fcæ–¹å‘r(100, væ–¹å‘ += 1);
+				for (auto vå¾ªçŽ¯0 : vå­å¼¹å·¥åŽ‚.få¾ªçŽ¯(10)) {
+					vå¾ªçŽ¯0.få˜æ¢_åœ†å½¢();
+					vå­å¼¹å·¥åŽ‚.fäº§ç”Ÿå­å¼¹<Cæ™®é€šå­å¼¹>();
 				}
 			}
 		}
-		void fÊÂ¼þ_Íõ±»»÷ÆÆ(CµÐ»ú &p) {
-			Í¼ÐÎÄ£°å::fµÐ»úËÀÍöÐ¡±¬Õ¨(p);
-			f¶¯×÷_ÔÝÍ£(1);
+		void fäº‹ä»¶_çŽ‹è¢«å‡»ç ´(Cæ•Œæœº &p) {
+			å›¾å½¢æ¨¡æ¿::fæ•Œæœºæ­»äº¡å°çˆ†ç‚¸(p);
+			fåŠ¨ä½œ_æš‚åœ(1);
 		}
-		void fÊÂ¼þ_Ê±¼äµ½() override {
-			f¶¯×÷_ÔÝÍ£(1);
+		void fäº‹ä»¶_æ—¶é—´åˆ°() override {
+			fåŠ¨ä½œ_æš‚åœ(1);
 		}
-		void fÊÂ¼þ_½áÊø() override {
-			CµÐ»ú *vÍõ = mÍõÕ½->fgÍõ();
-			Í¼ÐÎÄ£°å::fµÐ»úËÀÍöÐ¡±¬Õ¨(*vÍõ);
-			vÍõ->f¶¯×÷_ËÀÍö();
+		void fäº‹ä»¶_ç»“æŸ() override {
+			Cæ•Œæœº *vçŽ‹ = mçŽ‹æˆ˜->fgçŽ‹();
+			å›¾å½¢æ¨¡æ¿::fæ•Œæœºæ­»äº¡å°çˆ†ç‚¸(*vçŽ‹);
+			vçŽ‹->fåŠ¨ä½œ_æ­»äº¡();
 		}
-		C¼ÆÊ±Æ÷ v¼ÆÊ±;
-		float v·½Ïò = 0;
+		Cè®¡æ—¶å™¨ vè®¡æ—¶;
+		float væ–¹å‘ = 0;
 	};
-	class CÍõÕ½0 : public C¹Ø¿¨ÊÂ¼þ {
-		void fÊÂ¼þ_³õÊ¼»¯() override {
-			//µÐ»ú
-			auto vµÐ»ú¹¤³§ = CÓÎÏ·::fgÄÚÈÝ().f¹¤³§_µÐ»ú();
-			vµÐ»ú¹¤³§.m²ÎÊý.fs×ø±ê({0, cÆÁÄ»·¶Î§y});
-			vµÐ»ú¹¤³§.m²ÎÊý.mÄ¿±ê = tÏòÁ¿2::cÁã;
-			vµÐ»ú¹¤³§.m²ÎÊý.mÒÆ¶¯Ê±¼ä = 5;
-			vµÐ»ú¹¤³§.m²ÎÊý.mÑùÊ½ = (int)EµÐ»ú::eµÐ»ú00À¶;
-			auto vµÐ»ú = vµÐ»ú¹¤³§.f²úÉúÍõ();
-			auto vÍ¼ÐÎ¹¤³§ = CÓÎÏ·::fg×ÊÔ´().f¹¤³§_Í¼ÐÎ();
-			vÍ¼ÐÎ¹¤³§.f²úÉúÍ¼ÐÎ<C·ÖÑªÌõ>(*vµÐ»ú);
-			//ÍõÕ½
-			auto &vÍõÕ½ = CÓÎÏ·::fgÄÚÈÝ().fgÍõÕ½¿ØÖÆ();
-			vÍõÕ½.fÍõÕ½¿ªÊ¼(10);
-			vÍõÕ½.fsÍõ(vµÐ»ú);
-			vÍõÕ½.fÊÂ¼þ<CÍõÕ½0_0>();
-			f¶¯×÷_½áÊø();
+	class CçŽ‹æˆ˜0 : public Cå…³å¡äº‹ä»¶ {
+		void fäº‹ä»¶_åˆå§‹åŒ–() override {
+			//æ•Œæœº
+			auto væ•Œæœºå·¥åŽ‚ = Cæ¸¸æˆ::fgå†…å®¹().få·¥åŽ‚_æ•Œæœº();
+			væ•Œæœºå·¥åŽ‚.må‚æ•°.fsåæ ‡({0, cæ¡†æž¶èŒƒå›´y});
+			væ•Œæœºå·¥åŽ‚.må‚æ•°.mç›®æ ‡ = tå‘é‡2::cé›¶;
+			væ•Œæœºå·¥åŽ‚.må‚æ•°.mç§»åŠ¨æ—¶é—´ = 5;
+			væ•Œæœºå·¥åŽ‚.må‚æ•°.mæ ·å¼ = (int)Eæ•Œæœº::eæ•Œæœº00è“;
+			auto væ•Œæœº = væ•Œæœºå·¥åŽ‚.fäº§ç”ŸçŽ‹();
+			auto vå›¾å½¢å·¥åŽ‚ = Cæ¸¸æˆ::fgèµ„æº().få·¥åŽ‚_å›¾å½¢();
+			vå›¾å½¢å·¥åŽ‚.fäº§ç”Ÿå›¾å½¢<Cåˆ†è¡€æ¡>(*væ•Œæœº);
+			//çŽ‹æˆ˜
+			auto &vçŽ‹æˆ˜ = Cæ¸¸æˆ::fgå†…å®¹().fgçŽ‹æˆ˜æŽ§åˆ¶();
+			vçŽ‹æˆ˜.fçŽ‹æˆ˜å¼€å§‹(10);
+			vçŽ‹æˆ˜.fsçŽ‹(væ•Œæœº);
+			vçŽ‹æˆ˜.fäº‹ä»¶<CçŽ‹æˆ˜0_0>();
+			fåŠ¨ä½œ_ç»“æŸ();
 		}
 	};
-	class C³¡¾° : public I³¡¾° {
+	class Cåœºæ™¯ : public Iåœºæ™¯ {
 	public:
-		void f½Ó¿Ú_³õÊ¼»¯() override {
-			auto &maÄ£ÐÍ = CÓÎÏ·::fgÍ¼ÐÎ().fgÄ£ÐÍ();
-			mÄ£ÐÍ_Ò¹¿Õ = maÄ£ÐÍ[L"Ä£ÐÍ.Ò¹¿Õ.µÍ¿Õ"];
-			auto &maÎÆÀí = CÓÎÏ·::fgÍ¼ÐÎ().fgÎÆÀí();
-			mÎÆÀí_Ò¹¿Õ = maÎÆÀí[L"ÎÆÀí.Ò¹¿Õ.µÍ¿Õ"];
-			mÏà»ú.m×ø±ê = {0, 0, 100};
-			mÏà»ú.mÄ¿±ê = {0, 100, 0};
-			mÏà»ú.mÉÏ·½ = {0, 0, 1};
+		void fæŽ¥å£_åˆå§‹åŒ–() override {
+			auto &maæ¨¡åž‹ = Cæ¸¸æˆ::fgå›¾å½¢().fgæ¨¡åž‹();
+			mæ¨¡åž‹_å¤œç©º = maæ¨¡åž‹[L"æ¨¡åž‹.å¤œç©º.ä½Žç©º"];
+			auto &maçº¹ç† = Cæ¸¸æˆ::fgå›¾å½¢().fgçº¹ç†();
+			mçº¹ç†_å¤œç©º = maçº¹ç†[L"çº¹ç†.å¤œç©º.ä½Žç©º"];
+			mç›¸æœº.måæ ‡ = {0, 0, 100};
+			mç›¸æœº.mç›®æ ‡ = {0, 100, 0};
+			mç›¸æœº.mä¸Šæ–¹ = {0, 0, 1};
 		}
-		void f½Ó¿Ú_¼ÆËã() override {
-			mÒÆ¶¯ += cÖ¡Ãë * 100;
+		void fæŽ¥å£_è®¡ç®—() override {
+			mç§»åŠ¨ += cå¸§ç§’ * 100;
 		}
-		void f½Ó¿Ú_¸üÐÂ() override {
+		void fæŽ¥å£_æ›´æ–°() override {
 		
 		}
-		void f½Ó¿Ú_ÏÔÊ¾(C»­ÈýÎ¬ &a) const override {
-			a.fsÊÀ½ç¾ØÕó(ÊýÑ§::S¾ØÕó4::cµ¥Î»);
-			a.fsÏà»ú(mÏà»ú);
-			a.fsÎí·¶Î§(0, 500);
-			a.fsÎÆÀí(mÎÆÀí_Ò¹¿Õ);
-			//p.fsÎïÌå¾ØÕó(ÊýÑ§::S¾ØÕó4::cµ¥Î»);
-			ÊýÑ§::SÊÀ½ç¾ØÕó3 vÎïÌå; 
-			vÎïÌå.mËõ·Å.x = 0.5f;
-			vÎïÌå.mËõ·Å.y = 0.5f;
-			for (const auto &v : C³¡¾°Ñ­»·(mÒÆ¶¯, 256, -500, 1000)) {
-				vÎïÌå.mÆ½ÒÆ.y = v;
-				a.fsÎïÌå¾ØÕó(vÎïÌå.ft¾ØÕó4());
-				a.f»­Ä£ÐÍ(*mÄ£ÐÍ_Ò¹¿Õ);
+		void fæŽ¥å£_æ˜¾ç¤º(Cç”»ä¸‰ç»´ &a) const override {
+			a.fsä¸–ç•ŒçŸ©é˜µ(æ•°å­¦::SçŸ©é˜µ4::cå•ä½);
+			a.fsç›¸æœº(mç›¸æœº);
+			a.fsé›¾èŒƒå›´(0, 500);
+			a.fsçº¹ç†(mçº¹ç†_å¤œç©º);
+			//p.fsç‰©ä½“çŸ©é˜µ(æ•°å­¦::SçŸ©é˜µ4::cå•ä½);
+			æ•°å­¦::Sä¸–ç•ŒçŸ©é˜µ3 vç‰©ä½“; 
+			vç‰©ä½“.mç¼©æ”¾.x = 0.5f;
+			vç‰©ä½“.mç¼©æ”¾.y = 0.5f;
+			for (const auto &v : Cåœºæ™¯å¾ªçŽ¯(mç§»åŠ¨, 256, -500, 1000)) {
+				vç‰©ä½“.må¹³ç§».y = v;
+				a.fsç‰©ä½“çŸ©é˜µ(vç‰©ä½“.ftçŸ©é˜µ4());
+				a.fç”»æ¨¡åž‹(*mæ¨¡åž‹_å¤œç©º);
 			}
 		}
-		tpÄ£ÐÍ mÄ£ÐÍ_Ò¹¿Õ;
-		tpÎÆÀí mÎÆÀí_Ò¹¿Õ;
-		float mÒÆ¶¯ = 0;
-		ÊýÑ§::SÏà»ú mÏà»ú;
+		tpæ¨¡åž‹ mæ¨¡åž‹_å¤œç©º;
+		tpçº¹ç† mçº¹ç†_å¤œç©º;
+		float mç§»åŠ¨ = 0;
+		æ•°å­¦::Sç›¸æœº mç›¸æœº;
 		
 	};
-	class CÇÐ»»¹Ø¿¨ : public C¹Ø¿¨ÊÂ¼þ {
+	class Cåˆ‡æ¢å…³å¡ : public Cå…³å¡äº‹ä»¶ {
 	public:
-		void fÊÂ¼þ_Ö´ÐÐ() override {
-			m¹Ø¿¨->fÇÐ»»¹Ø¿¨(fg×¢²á¹Ø¿¨(L"²âÊÔ¹Ø¿¨1"), 1);
-			f¶¯×÷_½áÊø();
+		void fäº‹ä»¶_æ‰§è¡Œ() override {
+			må…³å¡->fåˆ‡æ¢å…³å¡(fgæ³¨å†Œå…³å¡(L"æµ‹è¯•å…³å¡1"), 1);
+			fåŠ¨ä½œ_ç»“æŸ();
 		}
 	};
-	void fÊÂ¼þ_³õÊ¼»¯() override {
-		C¹Ø¿¨½Å±¾ v½Å±¾ = m¹Ø¿¨->fc½Å±¾();
-		//¹Ø¿¨ÊÂ¼þÁÐ±í
-		//v½Å±¾.f³¡¾°<C³¡¾°>();
-		v½Å±¾.fÊÂ¼þ<C²úÉúµÐ»ú>();
-		//v½Å±¾.fµÈ´ý(3);
-		//v½Å±¾.fÊÂ¼þ<CÇÐ»»¹Ø¿¨>();
-		//v½Å±¾.fÊÂ¼þ<CÍõÕ½0>();
-		//v½Å±¾.fµÈ´ý(1);
-		//v½Å±¾.fÊÂ¼þ(C¹Ø¿¨Ð§¹û::FÏÔÊ¾±êÌâ({L"Ö÷±êÌâ", L"³¡¾°"}));
+	void fäº‹ä»¶_åˆå§‹åŒ–() override {
+		Cå…³å¡è„šæœ¬ vè„šæœ¬ = må…³å¡->fcè„šæœ¬();
+		//å…³å¡äº‹ä»¶åˆ—è¡¨
+		vè„šæœ¬.fåœºæ™¯<Cåœºæ™¯>();
+		vè„šæœ¬.fäº‹ä»¶<Cå¼¹å¹•>();
+		//vè„šæœ¬.fäº‹ä»¶<Cäº§ç”Ÿæ•Œæœº>();
+		//vè„šæœ¬.fç­‰å¾…(3);
+		//vè„šæœ¬.fäº‹ä»¶<Cåˆ‡æ¢å…³å¡>();
+		//vè„šæœ¬.fäº‹ä»¶<CçŽ‹æˆ˜0>();
+		//vè„šæœ¬.fç­‰å¾…(1);
+		//vè„šæœ¬.fäº‹ä»¶(Cå…³å¡æ•ˆæžœ::Fæ˜¾ç¤ºæ ‡é¢˜({L"ä¸»æ ‡é¢˜", L"åœºæ™¯"}));
 
-		//¶Ô»°
+		//å¯¹è¯
 	
-		C¶Ô»°½Å±¾ v¶Ô»°;
-		static C¼òµ¥¹¤³§<I¶Ô»°Á¢»æ> vÁ¢»æ¹¤³§;
-		const auto &vaÎÄ±¾ = CÓÎÏ·::fg×ÊÔ´().fgÆÕÍ¨ÎÄ±¾();
-		v¶Ô»°.fÏÔÊ¾Á¢»æ(vÁ¢»æ¹¤³§, 0, false);
-		v¶Ô»°.f¶Ô»°(vaÎÄ±¾[L"s1.boss0.name"], false);
-		v¶Ô»°.fÏÔÊ¾Á¢»æ(vÁ¢»æ¹¤³§, 1, true);
-		v¶Ô»°.f¶Ô»°(vaÎÄ±¾[L"s1.boss1.name"], true);
-		v¶Ô»°.fÁ¢»æ¾Û½¹(0);
-		v¶Ô»°.f¶Ô»°(vaÎÄ±¾[L"s1a.0"], false);
-		v¶Ô»°.fÁ¢»æ¾Û½¹(1);
-		v¶Ô»°.f¶Ô»°(vaÎÄ±¾[L"s1a.1"], true);
-		v½Å±¾.f¶Ô»°(v¶Ô»°);
-		//m¹Ø¿¨->fÇÐ»»¹Ø¿¨(fg×¢²á¹Ø¿¨(L"²âÊÔ×Óµ¯Àà"));
+		//Cå¯¹è¯è„šæœ¬ vå¯¹è¯;
+		//static Cç®€å•å·¥åŽ‚<Iå¯¹è¯ç«‹ç»˜> vç«‹ç»˜å·¥åŽ‚;
+		//const auto &vaæ–‡æœ¬ = Cæ¸¸æˆ::fgèµ„æº().fgæ™®é€šæ–‡æœ¬();
+		//vå¯¹è¯.fæ˜¾ç¤ºç«‹ç»˜(vç«‹ç»˜å·¥åŽ‚, 0, false);
+		//vå¯¹è¯.få¯¹è¯(vaæ–‡æœ¬[L"s1.boss0.name"], false);
+		//vå¯¹è¯.fæ˜¾ç¤ºç«‹ç»˜(vç«‹ç»˜å·¥åŽ‚, 1, true);
+		//vå¯¹è¯.få¯¹è¯(vaæ–‡æœ¬[L"s1.boss1.name"], true);
+		//vå¯¹è¯.fç«‹ç»˜èšç„¦(0);
+		//vå¯¹è¯.få¯¹è¯(vaæ–‡æœ¬[L"s1a.0"], false);
+		//vå¯¹è¯.fç«‹ç»˜èšç„¦(1);
+		//vå¯¹è¯.få¯¹è¯(vaæ–‡æœ¬[L"s1a.1"], true);
+		//vè„šæœ¬.få¯¹è¯(vå¯¹è¯);
+		//må…³å¡->fåˆ‡æ¢å…³å¡(fgæ³¨å†Œå…³å¡(L"æµ‹è¯•å­å¼¹ç±»"));
 	}
-} g²âÊÔ¹Ø¿¨;
-class C²âÊÔ¹Ø¿¨1 : public C¹Ø¿¨ {
+} gæµ‹è¯•å…³å¡;
+class Cæµ‹è¯•å…³å¡1 : public Cå…³å¡ {
 public:
-	C²âÊÔ¹Ø¿¨1() {
-		f×¢²á¹Ø¿¨(L"²âÊÔ¹Ø¿¨1");
+	Cæµ‹è¯•å…³å¡1() {
+		fæ³¨å†Œå…³å¡(L"æµ‹è¯•å…³å¡1");
 	}
-	void fÊÂ¼þ_³õÊ¼»¯() override {
-		C¹Ø¿¨½Å±¾ v½Å±¾ = m¹Ø¿¨->fc½Å±¾();
-		m¹Ø¿¨->fÉèÖÃ³¡¾°(nullptr);
+	void fäº‹ä»¶_åˆå§‹åŒ–() override {
+		Cå…³å¡è„šæœ¬ vè„šæœ¬ = må…³å¡->fcè„šæœ¬();
+		må…³å¡->fè®¾ç½®åœºæ™¯(nullptr);
 	}
-} g²âÊÔ¹Ø¿¨1;
-class C²âÊÔ×Óµ¯Àà : public C¹Ø¿¨ {
+} gæµ‹è¯•å…³å¡1;
+class Cæµ‹è¯•å­å¼¹ç±» : public Cå…³å¡ {
 public:
-	C²âÊÔ×Óµ¯Àà() {
-		f×¢²á¹Ø¿¨(L"²âÊÔ×Óµ¯Àà");
+	Cæµ‹è¯•å­å¼¹ç±»() {
+		fæ³¨å†Œå…³å¡(L"æµ‹è¯•å­å¼¹ç±»");
 	}
-	class C²âÊÔÆÕÍ¨×Óµ¯ : public C¹Ø¿¨ÊÂ¼þ {
+	class Cæµ‹è¯•æ™®é€šå­å¼¹ : public Cå…³å¡äº‹ä»¶ {
 	public:
-		void fÊÂ¼þ_Ö´ÐÐ() override {
-			auto v×Óµ¯ÖÆÔì»ú = CÓÎÏ·::fgÄÚÈÝ().f¹¤³§_×Óµ¯();
-			v×Óµ¯ÖÆÔì»ú.m²ÎÊý.mËÙ¶È = {100, 0};
-			for (auto vÑ­»·0 : v×Óµ¯ÖÆÔì»ú.fÑ­»·(10)) {
-				vÑ­»·0.f±ä»»_ËÙ¶È(20, 1);
-				v×Óµ¯ÖÆÔì»ú.f²úÉú×Óµ¯<CÆÕÍ¨×Óµ¯>();
-				for (auto vÑ­»·1 : v×Óµ¯ÖÆÔì»ú.fÑ­»·(50)) {
-					vÑ­»·1.f±ä»»_Ô²ÐÎ();
-					v×Óµ¯ÖÆÔì»ú.f²úÉú×Óµ¯<CÆÕÍ¨×Óµ¯>();
+		void fäº‹ä»¶_æ‰§è¡Œ() override {
+			auto vå­å¼¹åˆ¶é€ æœº = Cæ¸¸æˆ::fgå†…å®¹().få·¥åŽ‚_å­å¼¹();
+			vå­å¼¹åˆ¶é€ æœº.må‚æ•°.mé€Ÿåº¦ = {100, 0};
+			for (auto vå¾ªçŽ¯0 : vå­å¼¹åˆ¶é€ æœº.få¾ªçŽ¯(10)) {
+				vå¾ªçŽ¯0.få˜æ¢_é€Ÿåº¦(20, 1);
+				vå­å¼¹åˆ¶é€ æœº.fäº§ç”Ÿå­å¼¹<Cæ™®é€šå­å¼¹>();
+				for (auto vå¾ªçŽ¯1 : vå­å¼¹åˆ¶é€ æœº.få¾ªçŽ¯(50)) {
+					vå¾ªçŽ¯1.få˜æ¢_åœ†å½¢();
+					vå­å¼¹åˆ¶é€ æœº.fäº§ç”Ÿå­å¼¹<Cæ™®é€šå­å¼¹>();
 				}
 			}
-			f¶¯×÷_½áÊø();
+			fåŠ¨ä½œ_ç»“æŸ();
 		}
 	};
-	class C²âÊÔ´ó×Óµ¯ : public C¹Ø¿¨ÊÂ¼þ {
+	class Cæµ‹è¯•å¤§å­å¼¹ : public Cå…³å¡äº‹ä»¶ {
 	public:
-		void fÊÂ¼þ_Ö´ÐÐ() override {
-			auto v×Óµ¯ÖÆÔì»ú = CÓÎÏ·::fgÄÚÈÝ().f¹¤³§_×Óµ¯();
-			v×Óµ¯ÖÆÔì»ú.m²ÎÊý.mËÙ¶È = {200, 0};
-			v×Óµ¯ÖÆÔì»ú.m²ÎÊý.fs³¤¶È(4);
-			v×Óµ¯ÖÆÔì»ú.m²ÎÊý.fs¿í¶È(4);
-			v×Óµ¯ÖÆÔì»ú.m²ÎÊý.fsÑùÊ½((int)E×Óµ¯::e´ó¹âµ¯);
-			for (auto vÑ­»·0 : v×Óµ¯ÖÆÔì»ú.fÑ­»·(16)) {
-				vÑ­»·0.f±ä»»_Ô²ÐÎ();
-				v×Óµ¯ÖÆÔì»ú.f²úÉú×Óµ¯<C´ó×Óµ¯>();
+		void fäº‹ä»¶_æ‰§è¡Œ() override {
+			auto vå­å¼¹åˆ¶é€ æœº = Cæ¸¸æˆ::fgå†…å®¹().få·¥åŽ‚_å­å¼¹();
+			vå­å¼¹åˆ¶é€ æœº.må‚æ•°.mé€Ÿåº¦ = {200, 0};
+			vå­å¼¹åˆ¶é€ æœº.må‚æ•°.fsé•¿åº¦(4);
+			vå­å¼¹åˆ¶é€ æœº.må‚æ•°.fså®½åº¦(4);
+			vå­å¼¹åˆ¶é€ æœº.må‚æ•°.fsæ ·å¼((int)Eå­å¼¹::eå¤§å…‰å¼¹);
+			for (auto vå¾ªçŽ¯0 : vå­å¼¹åˆ¶é€ æœº.få¾ªçŽ¯(16)) {
+				vå¾ªçŽ¯0.få˜æ¢_åœ†å½¢();
+				vå­å¼¹åˆ¶é€ æœº.fäº§ç”Ÿå­å¼¹<Cå¤§å­å¼¹>();
 			}
-			f¶¯×÷_½áÊø();
+			fåŠ¨ä½œ_ç»“æŸ();
 		}
 	};
-	class C²âÊÔÇúÏß¼¤¹â : public C¹Ø¿¨ÊÂ¼þ {
+	class Cæµ‹è¯•æ›²çº¿æ¿€å…‰ : public Cå…³å¡äº‹ä»¶ {
 	public:
-		class C¼¤¹â0 : public CÇúÏß¼¤¹â {
+		class Cæ¿€å…‰0 : public Cæ›²çº¿æ¿€å…‰ {
 		public:
-			void fÊÂ¼þ_Ö´ÐÐ() override {
-				f¶¯×÷_Ðý×ª(60);
+			void fäº‹ä»¶_æ‰§è¡Œ() override {
+				fåŠ¨ä½œ_æ—‹è½¬(60);
 			}
 		};
-		void fÊÂ¼þ_Ö´ÐÐ() override {
-			auto v×Óµ¯ÖÆÔì»ú = CÓÎÏ·::fgÄÚÈÝ().f¹¤³§_×Óµ¯();
-			v×Óµ¯ÖÆÔì»ú.m²ÎÊý.mËÙ¶È = {200, 0};
-			v×Óµ¯ÖÆÔì»ú.m²ÎÊý.fsÑùÊ½((int)E×Óµ¯::eÇúÏß¼¤¹â);
-			v×Óµ¯ÖÆÔì»ú.m²ÎÊý.fs³¤¶È(50);
-			for (auto vÑ­»·0 : v×Óµ¯ÖÆÔì»ú.fÑ­»·(32)) {
-				vÑ­»·0.f±ä»»_Ô²ÐÎ();
-				v×Óµ¯ÖÆÔì»ú.f²úÉú×Óµ¯<C¼¤¹â0>();
+		void fäº‹ä»¶_æ‰§è¡Œ() override {
+			auto vå­å¼¹åˆ¶é€ æœº = Cæ¸¸æˆ::fgå†…å®¹().få·¥åŽ‚_å­å¼¹();
+			vå­å¼¹åˆ¶é€ æœº.må‚æ•°.mé€Ÿåº¦ = {200, 0};
+			vå­å¼¹åˆ¶é€ æœº.må‚æ•°.fsæ ·å¼((int)Eå­å¼¹::eæ›²çº¿æ¿€å…‰);
+			vå­å¼¹åˆ¶é€ æœº.må‚æ•°.fsé•¿åº¦(50);
+			for (auto vå¾ªçŽ¯0 : vå­å¼¹åˆ¶é€ æœº.få¾ªçŽ¯(32)) {
+				vå¾ªçŽ¯0.få˜æ¢_åœ†å½¢();
+				vå­å¼¹åˆ¶é€ æœº.fäº§ç”Ÿå­å¼¹<Cæ¿€å…‰0>();
 			}
-			f¶¯×÷_½áÊø();
+			fåŠ¨ä½œ_ç»“æŸ();
 		}
 	};
-	class C²âÊÔÁ¬Ðø×Óµ¯ : public C¹Ø¿¨ÊÂ¼þ {
+	class Cæµ‹è¯•è¿žç»­å­å¼¹ : public Cå…³å¡äº‹ä»¶ {
 	public:
-		void fÊÂ¼þ_Ö´ÐÐ() override {
-			if (m¼ÆÊ±.fµÎ´ð()) {
-				auto v×Óµ¯ÖÆÔì»ú = CÓÎÏ·::fgÄÚÈÝ().f¹¤³§_×Óµ¯();
-				v×Óµ¯ÖÆÔì»ú.m²ÎÊý.mËÙ¶È = {100, 0};
-				v×Óµ¯ÖÆÔì»ú.m²ÎÊý.fsÑùÊ½((int)E×Óµ¯::e»·Ô²µ¯);
-				auto vÁ¬Ðø = CÁ¬Ðø×Óµ¯::C»·ÐÎ¹¤¾ß();
-				for (auto vÑ­»·0 : v×Óµ¯ÖÆÔì»ú.fÑ­»·(64)) {
-					vÑ­»·0.f±ä»»_Ô²ÐÎ();
-					auto vp×Óµ¯ = v×Óµ¯ÖÆÔì»ú.f²úÉú×Óµ¯<CÁ¬Ðø×Óµ¯>();
-					vÁ¬Ðø += vp×Óµ¯;
+		void fäº‹ä»¶_æ‰§è¡Œ() override {
+			if (mè®¡æ—¶.fæ»´ç­”()) {
+				auto vå­å¼¹åˆ¶é€ æœº = Cæ¸¸æˆ::fgå†…å®¹().få·¥åŽ‚_å­å¼¹();
+				vå­å¼¹åˆ¶é€ æœº.må‚æ•°.mé€Ÿåº¦ = {100, 0};
+				vå­å¼¹åˆ¶é€ æœº.må‚æ•°.fsæ ·å¼((int)Eå­å¼¹::eçŽ¯åœ†å¼¹);
+				auto vè¿žç»­ = Cè¿žç»­å­å¼¹::CçŽ¯å½¢å·¥å…·();
+				for (auto vå¾ªçŽ¯0 : vå­å¼¹åˆ¶é€ æœº.få¾ªçŽ¯(64)) {
+					vå¾ªçŽ¯0.få˜æ¢_åœ†å½¢();
+					auto vpå­å¼¹ = vå­å¼¹åˆ¶é€ æœº.fäº§ç”Ÿå­å¼¹<Cè¿žç»­å­å¼¹>();
+					vè¿žç»­ += vpå­å¼¹;
 				}
 			}
 		}
-		C¼ÆÊ±Æ÷ m¼ÆÊ±{1};
+		Cè®¡æ—¶å™¨ mè®¡æ—¶{1};
 	};
-	class C²âÊÔÖ±Ïß¼¤¹â : public C¹Ø¿¨ÊÂ¼þ {
+	class Cæµ‹è¯•ç›´çº¿æ¿€å…‰ : public Cå…³å¡äº‹ä»¶ {
 	public:
-		void fÊÂ¼þ_Ö´ÐÐ() override {
-			auto v×Óµ¯ÖÆÔì»ú = CÓÎÏ·::fgÄÚÈÝ().f¹¤³§_×Óµ¯();
-			v×Óµ¯ÖÆÔì»ú.m²ÎÊý.mËÙ¶È = {200, 0};
-			v×Óµ¯ÖÆÔì»ú.m²ÎÊý.fsÑùÊ½((int)E×Óµ¯::eÃ×µ¯);
-			v×Óµ¯ÖÆÔì»ú.m²ÎÊý.fs³¤¶È(20);
-			for (auto vÑ­»·0 : v×Óµ¯ÖÆÔì»ú.fÑ­»·(32)) {
-				vÑ­»·0.f±ä»»_Ô²ÐÎ();
-				v×Óµ¯ÖÆÔì»ú.f²úÉú×Óµ¯<CÖ±Ïß¼¤¹â>();
+		void fäº‹ä»¶_æ‰§è¡Œ() override {
+			auto vå­å¼¹åˆ¶é€ æœº = Cæ¸¸æˆ::fgå†…å®¹().få·¥åŽ‚_å­å¼¹();
+			vå­å¼¹åˆ¶é€ æœº.må‚æ•°.mé€Ÿåº¦ = {200, 0};
+			vå­å¼¹åˆ¶é€ æœº.må‚æ•°.fsæ ·å¼((int)Eå­å¼¹::eç±³å¼¹);
+			vå­å¼¹åˆ¶é€ æœº.må‚æ•°.fsé•¿åº¦(20);
+			for (auto vå¾ªçŽ¯0 : vå­å¼¹åˆ¶é€ æœº.få¾ªçŽ¯(32)) {
+				vå¾ªçŽ¯0.få˜æ¢_åœ†å½¢();
+				vå­å¼¹åˆ¶é€ æœº.fäº§ç”Ÿå­å¼¹<Cç›´çº¿æ¿€å…‰>();
 			}
-			f¶¯×÷_½áÊø();
+			fåŠ¨ä½œ_ç»“æŸ();
 		}
 	};
-	class C²âÊÔÉäÏß¼¤¹â : public C¹Ø¿¨ÊÂ¼þ {
+	class Cæµ‹è¯•å°„çº¿æ¿€å…‰ : public Cå…³å¡äº‹ä»¶ {
 	public:
-		void fÊÂ¼þ_Ö´ÐÐ() override {
-			auto v×Óµ¯ÖÆÔì»ú = CÓÎÏ·::fgÄÚÈÝ().f¹¤³§_×Óµ¯();
-			v×Óµ¯ÖÆÔì»ú.m²ÎÊý.mËÙ¶È = {200, 0};
-			v×Óµ¯ÖÆÔì»ú.m²ÎÊý.fsÑùÊ½((int)E×Óµ¯::eÃ×µ¯);
-			for (auto vÑ­»·0 : v×Óµ¯ÖÆÔì»ú.fÑ­»·(32)) {
-				vÑ­»·0.f±ä»»_Ô²ÐÎ();
-				v×Óµ¯ÖÆÔì»ú.f²úÉú×Óµ¯<CÉäÏß¼¤¹â>();
+		void fäº‹ä»¶_æ‰§è¡Œ() override {
+			auto vå­å¼¹åˆ¶é€ æœº = Cæ¸¸æˆ::fgå†…å®¹().få·¥åŽ‚_å­å¼¹();
+			vå­å¼¹åˆ¶é€ æœº.må‚æ•°.mé€Ÿåº¦ = {200, 0};
+			vå­å¼¹åˆ¶é€ æœº.må‚æ•°.fsæ ·å¼((int)Eå­å¼¹::eç±³å¼¹);
+			for (auto vå¾ªçŽ¯0 : vå­å¼¹åˆ¶é€ æœº.få¾ªçŽ¯(32)) {
+				vå¾ªçŽ¯0.få˜æ¢_åœ†å½¢();
+				vå­å¼¹åˆ¶é€ æœº.fäº§ç”Ÿå­å¼¹<Cå°„çº¿æ¿€å…‰>();
 			}
-			f¶¯×÷_½áÊø();
+			fåŠ¨ä½œ_ç»“æŸ();
 		}
 	};
-	void fÊÂ¼þ_³õÊ¼»¯() override {
-		C¹Ø¿¨½Å±¾ v½Å±¾ = m¹Ø¿¨->fc½Å±¾();
-		v½Å±¾.fµÈ´ý(0.5f);
-		//v½Å±¾.fÊÂ¼þ<C²âÊÔÆÕÍ¨×Óµ¯>();
-		//v½Å±¾.fµÈ´ý(1);
-		//v½Å±¾.fÊÂ¼þ<C²âÊÔ´ó×Óµ¯>();
-		//v½Å±¾.fµÈ´ý(1);
-		//v½Å±¾.fÊÂ¼þ<C²âÊÔÇúÏß¼¤¹â>();
-		//v½Å±¾.fµÈ´ý(1);
-		//v½Å±¾.fÊÂ¼þ<C²âÊÔÁ¬Ðø×Óµ¯>();
-		//v½Å±¾.fµÈ´ý(1);
-		//v½Å±¾.fÊÂ¼þ<C²âÊÔÖ±Ïß¼¤¹â>();
-		//v½Å±¾.fµÈ´ý(1);
-		v½Å±¾.fÊÂ¼þ<C²âÊÔÉäÏß¼¤¹â>();
-		v½Å±¾.fµÈ´ý(1);
+	void fäº‹ä»¶_åˆå§‹åŒ–() override {
+		Cå…³å¡è„šæœ¬ vè„šæœ¬ = må…³å¡->fcè„šæœ¬();
+		vè„šæœ¬.fç­‰å¾…(0.5f);
+		//vè„šæœ¬.fäº‹ä»¶<Cæµ‹è¯•æ™®é€šå­å¼¹>();
+		//vè„šæœ¬.fç­‰å¾…(1);
+		//vè„šæœ¬.fäº‹ä»¶<Cæµ‹è¯•å¤§å­å¼¹>();
+		//vè„šæœ¬.fç­‰å¾…(1);
+		//vè„šæœ¬.fäº‹ä»¶<Cæµ‹è¯•æ›²çº¿æ¿€å…‰>();
+		//vè„šæœ¬.fç­‰å¾…(1);
+		//vè„šæœ¬.fäº‹ä»¶<Cæµ‹è¯•è¿žç»­å­å¼¹>();
+		//vè„šæœ¬.fç­‰å¾…(1);
+		//vè„šæœ¬.fäº‹ä»¶<Cæµ‹è¯•ç›´çº¿æ¿€å…‰>();
+		//vè„šæœ¬.fç­‰å¾…(1);
+		vè„šæœ¬.fäº‹ä»¶<Cæµ‹è¯•å°„çº¿æ¿€å…‰>();
+		vè„šæœ¬.fç­‰å¾…(1);
 	}
-} g²âÊÔ×Óµ¯Àà;
+} gæµ‹è¯•å­å¼¹ç±»;
