@@ -1,41 +1,47 @@
-#pragma once
-#include "ÓÎÏ·.h"
-#include "»ù´¡.h"
-//×Óµ¯
-#include "±êÊ¶.h"
-#include "×Óµ¯»ù´¡.h"
-#include "×Óµ¯ÖÆÔì»ú.h"
+ï»¿#pragma once
+#include "æ¸¸æˆ.h"
+#include "åŸºç¡€.h"
+//å­å¼¹
+#include "æ ‡è¯†.h"
+#include "å­å¼¹åŸºç¡€.h"
+#include "å­å¼¹åˆ¶é€ æœº.h"
 
-#include "×Óµ¯_ÆÕÍ¨×Óµ¯.h"
-#include "×Óµ¯_Ö±Ïß¼¤¹â.h"
-#include "×Óµ¯_ÇúÏß¼¤¹â.h"
-#include "×Óµ¯_´ó×Óµ¯.h"
-#include "×Óµ¯_Á¬Ğø×Óµ¯.h"
-#include "×Óµ¯_ÉäÏß¼¤¹â.h"
-//µĞ»ú
-#include "µĞ»ú»ù´¡.h"
-#include "µĞ»úÖÆÔì»ú.h"
-//Í¼ĞÎ
-#include "Í¼ĞÎ¹¤³§.h"
-#include "µĞ»úÍ¼ĞÎÄ£°å.h"
-#include "Í¼ĞÎ_Ì§ÏÔ.h"
-#include "Í¼ĞÎ_ÈıÎ¬.h"
-#include "Í¼ĞÎ_¶Ô»°.h"
-//¹Ø¿¨
-#include "¹Ø¿¨.h"
-#include "³¡¾°.h"
-#include "¶Ô»°.h"
-#include "¹Ø¿¨Ğ§¹û.h"
-#include "ÍõÕ½.h"
-//ÆäËü
-#include "Íæ¼Ò.h"
-#include "µÀ¾ß.h"
-#include "¼ÆËã.h"
-#include "È¡ÎÄ±¾.h"
-typedef ¶«·½É½Õ¯::C×Óµ¯ÖÆÔì»ú t×Óµ¯¹¤³§;
-typedef ¶«·½É½Õ¯::CµĞ»úÖÆÔì»ú tµĞ»ú¹¤³§;
-typedef ¶«·½É½Õ¯::CÍ¼ĞÎ¹¤³§ tÍ¼ĞÎ¹¤³§;
-typedef std::shared_ptr<t×Óµ¯¹¤³§> tp×Óµ¯¹¤³§;
-typedef std::shared_ptr<tµĞ»ú¹¤³§> tpµĞ»ú¹¤³§;
-typedef std::shared_ptr<tÍ¼ĞÎ¹¤³§> tpÍ¼ĞÎ¹¤³§;
-using namespace ¶«·½É½Õ¯;
+#include "å­å¼¹_æ™®é€šå­å¼¹.h"
+#include "å­å¼¹_ç›´çº¿æ¿€å…‰.h"
+#include "å­å¼¹_æ›²çº¿æ¿€å…‰.h"
+#include "å­å¼¹_å¤§å­å¼¹.h"
+#include "å­å¼¹_è¿ç»­å­å¼¹.h"
+#include "å­å¼¹_å°„çº¿æ¿€å…‰.h"
+//æ•Œæœº
+#include "æ•ŒæœºåŸºç¡€.h"
+#include "æ•Œæœºåˆ¶é€ æœº.h"
+//å›¾å½¢
+#include "å›¾å½¢å·¥å‚.h"
+#include "æ•Œæœºå›¾å½¢æ¨¡æ¿.h"
+#include "å›¾å½¢_æŠ¬æ˜¾.h"
+#include "å›¾å½¢_ä¸‰ç»´.h"
+#include "å›¾å½¢_å¯¹è¯.h"
+//å…³å¡
+#include "å…³å¡.h"
+#include "åœºæ™¯.h"
+#include "å¯¹è¯.h"
+#include "å…³å¡æ•ˆæœ.h"
+#include "ç‹æˆ˜.h"
+//å…¶å®ƒ
+#include "ç©å®¶.h"
+#include "é“å…·.h"
+#include "è®¡ç®—.h"
+#include "å–æ–‡æœ¬.h"
+#include "éš¾åº¦.h"
+#include "è½¨è¿¹.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+using tå­å¼¹å·¥å‚ = Cå­å¼¹åˆ¶é€ æœº;
+using tæ•Œæœºå·¥å‚ = Cæ•Œæœºåˆ¶é€ æœº;
+using tå›¾å½¢å·¥å‚ = Cå›¾å½¢å·¥å‚;
+using tpå­å¼¹å·¥å‚ = std::shared_ptr<Cå­å¼¹åˆ¶é€ æœº>;
+using tpæ•Œæœºå·¥å‚ = std::shared_ptr<Cæ•Œæœºåˆ¶é€ æœº>;
+using tpå›¾å½¢å·¥å‚ = std::shared_ptr<Cå›¾å½¢å·¥å‚>;
+tå‘é‡2 fgè‡ªæœºåæ ‡();
+tå‘é‡2 fgè‡ªæœºé€Ÿåº¦(float ç§’ = 0.5f);
+}
+using namespace ä¸œæ–¹å±±å¯¨;

@@ -1,113 +1,115 @@
-#pragma once
-#include "ÊıÑ§°üº¬.h"
-#include "Í¼ĞÎ°üº¬.h"
-#include "»ù´¡.h"
-namespace ¶«·½É½Õ¯ {
-class C×Óµ¯;
+ï»¿#pragma once
+#include "æ•°å­¦åŒ…å«.h"
+#include "å›¾å½¢åŒ…å«.h"
+#include "åŸºç¡€.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cå­å¼¹;
 //==============================================================================
-// ×Óµ¯¶¥µã
+// å­å¼¹é¡¶ç‚¹
 //==============================================================================
-class C×Óµ¯¶¥µã {
+class Cå­å¼¹é¡¶ç‚¹ {
 public:
-	enum E¶¥µã±ê¼Ç {
-		e×ø±ê,	//ÎªtrueÊ±Ê¹ÓÃvµãµÄ³ÉÔ±±äÁ¿,ÎªfalseÊ±Ê¹ÓÃvÖĞĞÄµÄ³ÉÔ±±äÁ¿
-		eÎ»ÖÃ,	//[0,1],Èç¹ûÎªfalseÃ¿¸öµãµÄÎ»ÖÃÆ½¾ù·ÖÅä
-		e³öÏÖ,
-		eÑÕÉ«,	//»¹Ã»ÊµÏÖ
-		e»·,	//Ö»ÔÚÁ¬ĞøµãÊ¹ÓÃ,Í·µãÓëÎ²µã½«Á¬½ÓÆğÀ´
+	enum Eé¡¶ç‚¹æ ‡è®° {
+		eåæ ‡,	//ä¸ºtrueæ—¶ä½¿ç”¨vç‚¹çš„æˆå‘˜å˜é‡,ä¸ºfalseæ—¶ä½¿ç”¨vä¸­å¿ƒçš„æˆå‘˜å˜é‡
+		eä½ç½®,	//[0,1],å¦‚æœä¸ºfalseæ¯ä¸ªç‚¹çš„ä½ç½®å¹³å‡åˆ†é…
+		eå‡ºç°,
+		eé¢œè‰²,	//è¿˜æ²¡å®ç°
+		eç¯,	//åªåœ¨è¿ç»­ç‚¹ä½¿ç”¨,å¤´ç‚¹ä¸å°¾ç‚¹å°†è¿æ¥èµ·æ¥
 	};
-	//¶¥µãÀàĞÍ
-	class Cµã {
+	//é¡¶ç‚¹ç±»å‹
+	class Cç‚¹ {
 	public:
-		struct SÖĞĞÄ {
-			float m³öÏÖ;
-			float mÏûÊ§;
+		struct Sä¸­å¿ƒ {
+			float må‡ºç°;
+			float mæ¶ˆå¤±;
 		};
-		const C×Óµ¯ *m×Óµ¯;
-		SÖĞĞÄ mÖĞĞÄ;
-		Cµã(const C×Óµ¯ *);
+		const Cå­å¼¹ *må­å¼¹;
+		Sä¸­å¿ƒ mä¸­å¿ƒ;
+		Cç‚¹(const Cå­å¼¹ *);
 	};
-	class CÖ±Ïß {
+	class Cç›´çº¿ {
 	public:
-		struct S¶¥µã {
-			float mÎ»ÖÃ;
-			float mÏûÊ§;
+		struct Sé¡¶ç‚¹ {
+			float mä½ç½®;
+			float mæ¶ˆå¤±;
 		};
-		struct SÖĞĞÄ {
-			tÏòÁ¿2 m×ø±ê;
-			float m³öÏÖ;
+		struct Sä¸­å¿ƒ {
+			tå‘é‡2 måæ ‡;
+			float må‡ºç°;
 		};
-		typedef S¶¥µã t¶¥µã;
-		typedef std::vector<S¶¥µã> ta¶¥µã;
-		const C×Óµ¯ *m×Óµ¯;
-		t±êÖ¾ m±êÖ¾;
-		SÖĞĞÄ mÖĞĞÄ;
-		int mÊıÁ¿;
-		CÖ±Ïß(const C×Óµ¯ *, int);
+		typedef Sé¡¶ç‚¹ té¡¶ç‚¹;
+		typedef std::vector<Sé¡¶ç‚¹> taé¡¶ç‚¹;
+		const Cå­å¼¹ *må­å¼¹;
+		tæ ‡å¿— mæ ‡å¿—;
+		Sä¸­å¿ƒ mä¸­å¿ƒ;
+		int mæ•°é‡;
+		Cç›´çº¿(const Cå­å¼¹ *, int);
 	};
-	class CÇúÏß {
+	class Cæ›²çº¿ {
 	public:
-		struct S¶¥µã {
-			tÏòÁ¿2 m×ø±ê;
-			float mÎ»ÖÃ;
-			float m³öÏÖ;
-			float mÏûÊ§;
-			const tÑÕÉ« *mÑÕÉ«[2];
+		struct Sé¡¶ç‚¹ {
+			tå‘é‡2 måæ ‡;
+			float mä½ç½®;
+			float må‡ºç°;
+			float mæ¶ˆå¤±;
+			const té¢œè‰² *mé¢œè‰²[2];
 		};
-		struct SÖĞĞÄ {
-			float m³öÏÖ;
+		struct Sä¸­å¿ƒ {
+			float må‡ºç°;
 		};
-		typedef S¶¥µã t¶¥µã;
-		typedef std::vector<S¶¥µã> ta¶¥µã;
-		const C×Óµ¯ *m×Óµ¯;
-		t±êÖ¾ m±êÖ¾;
-		SÖĞĞÄ mÖĞĞÄ;
-		int mÊıÁ¿;
-		CÇúÏß(const C×Óµ¯ *, int);
+		typedef Sé¡¶ç‚¹ té¡¶ç‚¹;
+		typedef std::vector<Sé¡¶ç‚¹> taé¡¶ç‚¹;
+		const Cå­å¼¹ *må­å¼¹;
+		tæ ‡å¿— mæ ‡å¿—;
+		Sä¸­å¿ƒ mä¸­å¿ƒ;
+		int mæ•°é‡;
+		Cæ›²çº¿(const Cå­å¼¹ *, int);
 	};
-	class CÍø¸ñ {
+	class Cç½‘æ ¼ {
 	public:
-		struct S¶¥µã {
-			tÏòÁ¿2 m×ø±ê;
-			float mÏûÊ§;
-			const tÑÕÉ« *mÑÕÉ«[2];
+		struct Sé¡¶ç‚¹ {
+			tå‘é‡2 måæ ‡;
+			float mæ¶ˆå¤±;
+			const té¢œè‰² *mé¢œè‰²[2];
 		};
-		struct SÆ½¾ùµã {
-			tÏòÁ¿2 m×ø±ê;
-			float m³öÏÖ;
-			const tÑÕÉ« *mÑÕÉ«[2];
+		struct Så¹³å‡ç‚¹ {
+			tå‘é‡2 måæ ‡;
+			float må‡ºç°;
+			const té¢œè‰² *mé¢œè‰²[2];
 		};
-		struct SÖĞĞÄ {
-			float m³öÏÖ;
+		struct Sä¸­å¿ƒ {
+			float må‡ºç°;
 		};
-		typedef S¶¥µã t¶¥µã;
-		typedef SÆ½¾ùµã tÆ½¾ùµã;
-		typedef std::vector<S¶¥µã> ta¶¥µã;
-		const C×Óµ¯ *m×Óµ¯;
-		t±êÖ¾ m±êÖ¾;
-		SÖĞĞÄ mÖĞĞÄ;
-		int m¿í, m¸ß;
-		CÍø¸ñ(const C×Óµ¯ *, int, int);
+		typedef Sé¡¶ç‚¹ té¡¶ç‚¹;
+		typedef Så¹³å‡ç‚¹ tå¹³å‡ç‚¹;
+		typedef std::vector<Sé¡¶ç‚¹> taé¡¶ç‚¹;
+		const Cå­å¼¹ *må­å¼¹;
+		tæ ‡å¿— mæ ‡å¿—;
+		Sä¸­å¿ƒ mä¸­å¿ƒ;
+		int må®½, mé«˜;
+		Cç½‘æ ¼(const Cå­å¼¹ *, int, int);
 	};
 };
 //==============================================================================
-// »­×Óµ¯½Ó¿Ú
+// ç”»å­å¼¹æ¥å£
 //==============================================================================
-class I×Óµ¯Í¼ĞÎÊı¾İ {
-};
-using tp×Óµ¯Í¼ĞÎÊı¾İ = std::shared_ptr<I×Óµ¯Í¼ĞÎÊı¾İ>;
-class I»­×Óµ¯ : public IÍ¼ĞÎ¹ÜÏß {
+class Iå­å¼¹å›¾å½¢æ•°æ® {
 public:
-	virtual void f»æÖÆµã(const C×Óµ¯¶¥µã::Cµã &) = 0;
-	virtual void f»æÖÆÖ±Ïß(const C×Óµ¯¶¥µã::CÖ±Ïß &, const C×Óµ¯¶¥µã::CÖ±Ïß::ta¶¥µã &) = 0;
-	virtual void f»æÖÆÇúÏß(const C×Óµ¯¶¥µã::CÇúÏß &, const C×Óµ¯¶¥µã::CÇúÏß::ta¶¥µã &) = 0;
-	virtual void f»æÖÆÁ¬Ğøµã(const C×Óµ¯¶¥µã::CÇúÏß &, const C×Óµ¯¶¥µã::CÇúÏß::ta¶¥µã &) = 0;
-	virtual void f»æÖÆÍø¸ñ(const C×Óµ¯¶¥µã::CÍø¸ñ &, const C×Óµ¯¶¥µã::CÍø¸ñ::ta¶¥µã &) = 0;
-	virtual tp×Óµ¯Í¼ĞÎÊı¾İ fÉú³Éµã(const C×Óµ¯¶¥µã::Cµã &) = 0;
-	virtual tp×Óµ¯Í¼ĞÎÊı¾İ fÉú³ÉÖ±Ïß(const C×Óµ¯¶¥µã::CÖ±Ïß &, const C×Óµ¯¶¥µã::CÖ±Ïß::ta¶¥µã &) = 0;
-	virtual tp×Óµ¯Í¼ĞÎÊı¾İ fÉú³ÉÇúÏß(const C×Óµ¯¶¥µã::CÇúÏß &, const C×Óµ¯¶¥µã::CÇúÏß::ta¶¥µã &) = 0;
-	virtual tp×Óµ¯Í¼ĞÎÊı¾İ fÉú³ÉÁ¬Ğøµã(const C×Óµ¯¶¥µã::CÇúÏß &, const C×Óµ¯¶¥µã::CÇúÏß::ta¶¥µã &) = 0;
-	virtual tp×Óµ¯Í¼ĞÎÊı¾İ fÉú³ÉÍø¸ñ(const C×Óµ¯¶¥µã::CÍø¸ñ &, const C×Óµ¯¶¥µã::CÍø¸ñ::ta¶¥µã &) = 0;
-	virtual void f»æÖÆÍ¼ĞÎÊı¾İ(const tp×Óµ¯Í¼ĞÎÊı¾İ &) = 0;
+	virtual ~Iå­å¼¹å›¾å½¢æ•°æ®() = default;
+};
+using tpå­å¼¹å›¾å½¢æ•°æ® = std::shared_ptr<Iå­å¼¹å›¾å½¢æ•°æ®>;
+class Iç”»å­å¼¹ : public Iå›¾å½¢ç®¡çº¿ {
+public:
+	virtual void fç»˜åˆ¶ç‚¹(const Cå­å¼¹é¡¶ç‚¹::Cç‚¹ &) = 0;
+	virtual void fç»˜åˆ¶ç›´çº¿(const Cå­å¼¹é¡¶ç‚¹::Cç›´çº¿ &, const Cå­å¼¹é¡¶ç‚¹::Cç›´çº¿::taé¡¶ç‚¹ &) = 0;
+	virtual void fç»˜åˆ¶æ›²çº¿(const Cå­å¼¹é¡¶ç‚¹::Cæ›²çº¿ &, const Cå­å¼¹é¡¶ç‚¹::Cæ›²çº¿::taé¡¶ç‚¹ &) = 0;
+	virtual void fç»˜åˆ¶è¿ç»­ç‚¹(const Cå­å¼¹é¡¶ç‚¹::Cæ›²çº¿ &, const Cå­å¼¹é¡¶ç‚¹::Cæ›²çº¿::taé¡¶ç‚¹ &) = 0;
+	virtual void fç»˜åˆ¶ç½‘æ ¼(const Cå­å¼¹é¡¶ç‚¹::Cç½‘æ ¼ &, const Cå­å¼¹é¡¶ç‚¹::Cç½‘æ ¼::taé¡¶ç‚¹ &) = 0;
+	virtual void fç”Ÿæˆç‚¹(tpå­å¼¹å›¾å½¢æ•°æ® &, const Cå­å¼¹é¡¶ç‚¹::Cç‚¹ &) = 0;
+	virtual void fç”Ÿæˆç›´çº¿(tpå­å¼¹å›¾å½¢æ•°æ® &, const Cå­å¼¹é¡¶ç‚¹::Cç›´çº¿ &, const Cå­å¼¹é¡¶ç‚¹::Cç›´çº¿::taé¡¶ç‚¹ &) = 0;
+	virtual void fç”Ÿæˆæ›²çº¿(tpå­å¼¹å›¾å½¢æ•°æ® &, const Cå­å¼¹é¡¶ç‚¹::Cæ›²çº¿ &, const Cå­å¼¹é¡¶ç‚¹::Cæ›²çº¿::taé¡¶ç‚¹ &) = 0;
+	virtual void fç”Ÿæˆè¿ç»­ç‚¹(tpå­å¼¹å›¾å½¢æ•°æ® &, const Cå­å¼¹é¡¶ç‚¹::Cæ›²çº¿ &, const Cå­å¼¹é¡¶ç‚¹::Cæ›²çº¿::taé¡¶ç‚¹ &) = 0;
+	virtual void fç”Ÿæˆç½‘æ ¼(tpå­å¼¹å›¾å½¢æ•°æ® &, const Cå­å¼¹é¡¶ç‚¹::Cç½‘æ ¼ &, const Cå­å¼¹é¡¶ç‚¹::Cç½‘æ ¼::taé¡¶ç‚¹ &) = 0;
+	virtual void fç»˜åˆ¶å›¾å½¢æ•°æ®(const tpå­å¼¹å›¾å½¢æ•°æ® &) = 0;
 };
 }

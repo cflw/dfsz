@@ -67,8 +67,7 @@
       <AdditionalIncludeDirectories>$(cflw_develop)\cflw代码库;$(cflw_develop)\用户界面;$(boost);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
-      <EnableModules>
-      </EnableModules>
+      <EnableModules>true</EnableModules>
       <AdditionalOptions>/await %(AdditionalOptions)</AdditionalOptions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
@@ -96,8 +95,7 @@
       <AdditionalIncludeDirectories>$(cflw_develop)\cflw代码库;$(cflw_develop)\用户界面;$(boost);</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
-      <EnableModules>
-      </EnableModules>
+      <EnableModules>true</EnableModules>
       <AdditionalOptions>/await %(AdditionalOptions)</AdditionalOptions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
@@ -125,6 +123,8 @@
     <ClCompile Include="图形_三维.cpp" />
     <ClCompile Include="图形_图片.cpp" />
     <ClCompile Include="动画.cpp" />
+    <ClCompile Include="图形_子弹_工具.h" />
+    <ClCompile Include="图形_子弹_线条.cpp" />
     <ClCompile Include="图形_对话.cpp" />
     <ClCompile Include="图形_抬显.cpp" />
     <ClCompile Include="图形_玩家成绩.cpp" />
@@ -167,7 +167,7 @@
     <ClCompile Include="玩家子弹发射基础.cpp" />
     <ClCompile Include="玩家子弹图形模板.cpp" />
     <ClCompile Include="玩家子弹基础.cpp" />
-    <ClCompile Include="图形_子弹.cpp" />
+    <ClCompile Include="图形_子弹_顶点.cpp" />
     <ClCompile Include="玩家子弹扩展.cpp" />
     <ClCompile Include="玩家子弹制造机.cpp" />
     <ClCompile Include="玩家炸弹扩展.cpp" />
@@ -180,11 +180,13 @@
     <ClCompile Include="程序.cpp" />
     <ClCompile Include="程序设置.cpp" />
     <ClCompile Include="自机.cpp" />
+    <ClCompile Include="轨迹.cpp" />
     <ClCompile Include="计算.cpp" />
     <ClCompile Include="载入.cpp" />
     <ClCompile Include="输入.cpp" />
     <ClCompile Include="道具.cpp" />
     <ClCompile Include="道具动画.cpp" />
+    <ClCompile Include="难度.cpp" />
     <ClCompile Include="音频引擎.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -203,6 +205,7 @@
     <ClInclude Include="图形_玩家成绩.h" />
     <ClInclude Include="图形_画图片.h" />
     <ClInclude Include="图形_画边框.h" />
+    <ClInclude Include="图形_子弹_线条.h" />
     <ClInclude Include="图形_背景.h" />
     <ClInclude Include="图形包含.h" />
     <ClInclude Include="图形管理.h" />
@@ -242,7 +245,7 @@
     <ClInclude Include="玩家.h" />
     <ClInclude Include="玩家子弹发射扩展.h" />
     <ClInclude Include="玩家子弹发射_发散.h" />
-    <ClInclude Include="图形_子弹.h" />
+    <ClInclude Include="图形_子弹_顶点.h" />
     <ClInclude Include="玩家子弹图形模板.h" />
     <ClInclude Include="玩家子弹扩展.h" />
     <ClInclude Include="玩家子弹制造机.h" />
@@ -260,11 +263,13 @@
     <ClInclude Include="程序设置.h" />
     <ClInclude Include="脚本.h" />
     <ClInclude Include="自机.h" />
+    <ClInclude Include="轨迹.h" />
     <ClInclude Include="计算.h" />
     <ClInclude Include="载入.h" />
     <ClInclude Include="输入.h" />
     <ClInclude Include="道具.h" />
     <ClInclude Include="道具动画.h" />
+    <ClInclude Include="难度.h" />
     <ClInclude Include="音频包含.h" />
     <ClInclude Include="音频引擎.h" />
   </ItemGroup>

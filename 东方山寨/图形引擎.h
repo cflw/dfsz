@@ -84,7 +84,7 @@ public:
 	std::unique_ptr<二维::C二维> m二维;
 	二维::C文本工厂 m文本;
 	tp缓冲 m二维常量缓冲;	//二维
-	I图形管线 *m图形管线;
+	I图形管线 *m图形管线 = nullptr;
 	float m缩放 = 1;
 	float m比例 = 4.f / 3.f;
 	const int *m渲染间隔 = nullptr;
@@ -115,7 +115,7 @@ struct S顶点矩形 {
 	enum E方位 {
 		e左, e上, e右, e下
 	};
-	float m坐标[4], m纹理[4];	//左,上,右,下
+	float m坐标[4] = {}, m纹理[4] = {};	//左,上,右,下
 	float fg坐标x(float 插值) const;
 	float fg坐标y(float 插值) const;
 	float fg纹理x(float 插值) const;
@@ -126,6 +126,6 @@ struct S顶点矩形 {
 struct S顶点顶点 {
 	t向量2 m坐标;
 	t向量2 m纹理;
-	float m透明度;
+	float m透明度 = 0;
 };
 }	//namespace 东方山寨

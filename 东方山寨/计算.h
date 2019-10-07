@@ -1,18 +1,19 @@
-#pragma once
-#include "ÊıÑ§°üº¬.h"
-namespace ¶«·½É½Õ¯ {
-namespace ¼ÆËã {
-//ÔÓ»â
-float f²åÖµ(const std::pair<float, float> &, float);
-//Ê±¼ä
-bool f¼ÆÊ±(float &¼ÆÊ±, float a);
-//±ä»¯
-float f¼Ó±ä»¯(float ±ä»¯, float Ê±¼ä = 1);
-float f³Ë±ä»¯(float ±ä»¯, float Ê±¼ä = 1);
-//Í¼ĞÎ
-float f¾àÀëÍ¸Ã÷¶È(float Ô­Í¸Ã÷, float ¾àÀë);
-//ÔË¶¯
-void f»ù±¾ÔË¶¯¼ÆËã(tÏòÁ¿2 &, const tÏòÁ¿2 &, float);
-float fµ½Ä¿±êÊ±¼ä(const tÏòÁ¿2 &Ô­, const tÏòÁ¿2 &Ä¿±ê, float ËÙ¶È);
-tÏòÁ¿2 fµ½Ä¿±êËÙ¶È(const tÏòÁ¿2 &Ô­, const tÏòÁ¿2 &Ä¿±ê, float Ê±¼ä);
+ï»¿#pragma once
+#include "æ•°å­¦åŒ…å«.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+namespace è®¡ç®— {
+//æ‚çƒ©
+float fæ’å€¼(const std::pair<float, float> &, float);
+//æ—¶é—´
+bool fè®¡æ—¶(float &è®¡æ—¶, float a);
+//å˜åŒ–
+float fåŠ å˜åŒ–(float å˜åŒ–, float æ—¶é—´ = 1);
+float fä¹˜å˜åŒ–(float å˜åŒ–, float æ—¶é—´ = 1);
+//å›¾å½¢
+float fè·ç¦»é€æ˜åº¦(float åŸé€æ˜, float è·ç¦»);
+//è¿åŠ¨
+void fåŸºæœ¬è¿åŠ¨è®¡ç®—(tå‘é‡2 &, const tå‘é‡2 &, float);
+float fåˆ°ç›®æ ‡æ—¶é—´(const tå‘é‡2 &åŸ, const tå‘é‡2 &ç›®æ ‡, float é€Ÿåº¦);
+tå‘é‡2 fåˆ°ç›®æ ‡é€Ÿåº¦(const tå‘é‡2 &åŸ, const tå‘é‡2 &ç›®æ ‡, float æ—¶é—´);
+float fé¢„åˆ¤è‡ªæœºç‹™(const tå‘é‡2 &ç›®æ ‡åæ ‡, const tå‘é‡2 &ç›®æ ‡é€Ÿåº¦, const tå‘é‡2 &å‘å°„åæ ‡, float å‘å°„é€Ÿåº¦);
 }}

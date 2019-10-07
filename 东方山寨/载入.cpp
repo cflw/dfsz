@@ -16,7 +16,8 @@
 #include "图形_三维.h"
 #include "动画接口.h"
 #include "动画.h"
-#include "图形_子弹.h"
+#include "图形_子弹_线条.h"
+#include "图形_子弹_顶点.h"
 #include "道具动画.h"
 //其它
 #include "道具.h"
@@ -674,7 +675,7 @@ void C内部载入::f道具() {
 }
 void C内部载入::f画子弹() {
 	auto &v图形 = C游戏::fg图形();
-	std::pair<E画子弹, I画子弹*> v画子弹表[] = {
+	std::pair<E画子弹, I画子弹 *> v画子弹表[] = {
 		{E画子弹::e顶点, new C画子弹_顶点(v图形, *v图形.m三维)},
 		{E画子弹::e线条, new C画子弹_线条(*v图形.m二维)},
 	};

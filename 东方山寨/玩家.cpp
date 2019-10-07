@@ -6,6 +6,7 @@
 #include "玩家.h"
 #include "自机.h"
 #include "子机.h"
+#include "难度.h"
 #include "玩家子弹基础.h"
 #include "玩家子弹制造机.h"
 #include "图形_玩家成绩.h"
@@ -64,6 +65,7 @@ void C玩家::f计算() {
 	if (m自机.fi死亡()) {
 		f复活();
 	}
+	m轨迹.f记录坐标(m自机.m坐标);
 }
 void C玩家::f更新() {
 	m自机.f更新();
@@ -87,6 +89,7 @@ void C玩家::f输入按键(const t向量2 &a方向键, const 输入::C按键组
 void C玩家::f关卡初始化() {
 	m自机.f关卡初始化();
 	m子机组.f关卡初始化();
+	m轨迹.f填充坐标(m自机.m坐标);
 }
 void C玩家::f游戏初始化(const S游戏设置 &a设置) {
 	m成绩.m得分 = 0;
@@ -247,24 +250,4 @@ void C吸收值::f满() {
 	m值 = c上限;
 }
 //难度
-void C难度::f增加难度(const boost::rational<int> &p) {
-	m增加难度 += boost::rational_cast<int>(p * 100'0000);
-}
-void C难度::f增加难度_最大点(int p) {
-	m增加难度 += p;
-}
-void C难度::f减少难度() {
-	//减10%,最多减0.1难度
-	if (m增加难度 < 1000000) {
-		m增加难度 = m增加难度 * 9 / 10;
-	} else {
-		m增加难度 -= 100000;
-	}
-}
-float C难度::fg基础难度() const {
-	return (float)m基础难度;
-}
-float C难度::fg动态难度() const {
-	return (float)m基础难度 + (float)m增加难度 / 100'0000.f;
-}
 }	//namespace 东方山寨

@@ -215,9 +215,6 @@
     <ClCompile Include="图形_对话.cpp">
       <Filter>游戏本体\图形</Filter>
     </ClCompile>
-    <ClCompile Include="图形_子弹.cpp">
-      <Filter>游戏本体\子弹基础</Filter>
-    </ClCompile>
     <ClCompile Include="图形_玩家成绩.cpp">
       <Filter>游戏本体\玩家</Filter>
     </ClCompile>
@@ -283,6 +280,21 @@
     </ClCompile>
     <ClCompile Include="图形_画边框.cpp">
       <Filter>图形引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_子弹_线条.cpp">
+      <Filter>游戏本体\子弹基础</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_子弹_顶点.cpp">
+      <Filter>游戏本体\子弹基础</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_子弹_工具.h">
+      <Filter>游戏本体\子弹基础</Filter>
+    </ClCompile>
+    <ClCompile Include="难度.cpp">
+      <Filter>游戏本体\玩家</Filter>
+    </ClCompile>
+    <ClCompile Include="轨迹.cpp">
+      <Filter>游戏本体\玩家</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -442,9 +454,6 @@
     <ClInclude Include="对话基础.h">
       <Filter>游戏本体\关卡</Filter>
     </ClInclude>
-    <ClInclude Include="图形_子弹.h">
-      <Filter>游戏本体\子弹基础</Filter>
-    </ClInclude>
     <ClInclude Include="图形_玩家成绩.h">
       <Filter>游戏本体\玩家</Filter>
     </ClInclude>
@@ -522,6 +531,18 @@
     </ClInclude>
     <ClInclude Include="图形_画边框.h">
       <Filter>图形引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_子弹_线条.h">
+      <Filter>游戏本体\子弹基础</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_子弹_顶点.h">
+      <Filter>游戏本体\子弹基础</Filter>
+    </ClInclude>
+    <ClInclude Include="难度.h">
+      <Filter>游戏本体\玩家</Filter>
+    </ClInclude>
+    <ClInclude Include="轨迹.h">
+      <Filter>游戏本体\玩家</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -36,6 +36,7 @@
 //玩家 自机 子机
 #include "玩家.h"
 #include "标识.h"
+#include "难度.h"
 namespace 东方山寨 {
 namespace 时间 = cflw::时间;
 using t任务 = std::future<void>;
@@ -717,5 +718,16 @@ t随机数引擎 C游戏::C取资源::f工厂_随机数引擎(int a推进) const
 	v引擎.discard(a推进);
 	return v引擎;
 }
-
+//==============================================================================
+// 全局函数
+//==============================================================================
+int f取全局标识(const std::wstring &a) {
+	return C游戏::g资源.fg标识(a);
+}
+t向量2 fg自机坐标() {
+	return C游戏::g内容.fg自机().m坐标;
+}
+t向量2 fg自机速度(float a秒) {
+	return C游戏::g内容.fg玩家().m轨迹.fg平均速度(a秒);
+}
 }	//namespace 东方山寨

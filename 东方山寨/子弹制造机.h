@@ -78,6 +78,7 @@ public:
 			}
 			C迭代器 &operator ++() {
 				++m计数;
+				m循环->f参数还原();
 				return *this;
 			}
 			bool operator !=(const C迭代器 &a) {

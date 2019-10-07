@@ -10,6 +10,7 @@
 #include <execution>
 #include <wrl.h>
 #include <cflw工具_循环.h>
+#include "计算.h"
 #include "游戏_名称标识.h"
 namespace 东方山寨 {
 using Microsoft::WRL::ComPtr;
@@ -352,14 +353,14 @@ public:
 		ma映射.emplace(a键, ma数据.size());
 		ma数据.push_back(a值);
 	}
-	void f添加(int a键, const std::initializer_list<t值> &aa值) {
-		assert(fi不存在(a键));
-		int i = 0;
-		for (const auto &v值 : aa值) {
-			ma映射.emplace(计算::f键(a键, i++), ma数据.size());
-			ma数据.push_back(v值);
-		}
-	}
+	//void f添加(int a键, const std::initializer_list<t值> &aa值) {
+	//	assert(fi不存在(a键));
+	//	int i = 0;
+	//	for (const auto &v值 : aa值) {
+	//		ma映射.emplace(计算::f键(a键, i++), ma数据.size());
+	//		ma数据.push_back(v值);
+	//	}
+	//}
 	template<typename...t参数>
 	void f构造(int a键, t参数 &&...a参数) {
 		assert(fi不存在(a键));
@@ -442,10 +443,11 @@ template<typename t>
 const t *f取属性数组数据指针(const C属性数组<t> &a数组, int a标识) {
 	return a数组.fg指针(a标识);
 }
+int f取全局标识(const std::wstring &);	//定义在"游戏.cpp"
 template<typename t值>
 auto C属性数组<t值>::operator [](const std::wstring &a) const
 	->decltype(f取属性数组数据指针(std::declval<C属性数组<t值>>(), 0)) {
-	return f取属性数组数据指针(*this, C游戏::fg资源().fg标识(a));
+	return f取属性数组数据指针(*this, f取全局标识(a));
 }
 //扩展数组
 template<typename t值> class C扩展数组 : public std::map<int, std::unique_ptr<t值>> {
