@@ -1,68 +1,68 @@
-#pragma once
-#include "»ù´¡.h"
-#include "»ù´¡_Êı×é.h"
-#include "Í¼ĞÎÒıÇæ.h"
-#include "Í¼ĞÎ_Í¼Æ¬.h"
-#include "Íæ¼Ò×Óµ¯·¢Éä»ù´¡.h"
-namespace ¶«·½É½Õ¯ {
-class CÍæ¼Ò;
-struct S×Ô»úÊôĞÔ;
-class CÍæ¼Ò×Óµ¯·¢ÉäÆ÷;
-class C×Ô»ú : public CÄÚÖÃÍ¼Æ¬¶¯»­ {
+ï»¿#pragma once
+#include "åŸºç¡€.h"
+#include "åŸºç¡€_æ•°ç»„.h"
+#include "å›¾å½¢å¼•æ“.h"
+#include "å›¾å½¢_å›¾ç‰‡.h"
+#include "ç©å®¶å­å¼¹å‘å°„åŸºç¡€.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cç©å®¶;
+struct Sè‡ªæœºå±æ€§;
+class Cç©å®¶å­å¼¹å‘å°„å™¨;
+class Cè‡ªæœº : public Cå†…ç½®å›¾ç‰‡åŠ¨ç”» {
 public:
-	enum class E¶¯»­·½Ïò {
-		eÖĞ = 0,
-		e×ó = -1,
-		eÓÒ = 1,
+	enum class EåŠ¨ç”»æ–¹å‘ {
+		eä¸­ = 0,
+		eå·¦ = -1,
+		eå³ = 1,
 	};
-	static constexpr float cÅĞ¶¨°ë¾¶ = 0.5f;
-	static constexpr float c²Áµ¯°ë¾¶ = 32;
-	static constexpr float cµÀ¾ß°ë¾¶ = 32;
-	static constexpr float cÒÆ¶¯ËÙ¶È = 360;
-	static constexpr float c¶¯»­ËÙ¶È = 8 / 120.f;
-	static constexpr float c¾öËÀÊ±¼ä = 0.2f;
-	static constexpr float cÎŞ¾öËÀÊ±¼ä = -9999;
-	void f¹Ø¿¨³õÊ¼»¯();
-	void f¿ØÖÆ_ÒÆ¶¯(const tÏòÁ¿2 &·½Ïò¼ü);	//0ËÙ¶ÈÊ±Ò²Òªµ÷ÓÃ
-	void f·¢Éä_·¢Éä×Óµ¯();
-	void f·¢Éä_Í£Ö¹·¢Éä×Óµ¯();
-	void f¼ÆËã();
-	void f¼ÆËã_ÒÆ¶¯·¶Î§ÏŞÖÆ();
-	void f¸üĞÂ();
-	void fÏÔÊ¾() const;
-	void f°ó¶¨Íæ¼Ò(CÍæ¼Ò &);
-	//ÊôĞÔ
-	void fs×Ô»úÊôĞÔ(const S×Ô»úÊôĞÔ *);
-	const tÏòÁ¿2 &fg×ø±ê() const;
-	const SÍ¼Æ¬¶¯»­ÊôĞÔ &fgÍ¼Æ¬¶¯»­ÊôĞÔ() const override;
-	const S¶¥µã¾ØĞÎ &fg¶¥µã¾ØĞÎ() const;
-	tÔ²ĞÎ fgÅĞ¶¨µã() const;
-	tÔ²ĞÎ fg²Áµ¯µã() const;
-	tÔ²ĞÎ fgÎüµÀ¾ßµã() const;
-	tÔ²ĞÎ fg³ÔµÀ¾ßµã() const;
-	tÏòÁ¿2 fgÒÆ¶¯Ô¤ÅĞ(float aÊ±¼ä = 1) const;
-	bool fiÎŞµĞ() const;
-	bool fiËÀÍö() const;
-	//×´Ì¬
-	void fÖĞµ¯();	//ÔÚ×Ô»úÓë×Óµ¯ÅĞ¶¨ÖĞµ÷ÓÃ
-	void f¸´»î();	//ÔÚÍæ¼Ò¼ÆËãÖĞµ÷ÓÃ
-	//ÆäËü
-	void f¶¯»­_sÍ¸Ã÷¶È(float);
+	static constexpr float cåˆ¤å®šåŠå¾„ = 0.5f;
+	static constexpr float cæ“¦å¼¹åŠå¾„ = 32;
+	static constexpr float cé“å…·åŠå¾„ = 32;
+	static constexpr float cç§»åŠ¨é€Ÿåº¦ = 360;
+	static constexpr float cåŠ¨ç”»é€Ÿåº¦ = 8 / 120.f;
+	static constexpr float cå†³æ­»æ—¶é—´ = 0.2f;
+	static constexpr float cæ— å†³æ­»æ—¶é—´ = -9999;
+	void få…³å¡åˆå§‹åŒ–();
+	void fæ§åˆ¶_ç§»åŠ¨(const tå‘é‡2 &æ–¹å‘é”®);	//0é€Ÿåº¦æ—¶ä¹Ÿè¦è°ƒç”¨
+	void få‘å°„_å‘å°„å­å¼¹();
+	void få‘å°„_åœæ­¢å‘å°„å­å¼¹();
+	void fè®¡ç®—();
+	void fè®¡ç®—_ç§»åŠ¨èŒƒå›´é™åˆ¶();
+	void fæ›´æ–°();
+	void fæ˜¾ç¤º() const;
+	void fç»‘å®šç©å®¶(Cç©å®¶ &);
+	//å±æ€§
+	void fsè‡ªæœºå±æ€§(const Sè‡ªæœºå±æ€§ *);
+	const tå‘é‡2 &fgåæ ‡() const;
+	const Så›¾ç‰‡åŠ¨ç”»å±æ€§ &fgå›¾ç‰‡åŠ¨ç”»å±æ€§() const override;
+	const Sé¡¶ç‚¹çŸ©å½¢ &fgé¡¶ç‚¹çŸ©å½¢() const;
+	tåœ†å½¢ fgåˆ¤å®šç‚¹() const;
+	tåœ†å½¢ fgæ“¦å¼¹ç‚¹() const;
+	tåœ†å½¢ fgå¸é“å…·ç‚¹() const;
+	tåœ†å½¢ fgåƒé“å…·ç‚¹() const;
+	tå‘é‡2 fgç§»åŠ¨é¢„åˆ¤(float aæ—¶é—´ = 1) const;
+	bool fiæ— æ•Œ() const;
+	bool fiæ­»äº¡() const;
+	//çŠ¶æ€
+	void fä¸­å¼¹();	//åœ¨è‡ªæœºä¸å­å¼¹åˆ¤å®šä¸­è°ƒç”¨
+	void få¤æ´»();	//åœ¨ç©å®¶è®¡ç®—ä¸­è°ƒç”¨
+	//å…¶å®ƒ
+	void fåŠ¨ç”»_sé€æ˜åº¦(float);
 public:
-	tÏòÁ¿2 m×ø±ê;
-	tÏòÁ¿2 mÒÆ¶¯;
-	const S×Ô»úÊôĞÔ *m×Ô»úÊôĞÔ;
-	float mÎŞµĞÊ±¼ä = 0;
-	float m¾öËÀÊ±¼ä = cÎŞ¾öËÀÊ±¼ä;
-	const CÓÎÏ·ËÙ¶È *mÓÎÏ·ËÙ¶È = nullptr;
-	std::unique_ptr<CÍæ¼Ò×Óµ¯·¢ÉäÆ÷> m·¢Éä×Óµ¯;
+	tå‘é‡2 måæ ‡;
+	tå‘é‡2 mç§»åŠ¨;
+	const Sè‡ªæœºå±æ€§ *mè‡ªæœºå±æ€§;
+	float mæ— æ•Œæ—¶é—´ = 0;
+	float må†³æ­»æ—¶é—´ = cæ— å†³æ­»æ—¶é—´;
+	const Cæ¸¸æˆé€Ÿåº¦ *mæ¸¸æˆé€Ÿåº¦ = nullptr;
+	std::unique_ptr<Cç©å®¶å­å¼¹å‘å°„å™¨> må‘å°„å­å¼¹;
 };
-struct S×Ô»úÊôĞÔ : public SÍ¼Æ¬¶¯»­ÊôĞÔ {
-	float mÅĞ¶¨°ë¾¶;
-	float m²Áµ¯°ë¾¶;
-	float mµÀ¾ß°ë¾¶;
-	float mÒÆ¶¯ËÙ¶È;
-	tÀ©Õ¹Ö¸Õë<I¹¤³§<CÍæ¼Ò×Óµ¯·¢ÉäÆ÷>> m·¢Éä×Óµ¯;
-	tÊôĞÔÖ¸Õë<SÍæ¼Ò×Óµ¯ÊôĞÔ> m×Óµ¯ÊôĞÔ;
+struct Sè‡ªæœºå±æ€§ : public Så›¾ç‰‡åŠ¨ç”»å±æ€§ {
+	float måˆ¤å®šåŠå¾„;
+	float mæ“¦å¼¹åŠå¾„;
+	float mé“å…·åŠå¾„;
+	float mç§»åŠ¨é€Ÿåº¦;
+	tæ‰©å±•æŒ‡é’ˆ<Iå·¥å‚<Cç©å®¶å­å¼¹å‘å°„å™¨>> må‘å°„å­å¼¹;
+	tå±æ€§æŒ‡é’ˆ<Sç©å®¶å­å¼¹å±æ€§> må­å¼¹å±æ€§;
 };
 }

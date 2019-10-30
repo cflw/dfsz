@@ -1,8 +1,8 @@
-#pragma once
-namespace ¶«·½É½Õ¯ {
-class CµĞ»ú;
-namespace Í¼ĞÎÄ£°å {
-void fµĞ»úËÀÍöĞ¡±¬Õ¨(const CµĞ»ú &);
-void fµĞ»úËÀÍö´ó±¬Õ¨(const CµĞ»ú &);
+ï»¿#pragma once
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cæ•Œæœº;
+namespace å›¾å½¢æ¨¡æ¿ {
+void fæ•Œæœºæ­»äº¡å°çˆ†ç‚¸(const Cæ•Œæœº &);
+void fæ•Œæœºæ­»äº¡å¤§çˆ†ç‚¸(const Cæ•Œæœº &);
 }
-}	//namespace ¶«·½É½Õ¯
+}	//namespace ä¸œæ–¹å±±å¯¨

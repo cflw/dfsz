@@ -1,15 +1,15 @@
-#pragma once
-#include "¶¯»­½Ó¿Ú.h"
-namespace ¶«·½É½Õ¯ {
-class CµÀ¾ß;
-class CµÀ¾ß¶¯»­ : public I¶¯»­ {
+ï»¿#pragma once
+#include "åŠ¨ç”»æ¥å£.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cé“å…·;
+class Cé“å…·åŠ¨ç”» : public IåŠ¨ç”» {
 public:
-	tÏòÁ¿3 f½Ó¿Ú_gËõ·Å() const override;
-	void f½Ó¿Ú_s¸¸¶ÔÏó(void *) override;
-	void f½Ó¿Ú_¼ÆËã() override;
-	float f½Ó¿Ú_gÍ¸Ã÷¶È() const override;
-	const CÓÎÏ·ËÙ¶È *f½Ó¿Ú_gÓÎÏ·ËÙ¶È() const override;
-	CµÀ¾ß *mµÀ¾ß = nullptr;
-	float m²åÖµ = 0;
+	tå‘é‡3 fæ¥å£_gç¼©æ”¾() const override;
+	void fæ¥å£_sçˆ¶å¯¹è±¡(void *) override;
+	void fæ¥å£_è®¡ç®—() override;
+	float fæ¥å£_gé€æ˜åº¦() const override;
+	const Cæ¸¸æˆé€Ÿåº¦ *fæ¥å£_gæ¸¸æˆé€Ÿåº¦() const override;
+	Cé“å…· *mé“å…· = nullptr;
+	float mæ’å€¼ = 0;
 };
 }

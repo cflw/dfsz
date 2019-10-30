@@ -1,26 +1,26 @@
-#include "È¡ÎÄ±¾.h"
-#include "ÓÎÏ·.h"
-namespace ¶«·½É½Õ¯ {
-namespace ¼ÆËã {
-std::wstring fÎÄ±¾ÓïÑÔÇ°×º(const std::wstring &aÃû³Æ, const std::wstring &aÓïÑÔ) {
-	return aÃû³Æ + L"." + aÓïÑÔ;
+ï»¿#include "å–æ–‡æœ¬.h"
+#include "æ¸¸æˆ.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+namespace è®¡ç®— {
+std::wstring fæ–‡æœ¬è¯­è¨€å‰ç¼€(const std::wstring &aåç§°, const std::wstring &aè¯­è¨€) {
+	return aåç§° + L"." + aè¯­è¨€;
 }
-}	//namespace ¼ÆËã
-const std::wstring c¿ÕÎÄ±¾ = L"(¿Õ)";
-CÈ¡ÎÄ±¾::CÈ¡ÎÄ±¾(const CÊôĞÔÊı×é<std::wstring> &aÊı×é, const std::wstring &aÃû³Æ):
-	maÎÄ±¾(&aÊı×é), mÃû³Æ(aÃû³Æ + L".") {
+}	//namespace è®¡ç®—
+const std::wstring cç©ºæ–‡æœ¬ = L"(ç©º)";
+Cå–æ–‡æœ¬::Cå–æ–‡æœ¬(const Cå±æ€§æ•°ç»„<std::wstring> &aæ•°ç»„, const std::wstring &aåç§°):
+	maæ–‡æœ¬(&aæ•°ç»„), måç§°(aåç§° + L".") {
 }
-const std::wstring &CÈ¡ÎÄ±¾::operator [](const std::wstring &aÃû³Æ) const {
-	const std::wstring vÃû³Æ = f¼ÆËãÃû³Æ(aÃû³Æ);
-	const auto &vaÃû³Æ±êÊ¶ = CÓÎÏ·::fg×ÊÔ´().fgÃû³Æ±êÊ¶();
-	if (auto vÕÒ = vaÃû³Æ±êÊ¶.find(vÃû³Æ); vÕÒ != vaÃû³Æ±êÊ¶.end()) {
-		return maÎÄ±¾->fgÊı¾İ(vÕÒ->second);
+const std::wstring &Cå–æ–‡æœ¬::operator [](const std::wstring &aåç§°) const {
+	const std::wstring våç§° = fè®¡ç®—åç§°(aåç§°);
+	const auto &vaåç§°æ ‡è¯† = Cæ¸¸æˆ::fgèµ„æº().fgåç§°æ ‡è¯†();
+	if (auto væ‰¾ = vaåç§°æ ‡è¯†.find(våç§°); væ‰¾ != vaåç§°æ ‡è¯†.end()) {
+		return maæ–‡æœ¬->fgæ•°æ®(væ‰¾->second);
 	} else {
-		return c¿ÕÎÄ±¾;
+		return cç©ºæ–‡æœ¬;
 	}
 }
-std::wstring CÈ¡ÎÄ±¾::f¼ÆËãÃû³Æ(const std::wstring &aÃû³Æ) const {
-	return mÃû³Æ + aÃû³Æ;
+std::wstring Cå–æ–‡æœ¬::fè®¡ç®—åç§°(const std::wstring &aåç§°) const {
+	return måç§° + aåç§°;
 }
 
-}	//namespace ¶«·½É½Õ¯
+}	//namespace ä¸œæ–¹å±±å¯¨

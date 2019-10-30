@@ -1,50 +1,50 @@
-#pragma once
-#include "×Ó»úÒÆ¶¯½Ó¿Ú.h"
-#include "»ù´¡.h"
-namespace ¶«·½É½Õ¯ {
-namespace ×Ó»úÒÆ¶¯ {
-//Î»ÖÃ
-class CÎ»ÖÃ : public I×Ó»úÒÆ¶¯ {
+ï»¿#pragma once
+#include "å­æœºç§»åŠ¨æ¥å£.h"
+#include "åŸºç¡€.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+namespace å­æœºç§»åŠ¨ {
+//ä½ç½®
+class Cä½ç½® : public Iå­æœºç§»åŠ¨ {
 public:
-	static const int cÊıÁ¿ = 10;	//1+2+3+4=10	ÊôĞÔÈİÄÉµÄ×ø±ê¸öÊı
-	enum EÊôĞÔ {
-		e²âÊÔ,
+	static const int cæ•°é‡ = 10;	//1+2+3+4=10	å±æ€§å®¹çº³çš„åæ ‡ä¸ªæ•°
+	enum Eå±æ€§ {
+		eæµ‹è¯•,
 	};
-	struct SÊôĞÔ {
-		tÏòÁ¿2 vÕı³£[cÊıÁ¿];
-		tÏòÁ¿2 vµÍËÙ[cÊıÁ¿];
-		SÊôĞÔ(const tÏòÁ¿2 *);
-		const tÏòÁ¿2 *fgÕı³£(int pĞòºÅ) const;
-		const tÏòÁ¿2 *fgµÍËÙ(int pĞòºÅ) const;
+	struct Så±æ€§ {
+		tå‘é‡2 mæ­£å¸¸[cæ•°é‡];
+		tå‘é‡2 mä½é€Ÿ[cæ•°é‡];
+		Så±æ€§(const tå‘é‡2 *);
+		const tå‘é‡2 *fgæ­£å¸¸(int åºå·) const;
+		const tå‘é‡2 *fgä½é€Ÿ(int åºå·) const;
 	};
-	class CÈ¡ÊôĞÔ {
+	class Cå–å±æ€§ {
 	public:
-		CÈ¡ÊôĞÔ(const SÊôĞÔ &, int);
-		const tÏòÁ¿2 &fgÕı³£(int) const;
-		const tÏòÁ¿2 &fgµÍËÙ(int) const;
-		tÏòÁ¿2 fg²åÖµ(int, float) const;
+		Cå–å±æ€§(const Så±æ€§ &, int);
+		const tå‘é‡2 &fgæ­£å¸¸(int) const;
+		const tå‘é‡2 &fgä½é€Ÿ(int) const;
+		tå‘é‡2 fgæ’å€¼(int, float) const;
 	private:
-		int vÊıÁ¿;
-		int vĞòºÅ;
-		const tÏòÁ¿2 *vÕı³£;
-		const tÏòÁ¿2 *vµÍËÙ;
+		int mæ•°é‡;
+		int måºå·;
+		const tå‘é‡2 *mæ­£å¸¸;
+		const tå‘é‡2 *mä½é€Ÿ;
 	};
-	class C¹¤³§ : public I¹¤³§<I×Ó»úÒÆ¶¯> {
+	class Cå·¥å‚ : public Iå·¥å‚<Iå­æœºç§»åŠ¨> {
 	public:
-		C¹¤³§(const std::initializer_list<tÏòÁ¿2> &);
-		C¹¤³§(const std::shared_ptr<SÊôĞÔ> &);
-		I×Ó»úÒÆ¶¯ *f½Ó¿Ú_ĞÂ½¨() const override;
-		std::shared_ptr<SÊôĞÔ> vÊôĞÔ;
+		Cå·¥å‚(const std::initializer_list<tå‘é‡2> &);
+		Cå·¥å‚(const std::shared_ptr<Så±æ€§> &);
+		Iå­æœºç§»åŠ¨ *fæ¥å£_æ–°å»º() const override;
+		std::shared_ptr<Så±æ€§> må±æ€§;
 	};
-	static int f¼ÆËãĞòºÅ(int p);	//¸ú¾İ»ğÁ¦¼ÆËãÊı×é¿ªÊ¼ĞòºÅ
-	CÎ»ÖÃ(const std::shared_ptr<SÊôĞÔ> &);
-	void f½Ó¿Ú_¼ÆËã() override;
-	void f½Ó¿Ú_¸´Î»(int) override;
-	CÈ¡ÊôĞÔ fÈ¡ÊôĞÔ() const;
+	static int fè®¡ç®—åºå·(int);	//è·Ÿæ®ç«åŠ›è®¡ç®—æ•°ç»„å¼€å§‹åºå·
+	Cä½ç½®(const std::shared_ptr<Så±æ€§> &);
+	void fæ¥å£_è®¡ç®—() override;
+	void fæ¥å£_å¤ä½(int) override;
+	Cå–å±æ€§ få–å±æ€§() const;
 private:
-	std::shared_ptr<SÊôĞÔ> vÊôĞÔ;
+	std::shared_ptr<Så±æ€§> må±æ€§;
 };
-//ÃüÃû¿Õ¼ä½áÊø
-}	//namespace ×Ó»úÒÆ¶¯
+//å‘½åç©ºé—´ç»“æŸ
+}	//namespace å­æœºç§»åŠ¨
 
 }

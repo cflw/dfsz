@@ -1,18 +1,18 @@
-#pragma once
-#include "йЩя╖╟Э╨╛.h"
-namespace ╤╚╥╫и╫у╞ {
-class C╣п╩З;
-class CмФ╪рвс╣╞;
-class C╣п╩ЗсКмФ╪рвс╣╞еп╤╗ {
+О╩©#pragma once
+#include "Ф∙╟Е╜╕Е▄┘Е░╚.h"
+namespace Д╦°Ф√╧Е╠╠Е╞╗ {
+class CФ∙▄Ф°╨;
+class CГ▌╘Е╝╤Е╜░Е╪╧;
+class CФ∙▄Ф°╨Д╦▌Г▌╘Е╝╤Е╜░Е╪╧Е┬╓Е╝  {
 public:
-	typedef std::function<bool(const tт╡пн &)> tfеп╤╗;
-	void f╟С╤╗╣п╩З(C╣п╩З &);
-	void f╟С╤╗мФ╪рвс╣╞(CмФ╪рвс╣╞ &);
-	bool fмФ╪рвс╣╞_лА╫╩еп╤╗(const tfеп╤╗ &);
-	bool fмФ╪рвс╣╞_лА╫╩еп╤╗(const tт╡пн &);
-	bool fмФ╪рвс╣╞_лА╫╩еп╤╗(const tпЩв╙╬ьпн &);
-	C╣п╩З *m╣п╩З = nullptr;
-	CмФ╪рвс╣╞ *mвс╣╞ = nullptr;
+	typedef std::function<bool(const tЕ°├Е╫╒ &)> tfЕ┬╓Е╝ ;
+	void fГ╩▒Е╝ Ф∙▄Ф°╨(CФ∙▄Ф°╨ &);
+	void fГ╩▒Е╝ Г▌╘Е╝╤Е╜░Е╪╧(CГ▌╘Е╝╤Е╜░Е╪╧ &);
+	bool fГ▌╘Е╝╤Е╜░Е╪╧_Ф▐░Д╨╓Е┬╓Е╝ (const tfЕ┬╓Е╝  &);
+	bool fГ▌╘Е╝╤Е╜░Е╪╧_Ф▐░Д╨╓Е┬╓Е╝ (const tЕ°├Е╫╒ &);
+	bool fГ▌╘Е╝╤Е╜░Е╪╧_Ф▐░Д╨╓Е┬╓Е╝ (const tФ≈▀Х╫╛Г÷╘Е╫╒ &);
+	CФ∙▄Ф°╨ *mФ∙▄Ф°╨ = nullptr;
+	CГ▌╘Е╝╤Е╜░Е╪╧ *mЕ╜░Е╪╧ = nullptr;
 };
 
 }

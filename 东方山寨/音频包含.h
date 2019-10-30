@@ -1,7 +1,7 @@
-#pragma once
-#include <cflwÒôÆµ_xa2.h>
-namespace ¶«·½É½Õ¯ {
-namespace ÒôÆµ = cflw::ÒôÆµ::xa2;
-using tpÉùÒô = ÒôÆµ::tpÉùÒô;
-using tp»ìºÏ = ÒôÆµ::tp»ìºÏ;
+ï»¿#pragma once
+#include <cflwéŸ³é¢‘_xa2.h>
+namespace ä¸œæ–¹å±±å¯¨ {
+namespace éŸ³é¢‘ = cflw::éŸ³é¢‘::xa2;
+using tpå£°éŸ³ = éŸ³é¢‘::tpå£°éŸ³;
+using tpæ··åˆ = éŸ³é¢‘::tpæ··åˆ;
 }

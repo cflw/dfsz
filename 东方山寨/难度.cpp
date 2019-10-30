@@ -82,11 +82,11 @@ tf难度 F线性插值(float e, float h, float t, float t6) {
 //==============================================================================
 // 控制
 //==============================================================================
-void C难度::f增加难度(const boost::rational<int> &p) {
-	m增加难度 += boost::rational_cast<int>(p * 100'0000);
+void C难度::f增加难度(const boost::rational<int> &a) {
+	m增加难度 += boost::rational_cast<int>(a * 100'0000);
 }
-void C难度::f增加难度_最大点(int p) {
-	m增加难度 += p;
+void C难度::f增加难度_最大点(int a) {
+	m增加难度 += a;
 }
 void C难度::f减少难度() {
 	//减10%,最多减0.1难度

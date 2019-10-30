@@ -1,30 +1,30 @@
-#pragma once
+ï»¿#pragma once
 #include <string>
 #include <filesystem>
 #include <boost/property_tree/ptree.hpp>
-namespace ¶«·½É½Õ¯ {
-class C³ÌĞòÉèÖÃ {
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cç¨‹åºè®¾ç½® {
 public:
-	static const std::wstring c³ÌĞòÉèÖÃÎÄ¼şÃû;
-	static const std::wstring cÓÎÏ·ÉèÖÃÎÄ¼şÃû;
-	static const std::filesystem::path cÉèÖÃÎÄ¼şÄ¿Â¼;
-	static const std::filesystem::path c³ÌĞòÉèÖÃÎÄ¼şÂ·¾¶;
-	static const std::filesystem::path cÓÎÏ·ÉèÖÃÎÄ¼şÂ·¾¶;
-	static C³ÌĞòÉèÖÃ &fgÕâ();
-	void f³õÊ¼ÉèÖÃ();	//ÔÚ f´ò¿ªÉèÖÃ Ê§°Üºóµ÷ÓÃ
-	bool f´ò¿ªÉèÖÃ();
-	bool f±£´æÉèÖÃ();
-	const std::wstring &fgÎÄ±¾ÓïÑÔ() const;
-	const std::wstring &fg½çÃæÓïÑÔ() const;
+	static const std::wstring cç¨‹åºè®¾ç½®æ–‡ä»¶å;
+	static const std::wstring cæ¸¸æˆè®¾ç½®æ–‡ä»¶å;
+	static const std::filesystem::path cè®¾ç½®æ–‡ä»¶ç›®å½•;
+	static const std::filesystem::path cç¨‹åºè®¾ç½®æ–‡ä»¶è·¯å¾„;
+	static const std::filesystem::path cæ¸¸æˆè®¾ç½®æ–‡ä»¶è·¯å¾„;
+	static Cç¨‹åºè®¾ç½® &fgè¿™();
+	void fåˆå§‹è®¾ç½®();	//åœ¨ fæ‰“å¼€è®¾ç½® å¤±è´¥åè°ƒç”¨
+	bool fæ‰“å¼€è®¾ç½®();
+	bool fä¿å­˜è®¾ç½®();
+	const std::wstring &fgæ–‡æœ¬è¯­è¨€() const;
+	const std::wstring &fgç•Œé¢è¯­è¨€() const;
 public:
-	bool f´ò¿ª³ÌĞòÉèÖÃ();
-	bool f´ò¿ªÓÎÏ·ÉèÖÃ();
-	bool f±£´æ³ÌĞòÉèÖÃ();
-	bool f±£´æÓÎÏ·ÉèÖÃ();
-	bool mi±£´æ³ÌĞòÉèÖÃ = true, mi±£´æÓÎÏ·ÉèÖÃ = true;	//±£´æÖ¸Ê¾,²»ĞŞ¸Ä²»±£´æ
-	boost::property_tree::wptree m³ÌĞòÉèÖÃÊ÷, mÓÎÏ·ÉèÖÃÊ÷;
-	std::wstring mÍæ¼ÒÃû³Æ;
-	std::wstring mÎÄ±¾ÓïÑÔ;
-	std::wstring m½çÃæÓïÑÔ;
+	bool fæ‰“å¼€ç¨‹åºè®¾ç½®();
+	bool fæ‰“å¼€æ¸¸æˆè®¾ç½®();
+	bool fä¿å­˜ç¨‹åºè®¾ç½®();
+	bool fä¿å­˜æ¸¸æˆè®¾ç½®();
+	bool miä¿å­˜ç¨‹åºè®¾ç½® = true, miä¿å­˜æ¸¸æˆè®¾ç½® = true;	//ä¿å­˜æŒ‡ç¤º,ä¸ä¿®æ”¹ä¸ä¿å­˜
+	boost::property_tree::wptree mç¨‹åºè®¾ç½®æ ‘, mæ¸¸æˆè®¾ç½®æ ‘;
+	std::wstring mç©å®¶åç§°;
+	std::wstring mæ–‡æœ¬è¯­è¨€;
+	std::wstring mç•Œé¢è¯­è¨€;
 };
 }

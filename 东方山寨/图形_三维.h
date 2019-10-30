@@ -1,78 +1,78 @@
-#pragma once
-#include <cflw¹¤¾ß_Ñ­»·.h>
-#include "Í¼ĞÎ°üº¬.h"
-#include "ÊıÑ§°üº¬.h"
-#include "»ù´¡.h"
-namespace ¶«·½É½Õ¯ {
-class CÍ¼ĞÎÒıÇæ;
-using tpÄ£ĞÍ = const class CÄ£ĞÍ*;
-//¶¨Òå
-struct SÈıÎ¬¶¥µã {
-	ÊıÑ§::SÏòÁ¿3 m×ø±ê;
-	ÊıÑ§::SÏòÁ¿2 mÎÆÀí;
+ï»¿#pragma once
+#include <cflwå·¥å…·_å¾ªç¯.h>
+#include "å›¾å½¢åŒ…å«.h"
+#include "æ•°å­¦åŒ…å«.h"
+#include "åŸºç¡€.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cå›¾å½¢å¼•æ“;
+using tpæ¨¡å‹ = const class Cæ¨¡å‹*;
+//å®šä¹‰
+struct Sä¸‰ç»´é¡¶ç‚¹ {
+	æ•°å­¦::Så‘é‡3 måæ ‡;
+	æ•°å­¦::Så‘é‡2 mçº¹ç†;
 };
 struct VS_3D {
-	ÊıÑ§::SÏòÁ¿4 m×ø±ê0;
-	ÊıÑ§::SÏòÁ¿2 mÎÆÀí;
+	æ•°å­¦::Så‘é‡4 måæ ‡0;
+	æ•°å­¦::Så‘é‡2 mçº¹ç†;
 };
-class CÄ£ĞÍ {
+class Cæ¨¡å‹ {
 public:
-	CÄ£ĞÍ(const SÈıÎ¬¶¥µã *, size_t, const uint16_t *, size_t);
-	CÄ£ĞÍ(const CÄ£ĞÍ &) = delete;
-	CÄ£ĞÍ(CÄ£ĞÍ &&);
-	CÄ£ĞÍ &operator =(const CÄ£ĞÍ &) = delete;
-	CÄ£ĞÍ &operator =(CÄ£ĞÍ &&);
-	~CÄ£ĞÍ();
-public:	//³ÉÔ±±äÁ¿ÔÚ¹¹ÔìÍê³ÉÖ®ºóÖ»¶Á
-	SÈıÎ¬¶¥µã *m¶¥µã;
-	uint16_t *mË÷Òı;
-	size_t m¶¥µãÊı, mË÷ÒıÊı;
+	Cæ¨¡å‹(const Sä¸‰ç»´é¡¶ç‚¹ *, size_t, const uint16_t *, size_t);
+	Cæ¨¡å‹(const Cæ¨¡å‹ &) = delete;
+	Cæ¨¡å‹(Cæ¨¡å‹ &&);
+	Cæ¨¡å‹ &operator =(const Cæ¨¡å‹ &) = delete;
+	Cæ¨¡å‹ &operator =(Cæ¨¡å‹ &&);
+	~Cæ¨¡å‹();
+public:	//æˆå‘˜å˜é‡åœ¨æ„é€ å®Œæˆä¹‹ååªè¯»
+	Sä¸‰ç»´é¡¶ç‚¹ *mé¡¶ç‚¹;
+	uint16_t *mç´¢å¼•;
+	size_t mé¡¶ç‚¹æ•°, mç´¢å¼•æ•°;
 };
-class C³¡¾°Ñ­»· : public ¹¤¾ß::Ñ­»·::IÑ­»·<C³¡¾°Ñ­»·> {
+class Cåœºæ™¯å¾ªç¯ : public å·¥å…·::å¾ªç¯::Iå¾ªç¯<Cåœºæ™¯å¾ªç¯> {
 public:
-	static constexpr float c½üÎ»ÖÃ = -20;
-	static constexpr float cÔ¶Î»ÖÃ = 100;
-	C³¡¾°Ñ­»·(float ÒÆ¶¯, float ¼ä¸ô, float ½ü = c½üÎ»ÖÃ, float Ô¶ = cÔ¶Î»ÖÃ);
-	void fÑ­»·¿ØÖÆ_×ÔÔö();
-	bool fÑ­»·¿ØÖÆ_i¼ÌĞø() const;
-	float fÑ­»·¿ØÖÆ_½âÒıÓÃ();
-	float mÎ»ÖÃ, m¼ä¸ô, mÔ¶, m³¤;
+	static constexpr float cè¿‘ä½ç½® = -20;
+	static constexpr float cè¿œä½ç½® = 100;
+	Cåœºæ™¯å¾ªç¯(float ç§»åŠ¨, float é—´éš”, float è¿‘ = cè¿‘ä½ç½®, float è¿œ = cè¿œä½ç½®);
+	void få¾ªç¯æ§åˆ¶_è‡ªå¢();
+	bool få¾ªç¯æ§åˆ¶_iç»§ç»­() const;
+	float få¾ªç¯æ§åˆ¶_è§£å¼•ç”¨();
+	float mä½ç½®, mé—´éš”, mè¿œ, mé•¿;
 };
-class C»­ÈıÎ¬ : public IÍ¼ĞÎ¹ÜÏß {
+class Cç”»ä¸‰ç»´ : public Iå›¾å½¢ç®¡çº¿ {
 public:
-	static constexpr size_t c¶¥µã»º³åÊıÁ¿ = 1000;
-	static constexpr size_t cË÷Òı»º³åÊıÁ¿ = 2000;
-	C»­ÈıÎ¬(CÍ¼ĞÎÒıÇæ &, ÈıÎ¬::CÈıÎ¬ &);
-	void f×¼±¸() override;
-	void fË¢ĞÂ() override;
-	void f¸üĞÂ³£Á¿»º³å();
-	void fsÊÀ½ç¾ØÕó(const ÊıÑ§::S¾ØÕó4 &);
-	void fsÊÓÍ¼¾ØÕó(const ÊıÑ§::S¾ØÕó4 &);
-	void fsÎïÌå¾ØÕó(const ÊıÑ§::S¾ØÕó4 &);
-	void fsÏà»ú(const ÊıÑ§::SÏà»ú &);
-	void fsÎíÑÕÉ«(const ÊıÑ§::SÑÕÉ« &);
-	void fsÎí·¶Î§(float ¿ªÊ¼, float ·¶Î§);
-	void fsÎÆÀí(ÈıÎ¬::tpÎÆÀí);
-	void f»­Ä£ĞÍ(const CÄ£ĞÍ &);
-	void f»­Æ½Ãæ(int x, int y);
+	static constexpr size_t cé¡¶ç‚¹ç¼“å†²æ•°é‡ = 1000;
+	static constexpr size_t cç´¢å¼•ç¼“å†²æ•°é‡ = 2000;
+	Cç”»ä¸‰ç»´(Cå›¾å½¢å¼•æ“ &, ä¸‰ç»´::Cä¸‰ç»´ &);
+	void få‡†å¤‡() override;
+	void fåˆ·æ–°() override;
+	void fæ›´æ–°å¸¸é‡ç¼“å†²();
+	void fsä¸–ç•ŒçŸ©é˜µ(const æ•°å­¦::SçŸ©é˜µ4 &);
+	void fsè§†å›¾çŸ©é˜µ(const æ•°å­¦::SçŸ©é˜µ4 &);
+	void fsç‰©ä½“çŸ©é˜µ(const æ•°å­¦::SçŸ©é˜µ4 &);
+	void fsç›¸æœº(const æ•°å­¦::Sç›¸æœº &);
+	void fsé›¾é¢œè‰²(const æ•°å­¦::Sé¢œè‰² &);
+	void fsé›¾èŒƒå›´(float å¼€å§‹, float èŒƒå›´);
+	void fsçº¹ç†(ä¸‰ç»´::tpçº¹ç†);
+	void fç”»æ¨¡å‹(const Cæ¨¡å‹ &);
+	void fç”»å¹³é¢(int x, int y);
 public:
-	ÈıÎ¬::CäÖÈ¾¿ØÖÆ *mäÖÈ¾¿ØÖÆ;
-	struct S³£Á¿v {
-		ÊıÑ§::S¾ØÕó4 mÊÀ½ç = ÊıÑ§::S¾ØÕó4::cµ¥Î», mÊÓÍ¼ = ÊıÑ§::S¾ØÕó4::cµ¥Î», mÍ¶Ó° = ÊıÑ§::S¾ØÕó4::cµ¥Î»;
-	} m³£Á¿v;
-	struct S³£Á¿p {
-		ÊıÑ§::SÏòÁ¿3 mÑÛ¾¦Î»ÖÃ = ÊıÑ§::SÏòÁ¿3::cÁã;
-		int32_t x0;	//Ìî³ä
-		ÊıÑ§::SÑÕÉ« mÎíÑÕÉ« = ÊıÑ§::SÑÕÉ«(0.0f, 0.0f, 0.0f, 1);
-		float mÎí¿ªÊ¼ = 0, mÎí·¶Î§ = 1000;
-	} m³£Á¿p;
-	ÊıÑ§::S¾ØÕó4 mÎïÌå¾ØÕó;
-	ÈıÎ¬::tpÍ¼ĞÎ¹ÜÏß mÍ¼ĞÎ¹ÜÏß;
-	ÈıÎ¬::C×Ô¶¯»º³å m»º³å;
-	ÈıÎ¬::tpÎÆÀí mÎÆÀí;
-	¹¤¾ß::C¿Õ¼ä<VS_3D> m¶¥µã¿Õ¼ä;
-	ÈıÎ¬::tp»º³å m³£Á¿»º³åv, m³£Á¿»º³åp;
-	ÈıÎ¬::tp²ÉÑùÆ÷ m²ÉÑùÆ÷;
-	bool m¸üĞÂv = false, m¸üĞÂp = false;
+	ä¸‰ç»´::Cæ¸²æŸ“æ§åˆ¶ *mæ¸²æŸ“æ§åˆ¶;
+	struct Så¸¸é‡v {
+		æ•°å­¦::SçŸ©é˜µ4 mä¸–ç•Œ = æ•°å­¦::SçŸ©é˜µ4::cå•ä½, mè§†å›¾ = æ•°å­¦::SçŸ©é˜µ4::cå•ä½, mæŠ•å½± = æ•°å­¦::SçŸ©é˜µ4::cå•ä½;
+	} må¸¸é‡v;
+	struct Så¸¸é‡p {
+		æ•°å­¦::Så‘é‡3 mçœ¼ç›ä½ç½® = æ•°å­¦::Så‘é‡3::cé›¶;
+		int32_t x0;	//å¡«å……
+		æ•°å­¦::Sé¢œè‰² mé›¾é¢œè‰² = æ•°å­¦::Sé¢œè‰²(0.0f, 0.0f, 0.0f, 1);
+		float mé›¾å¼€å§‹ = 0, mé›¾èŒƒå›´ = 1000;
+	} må¸¸é‡p;
+	æ•°å­¦::SçŸ©é˜µ4 mç‰©ä½“çŸ©é˜µ;
+	ä¸‰ç»´::tpå›¾å½¢ç®¡çº¿ må›¾å½¢ç®¡çº¿;
+	ä¸‰ç»´::Cè‡ªåŠ¨ç¼“å†² mç¼“å†²;
+	ä¸‰ç»´::tpçº¹ç† mçº¹ç†;
+	å·¥å…·::Cç©ºé—´<VS_3D> mé¡¶ç‚¹ç©ºé—´;
+	ä¸‰ç»´::tpç¼“å†² må¸¸é‡ç¼“å†²v, må¸¸é‡ç¼“å†²p;
+	ä¸‰ç»´::tpé‡‡æ ·å™¨ mé‡‡æ ·å™¨;
+	bool mæ›´æ–°v = false, mæ›´æ–°p = false;
 };
 }

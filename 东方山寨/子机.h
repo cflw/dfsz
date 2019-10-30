@@ -1,61 +1,61 @@
-#pragma once
+ï»¿#pragma once
 #include <boost/rational.hpp>
-#include "»ù´¡.h"
-#include "»ù´¡_Êı×é.h"
-#include "Í¼ĞÎ_Í¼Æ¬.h"
-#include "Íæ¼Ò×Óµ¯·¢Éä»ù´¡.h"
-#include "×Ó»úÒÆ¶¯½Ó¿Ú.h"
-namespace ¶«·½É½Õ¯ {
-class CÍæ¼Ò;
-class CÍæ¼Ò×Óµ¯·¢ÉäÆ÷;
-struct S×Ó»úÊôĞÔ;
-class I×Ó»úÒÆ¶¯;
-class C×Ó»ú : public CÄÚÖÃÍ¼Æ¬¶¯»­ {
+#include "åŸºç¡€.h"
+#include "åŸºç¡€_æ•°ç»„.h"
+#include "å›¾å½¢_å›¾ç‰‡.h"
+#include "ç©å®¶å­å¼¹å‘å°„åŸºç¡€.h"
+#include "å­æœºç§»åŠ¨æ¥å£.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cç©å®¶;
+class Cç©å®¶å­å¼¹å‘å°„å™¨;
+struct Så­æœºå±æ€§;
+class Iå­æœºç§»åŠ¨;
+class Cå­æœº : public Cå†…ç½®å›¾ç‰‡åŠ¨ç”» {
 public:
-	void f×ø±ê_ÒÆ¶¯(const tÏòÁ¿2 &Ä¿±ê);
-	void f×ø±ê_ÖØÖÃ(const tÏòÁ¿2 &Ä¿±ê);
-	void f¼ÆËã();
-	void f¸üĞÂ();
-	void fÏÔÊ¾() const;
-	const tÏòÁ¿2 &fg×ø±ê() const;
-	const SÍ¼Æ¬¶¯»­ÊôĞÔ &fgÍ¼Æ¬¶¯»­ÊôĞÔ() const;
-	void f¶¯»­_³öÏÖ();
-	void f¶¯»­_ÏûÊ§();
-	void f¶¯»­_sÍ¸Ã÷¶È(float);
+	void fåæ ‡_ç§»åŠ¨(const tå‘é‡2 &ç›®æ ‡);
+	void fåæ ‡_é‡ç½®(const tå‘é‡2 &ç›®æ ‡);
+	void fè®¡ç®—();
+	void fæ›´æ–°();
+	void fæ˜¾ç¤º() const;
+	const tå‘é‡2 &fgåæ ‡() const;
+	const Så›¾ç‰‡åŠ¨ç”»å±æ€§ &fgå›¾ç‰‡åŠ¨ç”»å±æ€§() const;
+	void fåŠ¨ç”»_å‡ºç°();
+	void fåŠ¨ç”»_æ¶ˆå¤±();
+	void fåŠ¨ç”»_sé€æ˜åº¦(float);
 public:
-	tÏòÁ¿2 m×ø±ê, mÄ¿±ê×ø±ê;
-	float m¶¯»­Ö¡;
-	const CÓÎÏ·ËÙ¶È *mÓÎÏ·ËÙ¶È;
-	const S×Ó»úÊôĞÔ *m×Ó»úÊôĞÔ;
-	std::unique_ptr<CÍæ¼Ò×Óµ¯·¢ÉäÆ÷> m·¢Éä;
+	tå‘é‡2 måæ ‡, mç›®æ ‡åæ ‡;
+	float måŠ¨ç”»å¸§;
+	const Cæ¸¸æˆé€Ÿåº¦ *mæ¸¸æˆé€Ÿåº¦;
+	const Så­æœºå±æ€§ *må­æœºå±æ€§;
+	std::unique_ptr<Cç©å®¶å­å¼¹å‘å°„å™¨> må‘å°„;
 };
-class C×Ó»ú×é {
+class Cå­æœºç»„ {
 public:
-	void fs×Ó»úÊôĞÔ(const S×Ó»úÊôĞÔ *);
-	const S×Ó»úÊôĞÔ &f×Ó»úÊôĞÔ() const;
-	void f¹Ø¿¨³õÊ¼»¯();
-	void f·¢Éä_·¢Éä×Óµ¯();
-	void f·¢Éä_Í£Ö¹·¢Éä×Óµ¯();
-	void f¼ÆËã();
-	void f¸üĞÂ();
-	void fÏÔÊ¾() const;
-	void f°ó¶¨Íæ¼Ò(CÍæ¼Ò &);
-	void f¸´»î();
-	int fgÄ¿±ê×Ó»úÊı() const;
-	Ñ­»·::C·¶Î§<std::vector<C×Ó»ú>> feÊ¹ÓÃ();
-	Ñ­»·::C·¶Î§<const std::vector<C×Ó»ú>> feÊ¹ÓÃc() const;
+	void fså­æœºå±æ€§(const Så­æœºå±æ€§ *);
+	const Så­æœºå±æ€§ &få­æœºå±æ€§() const;
+	void få…³å¡åˆå§‹åŒ–();
+	void få‘å°„_å‘å°„å­å¼¹();
+	void få‘å°„_åœæ­¢å‘å°„å­å¼¹();
+	void fè®¡ç®—();
+	void fæ›´æ–°();
+	void fæ˜¾ç¤º() const;
+	void fç»‘å®šç©å®¶(Cç©å®¶ &);
+	void få¤æ´»();
+	int fgç›®æ ‡å­æœºæ•°() const;
+	å¾ªç¯::CèŒƒå›´<std::vector<Cå­æœº>> feä½¿ç”¨();
+	å¾ªç¯::CèŒƒå›´<const std::vector<Cå­æœº>> feä½¿ç”¨c() const;
 public:
-	std::vector<C×Ó»ú> ma×Ó»ú;
-	const S×Ó»úÊôĞÔ *m×Ó»úÊôĞÔ;
-	std::unique_ptr<I×Ó»úÒÆ¶¯> m×Ó»úÒÆ¶¯;
-	int mÊıÁ¿;
-	const boost::rational<int> *m»ğÁ¦;	//Ö¸ÏòCÍæ¼Ò::S³É¼¨::m»ğÁ¦
+	std::vector<Cå­æœº> maå­æœº;
+	const Så­æœºå±æ€§ *må­æœºå±æ€§;
+	std::unique_ptr<Iå­æœºç§»åŠ¨> må­æœºç§»åŠ¨;
+	int mæ•°é‡;
+	const boost::rational<int> *mç«åŠ›;	//æŒ‡å‘Cç©å®¶::Sæˆç»©::mç«åŠ›
 };
-struct S×Ó»úÊôĞÔ : public SÍ¼Æ¬¶¯»­ÊôĞÔ {
-	int mÊıÁ¿ÉÏÏŞ;
-	tÀ©Õ¹Ö¸Õë<I¹¤³§<CÍæ¼Ò×Óµ¯·¢ÉäÆ÷>> m·¢Éä;
-	tÀ©Õ¹Ö¸Õë<I¹¤³§<I×Ó»úÒÆ¶¯>> mÒÆ¶¯;
-	tÊôĞÔÖ¸Õë<SÍæ¼Ò×Óµ¯ÊôĞÔ> m×Óµ¯ÊôĞÔ;
+struct Så­æœºå±æ€§ : public Så›¾ç‰‡åŠ¨ç”»å±æ€§ {
+	int mæ•°é‡ä¸Šé™;
+	tæ‰©å±•æŒ‡é’ˆ<Iå·¥å‚<Cç©å®¶å­å¼¹å‘å°„å™¨>> må‘å°„;
+	tæ‰©å±•æŒ‡é’ˆ<Iå·¥å‚<Iå­æœºç§»åŠ¨>> mç§»åŠ¨;
+	tå±æ€§æŒ‡é’ˆ<Sç©å®¶å­å¼¹å±æ€§> må­å¼¹å±æ€§;
 };
 
 }

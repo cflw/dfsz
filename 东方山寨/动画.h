@@ -1,74 +1,74 @@
-#pragma once
-#include "¶¯»­½Ó¿Ú.h"
-namespace ¶«·½É½Õ¯ {
+ï»¿#pragma once
+#include "åŠ¨ç”»æ¥å£.h"
+namespace ä¸œæ–¹å±±å¯¨ {
 //=============================================================================
-// ½ÇÉ«¶¯»­
+// è§’è‰²åŠ¨ç”»
 //=============================================================================
-class C½ÇÉ«¶¯»­ : public I¶¯»­ {
+class Cè§’è‰²åŠ¨ç”» : public IåŠ¨ç”» {
 public:
-	struct SÊôĞÔ {
-		struct S¶¯»­·½Ïò {
-			int mĞòºÅ;
-			int mÑ­»·;
-			int mÖ¡Êı;
-			float m±ä»¯ËÙ¶È;
-			float mÑ­»·ËÙ¶È;
-			bool m¾³Ïñ;
+	struct Så±æ€§ {
+		struct SåŠ¨ç”»æ–¹å‘ {
+			int måºå·;
+			int må¾ªç¯;
+			int må¸§æ•°;
+			float må˜åŒ–é€Ÿåº¦;
+			float må¾ªç¯é€Ÿåº¦;
+			bool må¢ƒåƒ;
 		};
-		S¶¯»­·½Ïò mÕı³£, m×óÒÆ, mÓÒÒÆ;
+		SåŠ¨ç”»æ–¹å‘ mæ­£å¸¸, må·¦ç§», må³ç§»;
 	};
-	class C¹¤³§ : public I¹¤³§<I¶¯»­> {
+	class Cå·¥å‚ : public Iå·¥å‚<IåŠ¨ç”»> {
 	public:
-		C¹¤³§(std::shared_ptr<SÊôĞÔ>);
-		I¶¯»­ *f½Ó¿Ú_ĞÂ½¨() const override;
-		std::shared_ptr<SÊôĞÔ> mÊôĞÔ;
+		Cå·¥å‚(std::shared_ptr<Så±æ€§>);
+		IåŠ¨ç”» *fæ¥å£_æ–°å»º() const override;
+		std::shared_ptr<Så±æ€§> må±æ€§;
 	};
-	C½ÇÉ«¶¯»­(std::shared_ptr<SÊôĞÔ>);
-	void f½Ó¿Ú_¸üĞÂ() override;
-	void f½Ó¿Ú_¶¯×÷(const E¶¯»­¶¯×÷ &, const t¶¯»­¶¯×÷Öµ &) override;
-	int f½Ó¿Ú_g¶¥µãĞòºÅ() const override;
-	tÏòÁ¿3 f½Ó¿Ú_gËõ·Å() const override;
-	float f½Ó¿Ú_gÍ¸Ã÷¶È() const override;
-	void f¶¯×÷_Õı³£();
-	void f¶¯×÷_Ë®Æ½ÒÆ¶¯(float);
-	void f¶¯×÷_×óÒÆ();
-	void f¶¯×÷_ÓÒÒÆ();
-	void f¶¯×÷_Í¸Ã÷¶È(float);
+	Cè§’è‰²åŠ¨ç”»(std::shared_ptr<Så±æ€§>);
+	void fæ¥å£_æ›´æ–°() override;
+	void fæ¥å£_åŠ¨ä½œ(const EåŠ¨ç”»åŠ¨ä½œ &, const tåŠ¨ç”»åŠ¨ä½œå€¼ &) override;
+	int fæ¥å£_gé¡¶ç‚¹åºå·() const override;
+	tå‘é‡3 fæ¥å£_gç¼©æ”¾() const override;
+	float fæ¥å£_gé€æ˜åº¦() const override;
+	void fåŠ¨ä½œ_æ­£å¸¸();
+	void fåŠ¨ä½œ_æ°´å¹³ç§»åŠ¨(float);
+	void fåŠ¨ä½œ_å·¦ç§»();
+	void fåŠ¨ä½œ_å³ç§»();
+	void fåŠ¨ä½œ_é€æ˜åº¦(float);
 private:
-	std::shared_ptr<SÊôĞÔ> mÊôĞÔ = nullptr;
-	float m¶¯»­Ö¡ = 0;
-	float mÍ¸Ã÷¶È = 0;
-	const SÊôĞÔ::S¶¯»­·½Ïò *m¶¯»­·½Ïò = nullptr;
-	const SÊôĞÔ::S¶¯»­·½Ïò *mÄ¿±ê·½Ïò = nullptr;
+	std::shared_ptr<Så±æ€§> må±æ€§ = nullptr;
+	float måŠ¨ç”»å¸§ = 0;
+	float mé€æ˜åº¦ = 0;
+	const Så±æ€§::SåŠ¨ç”»æ–¹å‘ *måŠ¨ç”»æ–¹å‘ = nullptr;
+	const Så±æ€§::SåŠ¨ç”»æ–¹å‘ *mç›®æ ‡æ–¹å‘ = nullptr;
 };
 //=============================================================================
-// ±ä»»¶¯»­
+// å˜æ¢åŠ¨ç”»
 //=============================================================================
-class C¶şÎ¬±ä»»¶¯»­ : public I¶¯»­ {
+class CäºŒç»´å˜æ¢åŠ¨ç”» : public IåŠ¨ç”» {
 public:
-	using tf¼ÆËã = std::function<void(C¶şÎ¬±ä»»¶¯»­ &)>;
-	C¶şÎ¬±ä»»¶¯»­() = default;
-	C¶şÎ¬±ä»»¶¯»­(float aĞı×ª, const tÏòÁ¿2 &aËõ·Å, const tf¼ÆËã &af¼ÆËã);
-	void f½Ó¿Ú_¼ÆËã() override;
-	tÏòÁ¿3 f½Ó¿Ú_gĞı×ª() const override;
-	tÏòÁ¿3 f½Ó¿Ú_gËõ·Å() const override;
+	using tfè®¡ç®— = std::function<void(CäºŒç»´å˜æ¢åŠ¨ç”» &)>;
+	CäºŒç»´å˜æ¢åŠ¨ç”»() = default;
+	CäºŒç»´å˜æ¢åŠ¨ç”»(float aæ—‹è½¬, const tå‘é‡2 &aç¼©æ”¾, const tfè®¡ç®— &afè®¡ç®—);
+	void fæ¥å£_è®¡ç®—() override;
+	tå‘é‡3 fæ¥å£_gæ—‹è½¬() const override;
+	tå‘é‡3 fæ¥å£_gç¼©æ”¾() const override;
 public:
-	float mĞı×ª = 0;
-	tÏòÁ¿2 mËõ·Å = tÏòÁ¿2::cÒ»;
-	tf¼ÆËã mf¼ÆËã = nullptr;
+	float mæ—‹è½¬ = 0;
+	tå‘é‡2 mç¼©æ”¾ = tå‘é‡2::cä¸€;
+	tfè®¡ç®— mfè®¡ç®— = nullptr;
 };
-class CÈıÎ¬±ä»»¶¯»­ : public I¶¯»­ {
+class Cä¸‰ç»´å˜æ¢åŠ¨ç”» : public IåŠ¨ç”» {
 public:
-	using tf¼ÆËã = std::function<void(CÈıÎ¬±ä»»¶¯»­ &)>;
-	CÈıÎ¬±ä»»¶¯»­() = default;
-	CÈıÎ¬±ä»»¶¯»­(const tÏòÁ¿3 &aĞı×ª, const tÏòÁ¿3 &aËõ·Å, const tf¼ÆËã &a¼ÆËã);
-	void f½Ó¿Ú_¼ÆËã() override;
-	tÏòÁ¿3 f½Ó¿Ú_gĞı×ª() const override;
-	tÏòÁ¿3 f½Ó¿Ú_gËõ·Å() const override;
+	using tfè®¡ç®— = std::function<void(Cä¸‰ç»´å˜æ¢åŠ¨ç”» &)>;
+	Cä¸‰ç»´å˜æ¢åŠ¨ç”»() = default;
+	Cä¸‰ç»´å˜æ¢åŠ¨ç”»(const tå‘é‡3 &aæ—‹è½¬, const tå‘é‡3 &aç¼©æ”¾, const tfè®¡ç®— &aè®¡ç®—);
+	void fæ¥å£_è®¡ç®—() override;
+	tå‘é‡3 fæ¥å£_gæ—‹è½¬() const override;
+	tå‘é‡3 fæ¥å£_gç¼©æ”¾() const override;
 public:
-	tÏòÁ¿3 mĞı×ª = tÏòÁ¿3::cÁã;
-	tÏòÁ¿3 mËõ·Å = tÏòÁ¿3::cÒ»;
-	tf¼ÆËã mf¼ÆËã = nullptr;
+	tå‘é‡3 mæ—‹è½¬ = tå‘é‡3::cé›¶;
+	tå‘é‡3 mç¼©æ”¾ = tå‘é‡3::cä¸€;
+	tfè®¡ç®— mfè®¡ç®— = nullptr;
 };
 
 }

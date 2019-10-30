@@ -1,9 +1,9 @@
-#pragma once
-namespace ¶«·½É½Õ¯ {
-class CÍæ¼Ò×Óµ¯;
-struct SÍæ¼Ò×Óµ¯ÊôĞÔ;
-namespace Í¼ĞÎÄ£°å {
-void fÍæ¼Ò×Óµ¯ÏûÊ§(const CÍæ¼Ò×Óµ¯ &);
-void fÍæ¼Ò×Óµ¯ÏûÊ§(const tÏòÁ¿2 &×ø±ê, const tÏòÁ¿2 &ËÙ¶È, const SÍæ¼Ò×Óµ¯ÊôĞÔ &);
+ï»¿#pragma once
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cç©å®¶å­å¼¹;
+struct Sç©å®¶å­å¼¹å±æ€§;
+namespace å›¾å½¢æ¨¡æ¿ {
+void fç©å®¶å­å¼¹æ¶ˆå¤±(const Cç©å®¶å­å¼¹ &);
+void fç©å®¶å­å¼¹æ¶ˆå¤±(const tå‘é‡2 &åæ ‡, const tå‘é‡2 &é€Ÿåº¦, const Sç©å®¶å­å¼¹å±æ€§ &);
 }
 }

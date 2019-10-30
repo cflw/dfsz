@@ -1,24 +1,24 @@
-#pragma once
+ï»¿#pragma once
 #include <boost/rational.hpp>
-#include <cflwÊıÑ§.h>
-#include <cflwÊıÑ§_ÏòÁ¿.h>
-#include <cflwÊıÑ§_Æ½Ãæ¼¸ºÎ.h>
-#include <cflwÊıÑ§_Í¼ĞÎ.h>
-#include <cflwÊıÑ§_¾ØÕó.h>
-#include <cflwÊıÑ§_ÔÓ»â.h>
+#include <cflwæ•°å­¦.h>
+#include <cflwæ•°å­¦_å‘é‡.h>
+#include <cflwæ•°å­¦_å¹³é¢å‡ ä½•.h>
+#include <cflwæ•°å­¦_å›¾å½¢.h>
+#include <cflwæ•°å­¦_çŸ©é˜µ.h>
+#include <cflwæ•°å­¦_æ‚çƒ©.h>
 #undef max
 #undef min
-namespace ¶«·½É½Õ¯ {
-namespace ÊıÑ§ = cflw::ÊıÑ§;
-typedef ÊıÑ§::SÏòÁ¿2 tÏòÁ¿2;
-typedef ÊıÑ§::SÏòÁ¿3 tÏòÁ¿3;
-typedef ÊıÑ§::SÏòÁ¿4 tÏòÁ¿4;
-typedef ÊıÑ§::SÔ²ĞÎ tÔ²ĞÎ;
-typedef ÊıÑ§::S¾ØĞÎ t¾ØĞÎ;
-typedef ÊıÑ§::SĞı×ª¾ØĞÎ tĞı×ª¾ØĞÎ;
-typedef ÊıÑ§::SÏß¶Î2 tÏß¶Î;
-typedef ÊıÑ§::SÑÕÉ« tÑÕÉ«;
-using t¾ØÕó4 = ÊıÑ§::S¾ØÕó4;
-using t·ÖÊı = boost::rational<int>;
-typedef ÊıÑ§::CÎ»ÖÃ¼ÆËã<float> tÎ»ÖÃ¼ÆËã;
-}	//namespace ¶«·½É½Õ¯
+namespace ä¸œæ–¹å±±å¯¨ {
+namespace æ•°å­¦ = cflw::æ•°å­¦;
+using tå‘é‡2 = æ•°å­¦::Så‘é‡2;
+using tå‘é‡3 = æ•°å­¦::Så‘é‡3;
+using tå‘é‡4 = æ•°å­¦::Så‘é‡4;
+using tåœ†å½¢ = æ•°å­¦::Såœ†å½¢;
+using tçŸ©å½¢ = æ•°å­¦::SçŸ©å½¢;
+using tæ—‹è½¬çŸ©å½¢ = æ•°å­¦::Sæ—‹è½¬çŸ©å½¢;
+using tçº¿æ®µ = æ•°å­¦::Sçº¿æ®µ2;
+using té¢œè‰² = æ•°å­¦::Sé¢œè‰²;
+using tçŸ©é˜µ4 = æ•°å­¦::SçŸ©é˜µ4;
+using tåˆ†æ•° = boost::rational<int>;
+using tä½ç½®è®¡ç®— = æ•°å­¦::Cä½ç½®è®¡ç®—<float>;
+}	//namespace ä¸œæ–¹å±±å¯¨

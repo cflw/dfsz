@@ -1,66 +1,66 @@
-#pragma once
-#include "ÊıÑ§°üº¬.h"
-namespace ¶«·½É½Õ¯ {
+ï»¿#pragma once
+#include "æ•°å­¦åŒ…å«.h"
+namespace ä¸œæ–¹å±±å¯¨ {
 //=============================================================================
-// ±ß½çÅĞ¶Ï
+// è¾¹ç•Œåˆ¤æ–­
 //=============================================================================
-class C±ß½ç {
+class Cè¾¹ç•Œ {
 public:
-	static const C±ß½ç c±ß¿ò, c´°¿Ú, c×Ô»ú;
-	C±ß½ç() = default;
-	C±ß½ç(float, float, float, float);
-	static C±ß½ç fcÖĞĞÄ¾ØĞÎ(float, float);
-	//ÊôĞÔ
-	float fg¿í¶È() const;
-	float fg¸ß¶È() const;
-	float fgĞ±±ß() const;
-	float fg°ë¿í¶È() const;
-	float fg°ë¸ß¶È() const;
-	float fg°ëĞ±±ß() const;
-	//³ö½çÅĞ¶Ï
-	bool f×ó±ßÅĞ¶Ï(const tÏòÁ¿2 &, float) const;
-	bool fÓÒ±ßÅĞ¶Ï(const tÏòÁ¿2 &, float) const;
-	bool fÉÏ±ßÅĞ¶Ï(const tÏòÁ¿2 &, float) const;
-	bool fÏÂ±ßÅĞ¶Ï(const tÏòÁ¿2 &, float) const;
-	bool fÍâ±ßÅĞ¶Ï(const tÏòÁ¿2 &, float) const;
-	//±ß½çÏŞÖÆ
-	bool f×ó±ßÏŞÖÆ(tÏòÁ¿2 &, float) const;
-	bool fÓÒ±ßÏŞÖÆ(tÏòÁ¿2 &, float) const;
-	bool fÉÏ±ßÏŞÖÆ(tÏòÁ¿2 &, float) const;
-	bool fÏÂ±ßÏŞÖÆ(tÏòÁ¿2 &, float) const;
-	bool f×óÓÒÏŞÖÆ(tÏòÁ¿2 &, float) const;
-	bool fÉÏÏÂÏŞÖÆ(tÏòÁ¿2 &, float) const;
-	bool f±ß½çÏŞÖÆ(tÏòÁ¿2 &, float) const;
-	//±ß½ç·´µ¯
-	bool f×ó±ß·´µ¯(tÏòÁ¿2 &, float) const;
-	bool fÓÒ±ß·´µ¯(tÏòÁ¿2 &, float) const;
-	bool fÉÏ±ß·´µ¯(tÏòÁ¿2 &, float) const;
-	bool fÏÂ±ß·´µ¯(tÏòÁ¿2 &, float) const;
-	bool f×óÓÒ·´µ¯(tÏòÁ¿2 &, float) const;
-	bool fÉÏÏÂ·´µ¯(tÏòÁ¿2 &, float) const;
-	bool f±ß½ç·´µ¯(tÏòÁ¿2 &, float) const;
+	static const Cè¾¹ç•Œ cè¾¹æ¡†, cçª—å£, cè‡ªæœº;
+	Cè¾¹ç•Œ() = default;
+	Cè¾¹ç•Œ(float, float, float, float);
+	static Cè¾¹ç•Œ fcä¸­å¿ƒçŸ©å½¢(float, float);
+	//å±æ€§
+	float fgå®½åº¦() const;
+	float fgé«˜åº¦() const;
+	float fgæ–œè¾¹() const;
+	float fgåŠå®½åº¦() const;
+	float fgåŠé«˜åº¦() const;
+	float fgåŠæ–œè¾¹() const;
+	//å‡ºç•Œåˆ¤æ–­
+	bool få·¦è¾¹åˆ¤æ–­(const tå‘é‡2 &, float) const;
+	bool få³è¾¹åˆ¤æ–­(const tå‘é‡2 &, float) const;
+	bool fä¸Šè¾¹åˆ¤æ–­(const tå‘é‡2 &, float) const;
+	bool fä¸‹è¾¹åˆ¤æ–­(const tå‘é‡2 &, float) const;
+	bool få¤–è¾¹åˆ¤æ–­(const tå‘é‡2 &, float) const;
+	//è¾¹ç•Œé™åˆ¶
+	bool få·¦è¾¹é™åˆ¶(tå‘é‡2 &, float) const;
+	bool få³è¾¹é™åˆ¶(tå‘é‡2 &, float) const;
+	bool fä¸Šè¾¹é™åˆ¶(tå‘é‡2 &, float) const;
+	bool fä¸‹è¾¹é™åˆ¶(tå‘é‡2 &, float) const;
+	bool få·¦å³é™åˆ¶(tå‘é‡2 &, float) const;
+	bool fä¸Šä¸‹é™åˆ¶(tå‘é‡2 &, float) const;
+	bool fè¾¹ç•Œé™åˆ¶(tå‘é‡2 &, float) const;
+	//è¾¹ç•Œåå¼¹
+	bool få·¦è¾¹åå¼¹(tå‘é‡2 &, float) const;
+	bool få³è¾¹åå¼¹(tå‘é‡2 &, float) const;
+	bool fä¸Šè¾¹åå¼¹(tå‘é‡2 &, float) const;
+	bool fä¸‹è¾¹åå¼¹(tå‘é‡2 &, float) const;
+	bool få·¦å³åå¼¹(tå‘é‡2 &, float) const;
+	bool fä¸Šä¸‹åå¼¹(tå‘é‡2 &, float) const;
+	bool fè¾¹ç•Œåå¼¹(tå‘é‡2 &, float) const;
 public:
-	float m×ó = 0, mÉÏ = 0, mÓÒ = 0, mÏÂ = 0;
+	float må·¦ = 0, mä¸Š = 0, må³ = 0, mä¸‹ = 0;
 };
 //=============================================================================
-// ¸´ÔÓĞÎ×´
+// å¤æ‚å½¢çŠ¶
 //=============================================================================
-class C¸´ÔÓĞÎ×´ {
+class Cå¤æ‚å½¢çŠ¶ {
 public:
-	C¸´ÔÓĞÎ×´(const tÏòÁ¿2 &, const tÏòÁ¿2 &, float);
-	C¸´ÔÓĞÎ×´(const tÏòÁ¿2 &, float);
-	static C¸´ÔÓĞÎ×´ fc×Ô¶¯(const tÏòÁ¿2 &×ø±ê, const tÏòÁ¿2 &Ô­Ê¼ÅĞ¶¨, const tÏòÁ¿2 &Ëõ·Å, float ·½Ïò);
-	static C¸´ÔÓĞÎ×´ fc×î´óÔ²(const tÏòÁ¿2 &×ø±ê, const tÏòÁ¿2 &Ô­Ê¼ÅĞ¶¨, const tÏòÁ¿2 &Ëõ·Å);
-	static C¸´ÔÓĞÎ×´ fc×îĞ¡Ô²(const tÏòÁ¿2 &×ø±ê, const tÏòÁ¿2 &Ô­Ê¼ÅĞ¶¨, const tÏòÁ¿2 &Ëõ·Å);
-	bool fÏà½»ÅĞ¶¨(const tÔ²ĞÎ &) const;
-	bool fiÔ²ĞÎ() const;
-	bool fi¾ØĞÎ() const;
-	tÔ²ĞÎ fgÔ²ĞÎ() const;
-	tĞı×ª¾ØĞÎ fgĞı×ª¾ØĞÎ() const;
+	Cå¤æ‚å½¢çŠ¶(const tå‘é‡2 &, const tå‘é‡2 &, float);
+	Cå¤æ‚å½¢çŠ¶(const tå‘é‡2 &, float);
+	static Cå¤æ‚å½¢çŠ¶ fcè‡ªåŠ¨(const tå‘é‡2 &åæ ‡, const tå‘é‡2 &åŸå§‹åˆ¤å®š, const tå‘é‡2 &ç¼©æ”¾, float æ–¹å‘);
+	static Cå¤æ‚å½¢çŠ¶ fcæœ€å¤§åœ†(const tå‘é‡2 &åæ ‡, const tå‘é‡2 &åŸå§‹åˆ¤å®š, const tå‘é‡2 &ç¼©æ”¾);
+	static Cå¤æ‚å½¢çŠ¶ fcæœ€å°åœ†(const tå‘é‡2 &åæ ‡, const tå‘é‡2 &åŸå§‹åˆ¤å®š, const tå‘é‡2 &ç¼©æ”¾);
+	bool fç›¸äº¤åˆ¤å®š(const tåœ†å½¢ &) const;
+	bool fiåœ†å½¢() const;
+	bool fiçŸ©å½¢() const;
+	tåœ†å½¢ fgåœ†å½¢() const;
+	tæ—‹è½¬çŸ©å½¢ fgæ—‹è½¬çŸ©å½¢() const;
 public:
-	tÏòÁ¿2 m×ø±ê;
-	tÏòÁ¿2 m°ë³ß´ç;
-	float m·½Ïò;
-	bool mi¾ØĞÎ;
+	tå‘é‡2 måæ ‡;
+	tå‘é‡2 måŠå°ºå¯¸;
+	float mæ–¹å‘;
+	bool miçŸ©å½¢;
 };
 }

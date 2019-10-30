@@ -1,82 +1,82 @@
-#pragma once
-#include "»ù´¡_Êı×é.h"
-#include "Í¼ĞÎ»ù´¡.h"
-#include "Í¼ĞÎÒıÇæ.h"
-#include "¶¯»­½Ó¿Ú.h"
-namespace ¶«·½É½Õ¯ {
-struct SÍ¼ĞÎ²ÎÊı;
-struct SÍ¼Æ¬¶¯»­ÊôĞÔ;
+ï»¿#pragma once
+#include "åŸºç¡€_æ•°ç»„.h"
+#include "å›¾å½¢åŸºç¡€.h"
+#include "å›¾å½¢å¼•æ“.h"
+#include "åŠ¨ç”»æ¥å£.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+struct Så›¾å½¢å‚æ•°;
+struct Så›¾ç‰‡åŠ¨ç”»å±æ€§;
 //==============================================================================
-// ÊµÏÖ
+// å®ç°
 //==============================================================================
-class C»­Í¼Æ¬¶¯»­ {
+class Cç”»å›¾ç‰‡åŠ¨ç”» {
 public:
-	static void fÏÔÊ¾Í¼Æ¬(const tÏòÁ¿2 &×ø±ê, const tpÎÆÀí &ÎÆÀí, const S¶¥µã¾ØĞÎ *¶¥µã, const I¶¯»­ &¶¯»­);
-	static void fÏÔÊ¾Í¼Æ¬2(const tpÎÆÀí &ÎÆÀí, const S¶¥µã¾ØĞÎ &¶¥µã, const tÏòÁ¿2 &Æ½ÒÆ, float Ğı×ª, const tÏòÁ¿2 &Ëõ·Å, float Í¸Ã÷);
-	static void fÏÔÊ¾Í¼Æ¬3(const tpÎÆÀí &ÎÆÀí, const S¶¥µã¾ØĞÎ &¶¥µã, const tÏòÁ¿2 &Æ½ÒÆ, const tÏòÁ¿3 &Ğı×ª, const tÏòÁ¿3 &Ëõ·Å, float Í¸Ã÷);
+	static void fæ˜¾ç¤ºå›¾ç‰‡(const tå‘é‡2 &åæ ‡, const tpçº¹ç† &çº¹ç†, const Sé¡¶ç‚¹çŸ©å½¢ *é¡¶ç‚¹, const IåŠ¨ç”» &åŠ¨ç”»);
+	static void fæ˜¾ç¤ºå›¾ç‰‡2(const tpçº¹ç† &çº¹ç†, const Sé¡¶ç‚¹çŸ©å½¢ &é¡¶ç‚¹, const tå‘é‡2 &å¹³ç§», float æ—‹è½¬, const tå‘é‡2 &ç¼©æ”¾, float é€æ˜);
+	static void fæ˜¾ç¤ºå›¾ç‰‡3(const tpçº¹ç† &çº¹ç†, const Sé¡¶ç‚¹çŸ©å½¢ &é¡¶ç‚¹, const tå‘é‡2 &å¹³ç§», const tå‘é‡3 &æ—‹è½¬, const tå‘é‡3 &ç¼©æ”¾, float é€æ˜);
 };
 //==============================================================================
-// ¶¥µã¶¯»­,ÕûºÏ»­Í¼Æ¬µÄ´úÂë
+// é¡¶ç‚¹åŠ¨ç”»,æ•´åˆç”»å›¾ç‰‡çš„ä»£ç 
 //==============================================================================
-class CÄÚÖÃÍ¼Æ¬¶¯»­ {
+class Cå†…ç½®å›¾ç‰‡åŠ¨ç”» {
 public:
-	//ÊôĞÔ
-	virtual const SÍ¼Æ¬¶¯»­ÊôĞÔ &fgÍ¼Æ¬¶¯»­ÊôĞÔ() const = 0;
-	virtual const tÏòÁ¿2 &fg×ø±ê() const = 0;
-	bool fiÎÆÀí() const;
-	const S¶¥µã¾ØĞÎ &fg¶¥µã¾ØĞÎ() const;
-	//¶¯×÷
-	virtual void fÏÔÊ¾() const;
-	void fÏÔÊ¾Í¼Æ¬() const;
+	//å±æ€§
+	virtual const Så›¾ç‰‡åŠ¨ç”»å±æ€§ &fgå›¾ç‰‡åŠ¨ç”»å±æ€§() const = 0;
+	virtual const tå‘é‡2 &fgåæ ‡() const = 0;
+	bool fiçº¹ç†() const;
+	const Sé¡¶ç‚¹çŸ©å½¢ &fgé¡¶ç‚¹çŸ©å½¢() const;
+	//åŠ¨ä½œ
+	virtual void fæ˜¾ç¤º() const;
+	void fæ˜¾ç¤ºå›¾ç‰‡() const;
 public:
-	std::unique_ptr<I¶¯»­> m¶¯»­ = nullptr;
+	std::unique_ptr<IåŠ¨ç”»> måŠ¨ç”» = nullptr;
 };
-//ÊôĞÔ
-struct SÍ¼Æ¬¶¯»­ÊôĞÔ {
-	tÊôĞÔÖ¸Õë<tpÎÆÀí> mÎÆÀí;
-	tÊôĞÔÖ¸Õë<S¶¥µã¾ØĞÎ> m¶¥µã;
-	tÀ©Õ¹Ö¸Õë<I¹¤³§<I¶¯»­>> m¶¯»­;
-	std::unique_ptr<I¶¯»­> fc¶¯»­(void * = nullptr) const;
+//å±æ€§
+struct Så›¾ç‰‡åŠ¨ç”»å±æ€§ {
+	tå±æ€§æŒ‡é’ˆ<tpçº¹ç†> mçº¹ç†;
+	tå±æ€§æŒ‡é’ˆ<Sé¡¶ç‚¹çŸ©å½¢> mé¡¶ç‚¹;
+	tæ‰©å±•æŒ‡é’ˆ<Iå·¥å‚<IåŠ¨ç”»>> måŠ¨ç”»;
+	std::unique_ptr<IåŠ¨ç”»> fcåŠ¨ç”»(void * = nullptr) const;
 };
 //==============================================================================
-// Í¼Æ¬Í¼ĞÎ
+// å›¾ç‰‡å›¾å½¢
 //==============================================================================
-class C¶şÎ¬Í¼Æ¬Í¼ĞÎ : public IÁ£×Ó, public IÊÂ¼ş, public I¶¯»­ {
+class CäºŒç»´å›¾ç‰‡å›¾å½¢ : public Iç²’å­, public Iäº‹ä»¶, public IåŠ¨ç”» {
 public:
-	C¶şÎ¬Í¼Æ¬Í¼ĞÎ() = default;
-	void f½Ó¿Ú_¼ÆËã() override;
-	void f½Ó¿Ú_ÏÔÊ¾() const override;
-	void f½Ó¿Ú_³õÊ¼»¯(const SÍ¼ĞÎ²ÎÊı &) override;
-	tÏòÁ¿3 f½Ó¿Ú_gĞı×ª() const override;
-	tÏòÁ¿3 f½Ó¿Ú_gËõ·Å() const override;
-	float f½Ó¿Ú_gÍ¸Ã÷¶È() const override;
-	bool fiÎÆÀí() const;
-	const S¶¥µã¾ØĞÎ &fg¶¥µã¾ØĞÎ() const;
-	void fÏÔÊ¾Í¼Æ¬() const;
+	CäºŒç»´å›¾ç‰‡å›¾å½¢() = default;
+	void fæ¥å£_è®¡ç®—() override;
+	void fæ¥å£_æ˜¾ç¤º() const override;
+	void fæ¥å£_åˆå§‹åŒ–(const Så›¾å½¢å‚æ•° &) override;
+	tå‘é‡3 fæ¥å£_gæ—‹è½¬() const override;
+	tå‘é‡3 fæ¥å£_gç¼©æ”¾() const override;
+	float fæ¥å£_gé€æ˜åº¦() const override;
+	bool fiçº¹ç†() const;
+	const Sé¡¶ç‚¹çŸ©å½¢ &fgé¡¶ç‚¹çŸ©å½¢() const;
+	void fæ˜¾ç¤ºå›¾ç‰‡() const;
 protected:
-	float mĞı×ª = 0;
-	tÏòÁ¿2 mËõ·Å = tÏòÁ¿2::cÒ»;
-	const tpÎÆÀí *mÎÆÀí = nullptr;
-	const S¶¥µã¾ØĞÎ *m¶¥µã = nullptr;
+	float mæ—‹è½¬ = 0;
+	tå‘é‡2 mç¼©æ”¾ = tå‘é‡2::cä¸€;
+	const tpçº¹ç† *mçº¹ç† = nullptr;
+	const Sé¡¶ç‚¹çŸ©å½¢ *mé¡¶ç‚¹ = nullptr;
 };
-//ÈıÎ¬
-class CÈıÎ¬Í¼Æ¬Í¼ĞÎ : public IÁ£×Ó, public IÊÂ¼ş, public I¶¯»­ {
+//ä¸‰ç»´
+class Cä¸‰ç»´å›¾ç‰‡å›¾å½¢ : public Iç²’å­, public Iäº‹ä»¶, public IåŠ¨ç”» {
 public:
-	CÈıÎ¬Í¼Æ¬Í¼ĞÎ() = default;
-	void f½Ó¿Ú_¼ÆËã() override;
-	void f½Ó¿Ú_ÏÔÊ¾() const override;
-	void f½Ó¿Ú_³õÊ¼»¯(const SÍ¼ĞÎ²ÎÊı &) override;
-	tÏòÁ¿3 f½Ó¿Ú_gĞı×ª() const override;
-	tÏòÁ¿3 f½Ó¿Ú_gËõ·Å() const override;
-	float f½Ó¿Ú_gÍ¸Ã÷¶È() const override;
-	bool fiÎÆÀí() const;
-	const S¶¥µã¾ØĞÎ &fg¶¥µã¾ØĞÎ() const;
-	void fÏÔÊ¾Í¼Æ¬() const;
+	Cä¸‰ç»´å›¾ç‰‡å›¾å½¢() = default;
+	void fæ¥å£_è®¡ç®—() override;
+	void fæ¥å£_æ˜¾ç¤º() const override;
+	void fæ¥å£_åˆå§‹åŒ–(const Så›¾å½¢å‚æ•° &) override;
+	tå‘é‡3 fæ¥å£_gæ—‹è½¬() const override;
+	tå‘é‡3 fæ¥å£_gç¼©æ”¾() const override;
+	float fæ¥å£_gé€æ˜åº¦() const override;
+	bool fiçº¹ç†() const;
+	const Sé¡¶ç‚¹çŸ©å½¢ &fgé¡¶ç‚¹çŸ©å½¢() const;
+	void fæ˜¾ç¤ºå›¾ç‰‡() const;
 protected:
-	tÏòÁ¿3 mĞı×ª = tÏòÁ¿3::cÁã;
-	tÏòÁ¿3 mËõ·Å = tÏòÁ¿3::cÒ»;
-	const tpÎÆÀí *mÎÆÀí = nullptr;
-	const S¶¥µã¾ØĞÎ *m¶¥µã = nullptr;
+	tå‘é‡3 mæ—‹è½¬ = tå‘é‡3::cé›¶;
+	tå‘é‡3 mç¼©æ”¾ = tå‘é‡3::cä¸€;
+	const tpçº¹ç† *mçº¹ç† = nullptr;
+	const Sé¡¶ç‚¹çŸ©å½¢ *mé¡¶ç‚¹ = nullptr;
 };
 
-}	//namespace ¶«·½É½Õ¯
+}	//namespace ä¸œæ–¹å±±å¯¨

@@ -1,34 +1,34 @@
-#pragma once
+ï»¿#pragma once
 #include <string>
 #include <deque>
-#include <cflwÊ±¼ä.h>
-#include <cflwÍ¼ĞÎ_d2d.h>
-namespace Ê±¼ä = cflw::Ê±¼ä;
-namespace ¶şÎ¬ = cflw::Í¼ĞÎ::d2d;
-namespace ¶«·½É½Õ¯ {
-class CÈÕÖ¾ {
+#include <cflwæ—¶é—´.h>
+#include <cflwå›¾å½¢_d2d.h>
+namespace æ—¶é—´ = cflw::æ—¶é—´;
+namespace äºŒç»´ = cflw::å›¾å½¢::d2d;
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cæ—¥å¿— {
 public:
-	enum E¼¶±ğ {
-		e´íÎó,
-		e¾¯¸æ,
-		eµ÷ÊÔ,
-		eÏûÏ¢,
+	enum Eçº§åˆ« {
+		eé”™è¯¯,
+		eè­¦å‘Š,
+		eè°ƒè¯•,
+		eæ¶ˆæ¯,
 	};
-	struct SÈÕÖ¾ {
-		Ê±¼ä::tÊ±¼äµã mÊ±¼ä;
-		E¼¶±ğ m¼¶±ğ;
-		std::wstring mÎÄ±¾;
-		float m³öÏÖ = 0;
-		float mÏûÊ§ = 0;
-		float fgÍ¸Ã÷¶È() const;
+	struct Sæ—¥å¿— {
+		æ—¶é—´::tæ—¶é—´ç‚¹ mæ—¶é—´;
+		Eçº§åˆ« mçº§åˆ«;
+		std::wstring mæ–‡æœ¬;
+		float må‡ºç° = 0;
+		float mæ¶ˆå¤± = 0;
+		float fgé€æ˜åº¦() const;
 	};
-	static constexpr float cĞĞ¾à = 12;
-	CÈÕÖ¾(¶şÎ¬::C¶şÎ¬ &);
-	void fÌí¼Ó(E¼¶±ğ, const std::wstring &);
-	void f¼ÆËã();
-	void fÏÔÊ¾() const;
-	std::deque<SÈÕÖ¾> maÈÕÖ¾;
-	std::shared_ptr<¶şÎ¬::C»­ÎÄ±¾> m»­ÎÄ±¾;
-	float mÏÔÊ¾Î»ÖÃy = -240;
+	static constexpr float cè¡Œè· = 12;
+	Cæ—¥å¿—(äºŒç»´::CäºŒç»´ &);
+	void fæ·»åŠ (Eçº§åˆ«, const std::wstring &);
+	void fè®¡ç®—();
+	void fæ˜¾ç¤º() const;
+	std::deque<Sæ—¥å¿—> maæ—¥å¿—;
+	std::shared_ptr<äºŒç»´::Cç”»æ–‡æœ¬> mç”»æ–‡æœ¬;
+	float mæ˜¾ç¤ºä½ç½®y = -240;
 };
-}	//namespace ¶«·½É½Õ¯
+}	//namespace ä¸œæ–¹å±±å¯¨

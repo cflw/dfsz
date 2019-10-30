@@ -1,20 +1,20 @@
-#pragma once
-#include "±êÊ¶.h"
-namespace ¶«·½É½Õ¯ {
-struct SÓÎÏ·ÉèÖÃ {
-	void fs×Ô»ú(int);
-	void fs×Ó»ú(int);
-	void fsÕ¨µ¯(int);
-	void fs»ù´¡ÄÑ¶È(int Ò»);
-	void fsÔö¼ÓÄÑ¶È(int ·Ö×Ó, int ·ÖÄ¸ = 1);
-	int m×Ô»ú±êÊ¶ = (int)E×Ô»ú::e²âÊÔ;
-	int m×Ó»ú±êÊ¶ = (int)E×Ó»ú::e²âÊÔ;
-	int mÕ¨µ¯±êÊ¶ = (int)EÍæ¼Ò·¢Éä::e²âÊÔÕ¨µ¯;
-	int m²Ğ»ú = 2;
-	int mÕ¨µ¯ = 3;
-	int m»ğÁ¦ = 1;
-	int m×î´óµã = 10'0000;
-	int m»ù´¡ÄÑ¶È = 1;
-	int mÔö¼ÓÄÑ¶È = 0;
+ï»¿#pragma once
+#include "æ ‡è¯†.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+struct Sæ¸¸æˆè®¾ç½® {
+	void fsè‡ªæœº(int);
+	void fså­æœº(int);
+	void fsç‚¸å¼¹(int);
+	void fsåŸºç¡€éš¾åº¦(int ä¸€);
+	void fså¢åŠ éš¾åº¦(int åˆ†å­, int åˆ†æ¯ = 1);
+	int mè‡ªæœºæ ‡è¯† = (int)Eè‡ªæœº::eæµ‹è¯•;
+	int må­æœºæ ‡è¯† = (int)Eå­æœº::eæµ‹è¯•;
+	int mç‚¸å¼¹æ ‡è¯† = (int)Eç©å®¶å‘å°„::eæµ‹è¯•ç‚¸å¼¹;
+	int mæ®‹æœº = 2;
+	int mç‚¸å¼¹ = 3;
+	int mç«åŠ› = 1;
+	int mæœ€å¤§ç‚¹ = 10'0000;
+	int måŸºç¡€éš¾åº¦ = 1;
+	int må¢åŠ éš¾åº¦ = 0;
 };
 }

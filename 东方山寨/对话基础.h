@@ -1,29 +1,29 @@
-#pragma once
-#include "»ù´¡.h"
-namespace ¶«·½É½Õ¯ {
-enum class EÁ¢»æ×´Ì¬ {
-	e¾Û½¹,
-	eÏûÊ§,
+ï»¿#pragma once
+#include "åŸºç¡€.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+enum class Eç«‹ç»˜çŠ¶æ€ {
+	eèšç„¦,
+	eæ¶ˆå¤±,
 };
-//Í¼ĞÎ
-class I¶Ô»°Á¢»æ;
-//¹¦ÄÜ
-class C¶Ô»°¿ØÖÆ;
-class C¶Ô»°½Å±¾;
-class I¶Ô»°ÊÂ¼ş;
-using ta¶Ô»°ÊÂ¼ş = std::vector<std::unique_ptr<I¶Ô»°ÊÂ¼ş>>;
-using tp¶Ô»°½Å±¾ = std::shared_ptr<const ta¶Ô»°ÊÂ¼ş>;
-struct S¶Ô»°²ÎÊı_¶Ô»° {
-	std::wstring mÎÄ±¾;
-	bool m·½Ïò;
+//å›¾å½¢
+class Iå¯¹è¯ç«‹ç»˜;
+//åŠŸèƒ½
+class Cå¯¹è¯æ§åˆ¶;
+class Cå¯¹è¯è„šæœ¬;
+class Iå¯¹è¯äº‹ä»¶;
+using taå¯¹è¯äº‹ä»¶ = std::vector<std::unique_ptr<Iå¯¹è¯äº‹ä»¶>>;
+using tpå¯¹è¯è„šæœ¬ = std::shared_ptr<const taå¯¹è¯äº‹ä»¶>;
+struct Så¯¹è¯å‚æ•°_å¯¹è¯ {
+	std::wstring mæ–‡æœ¬;
+	bool mæ–¹å‘;
 };
-struct S¶Ô»°²ÎÊı_ÏÔÊ¾Á¢»æ {
-	const I¹¤³§<I¶Ô»°Á¢»æ> *mÁ¢»æ¹¤³§;
-	int m±êÊ¶;
-	bool m·½Ïò;
+struct Så¯¹è¯å‚æ•°_æ˜¾ç¤ºç«‹ç»˜ {
+	const Iå·¥å‚<Iå¯¹è¯ç«‹ç»˜> *mç«‹ç»˜å·¥å‚;
+	int mæ ‡è¯†;
+	bool mæ–¹å‘;
 };
-struct S¶Ô»°²ÎÊı_Á¢»æ×´Ì¬ {
-	int m±êÊ¶;
-	EÁ¢»æ×´Ì¬ m×´Ì¬;
+struct Så¯¹è¯å‚æ•°_ç«‹ç»˜çŠ¶æ€ {
+	int mæ ‡è¯†;
+	Eç«‹ç»˜çŠ¶æ€ mçŠ¶æ€;
 };
 }

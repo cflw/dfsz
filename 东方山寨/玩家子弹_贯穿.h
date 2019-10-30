@@ -1,32 +1,32 @@
-#pragma once
-#include "Íæ¼Ò×Óµ¯»ù´¡.h"
-namespace ¶«·½É½Õ¯ {
-namespace Íæ¼Ò×Óµ¯ {
-class C¹á´© : public CÍæ¼Ò×Óµ¯ {
+ï»¿#pragma once
+#include "ç©å®¶å­å¼¹åŸºç¡€.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+namespace ç©å®¶å­å¼¹ {
+class Cè´¯ç©¿ : public Cç©å®¶å­å¼¹ {
 private:
-	struct S×´Ì¬ : public C¼òµ¥ÓÎÏ·¶ÔÏó {
-		tÏòÁ¿2 *v°ó¶¨×ø±ê;
-		tÏòÁ¿2 vÏà¶Ô×ø±ê;	//Ïà¶ÔÓÚ°ó¶¨×ø±ê
-		int v×ø±êĞòºÅ;
-		int vÊıÁ¿ĞòºÅ;
-		float v³¤¶È;
-		float vÏûÊ§;
-		void fsÏà¶Ô×ø±ê(const tÏòÁ¿2 &);
-		tÏòÁ¿2 fgÊµ×ø±ê() const;
+	struct SçŠ¶æ€ : public Cç®€å•æ¸¸æˆå¯¹è±¡ {
+		tå‘é‡2 *vç»‘å®šåæ ‡;
+		tå‘é‡2 vç›¸å¯¹åæ ‡;	//ç›¸å¯¹äºç»‘å®šåæ ‡
+		int våæ ‡åºå·;
+		int væ•°é‡åºå·;
+		float vé•¿åº¦;
+		float væ¶ˆå¤±;
+		void fsç›¸å¯¹åæ ‡(const tå‘é‡2 &);
+		tå‘é‡2 fgå®åæ ‡() const;
 	};
-	C¶¯Ì¬Êı×é<S×´Ì¬> v×´Ì¬×é;
-	static const float c³¤¶ÈÉÏÏŞ;
-	static const float cÏûÊ§ËÙ¶È;
+	CåŠ¨æ€æ•°ç»„<SçŠ¶æ€> vçŠ¶æ€ç»„;
+	static const float cé•¿åº¦ä¸Šé™;
+	static const float cæ¶ˆå¤±é€Ÿåº¦;
 public:
-	void f½Ó¿Ú_³õÊ¼»¯() override;
-	void f½Ó¿Ú_Ïú»Ù() override;
-	void f½Ó¿Ú_¼ÆËã() override;
-	void f½Ó¿Ú_ÏÔÊ¾() override;
-	void f½Ó¿Ú_µĞ»úÅĞ¶¨(CµĞ»úÓëÍæ¼Ò×Óµ¯ÅĞ¶¨ &) override;
-	void f½Ó¿Ú_·¢Éä() override;
+	void fæ¥å£_åˆå§‹åŒ–() override;
+	void fæ¥å£_é”€æ¯() override;
+	void fæ¥å£_è®¡ç®—() override;
+	void fæ¥å£_æ˜¾ç¤º() override;
+	void fæ¥å£_æ•Œæœºåˆ¤å®š(Cæ•Œæœºä¸ç©å®¶å­å¼¹åˆ¤å®š &) override;
+	void fæ¥å£_å‘å°„() override;
 private:
-	S×´Ì¬ &fÀ©Õ¹_×´Ì¬();
-	tÏòÁ¿2 fgÄ©¶Ë();
+	SçŠ¶æ€ &fæ‰©å±•_çŠ¶æ€();
+	tå‘é‡2 fgæœ«ç«¯();
 };
 
 }

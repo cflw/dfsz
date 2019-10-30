@@ -1,73 +1,73 @@
-#pragma once
-#include "ÊıÑ§°üº¬.h"
-#include "Í¼ĞÎ°üº¬.h"
-#include "»ù´¡.h"
-#include "ÊıÑ§»ù´¡.h"
-#include "»ù´¡_Êı×é.h"
-#include "ÅĞ¶¨´¦Àí_µĞ»úÓëÍæ¼Ò×Óµ¯.h"
-namespace ¶«·½É½Õ¯ {
-class CÍæ¼Ò;
-struct SÍæ¼Ò×Óµ¯ÊôĞÔ;
-class CµĞ»ú;
-struct SÍæ¼Ò×Óµ¯²ÎÊı;
-struct S¶¥µã¾ØĞÎ;
-class CÍæ¼Ò×Óµ¯ {
+ï»¿#pragma once
+#include "æ•°å­¦åŒ…å«.h"
+#include "å›¾å½¢åŒ…å«.h"
+#include "åŸºç¡€.h"
+#include "æ•°å­¦åŸºç¡€.h"
+#include "åŸºç¡€_æ•°ç»„.h"
+#include "åˆ¤å®šå¤„ç†_æ•Œæœºä¸ç©å®¶å­å¼¹.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cç©å®¶;
+struct Sç©å®¶å­å¼¹å±æ€§;
+class Cæ•Œæœº;
+struct Sç©å®¶å­å¼¹å‚æ•°;
+struct Sé¡¶ç‚¹çŸ©å½¢;
+class Cç©å®¶å­å¼¹ {
 public:
-	static constexpr float cÅĞ¶¨°ë¾¶ = 4;
-	static constexpr float cÍ¸Ã÷¶È = 0.5f;
-	static constexpr float c³öÏÖÍ¸Ã÷¶È´ïµ½×î´óÊ±¼ä = 0.1f;
-	enum E±êÖ¾ {
-		eÊ¹ÓÃ,
-		eÃüÖĞ¿ÉÏú»Ù,
-		//Õ¨µ¯
-		eÕ¨µ¯,
-		e²úÉúµÀ¾ß,
-		//×Ô¶¨Òå
-		e×Ô¶¨Òå,
+	static constexpr float cåˆ¤å®šåŠå¾„ = 4;
+	static constexpr float cé€æ˜åº¦ = 0.5f;
+	static constexpr float cå‡ºç°é€æ˜åº¦è¾¾åˆ°æœ€å¤§æ—¶é—´ = 0.1f;
+	enum Eæ ‡å¿— {
+		eä½¿ç”¨,
+		eå‘½ä¸­å¯é”€æ¯,
+		//ç‚¸å¼¹
+		eç‚¸å¼¹,
+		eäº§ç”Ÿé“å…·,
+		//è‡ªå®šä¹‰
+		eè‡ªå®šä¹‰,
 	};
-	void f¶ÔÏó_Ê¹ÓÃ();
-	void f¶ÔÏó_Ïú»Ù();
-	bool f¶ÔÏó_iÊ¹ÓÃ() const;
-	const SÍæ¼Ò×Óµ¯ÊôĞÔ &f»ù´¡_g×Óµ¯ÊôĞÔ() const;
-	void f»ù´¡_¼ÆËãÔË¶¯();
-	float f»ù´¡_¼ÆËã·½Ïò();
-	void f»ù´¡_¼ÆËãÊ±¼ä();
-	C¸´ÔÓĞÎ×´ f»ù´¡_gÅĞ¶¨ĞÎ×´() const;
-	bool f»ù´¡_iÕ¨µ¯() const;
-	int fÊôĞÔ_gÉËº¦() const;
-	float f»ù´¡_g³öÏÖÍ¸Ã÷¶È() const;
-	virtual void f½Ó¿Ú_³õÊ¼»¯(const SÍæ¼Ò×Óµ¯²ÎÊı &);
-	virtual void f½Ó¿Ú_Ïú»Ù();
-	virtual void f½Ó¿Ú_¼ÆËã();
-	virtual void f½Ó¿Ú_¸üĞÂ();
-	virtual void f½Ó¿Ú_ÏÔÊ¾() const;
-	virtual void f½Ó¿Ú_ÏûÊ§();
-	virtual void f½Ó¿Ú_µĞ»úÅĞ¶¨(CµĞ»úÓëÍæ¼Ò×Óµ¯ÅĞ¶¨ &);
-	virtual void f½Ó¿Ú_ÃüÖĞµĞ»ú(const CµĞ»ú &);
-	virtual bool f½Ó¿Ú_ÔÚ´°¿ÚÍâ();
-	virtual float f½Ó¿Ú_gÅĞ¶¨°ë¾¶() const;
+	void få¯¹è±¡_ä½¿ç”¨();
+	void få¯¹è±¡_é”€æ¯();
+	bool få¯¹è±¡_iä½¿ç”¨() const;
+	const Sç©å®¶å­å¼¹å±æ€§ &fåŸºç¡€_gå­å¼¹å±æ€§() const;
+	void fåŸºç¡€_è®¡ç®—è¿åŠ¨();
+	float fåŸºç¡€_è®¡ç®—æ–¹å‘();
+	void fåŸºç¡€_è®¡ç®—æ—¶é—´();
+	Cå¤æ‚å½¢çŠ¶ fåŸºç¡€_gåˆ¤å®šå½¢çŠ¶() const;
+	bool fåŸºç¡€_iç‚¸å¼¹() const;
+	int få±æ€§_gä¼¤å®³() const;
+	float fåŸºç¡€_gå‡ºç°é€æ˜åº¦() const;
+	virtual void fæ¥å£_åˆå§‹åŒ–(const Sç©å®¶å­å¼¹å‚æ•° &);
+	virtual void fæ¥å£_é”€æ¯();
+	virtual void fæ¥å£_è®¡ç®—();
+	virtual void fæ¥å£_æ›´æ–°();
+	virtual void fæ¥å£_æ˜¾ç¤º() const;
+	virtual void fæ¥å£_æ¶ˆå¤±();
+	virtual void fæ¥å£_æ•Œæœºåˆ¤å®š(Cæ•Œæœºä¸ç©å®¶å­å¼¹åˆ¤å®š &);
+	virtual void fæ¥å£_å‘½ä¸­æ•Œæœº(const Cæ•Œæœº &);
+	virtual bool fæ¥å£_åœ¨çª—å£å¤–();
+	virtual float fæ¥å£_gåˆ¤å®šåŠå¾„() const;
 public:
-	tÏòÁ¿2 m×ø±ê;
-	tÏòÁ¿2 mËÙ¶È;
-	t±êÖ¾ m±êÖ¾;
-	CÍæ¼Ò *mÍæ¼Ò = nullptr;
-	const SÍæ¼Ò×Óµ¯ÊôĞÔ *m×Óµ¯ÊôĞÔ = nullptr;
-	CÊı×é¼ÆÊı *m¼ÆÊıÖ¸Õë = nullptr;
-	const CÓÎÏ·ËÙ¶È *mÓÎÏ·ËÙ¶È = nullptr;
-	float m·½Ïò = 0;
-	float m¶¯»­Ö¡ = 0;
-	float m³öÏÖ = 0;
-	tÏòÁ¿2 mËõ·Å;
+	tå‘é‡2 måæ ‡;
+	tå‘é‡2 mé€Ÿåº¦;
+	tæ ‡å¿— mæ ‡å¿—;
+	Cç©å®¶ *mç©å®¶ = nullptr;
+	const Sç©å®¶å­å¼¹å±æ€§ *må­å¼¹å±æ€§ = nullptr;
+	Cæ•°ç»„è®¡æ•° *mè®¡æ•°æŒ‡é’ˆ = nullptr;
+	const Cæ¸¸æˆé€Ÿåº¦ *mæ¸¸æˆé€Ÿåº¦ = nullptr;
+	float mæ–¹å‘ = 0;
+	float måŠ¨ç”»å¸§ = 0;
+	float må‡ºç° = 0;
+	tå‘é‡2 mç¼©æ”¾;
 };
-struct SÍæ¼Ò×Óµ¯ÊôĞÔ {
-	tÏòÁ¿2 mÅĞ¶¨;
-	tÏòÁ¿2 mÖ¡°ë³ß´ç;
-	tÊôĞÔÖ¸Õë<tpÎÆÀí> mÎÆÀí;
-	tÊôĞÔÖ¸Õë<tpÎÆÀí> mÏûÊ§ÎÆÀí;
-	tÊôĞÔÖ¸Õë<S¶¥µã¾ØĞÎ> m¶¥µã;
-	tÊôĞÔÖ¸Õë<S¶¥µã¾ØĞÎ> mÏûÊ§¶¥µã;
-	int m¶¯»­Ö¡Êı = 0;
-	int mÏûÊ§Ö¡Êı = 0;
-	int mÉËº¦ = 10;
+struct Sç©å®¶å­å¼¹å±æ€§ {
+	tå‘é‡2 måˆ¤å®š;
+	tå‘é‡2 må¸§åŠå°ºå¯¸;
+	tå±æ€§æŒ‡é’ˆ<tpçº¹ç†> mçº¹ç†;
+	tå±æ€§æŒ‡é’ˆ<tpçº¹ç†> mæ¶ˆå¤±çº¹ç†;
+	tå±æ€§æŒ‡é’ˆ<Sé¡¶ç‚¹çŸ©å½¢> mé¡¶ç‚¹;
+	tå±æ€§æŒ‡é’ˆ<Sé¡¶ç‚¹çŸ©å½¢> mæ¶ˆå¤±é¡¶ç‚¹;
+	int måŠ¨ç”»å¸§æ•° = 0;
+	int mæ¶ˆå¤±å¸§æ•° = 0;
+	int mä¼¤å®³ = 10;
 };
 }

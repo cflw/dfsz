@@ -1,22 +1,22 @@
-#pragma once
-#include "Í¼ĞÎ_ÈıÎ¬.h"
-namespace ¶«·½É½Õ¯ {
-class I³¡¾° {
+ï»¿#pragma once
+#include "å›¾å½¢_ä¸‰ç»´.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+class Iåœºæ™¯ {
 public:
-	virtual void f½Ó¿Ú_³õÊ¼»¯();
-	virtual void f½Ó¿Ú_¼ÆËã();
-	virtual void f½Ó¿Ú_¸üĞÂ();
-	virtual void f½Ó¿Ú_ÏÔÊ¾(C»­ÈıÎ¬ &) const;
+	virtual void fæ¥å£_åˆå§‹åŒ–();
+	virtual void fæ¥å£_è®¡ç®—();
+	virtual void fæ¥å£_æ›´æ–°();
+	virtual void fæ¥å£_æ˜¾ç¤º(Cç”»ä¸‰ç»´ &) const;
 };
-class C³¡¾°¿ØÖÆ {
+class Cåœºæ™¯æ§åˆ¶ {
 public:
-	void f³õÊ¼»¯_Í¼ĞÎ(C»­ÈıÎ¬ &);
-	void fÉèÖÃ³¡¾°(std::shared_ptr<I³¡¾°>);
-	void f¼ÆËã();
-	void f¸üĞÂ();
-	void fÏÔÊ¾() const;
+	void fåˆå§‹åŒ–_å›¾å½¢(Cç”»ä¸‰ç»´ &);
+	void fè®¾ç½®åœºæ™¯(std::shared_ptr<Iåœºæ™¯>);
+	void fè®¡ç®—();
+	void fæ›´æ–°();
+	void fæ˜¾ç¤º() const;
 private:
-	std::shared_ptr<I³¡¾°> m³¡¾°, mĞÂ³¡¾°;
-	C»­ÈıÎ¬ *m»­ÈıÎ¬ = nullptr;
+	std::shared_ptr<Iåœºæ™¯> måœºæ™¯, mæ–°åœºæ™¯;
+	Cç”»ä¸‰ç»´ *mç”»ä¸‰ç»´ = nullptr;
 };
 }

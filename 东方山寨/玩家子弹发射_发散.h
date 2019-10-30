@@ -1,27 +1,27 @@
-#pragma once
-#include "Íæ¼Ò×Óµ¯·¢Éä»ù´¡.h"
-namespace ¶«·½É½Õ¯ {
-namespace Íæ¼Ò×Óµ¯·¢Éä {
-class C·¢É¢ : public CÍæ¼Ò×Óµ¯·¢ÉäÆ÷ {
+ï»¿#pragma once
+#include "ç©å®¶å­å¼¹å‘å°„åŸºç¡€.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+namespace ç©å®¶å­å¼¹å‘å°„ {
+class Cå‘æ•£ : public Cç©å®¶å­å¼¹å‘å°„å™¨ {
 public:
-	struct SÊôĞÔ {
-		static SÊôĞÔ fc¼ä¸ô(int ÊıÁ¿, float ·¢É¢0, float ·¢É¢1, float ²¢ÁĞ0, float ²¢ÁĞ1);
-		static SÊôĞÔ fc×Ü(int ÊıÁ¿, float ·¢É¢0, float ·¢É¢1, float ²¢ÁĞ0, float ²¢ÁĞ1);
-		SÊôĞÔ(int ÊıÁ¿, std::pair<float, float> ·¢É¢, std::pair<float, float> ¼ä¸ô);
-		int mÊıÁ¿;
-		std::pair<float, float> mÏòÍâÕÅ¿ª½Ç¶È;
-		std::pair<float, float> mË®Æ½×ø±ê¼ä¸ô;
+	struct Så±æ€§ {
+		static Så±æ€§ fcé—´éš”(int æ•°é‡, float å‘æ•£0, float å‘æ•£1, float å¹¶åˆ—0, float å¹¶åˆ—1);
+		static Så±æ€§ fcæ€»(int æ•°é‡, float å‘æ•£0, float å‘æ•£1, float å¹¶åˆ—0, float å¹¶åˆ—1);
+		Så±æ€§(int æ•°é‡, std::pair<float, float> å‘æ•£, std::pair<float, float> é—´éš”);
+		int mæ•°é‡;
+		std::pair<float, float> må‘å¤–å¼ å¼€è§’åº¦;
+		std::pair<float, float> mæ°´å¹³åæ ‡é—´éš”;
 	};
-	class C¹¤³§ : public I¹¤³§<CÍæ¼Ò×Óµ¯·¢ÉäÆ÷> {
+	class Cå·¥å‚ : public Iå·¥å‚<Cç©å®¶å­å¼¹å‘å°„å™¨> {
 	public:
-		C¹¤³§(const SÊôĞÔ &);
-		CÍæ¼Ò×Óµ¯·¢ÉäÆ÷ *f½Ó¿Ú_ĞÂ½¨() const override;
-		std::shared_ptr<SÊôĞÔ> mÊôĞÔ;
+		Cå·¥å‚(const Så±æ€§ &);
+		Cç©å®¶å­å¼¹å‘å°„å™¨ *fæ¥å£_æ–°å»º() const override;
+		std::shared_ptr<Så±æ€§> må±æ€§;
 	};
-	C·¢É¢(const std::shared_ptr<SÊôĞÔ> &);
-	void f½Ó¿Ú_²úÉú×Óµ¯() override;
+	Cå‘æ•£(const std::shared_ptr<Så±æ€§> &);
+	void fæ¥å£_äº§ç”Ÿå­å¼¹() override;
 private:
-	std::shared_ptr<SÊôĞÔ> mÊôĞÔ;
+	std::shared_ptr<Så±æ€§> må±æ€§;
 };
 }
 }

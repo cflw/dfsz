@@ -1,25 +1,25 @@
-#pragma once
-#include <cflw¹¤¾ß.h>
-#include <cflwÍ¼ĞÎ_d3d11.h>
-#include <cflwÍ¼ĞÎ_d2d.h>
-#include <cflwÍ¼ĞÎ_d3d×ÅÉ«Æ÷.h>
-namespace ¶«·½É½Õ¯ {
-namespace ¹¤¾ß = cflw::¹¤¾ß;
-namespace ¶şÎ¬ = cflw::Í¼ĞÎ::d2d;
-namespace ÈıÎ¬ = cflw::Í¼ĞÎ::d3d11;
-namespace ÎÆÀí = cflw::Í¼ĞÎ::dxÎÆÀí;
-namespace ×ÅÉ«Æ÷ = cflw::Í¼ĞÎ::d3d×ÅÉ«Æ÷;
-using ÈıÎ¬::tpÉè±¸;
-using ÈıÎ¬::tpÉè±¸ÉÏÏÂÎÄ;
-using ÈıÎ¬::tp»º³å;
-using ÈıÎ¬::tpÎÆÀí;
-using ÈıÎ¬::tp¶¥µã×ÅÉ«Æ÷;
-using ÈıÎ¬::tp¼¸ºÎ×ÅÉ«Æ÷;
-using ÈıÎ¬::tpÍâ¿Ç×ÅÉ«Æ÷;
-using ÈıÎ¬::tpÓò×ÅÉ«Æ÷;
-using ÈıÎ¬::tpÏñËØ×ÅÉ«Æ÷;
-using ÈıÎ¬::tpÊäÈë²¼¾Ö;
-using t¶¥µã¸ñÊ½ = ÈıÎ¬::C¶¥µã¸ñÊ½;
-using t×Ô¶¯»º³å = ÈıÎ¬::C×Ô¶¯»º³å;
-using t»­Í¼ĞÎ = ¶şÎ¬::C»­Í¼ĞÎ;
-}	//namespace ¶«·½É½Õ¯
+ï»¿#pragma once
+#include <cflwå·¥å…·.h>
+#include <cflwå›¾å½¢_d3d11.h>
+#include <cflwå›¾å½¢_d2d.h>
+#include <cflwå›¾å½¢_d3dç€è‰²å™¨.h>
+namespace ä¸œæ–¹å±±å¯¨ {
+namespace å·¥å…· = cflw::å·¥å…·;
+namespace äºŒç»´ = cflw::å›¾å½¢::d2d;
+namespace ä¸‰ç»´ = cflw::å›¾å½¢::d3d11;
+namespace çº¹ç† = cflw::å›¾å½¢::dxçº¹ç†;
+namespace ç€è‰²å™¨ = cflw::å›¾å½¢::d3dç€è‰²å™¨;
+using ä¸‰ç»´::tpè®¾å¤‡;
+using ä¸‰ç»´::tpè®¾å¤‡ä¸Šä¸‹æ–‡;
+using ä¸‰ç»´::tpç¼“å†²;
+using ä¸‰ç»´::tpçº¹ç†;
+using ä¸‰ç»´::tpé¡¶ç‚¹ç€è‰²å™¨;
+using ä¸‰ç»´::tpå‡ ä½•ç€è‰²å™¨;
+using ä¸‰ç»´::tpå¤–å£³ç€è‰²å™¨;
+using ä¸‰ç»´::tpåŸŸç€è‰²å™¨;
+using ä¸‰ç»´::tpåƒç´ ç€è‰²å™¨;
+using ä¸‰ç»´::tpè¾“å…¥å¸ƒå±€;
+using té¡¶ç‚¹æ ¼å¼ = ä¸‰ç»´::Cé¡¶ç‚¹æ ¼å¼;
+using tè‡ªåŠ¨ç¼“å†² = ä¸‰ç»´::Cè‡ªåŠ¨ç¼“å†²;
+using tç”»å›¾å½¢ = äºŒç»´::Cç”»å›¾å½¢;
+}	//namespace ä¸œæ–¹å±±å¯¨

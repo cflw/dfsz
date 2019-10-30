@@ -1,33 +1,33 @@
-#pragma once
-#include "»ù´¡.h"
-#include "Í¼ĞÎ»ù´¡.h"
-#include "¶¯»­.h"
-namespace ¶«·½É½Õ¯ {
-namespace ½çÃæÍ¼ĞÎ {
-class C±êÌâÈËÎï;
-class CÔÆ;
-}	//namespace ½çÃæÍ¼ĞÎ
-class C½çÃæÍ¼ĞÎ¿ØÖÆ {
+ï»¿#pragma once
+#include "åŸºç¡€.h"
+#include "å›¾å½¢åŸºç¡€.h"
+#include "åŠ¨ç”».h"
+namespace ä¸œæ–¹å±±å¯¨ {
+namespace ç•Œé¢å›¾å½¢ {
+class Cæ ‡é¢˜äººç‰©;
+class Cäº‘;
+}	//namespace ç•Œé¢å›¾å½¢
+class Cç•Œé¢å›¾å½¢æ§åˆ¶ {
 public:
-	static constexpr int cÔÆÊı = 200;
-	enum E±êÖ¾ {
-		eÔÆ,
+	static constexpr int cäº‘æ•° = 200;
+	enum Eæ ‡å¿— {
+		eäº‘,
 	};
-	enum EÍ¼²ã {
-		eºóÔÆ,
-		eÈË,
-		eÇ°ÔÆ,
-		eĞÇ
+	enum Eå›¾å±‚ {
+		eåäº‘,
+		eäºº,
+		eå‰äº‘,
+		eæ˜Ÿ
 	};
-	C½çÃæÍ¼ĞÎ¿ØÖÆ();
-	~C½çÃæÍ¼ĞÎ¿ØÖÆ();
-	void f¼ÆËã();
-	void f±³¾°(bool);
-	void f±êÌâÈËÎï(bool);
-	void fÔÆ(bool);
-	t±êÖ¾ m±êÖ¾;
-	std::shared_ptr<½çÃæÍ¼ĞÎ::C±êÌâÈËÎï> m±êÌâÈËÎï;
-	std::shared_ptr<½çÃæÍ¼ĞÎ::CÔÆ> maÔÆ[cÔÆÊı];
-	float mÔÆÍ¸Ã÷¶È = 0;
+	Cç•Œé¢å›¾å½¢æ§åˆ¶();
+	~Cç•Œé¢å›¾å½¢æ§åˆ¶();
+	void fè®¡ç®—();
+	void fèƒŒæ™¯(bool);
+	void fæ ‡é¢˜äººç‰©(bool);
+	void fäº‘(bool);
+	tæ ‡å¿— mæ ‡å¿—;
+	std::shared_ptr<ç•Œé¢å›¾å½¢::Cæ ‡é¢˜äººç‰©> mæ ‡é¢˜äººç‰©;
+	std::shared_ptr<ç•Œé¢å›¾å½¢::Cäº‘> maäº‘[cäº‘æ•°];
+	float mäº‘é€æ˜åº¦ = 0;
 };
-}	//namespace ¶«·½É½Õ¯
+}	//namespace ä¸œæ–¹å±±å¯¨

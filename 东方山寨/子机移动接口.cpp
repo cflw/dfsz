@@ -1,13 +1,13 @@
-#include "×Ó»úÒÆ¶¯½Ó¿Ú.h"
-#include "Íæ¼Ò.h"
-namespace ¶«·½É½Õ¯ {
-void I×Ó»úÒÆ¶¯::f½Ó¿Ú_°ó¶¨Íæ¼Ò(CÍæ¼Ò &aÍæ¼Ò) {
-	f³õÊ¼»¯_°ó¶¨Íæ¼Ò(aÍæ¼Ò);
+ï»¿#include "å­æœºç§»åŠ¨æŽ¥å£.h"
+#include "çŽ©å®¶.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+void Iå­æœºç§»åŠ¨::fæŽ¥å£_ç»‘å®šçŽ©å®¶(CçŽ©å®¶ &açŽ©å®¶) {
+	fåˆå§‹åŒ–_ç»‘å®šçŽ©å®¶(açŽ©å®¶);
 }
-void I×Ó»úÒÆ¶¯::f³õÊ¼»¯_°ó¶¨Íæ¼Ò(CÍæ¼Ò &aÍæ¼Ò) {
-	va×Ó»ú = &aÍæ¼Ò.m×Ó»ú×é.ma×Ó»ú;
-	v×Ô»ú×ø±ê = &aÍæ¼Ò.m×Ô»ú.m×ø±ê;
-	v×Ó»úÊýÁ¿ = &aÍæ¼Ò.m×Ó»ú×é.mÊýÁ¿;
-	vµÍËÙ½¥±ä = &aÍæ¼Ò.mµÍËÙ½¥±ä;
+void Iå­æœºç§»åŠ¨::fåˆå§‹åŒ–_ç»‘å®šçŽ©å®¶(CçŽ©å®¶ &açŽ©å®¶) {
+	vaå­æœº = &açŽ©å®¶.må­æœºç»„.maå­æœº;
+	vè‡ªæœºåæ ‡ = &açŽ©å®¶.mè‡ªæœº.måæ ‡;
+	vå­æœºæ•°é‡ = &açŽ©å®¶.må­æœºç»„.mæ•°é‡;
+	vä½Žé€Ÿæ¸å˜ = &açŽ©å®¶.mä½Žé€Ÿæ¸å˜;
 }
 }

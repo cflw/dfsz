@@ -1,99 +1,99 @@
-#pragma once
-#include "×Óµ¯»ù´¡.h"
-namespace ¶«·½É½Õ¯ {
-class CÁ¬Ğø×Óµ¯ : public C×Óµ¯ {
+ï»¿#pragma once
+#include "å­å¼¹åŸºç¡€.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cè¿ç»­å­å¼¹ : public Cå­å¼¹ {
 private:
-	typedef void (*tfÁ½µã²Ù×÷)(CÁ¬Ğø×Óµ¯ &, CÁ¬Ğø×Óµ¯ &);
-	using tpÁ¬Ğø×Óµ¯ = std::shared_ptr<CÁ¬Ğø×Óµ¯>;
-	enum E±ê¼Ç {
-		e´°¿ÚÍâ = C×Óµ¯::e×Ô¶¨Òå,	//ÔÚ"f½Ó¿Ú_¼ÆËã"ÖĞ,×Óµ¯ÔÚ´°¿ÚÍâÊ±¼Ó±ê¼Ç.ÔÚ"f½Ó¿Ú_ÔÚ´°¿ÚÍâ"ÓÃÓÚÅĞ¶Ï
-		e»·ĞÎÍ·²¿,
-		eÏ¸·Ö,	//ÕâÊÇÍ¨¹ıÏ¸·Ö×Óµ¯²úÉúµÄ×Óµ¯
+	typedef void (*tfä¸¤ç‚¹æ“ä½œ)(Cè¿ç»­å­å¼¹ &, Cè¿ç»­å­å¼¹ &);
+	using tpè¿ç»­å­å¼¹ = std::shared_ptr<Cè¿ç»­å­å¼¹>;
+	enum Eæ ‡è®° {
+		eçª—å£å¤– = Cå­å¼¹::eè‡ªå®šä¹‰,	//åœ¨"fæ¥å£_è®¡ç®—"ä¸­,å­å¼¹åœ¨çª—å£å¤–æ—¶åŠ æ ‡è®°.åœ¨"fæ¥å£_åœ¨çª—å£å¤–"ç”¨äºåˆ¤æ–­
+		eç¯å½¢å¤´éƒ¨,
+		eç»†åˆ†,	//è¿™æ˜¯é€šè¿‡ç»†åˆ†å­å¼¹äº§ç”Ÿçš„å­å¼¹
 	};
-public:	//Á¬½Ó¹¤¾ß
-	class CÁ¬½Ó¹¤¾ß {	//Á½µãÁ¬½Ó
+public:	//è¿æ¥å·¥å…·
+	class Cè¿æ¥å·¥å…· {	//ä¸¤ç‚¹è¿æ¥
 	public:
-		CÁ¬½Ó¹¤¾ß();
-		CÁ¬½Ó¹¤¾ß(tfÁ½µã²Ù×÷);
-		CÁ¬½Ó¹¤¾ß &operator +=(const std::shared_ptr<CÁ¬Ğø×Óµ¯> &);
+		Cè¿æ¥å·¥å…·();
+		Cè¿æ¥å·¥å…·(tfä¸¤ç‚¹æ“ä½œ);
+		Cè¿æ¥å·¥å…· &operator +=(const std::shared_ptr<Cè¿ç»­å­å¼¹> &);
 	private:
-		std::shared_ptr<CÁ¬Ğø×Óµ¯> mÕâ;
-		tfÁ½µã²Ù×÷ mfÁ¬½Ó;
+		std::shared_ptr<Cè¿ç»­å­å¼¹> mè¿™;
+		tfä¸¤ç‚¹æ“ä½œ mfè¿æ¥;
 	};
-	class C»·ĞÎ¹¤¾ß {
+	class Cç¯å½¢å·¥å…· {
 	public:
-		C»·ĞÎ¹¤¾ß();
-		C»·ĞÎ¹¤¾ß(tfÁ½µã²Ù×÷);
-		~C»·ĞÎ¹¤¾ß();
-		C»·ĞÎ¹¤¾ß &operator +=(const std::shared_ptr<CÁ¬Ğø×Óµ¯> &);
+		Cç¯å½¢å·¥å…·();
+		Cç¯å½¢å·¥å…·(tfä¸¤ç‚¹æ“ä½œ);
+		~Cç¯å½¢å·¥å…·();
+		Cç¯å½¢å·¥å…· &operator +=(const std::shared_ptr<Cè¿ç»­å­å¼¹> &);
 	private:
-		std::shared_ptr<CÁ¬Ğø×Óµ¯> mÍ·, mÕâ;
-		tfÁ½µã²Ù×÷ mfÁ¬½Ó;
+		std::shared_ptr<Cè¿ç»­å­å¼¹> må¤´, mè¿™;
+		tfä¸¤ç‚¹æ“ä½œ mfè¿æ¥;
 	};
-public:	//Ï¸·Ö¹¤¾ß
-	template<typename t, bool ti¹¹Ôìº¯Êı = std::is_constructible<t, const t &, const t &, float>::value> class CÏ¸·Ö¹¤¾ß {
-	public:	//ti¹¹Ôìº¯Êı=trueÊ±,µ÷ÓÃÅÉÉúÀàµÄÏ¸·Ö¹¹Ôìº¯Êı
-		static_assert(std::is_base_of<CÁ¬Ğø×Óµ¯, t>::value, "");
-		static void f´¦Àí(const std::shared_ptr<t> &);	//¸ø"CÁ¬Ğø×Óµ¯::mfÏ¸·Ö"¸³Öµ
+public:	//ç»†åˆ†å·¥å…·
+	template<typename t, bool tiæ„é€ å‡½æ•° = std::is_constructible<t, const t &, const t &, float>::value> class Cç»†åˆ†å·¥å…· {
+	public:	//tiæ„é€ å‡½æ•°=trueæ—¶,è°ƒç”¨æ´¾ç”Ÿç±»çš„ç»†åˆ†æ„é€ å‡½æ•°
+		static_assert(std::is_base_of<Cè¿ç»­å­å¼¹, t>::value, "");
+		static void få¤„ç†(const std::shared_ptr<t> &);	//ç»™"Cè¿ç»­å­å¼¹::mfç»†åˆ†"èµ‹å€¼
 	};
-public:	//ÖØĞ´µÄ½Ó¿Úº¯Êı
-	CÁ¬Ğø×Óµ¯() = default;
-	CÁ¬Ğø×Óµ¯(const CÁ¬Ğø×Óµ¯ &, const CÁ¬Ğø×Óµ¯ &, float);
-	template<typename t> static void f½Ó¿Ú_¾ßÌåÀàĞÍ³õÊ¼»¯(const std::shared_ptr<t> &);
-	void f½Ó¿Ú_³õÊ¼»¯() override;
-	void f½Ó¿Ú_Ïú»Ù() override;
-	void f½Ó¿Ú_¼ÆËã() override;
-	void f½Ó¿Ú_¸üĞÂ() override;
-	void f½Ó¿Ú_ÏÔÊ¾() const override;
-	void f½Ó¿Ú_×Ô»úÅĞ¶¨(C×Ô»úÓë×Óµ¯ÅĞ¶¨ &) override;
-	bool f½Ó¿Ú_iÔÚ´°¿ÚÍâ() override;
-	bool f½Ó¿Ú_¿ÉÏÔÊ¾() const override;
-	bool f½Ó¿Ú_Õ¨µ¯ÅĞ¶¨(C×Óµ¯ÓëÍæ¼ÒÕ¨µ¯ÅĞ¶¨ &) override;
-public:		//³õÊ¼»¯
-public:		//¶¯×÷
-	void f¶¯×÷_ÏûÊ§(bool);
-private:	//À©Õ¹
-	std::shared_ptr<CÁ¬Ğø×Óµ¯> fgÕâÖ¸Õë() const;
-	bool fÀ©Õ¹_i»·() const;
-	void fÀ©Õ¹_×Ô¶¯Ï¸·Ö();
-	float fÀ©Õ¹_gÏ¸·Ö¼ä¸ô() const;
-	static std::shared_ptr<CÁ¬Ğø×Óµ¯> fÁ¬Ğø×Óµ¯_cÏ¸·Ö(CÁ¬Ğø×Óµ¯ &, CÁ¬Ğø×Óµ¯ &, float);	//ĞÂ½¨×Óµ¯¶ÔÏó
-	static void fÁ¬Ğø×Óµ¯_Á¬½Ó0(CÁ¬Ğø×Óµ¯ &, CÁ¬Ğø×Óµ¯ &);
-	static void fÁ¬Ğø×Óµ¯_¶Ï¿ª0(CÁ¬Ğø×Óµ¯ &, CÁ¬Ğø×Óµ¯ &);
-	static void fÁ¬Ğø×Óµ¯_Ï¸·Ö0(CÁ¬Ğø×Óµ¯ &, CÁ¬Ğø×Óµ¯ &, int);	//µ÷ÓÃ×Óµ¯ÖÆÔì»ú²úÉúÏ¸·Ö×Óµ¯
-	static void fÁ¬Ğø×Óµ¯_Á¬½Ó1(CÁ¬Ğø×Óµ¯ &, CÁ¬Ğø×Óµ¯ &);
-	static void fÁ¬Ğø×Óµ¯_¶Ï¿ª1(CÁ¬Ğø×Óµ¯ &, CÁ¬Ğø×Óµ¯ &);
-private:	//ÊôĞÔ
-	static std::mutex mÁ¬½Ó»¥³â;
-	std::weak_ptr<CÁ¬Ğø×Óµ¯> mÕâ;
-	std::shared_ptr<CÁ¬Ğø×Óµ¯> mÇ°, mºó;
-	S×Óµ¯³öÏÖ m³öÏÖ;
-	S×Óµ¯ÏûÊ§ mÏûÊ§;
-	std::shared_ptr<CÁ¬Ğø×Óµ¯> (*mfÏ¸·Ö)(CÁ¬Ğø×Óµ¯ &, CÁ¬Ğø×Óµ¯ &, float);
-	tp×Óµ¯Í¼ĞÎÊı¾İ mÍ¼ĞÎÊı¾İ;
+public:	//é‡å†™çš„æ¥å£å‡½æ•°
+	Cè¿ç»­å­å¼¹() = default;
+	Cè¿ç»­å­å¼¹(const Cè¿ç»­å­å¼¹ &, const Cè¿ç»­å­å¼¹ &, float);
+	template<typename t> static void fæ¥å£_å…·ä½“ç±»å‹åˆå§‹åŒ–(const std::shared_ptr<t> &);
+	void fæ¥å£_åˆå§‹åŒ–() override;
+	void fæ¥å£_é”€æ¯() override;
+	void fæ¥å£_è®¡ç®—() override;
+	void fæ¥å£_æ›´æ–°() override;
+	void fæ¥å£_æ˜¾ç¤º() const override;
+	void fæ¥å£_è‡ªæœºåˆ¤å®š(Cè‡ªæœºä¸å­å¼¹åˆ¤å®š &) override;
+	bool fæ¥å£_iåœ¨çª—å£å¤–() override;
+	bool fæ¥å£_å¯æ˜¾ç¤º() const override;
+	bool fæ¥å£_ç‚¸å¼¹åˆ¤å®š(Cå­å¼¹ä¸ç©å®¶ç‚¸å¼¹åˆ¤å®š &) override;
+public:		//åˆå§‹åŒ–
+public:		//åŠ¨ä½œ
+	void fåŠ¨ä½œ_æ¶ˆå¤±(bool);
+private:	//æ‰©å±•
+	std::shared_ptr<Cè¿ç»­å­å¼¹> fgè¿™æŒ‡é’ˆ() const;
+	bool fæ‰©å±•_iç¯() const;
+	void fæ‰©å±•_è‡ªåŠ¨ç»†åˆ†();
+	float fæ‰©å±•_gç»†åˆ†é—´éš”() const;
+	static std::shared_ptr<Cè¿ç»­å­å¼¹> fè¿ç»­å­å¼¹_cç»†åˆ†(Cè¿ç»­å­å¼¹ &, Cè¿ç»­å­å¼¹ &, float);	//æ–°å»ºå­å¼¹å¯¹è±¡
+	static void fè¿ç»­å­å¼¹_è¿æ¥0(Cè¿ç»­å­å¼¹ &, Cè¿ç»­å­å¼¹ &);
+	static void fè¿ç»­å­å¼¹_æ–­å¼€0(Cè¿ç»­å­å¼¹ &, Cè¿ç»­å­å¼¹ &);
+	static void fè¿ç»­å­å¼¹_ç»†åˆ†0(Cè¿ç»­å­å¼¹ &, Cè¿ç»­å­å¼¹ &, int);	//è°ƒç”¨å­å¼¹åˆ¶é€ æœºäº§ç”Ÿç»†åˆ†å­å¼¹
+	static void fè¿ç»­å­å¼¹_è¿æ¥1(Cè¿ç»­å­å¼¹ &, Cè¿ç»­å­å¼¹ &);
+	static void fè¿ç»­å­å¼¹_æ–­å¼€1(Cè¿ç»­å­å¼¹ &, Cè¿ç»­å­å¼¹ &);
+private:	//å±æ€§
+	static std::mutex mè¿æ¥äº’æ–¥;
+	std::weak_ptr<Cè¿ç»­å­å¼¹> mè¿™;
+	std::shared_ptr<Cè¿ç»­å­å¼¹> må‰, må;
+	Så­å¼¹å‡ºç° må‡ºç°;
+	Så­å¼¹æ¶ˆå¤± mæ¶ˆå¤±;
+	std::shared_ptr<Cè¿ç»­å­å¼¹> (*mfç»†åˆ†)(Cè¿ç»­å­å¼¹ &, Cè¿ç»­å­å¼¹ &, float);
+	tpå­å¼¹å›¾å½¢æ•°æ® må›¾å½¢æ•°æ®;
 };
 //==============================================================================
-// Á¬Ğø×Óµ¯Ï¸·Ö¹¤¾ßµÄÊµÏÖ
+// è¿ç»­å­å¼¹ç»†åˆ†å·¥å…·çš„å®ç°
 //==============================================================================
-template<typename t> class CÁ¬Ğø×Óµ¯::CÏ¸·Ö¹¤¾ß<t, true> {
+template<typename t> class Cè¿ç»­å­å¼¹::Cç»†åˆ†å·¥å…·<t, true> {
 public:
-	static void f´¦Àí(const std::shared_ptr<t> &aÕâ) {
-		CÁ¬Ğø×Óµ¯ *const vÕâ = aÕâ.get();
-		vÕâ->mfÏ¸·Ö = [](CÁ¬Ğø×Óµ¯ &aÇ°, CÁ¬Ğø×Óµ¯ &aºó, float a²åÖµ)->std::shared_ptr<CÁ¬Ğø×Óµ¯> {
-			return std::make_shared<t>(aÇ°, aºó, a²åÖµ);
+	static void få¤„ç†(const std::shared_ptr<t> &aè¿™) {
+		Cè¿ç»­å­å¼¹ *const vè¿™ = aè¿™.get();
+		vè¿™->mfç»†åˆ† = [](Cè¿ç»­å­å¼¹ &aå‰, Cè¿ç»­å­å¼¹ &aå, float aæ’å€¼)->std::shared_ptr<Cè¿ç»­å­å¼¹> {
+			return std::make_shared<t>(aå‰, aå, aæ’å€¼);
 		};
 	}
 };
-template<typename t> class CÁ¬Ğø×Óµ¯::CÏ¸·Ö¹¤¾ß<t, false> {
+template<typename t> class Cè¿ç»­å­å¼¹::Cç»†åˆ†å·¥å…·<t, false> {
 public:
-	static void f´¦Àí(const std::shared_ptr<t> &aÕâ) {
-		CÁ¬Ğø×Óµ¯ *const vÕâ = aÕâ.get();
-		vÕâ->mfÏ¸·Ö = fÁ¬Ğø×Óµ¯_cÏ¸·Ö;
+	static void få¤„ç†(const std::shared_ptr<t> &aè¿™) {
+		Cè¿ç»­å­å¼¹ *const vè¿™ = aè¿™.get();
+		vè¿™->mfç»†åˆ† = fè¿ç»­å­å¼¹_cç»†åˆ†;
 	}
 };
-template<typename t> void CÁ¬Ğø×Óµ¯::f½Ó¿Ú_¾ßÌåÀàĞÍ³õÊ¼»¯(const std::shared_ptr<t> &aÕâ) {
-	static_assert(std::is_base_of<CÁ¬Ğø×Óµ¯, t>::value, "");
-	aÕâ->mÕâ = aÕâ;
-	CÏ¸·Ö¹¤¾ß<t>::f´¦Àí(aÕâ);
+template<typename t> void Cè¿ç»­å­å¼¹::fæ¥å£_å…·ä½“ç±»å‹åˆå§‹åŒ–(const std::shared_ptr<t> &aè¿™) {
+	static_assert(std::is_base_of<Cè¿ç»­å­å¼¹, t>::value, "");
+	aè¿™->mè¿™ = aè¿™;
+	Cç»†åˆ†å·¥å…·<t>::få¤„ç†(aè¿™);
 }
 }

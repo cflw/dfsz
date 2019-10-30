@@ -1,28 +1,28 @@
-#pragma once
+ï»¿#pragma once
 #include <string>
 #include <memory>
 #include <vector>
-namespace ¶«·½É½Õ¯ {
-class CÃû³Æ±êÊ¶ {
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cåç§°æ ‡è¯† {
 public:
-	static int f½âÎöÃû³Æ(const std::wstring &Ãû³Æ);
-	static void f¸´ÖÆÃû³Æ±êÊ¶(const std::wstring &Èë, const std::wstring &³ö);
-	CÃû³Æ±êÊ¶(const std::wstring &Ãû³Æ, int ±êÊ¶ = 0);
-	CÃû³Æ±êÊ¶(const std::wstring &Ãû³Æ, int ±êÊ¶, CÃû³Æ±êÊ¶ const*);
-	CÃû³Æ±êÊ¶(const CÃû³Æ±êÊ¶ &) = delete;
-	CÃû³Æ±êÊ¶(CÃû³Æ±êÊ¶ &&);
-	~CÃû³Æ±êÊ¶();
-	void fsÃû³Æ(const std::wstring &Ãû³Æ);
-	CÃû³Æ±êÊ¶ f´´½¨²ã(const std::wstring &Ãû³Æ, int ±êÊ¶ = 0) const;
-	int fg±êÊ¶() const;
-	int fg¼ÆËã±êÊ¶() const;
-	int fgÖ÷±êÊ¶() const;
-	int fg×Ó±êÊ¶() const;
+	static int fè§£æåç§°(const std::wstring &åç§°);
+	static void få¤åˆ¶åç§°æ ‡è¯†(const std::wstring &å…¥, const std::wstring &å‡º);
+	Cåç§°æ ‡è¯†(const std::wstring &åç§°, int æ ‡è¯† = 0);
+	Cåç§°æ ‡è¯†(const std::wstring &åç§°, int æ ‡è¯†, Cåç§°æ ‡è¯† const*);
+	Cåç§°æ ‡è¯†(const Cåç§°æ ‡è¯† &) = delete;
+	Cåç§°æ ‡è¯†(Cåç§°æ ‡è¯† &&);
+	~Cåç§°æ ‡è¯†();
+	void fsåç§°(const std::wstring &åç§°);
+	Cåç§°æ ‡è¯† fåˆ›å»ºå±‚(const std::wstring &åç§°, int æ ‡è¯† = 0) const;
+	int fgæ ‡è¯†() const;
+	int fgè®¡ç®—æ ‡è¯†() const;
+	int fgä¸»æ ‡è¯†() const;
+	int fgå­æ ‡è¯†() const;
 private:
-	void f´´½¨Ãû³Æ±êÊ¶() const;
-	std::wstring mÃû³Æ;
-	std::shared_ptr<std::vector<int>> m±êÊ¶;
-	int m²ã = 0;
-	bool mi¿É´´½¨;
+	void fåˆ›å»ºåç§°æ ‡è¯†() const;
+	std::wstring måç§°;
+	std::shared_ptr<std::vector<int>> mæ ‡è¯†;
+	int må±‚ = 0;
+	bool miå¯åˆ›å»º;
 };
 }

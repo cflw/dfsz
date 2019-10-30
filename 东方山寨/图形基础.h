@@ -1,74 +1,74 @@
-#pragma once
-#include "ÊıÑ§°üº¬.h"
-#include "»ù´¡.h"
-#include "»ù´¡_Êı×é.h"
-namespace ¶«·½É½Õ¯ {
-enum class EÍ¼²ã {
-	eµ×²ã = 0,
-	eµĞ»ú = 10,
-	eÍæ¼Ò = 20,
-	eµÀ¾ß = 30,
-	eÍ¼ĞÎ = 50,
-	e×Óµ¯ = 60,
-	eÌ§ÏÔ = 100,
-	e¶¥²ã = 700,
+ï»¿#pragma once
+#include "æ•°å­¦åŒ…å«.h"
+#include "åŸºç¡€.h"
+#include "åŸºç¡€_æ•°ç»„.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+enum class Eå›¾å±‚ {
+	eåº•å±‚ = 0,
+	eæ•Œæœº = 10,
+	eç©å®¶ = 20,
+	eé“å…· = 30,
+	eå›¾å½¢ = 50,
+	eå­å¼¹ = 60,
+	eæŠ¬æ˜¾ = 100,
+	eé¡¶å±‚ = 700,
 };
-struct SÍ¼ĞÎ²ÎÊı;
+struct Så›¾å½¢å‚æ•°;
 //=============================================================================
-// Í¼ĞÎ¶ÔÏó
+// å›¾å½¢å¯¹è±¡
 //=============================================================================
-class IÍ¼ĞÎ {
+class Iå›¾å½¢ {
 public:
-	enum E±êÖ¾ {
-		eÊ¹ÓÃ,
-		e½áÊø,
-		e×Ô¶¨Òå,
+	enum Eæ ‡å¿— {
+		eä½¿ç”¨,
+		eç»“æŸ,
+		eè‡ªå®šä¹‰,
 	};
-	virtual void f½Ó¿Ú_¼ÆËã();
-	virtual void f½Ó¿Ú_¸üĞÂ();
-	virtual void f½Ó¿Ú_ÏÔÊ¾() const = 0;
-	virtual void f½Ó¿Ú_³õÊ¼»¯(const SÍ¼ĞÎ²ÎÊı &);
-	virtual bool f½Ó¿Ú_i¿ÉÏú»Ù() const;
-	void f¶ÔÏó_Ê¹ÓÃ();
-	void f¶ÔÏó_Ïú»Ù();
-	bool f¶ÔÏó_iÊ¹ÓÃ();
-	void f¶¯×÷_½áÊø();//Í¼ĞÎÖ±½ÓÏûÊ§
+	virtual void fæ¥å£_è®¡ç®—();
+	virtual void fæ¥å£_æ›´æ–°();
+	virtual void fæ¥å£_æ˜¾ç¤º() const = 0;
+	virtual void fæ¥å£_åˆå§‹åŒ–(const Så›¾å½¢å‚æ•° &);
+	virtual bool fæ¥å£_iå¯é”€æ¯() const;
+	void få¯¹è±¡_ä½¿ç”¨();
+	void få¯¹è±¡_é”€æ¯();
+	bool få¯¹è±¡_iä½¿ç”¨();
+	void fåŠ¨ä½œ_ç»“æŸ();//å›¾å½¢ç›´æ¥æ¶ˆå¤±
 public:
-	int mÍ¼²ã = 0;
-	int mÏÔÊ¾±àºÅ = 0;
-	t±êÖ¾ m±êÖ¾;
-	const CÓÎÏ·ËÙ¶È *mÓÎÏ·ËÙ¶È = nullptr;
-	CÊı×é¼ÆÊı *m¼ÆÊıÖ¸Õë = nullptr;
+	int må›¾å±‚ = 0;
+	int mæ˜¾ç¤ºç¼–å· = 0;
+	tæ ‡å¿— mæ ‡å¿—;
+	const Cæ¸¸æˆé€Ÿåº¦ *mæ¸¸æˆé€Ÿåº¦ = nullptr;
+	Cæ•°ç»„è®¡æ•° *mè®¡æ•°æŒ‡é’ˆ = nullptr;
 };
-class IÁ£×Ó : public IÍ¼ĞÎ {
+class Iç²’å­ : public Iå›¾å½¢ {
 public:
-	void f½Ó¿Ú_³õÊ¼»¯(const SÍ¼ĞÎ²ÎÊı &) override;
-	bool f½Ó¿Ú_i¿ÉÏú»Ù() const override;
-	void f¼ÆËã_ÔË¶¯();
-	void f¼ÆËã_ÉúÃü();
-	float fgÉúÃü°Ù·Ö±È() const;
-	float fg·´ÉúÃü°Ù·Ö±È() const;
-	bool fiËÀÍö() const;
+	void fæ¥å£_åˆå§‹åŒ–(const Så›¾å½¢å‚æ•° &) override;
+	bool fæ¥å£_iå¯é”€æ¯() const override;
+	void fè®¡ç®—_è¿åŠ¨();
+	void fè®¡ç®—_ç”Ÿå‘½();
+	float fgç”Ÿå‘½ç™¾åˆ†æ¯”() const;
+	float fgåç”Ÿå‘½ç™¾åˆ†æ¯”() const;
+	bool fiæ­»äº¡() const;
 public:
-	tÏòÁ¿2 m×ø±ê;
-	tÏòÁ¿2 mËÙ¶È;
-	float mÊÙÃü;	//¹Ì¶¨
-	float mÉúÃü = 0;	//´æ»îµÄÊ±¼ä
+	tå‘é‡2 måæ ‡;
+	tå‘é‡2 mé€Ÿåº¦;
+	float må¯¿å‘½;	//å›ºå®š
+	float mç”Ÿå‘½ = 0;	//å­˜æ´»çš„æ—¶é—´
 };
 //=============================================================================
-// Ô¤ÉèÍ¼ĞÎ
+// é¢„è®¾å›¾å½¢
 //=============================================================================
-namespace Í¼ĞÎ {
-class CÔ²ĞÎ : public IÁ£×Ó {
+namespace å›¾å½¢ {
+class Cåœ†å½¢ : public Iç²’å­ {
 public:
-	CÔ²ĞÎ() = default;
-	CÔ²ĞÎ(float, float);
-	void f½Ó¿Ú_¼ÆËã() override;
-	void f½Ó¿Ú_ÏÔÊ¾() const override;
-	float fgµ±Ç°°ë¾¶() const;
+	Cåœ†å½¢() = default;
+	Cåœ†å½¢(float, float);
+	void fæ¥å£_è®¡ç®—() override;
+	void fæ¥å£_æ˜¾ç¤º() const override;
+	float fgå½“å‰åŠå¾„() const;
 public:
-	float m¿ªÊ¼°ë¾¶ = 0;
-	float m½áÊø°ë¾¶ = 100;
+	float må¼€å§‹åŠå¾„ = 0;
+	float mç»“æŸåŠå¾„ = 100;
 };
 }
 }

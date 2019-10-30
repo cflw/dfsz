@@ -1,20 +1,20 @@
-#pragma once
-#include "×Óµ¯»ù´¡.h"
-namespace ¶«·½É½Õ¯ {
-class CÆÕÍ¨×Óµ¯ : public C×Óµ¯ {
+ï»¿#pragma once
+#include "å­å¼¹åŸºç¡€.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cæ™®é€šå­å¼¹ : public Cå­å¼¹ {
 public:
-	void f½Ó¿Ú_³õÊ¼»¯() override;
-	void f½Ó¿Ú_¼ÆËã() override;
-	void f½Ó¿Ú_¸üĞÂ() override;
-	void f½Ó¿Ú_ÏÔÊ¾() const override;
-	void f½Ó¿Ú_×Ô»úÅĞ¶¨(C×Ô»úÓë×Óµ¯ÅĞ¶¨ &) override;
-	bool f½Ó¿Ú_iÔÚ´°¿ÚÍâ() override;
-	bool f½Ó¿Ú_Õ¨µ¯ÅĞ¶¨(C×Óµ¯ÓëÍæ¼ÒÕ¨µ¯ÅĞ¶¨ &) override;
-	//¶¯×÷
-	void f¶¯×÷_ÏûÊ§(bool);
-	//ÊôĞÔ
-	S×Óµ¯³öÏÖ m³öÏÖ;
-	S×Óµ¯ÏûÊ§ mÏûÊ§;
-	tp×Óµ¯Í¼ĞÎÊı¾İ mÍ¼ĞÎÊı¾İ;
+	void fæ¥å£_åˆå§‹åŒ–() override;
+	void fæ¥å£_è®¡ç®—() override;
+	void fæ¥å£_æ›´æ–°() override;
+	void fæ¥å£_æ˜¾ç¤º() const override;
+	void fæ¥å£_è‡ªæœºåˆ¤å®š(Cè‡ªæœºä¸å­å¼¹åˆ¤å®š &) override;
+	bool fæ¥å£_iåœ¨çª—å£å¤–() override;
+	bool fæ¥å£_ç‚¸å¼¹åˆ¤å®š(Cå­å¼¹ä¸ç©å®¶ç‚¸å¼¹åˆ¤å®š &) override;
+	//åŠ¨ä½œ
+	void fåŠ¨ä½œ_æ¶ˆå¤±(bool);
+	//å±æ€§
+	Så­å¼¹å‡ºç° må‡ºç°;
+	Så­å¼¹æ¶ˆå¤± mæ¶ˆå¤±;
+	tpå­å¼¹å›¾å½¢æ•°æ® må›¾å½¢æ•°æ®;
 };
-}	//namespace ¶«·½É½Õ¯
+}	//namespace ä¸œæ–¹å±±å¯¨

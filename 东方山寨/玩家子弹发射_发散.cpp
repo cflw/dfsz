@@ -1,40 +1,40 @@
-#include "Íæ¼Ò×Óµ¯·¢Éä_·¢É¢.h"
-#include "¼ÆËã.h"
-namespace ¶«·½É½Õ¯ {
-namespace Íæ¼Ò×Óµ¯·¢Éä {
-C·¢É¢::SÊôĞÔ C·¢É¢::SÊôĞÔ::fc¼ä¸ô(int aÊıÁ¿, float a·¢É¢0, float a·¢É¢1, float a²¢ÁĞ0, float a²¢ÁĞ1) {
-	return SÊôĞÔ(aÊıÁ¿, std::pair<float, float>(a·¢É¢0, a·¢É¢1), std::pair<float, float>(a²¢ÁĞ0, a²¢ÁĞ1));
+ï»¿#include "ç©å®¶å­å¼¹å‘å°„_å‘æ•£.h"
+#include "è®¡ç®—.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+namespace ç©å®¶å­å¼¹å‘å°„ {
+Cå‘æ•£::Så±æ€§ Cå‘æ•£::Så±æ€§::fcé—´éš”(int aæ•°é‡, float aå‘æ•£0, float aå‘æ•£1, float aå¹¶åˆ—0, float aå¹¶åˆ—1) {
+	return Så±æ€§(aæ•°é‡, std::pair<float, float>(aå‘æ•£0, aå‘æ•£1), std::pair<float, float>(aå¹¶åˆ—0, aå¹¶åˆ—1));
 }
-C·¢É¢::SÊôĞÔ C·¢É¢::SÊôĞÔ::fc×Ü(int aÊıÁ¿, float a·¢É¢0, float a·¢É¢1, float a²¢ÁĞ0, float a²¢ÁĞ1) {
-	const float vÊıÁ¿ = static_cast<float>(aÊıÁ¿);
-	return SÊôĞÔ(
-		aÊıÁ¿, 
-		std::pair<float, float>(a·¢É¢0 / vÊıÁ¿, a·¢É¢1 / vÊıÁ¿), 
-		std::pair<float, float>(a²¢ÁĞ0 / vÊıÁ¿, a²¢ÁĞ1 / vÊıÁ¿)
+Cå‘æ•£::Så±æ€§ Cå‘æ•£::Så±æ€§::fcæ€»(int aæ•°é‡, float aå‘æ•£0, float aå‘æ•£1, float aå¹¶åˆ—0, float aå¹¶åˆ—1) {
+	const float væ•°é‡ = static_cast<float>(aæ•°é‡);
+	return Så±æ€§(
+		aæ•°é‡, 
+		std::pair<float, float>(aå‘æ•£0 / væ•°é‡, aå‘æ•£1 / væ•°é‡), 
+		std::pair<float, float>(aå¹¶åˆ—0 / væ•°é‡, aå¹¶åˆ—1 / væ•°é‡)
 	);
 }
-C·¢É¢::SÊôĞÔ::SÊôĞÔ(int aÊıÁ¿, std::pair<float, float> a·¢É¢, std::pair<float, float> a¼ä¸ô) :
-	mÊıÁ¿(aÊıÁ¿),
-	mÏòÍâÕÅ¿ª½Ç¶È(a·¢É¢),
-	mË®Æ½×ø±ê¼ä¸ô(a¼ä¸ô) {
+Cå‘æ•£::Så±æ€§::Så±æ€§(int aæ•°é‡, std::pair<float, float> aå‘æ•£, std::pair<float, float> aé—´éš”) :
+	mæ•°é‡(aæ•°é‡),
+	må‘å¤–å¼ å¼€è§’åº¦(aå‘æ•£),
+	mæ°´å¹³åæ ‡é—´éš”(aé—´éš”) {
 }
-C·¢É¢::C¹¤³§::C¹¤³§(const SÊôĞÔ &aÊôĞÔ) :
-	mÊôĞÔ(std::make_shared<SÊôĞÔ>(aÊôĞÔ)) {
+Cå‘æ•£::Cå·¥å‚::Cå·¥å‚(const Så±æ€§ &aå±æ€§) :
+	må±æ€§(std::make_shared<Så±æ€§>(aå±æ€§)) {
 }
-CÍæ¼Ò×Óµ¯·¢ÉäÆ÷ *C·¢É¢::C¹¤³§::f½Ó¿Ú_ĞÂ½¨() const {
-	return new C·¢É¢(mÊôĞÔ);
+Cç©å®¶å­å¼¹å‘å°„å™¨ *Cå‘æ•£::Cå·¥å‚::fæ¥å£_æ–°å»º() const {
+	return new Cå‘æ•£(må±æ€§);
 }
-C·¢É¢::C·¢É¢(const std::shared_ptr<SÊôĞÔ> &aÊôĞÔ):
-	mÊôĞÔ(aÊôĞÔ) {
+Cå‘æ•£::Cå‘æ•£(const std::shared_ptr<Så±æ€§> &aå±æ€§):
+	må±æ€§(aå±æ€§) {
 }
-void C·¢É¢::f½Ó¿Ú_²úÉú×Óµ¯() {
-	m×Óµ¯ÖÆÔì»ú->m²ÎÊı.m×ø±ê = m·¢Éä»·¾³->fg·¢Éä×ø±ê();
-	m×Óµ¯ÖÆÔì»ú->m²ÎÊı.mËÙ¶È = {0, cËÙ¶È´óĞ¡};
-	for (auto &vÑ­»· : m×Óµ¯ÖÆÔì»ú->fÑ­»·(mÊôĞÔ->mÊıÁ¿)) {
-		vÑ­»·.f±ä»»Ä£°å_·¢É¢(m·¢Éä»·¾³, mÊôĞÔ->mÏòÍâÕÅ¿ª½Ç¶È, mÊôĞÔ->mË®Æ½×ø±ê¼ä¸ô);
-		m×Óµ¯ÖÆÔì»ú->f²úÉú×Óµ¯<CÍæ¼Ò×Óµ¯>();
+void Cå‘æ•£::fæ¥å£_äº§ç”Ÿå­å¼¹() {
+	må­å¼¹åˆ¶é€ æœº->må‚æ•°.måæ ‡ = må‘å°„ç¯å¢ƒ->fgå‘å°„åæ ‡();
+	må­å¼¹åˆ¶é€ æœº->må‚æ•°.mé€Ÿåº¦ = {0, cé€Ÿåº¦å¤§å°};
+	for (auto &vå¾ªç¯ : må­å¼¹åˆ¶é€ æœº->få¾ªç¯(må±æ€§->mæ•°é‡)) {
+		vå¾ªç¯.få˜æ¢æ¨¡æ¿_å‘æ•£(må‘å°„ç¯å¢ƒ, må±æ€§->må‘å¤–å¼ å¼€è§’åº¦, må±æ€§->mæ°´å¹³åæ ‡é—´éš”);
+		må­å¼¹åˆ¶é€ æœº->fäº§ç”Ÿå­å¼¹<Cç©å®¶å­å¼¹>();
 	}
 }
-//½áÊø
+//ç»“æŸ
 }
 }

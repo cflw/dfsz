@@ -1,24 +1,24 @@
-#pragma once
-#include "Íæ¼Ò×Óµ¯»ù´¡.h"
-namespace ¶«·½É½Õ¯ {
-namespace Íæ¼Ò×Óµ¯ {
-//ÓÕµ¼×Óµ¯, ×Ô¶¯¸ú×ÙµĞ»ú
-class CÓÕµ¼ : public CÍæ¼Ò×Óµ¯ {
+ï»¿#pragma once
+#include "ç©å®¶å­å¼¹åŸºç¡€.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+namespace ç©å®¶å­å¼¹ {
+//è¯±å¯¼å­å¼¹, è‡ªåŠ¨è·Ÿè¸ªæ•Œæœº
+class Cè¯±å¯¼ : public Cç©å®¶å­å¼¹ {
 private:
-	struct S×´Ì¬ : public C¼òµ¥ÓÎÏ·¶ÔÏó {
-		CµĞ»ú *vÄ¿±ê;
-		float vÉúÃü;	//×Óµ¯²úÉúºó´æÔÚµÄÊ±¼ä
+	struct SçŠ¶æ€ : public Cç®€å•æ¸¸æˆå¯¹è±¡ {
+		Cæ•Œæœº *vç›®æ ‡;
+		float vç”Ÿå‘½;	//å­å¼¹äº§ç”Ÿåå­˜åœ¨çš„æ—¶é—´
 	};
-	C¶¯Ì¬Êı×é<S×´Ì¬> v×´Ì¬×é;
-	C¾²Ì¬Êı×é<CµĞ»ú> *vaµĞ»ú;
-	static const float c³õÊ¼ÉúÃü;
-public:	//½Ó¿Ú
-	void f½Ó¿Ú_³õÊ¼»¯() override;
-	void f½Ó¿Ú_Ïú»Ù() override;
-	void f½Ó¿Ú_¼ÆËã() override;
-private:	//À©Õ¹
-	S×´Ì¬ &fÀ©Õ¹_×´Ì¬();
-	CµĞ»ú *fÀ©Õ¹_Ñ°ÕÒÄ¿±ê();
+	CåŠ¨æ€æ•°ç»„<SçŠ¶æ€> vçŠ¶æ€ç»„;
+	Cé™æ€æ•°ç»„<Cæ•Œæœº> *vaæ•Œæœº;
+	static const float cåˆå§‹ç”Ÿå‘½;
+public:	//æ¥å£
+	void fæ¥å£_åˆå§‹åŒ–() override;
+	void fæ¥å£_é”€æ¯() override;
+	void fæ¥å£_è®¡ç®—() override;
+private:	//æ‰©å±•
+	SçŠ¶æ€ &fæ‰©å±•_çŠ¶æ€();
+	Cæ•Œæœº *fæ‰©å±•_å¯»æ‰¾ç›®æ ‡();
 };
 
 }

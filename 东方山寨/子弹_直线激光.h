@@ -1,36 +1,36 @@
-#pragma once
+ï»¿#pragma once
 
-#include "×Óµ¯»ù´¡.h"
-namespace ¶«·½É½Õ¯ {
-class CÖ±Ïß¼¤¹â : public C×Óµ¯ {
+#include "å­å¼¹åŸºç¡€.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cç›´çº¿æ¿€å…‰ : public Cå­å¼¹ {
 public:
-	struct S½Úµã {
-		S×Óµ¯ÏûÊ§ vÏûÊ§;
+	struct SèŠ‚ç‚¹ {
+		Så­å¼¹æ¶ˆå¤± væ¶ˆå¤±;
 	};
-	void f½Ó¿Ú_³õÊ¼»¯() override;
-	void f½Ó¿Ú_²ÎÊı³õÊ¼»¯(const S×Óµ¯²ÎÊı &) override;
-	void f½Ó¿Ú_¼ÆËã() override;
-	void f½Ó¿Ú_¸üĞÂ() override;
-	void f½Ó¿Ú_ÏÔÊ¾() const override;
-	void f½Ó¿Ú_×Ô»úÅĞ¶¨(C×Ô»úÓë×Óµ¯ÅĞ¶¨ &) override;
-	bool f½Ó¿Ú_iÔÚ´°¿ÚÍâ() override;
-	bool f½Ó¿Ú_Õ¨µ¯ÅĞ¶¨(C×Óµ¯ÓëÍæ¼ÒÕ¨µ¯ÅĞ¶¨ &) override;
-	//³õÊ¼»¯
-	void f³õÊ¼»¯_³¤¿í(float, float = 1);
-	//¶¯×÷
-	void f¶¯×÷_ÏûÊ§(bool);
-	//À©Õ¹
-	tÏòÁ¿2 fÀ©Õ¹_È¡¹Ì¶¨¶Ëµã(float, float);
-	tÏòÁ¿2 fÀ©Õ¹_È¡ÏÔÊ¾¶Ëµã(float);
-	tÏòÁ¿2 fÀ©Õ¹_È¡ÅĞ¶¨¶Ëµã(float);
-	tÏòÁ¿2 fÀ©Õ¹_È¡½Úµã×ø±ê(int);
-	S½Úµã &fÀ©Õ¹_È¡½Úµã(int);
-	S½Úµã &fÀ©Õ¹_È¡×ø±ê×î½ü½Úµã(const tÏòÁ¿2 &);
-	//ÊôĞÔ
-	tÏòÁ¿2 m³õÊ¼»¯_³¤¿í;
-	std::vector<S½Úµã> ma½Úµã;	//´Óºóµ½Ç°
-	S×Óµ¯³öÏÖ m³öÏÖ;
-	tÏòÁ¿2 mÄ¿±ê;
-	tp×Óµ¯Í¼ĞÎÊı¾İ mÍ¼ĞÎÊı¾İ;
+	void fæ¥å£_åˆå§‹åŒ–() override;
+	void fæ¥å£_å‚æ•°åˆå§‹åŒ–(const Så­å¼¹å‚æ•° &) override;
+	void fæ¥å£_è®¡ç®—() override;
+	void fæ¥å£_æ›´æ–°() override;
+	void fæ¥å£_æ˜¾ç¤º() const override;
+	void fæ¥å£_è‡ªæœºåˆ¤å®š(Cè‡ªæœºä¸å­å¼¹åˆ¤å®š &) override;
+	bool fæ¥å£_iåœ¨çª—å£å¤–() override;
+	bool fæ¥å£_ç‚¸å¼¹åˆ¤å®š(Cå­å¼¹ä¸ç©å®¶ç‚¸å¼¹åˆ¤å®š &) override;
+	//åˆå§‹åŒ–
+	void fåˆå§‹åŒ–_é•¿å®½(float, float = 1);
+	//åŠ¨ä½œ
+	void fåŠ¨ä½œ_æ¶ˆå¤±(bool);
+	//æ‰©å±•
+	tå‘é‡2 fæ‰©å±•_å–å›ºå®šç«¯ç‚¹(float, float);
+	tå‘é‡2 fæ‰©å±•_å–æ˜¾ç¤ºç«¯ç‚¹(float);
+	tå‘é‡2 fæ‰©å±•_å–åˆ¤å®šç«¯ç‚¹(float);
+	tå‘é‡2 fæ‰©å±•_å–èŠ‚ç‚¹åæ ‡(int);
+	SèŠ‚ç‚¹ &fæ‰©å±•_å–èŠ‚ç‚¹(int);
+	SèŠ‚ç‚¹ &fæ‰©å±•_å–åæ ‡æœ€è¿‘èŠ‚ç‚¹(const tå‘é‡2 &);
+	//å±æ€§
+	tå‘é‡2 måˆå§‹åŒ–_é•¿å®½;
+	std::vector<SèŠ‚ç‚¹> maèŠ‚ç‚¹;	//ä»ååˆ°å‰
+	Så­å¼¹å‡ºç° må‡ºç°;
+	tå‘é‡2 mç›®æ ‡;
+	tpå­å¼¹å›¾å½¢æ•°æ® må›¾å½¢æ•°æ®;
 };
-}	//namespace ¶«·½É½Õ¯
+}	//namespace ä¸œæ–¹å±±å¯¨

@@ -1,79 +1,79 @@
-#include "Í¼ÐÎ»ù´¡.h"
-#include "Í¼ÐÎÒýÇæ.h"
-#include "ÓÎÏ·.h"
-#include "Í¼ÐÎ¹¤³§.h"
-namespace ¶«·½É½Õ¯ {
+ï»¿#include "å›¾å½¢åŸºç¡€.h"
+#include "å›¾å½¢å¼•æ“Ž.h"
+#include "æ¸¸æˆ.h"
+#include "å›¾å½¢å·¥åŽ‚.h"
+namespace ä¸œæ–¹å±±å¯¨ {
 //=============================================================================
-// IÍ¼ÐÎ
+// Iå›¾å½¢
 //=============================================================================
-void IÍ¼ÐÎ::f½Ó¿Ú_¼ÆËã() {
+void Iå›¾å½¢::fæŽ¥å£_è®¡ç®—() {
 }
-void IÍ¼ÐÎ::f½Ó¿Ú_¸üÐÂ() {
+void Iå›¾å½¢::fæŽ¥å£_æ›´æ–°() {
 }
-void IÍ¼ÐÎ::f½Ó¿Ú_³õÊ¼»¯(const SÍ¼ÐÎ²ÎÊý &a²ÎÊý) {
-	mÍ¼²ã = a²ÎÊý.mÍ¼²ã;
+void Iå›¾å½¢::fæŽ¥å£_åˆå§‹åŒ–(const Så›¾å½¢å‚æ•° &aå‚æ•°) {
+	må›¾å±‚ = aå‚æ•°.må›¾å±‚;
 }
-bool IÍ¼ÐÎ::f½Ó¿Ú_i¿ÉÏú»Ù() const {
-	return m±êÖ¾[e½áÊø];
+bool Iå›¾å½¢::fæŽ¥å£_iå¯é”€æ¯() const {
+	return mæ ‡å¿—[eç»“æŸ];
 }
-void IÍ¼ÐÎ::f¶ÔÏó_Ê¹ÓÃ() {
-	m±êÖ¾[eÊ¹ÓÃ] = true;
-	m¼ÆÊýÖ¸Õë->f¼Ó¼ÆÊý();
+void Iå›¾å½¢::få¯¹è±¡_ä½¿ç”¨() {
+	mæ ‡å¿—[eä½¿ç”¨] = true;
+	mè®¡æ•°æŒ‡é’ˆ->fåŠ è®¡æ•°();
 }
-void IÍ¼ÐÎ::f¶ÔÏó_Ïú»Ù() {
-	m±êÖ¾.reset();
-	m¼ÆÊýÖ¸Õë->f¼õ¼ÆÊý();
+void Iå›¾å½¢::få¯¹è±¡_é”€æ¯() {
+	mæ ‡å¿—.reset();
+	mè®¡æ•°æŒ‡é’ˆ->få‡è®¡æ•°();
 }
-bool IÍ¼ÐÎ::f¶ÔÏó_iÊ¹ÓÃ() {
-	return m±êÖ¾[eÊ¹ÓÃ];
+bool Iå›¾å½¢::få¯¹è±¡_iä½¿ç”¨() {
+	return mæ ‡å¿—[eä½¿ç”¨];
 }
-void IÍ¼ÐÎ::f¶¯×÷_½áÊø() {
-	m±êÖ¾[e½áÊø] = true;
+void Iå›¾å½¢::fåŠ¨ä½œ_ç»“æŸ() {
+	mæ ‡å¿—[eç»“æŸ] = true;
 }
 //=============================================================================
-// Á£×Ó
+// ç²’å­
 //=============================================================================
-void IÁ£×Ó::f½Ó¿Ú_³õÊ¼»¯(const SÍ¼ÐÎ²ÎÊý &a²ÎÊý) {
-	IÍ¼ÐÎ::f½Ó¿Ú_³õÊ¼»¯(a²ÎÊý);
-	m×ø±ê = a²ÎÊý.m×ø±ê;
-	mËÙ¶È = a²ÎÊý.mËÙ¶È;
-	mÊÙÃü = a²ÎÊý.mÊÙÃü;
+void Iç²’å­::fæŽ¥å£_åˆå§‹åŒ–(const Så›¾å½¢å‚æ•° &aå‚æ•°) {
+	Iå›¾å½¢::fæŽ¥å£_åˆå§‹åŒ–(aå‚æ•°);
+	måæ ‡ = aå‚æ•°.måæ ‡;
+	mé€Ÿåº¦ = aå‚æ•°.mé€Ÿåº¦;
+	må¯¿å‘½ = aå‚æ•°.må¯¿å‘½;
 }
-bool IÁ£×Ó::f½Ó¿Ú_i¿ÉÏú»Ù() const {
-	return fiËÀÍö();
+bool Iç²’å­::fæŽ¥å£_iå¯é”€æ¯() const {
+	return fiæ­»äº¡();
 }
-void IÁ£×Ó::f¼ÆËã_ÔË¶¯() {
-	m×ø±ê += mËÙ¶È * mÓÎÏ·ËÙ¶È->fgÃë();
+void Iç²’å­::fè®¡ç®—_è¿åŠ¨() {
+	måæ ‡ += mé€Ÿåº¦ * mæ¸¸æˆé€Ÿåº¦->fgç§’();
 }
-void IÁ£×Ó::f¼ÆËã_ÉúÃü() {
-	mÉúÃü += mÓÎÏ·ËÙ¶È->fgÃë();
+void Iç²’å­::fè®¡ç®—_ç”Ÿå‘½() {
+	mç”Ÿå‘½ += mæ¸¸æˆé€Ÿåº¦->fgç§’();
 }
-float IÁ£×Ó::fgÉúÃü°Ù·Ö±È() const {
-	return mÉúÃü / mÊÙÃü;
+float Iç²’å­::fgç”Ÿå‘½ç™¾åˆ†æ¯”() const {
+	return mç”Ÿå‘½ / må¯¿å‘½;
 }
-float IÁ£×Ó::fg·´ÉúÃü°Ù·Ö±È() const {
-	return 1 - fgÉúÃü°Ù·Ö±È();
+float Iç²’å­::fgåç”Ÿå‘½ç™¾åˆ†æ¯”() const {
+	return 1 - fgç”Ÿå‘½ç™¾åˆ†æ¯”();
 }
-bool IÁ£×Ó::fiËÀÍö() const {
-	return mÉúÃü >= mÊÙÃü;
+bool Iç²’å­::fiæ­»äº¡() const {
+	return mç”Ÿå‘½ >= må¯¿å‘½;
 }
-namespace Í¼ÐÎ {
+namespace å›¾å½¢ {
 //=============================================================================
-// Ô²ÐÎ
+// åœ†å½¢
 //=============================================================================
-CÔ²ÐÎ::CÔ²ÐÎ(float p¿ªÊ¼, float p½áÊø):
-	m¿ªÊ¼°ë¾¶{p¿ªÊ¼}, m½áÊø°ë¾¶{p½áÊø} {
+Cåœ†å½¢::Cåœ†å½¢(float på¼€å§‹, float pç»“æŸ):
+	må¼€å§‹åŠå¾„{på¼€å§‹}, mç»“æŸåŠå¾„{pç»“æŸ} {
 }
-void CÔ²ÐÎ::f½Ó¿Ú_¼ÆËã() {
-	f¼ÆËã_ÉúÃü();
+void Cåœ†å½¢::fæŽ¥å£_è®¡ç®—() {
+	fè®¡ç®—_ç”Ÿå‘½();
 }
-void CÔ²ÐÎ::f½Ó¿Ú_ÏÔÊ¾() const {
-	auto &v»­Í¼ÐÎ = CÓÎÏ·::fgÍ¼ÐÎ().fg»­Í¼ÐÎ();
-	v»­Í¼ÐÎ.fsÑÕÉ«(tÑÕÉ«{1, 1, 1, fg·´ÉúÃü°Ù·Ö±È()});
-	v»­Í¼ÐÎ.f»æÖÆÔ²ÐÎ(tÔ²ÐÎ(m×ø±ê, fgµ±Ç°°ë¾¶()));
+void Cåœ†å½¢::fæŽ¥å£_æ˜¾ç¤º() const {
+	auto &vç”»å›¾å½¢ = Cæ¸¸æˆ::fgå›¾å½¢().fgç”»å›¾å½¢();
+	vç”»å›¾å½¢.fsé¢œè‰²(té¢œè‰²{1, 1, 1, fgåç”Ÿå‘½ç™¾åˆ†æ¯”()});
+	vç”»å›¾å½¢.fç»˜åˆ¶åœ†å½¢(tåœ†å½¢(måæ ‡, fgå½“å‰åŠå¾„()));
 }
-float CÔ²ÐÎ::fgµ±Ç°°ë¾¶() const {
-	return ÊýÑ§::f²åÖµ<float>(m¿ªÊ¼°ë¾¶, m½áÊø°ë¾¶, fgÉúÃü°Ù·Ö±È());
+float Cåœ†å½¢::fgå½“å‰åŠå¾„() const {
+	return æ•°å­¦::fæ’å€¼<float>(må¼€å§‹åŠå¾„, mç»“æŸåŠå¾„, fgç”Ÿå‘½ç™¾åˆ†æ¯”());
 }
-}	//namespace Í¼ÐÎ
-}	//namespace ¶«·½É½Õ¯
+}	//namespace å›¾å½¢
+}	//namespace ä¸œæ–¹å±±å¯¨

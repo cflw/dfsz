@@ -1,18 +1,18 @@
-#pragma once
-#include "ÊıÑ§°üº¬.h"
-namespace ¶«·½É½Õ¯ {
-class CÍæ¼Ò;
-class C×Ó»ú;
-class I×Ó»úÒÆ¶¯ {
+ï»¿#pragma once
+#include "æ•°å­¦åŒ…å«.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cç©å®¶;
+class Cå­æœº;
+class Iå­æœºç§»åŠ¨ {
 public:
-	virtual void f½Ó¿Ú_¼ÆËã() = 0;
-	virtual void f½Ó¿Ú_¸´Î»(int ÊıÁ¿) = 0;	//×Ó»úÊıÁ¿·¢Éú±ä»¯Ê±µ÷ÓÃ
-	virtual void f½Ó¿Ú_°ó¶¨Íæ¼Ò(CÍæ¼Ò &);
+	virtual void fæ¥å£_è®¡ç®—() = 0;
+	virtual void fæ¥å£_å¤ä½(int æ•°é‡) = 0;	//å­æœºæ•°é‡å‘ç”Ÿå˜åŒ–æ—¶è°ƒç”¨
+	virtual void fæ¥å£_ç»‘å®šç©å®¶(Cç©å®¶ &);
 protected:
-	void f³õÊ¼»¯_°ó¶¨Íæ¼Ò(CÍæ¼Ò &);
-	std::vector<C×Ó»ú> *va×Ó»ú;	//¶à¸ö×Ó»ú
-	const tÏòÁ¿2 *v×Ô»ú×ø±ê;	//×Ô»ú×ø±ê
-	const int *v×Ó»úÊıÁ¿;	//×Ó»úÊµÊ±ÊıÁ¿
-	const float *vµÍËÙ½¥±ä;	//Íæ¼ÒµÍËÙ½¥±ä
+	void fåˆå§‹åŒ–_ç»‘å®šç©å®¶(Cç©å®¶ &);
+	std::vector<Cå­æœº> *vaå­æœº;	//å¤šä¸ªå­æœº
+	const tå‘é‡2 *vè‡ªæœºåæ ‡;	//è‡ªæœºåæ ‡
+	const int *vå­æœºæ•°é‡;	//å­æœºå®æ—¶æ•°é‡
+	const float *vä½é€Ÿæ¸å˜;	//ç©å®¶ä½é€Ÿæ¸å˜
 };
 }

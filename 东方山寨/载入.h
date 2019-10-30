@@ -1,43 +1,43 @@
-#pragma once
+ï»¿#pragma once
 #include <boost/property_tree/ptree.hpp>
 #include <map>
 #include <filesystem>
 #include <memory>
-namespace ¶«·½É½Õ¯ {
-struct SÔØÈë²ÎÊı {
-	const boost::property_tree::wptree &mÊ÷;
-	const std::filesystem::path &mÂ·¾¶;
+namespace ä¸œæ–¹å±±å¯¨ {
+struct Sè½½å…¥å‚æ•° {
+	const boost::property_tree::wptree &mæ ‘;
+	const std::filesystem::path &mè·¯å¾„;
 };
-class CÔØÈë {
+class Cè½½å…¥ {
 public:
-	typedef std::unique_ptr<boost::property_tree::wptree> tpÊ÷;
-	typedef boost::property_tree::wptree tÊ÷;
-	typedef void(*tfÔØÈëÊı¾İ)(const SÔØÈë²ÎÊı &);
-	static std::map<int, tfÔØÈëÊı¾İ> gÔØÈëº¯Êı;
-	static void f»ã×Ü(const SÔØÈë²ÎÊı &);
-	static void f×Óµ¯(const SÔØÈë²ÎÊı &);
-	static void fÍ¼ĞÎ(const SÔØÈë²ÎÊı &);
-	static void f¶¯»­(const SÔØÈë²ÎÊı &);
-	static void f×Ô»ú(const SÔØÈë²ÎÊı &);
-	static void fµĞ»ú(const SÔØÈë²ÎÊı &);
-	static void f×Ó»ú(const SÔØÈë²ÎÊı &);
-	static void f×Ó»úÎ»ÖÃ(const SÔØÈë²ÎÊı &);
-	static void fÍæ¼Ò×Óµ¯(const SÔØÈë²ÎÊı &);
-	static void fÍæ¼Ò·¢Éä(const SÔØÈë²ÎÊı &);
-	static void fÎÆÀíÁĞ±í0(const SÔØÈë²ÎÊı &);
-	static void fÄ£ĞÍÁĞ±í0(const SÔØÈë²ÎÊı &);
-	static void fÉùÒôÁĞ±í0(const SÔØÈë²ÎÊı &);
-	static void fÉùÒôÁĞ±í1(const SÔØÈë²ÎÊı &);
-	static void fÎÄ±¾(const SÔØÈë²ÎÊı &);
+	typedef std::unique_ptr<boost::property_tree::wptree> tpæ ‘;
+	typedef boost::property_tree::wptree tæ ‘;
+	typedef void(*tfè½½å…¥æ•°æ®)(const Sè½½å…¥å‚æ•° &);
+	static std::map<int, tfè½½å…¥æ•°æ®> gè½½å…¥å‡½æ•°;
+	static void fæ±‡æ€»(const Sè½½å…¥å‚æ•° &);
+	static void få­å¼¹(const Sè½½å…¥å‚æ•° &);
+	static void få›¾å½¢(const Sè½½å…¥å‚æ•° &);
+	static void fåŠ¨ç”»(const Sè½½å…¥å‚æ•° &);
+	static void fè‡ªæœº(const Sè½½å…¥å‚æ•° &);
+	static void fæ•Œæœº(const Sè½½å…¥å‚æ•° &);
+	static void få­æœº(const Sè½½å…¥å‚æ•° &);
+	static void få­æœºä½ç½®(const Sè½½å…¥å‚æ•° &);
+	static void fç©å®¶å­å¼¹(const Sè½½å…¥å‚æ•° &);
+	static void fç©å®¶å‘å°„(const Sè½½å…¥å‚æ•° &);
+	static void fçº¹ç†åˆ—è¡¨0(const Sè½½å…¥å‚æ•° &);
+	static void fæ¨¡å‹åˆ—è¡¨0(const Sè½½å…¥å‚æ•° &);
+	static void få£°éŸ³åˆ—è¡¨0(const Sè½½å…¥å‚æ•° &);
+	static void få£°éŸ³åˆ—è¡¨1(const Sè½½å…¥å‚æ•° &);
+	static void fæ–‡æœ¬(const Sè½½å…¥å‚æ•° &);
 };
-class CÄÚ²¿ÔØÈë {
+class Cå†…éƒ¨è½½å…¥ {
 public:
-	static void fµÀ¾ß();
-	static void f»­×Óµ¯();
-	static void f×Ó»ú();
-	static void fÍæ¼Ò×Óµ¯();
-	static void fÍæ¼Ò×Óµ¯·¢Éä();
-	static void f¶¯»­();
-	static void fÄ£ĞÍ();
+	static void fé“å…·();
+	static void fç”»å­å¼¹();
+	static void få­æœº();
+	static void fç©å®¶å­å¼¹();
+	static void fç©å®¶å­å¼¹å‘å°„();
+	static void fåŠ¨ç”»();
+	static void fæ¨¡å‹();
 };
 }

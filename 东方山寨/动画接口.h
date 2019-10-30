@@ -1,32 +1,32 @@
-#pragma once
+ï»¿#pragma once
 #include <variant>
-#include "ÊıÑ§°üº¬.h"
-#include "»ù´¡.h"
-namespace ¶«·½É½Õ¯ {
+#include "æ•°å­¦åŒ…å«.h"
+#include "åŸºç¡€.h"
+namespace ä¸œæ–¹å±±å¯¨ {
 //=============================================================================
-// ¶¯»­½Ó¿Ú
+// åŠ¨ç”»æ¥å£
 //=============================================================================
-typedef std::variant<int, float, bool> t¶¯»­¶¯×÷Öµ;
-enum class E¶¯»­¶¯×÷ {
-	eÕı³£,
-	eË®Æ½ÒÆ¶¯,
-	e¶¯×÷,
-	e¹Ì¶¨Ö¡,
-	eÍ¸Ã÷¶È,
+typedef std::variant<int, float, bool> tåŠ¨ç”»åŠ¨ä½œå€¼;
+enum class EåŠ¨ç”»åŠ¨ä½œ {
+	eæ­£å¸¸,
+	eæ°´å¹³ç§»åŠ¨,
+	eåŠ¨ä½œ,
+	eå›ºå®šå¸§,
+	eé€æ˜åº¦,
 };
-class I¶¯»­ {
+class IåŠ¨ç”» {
 public:
-	virtual void f½Ó¿Ú_s¸¸¶ÔÏó(void *);	//³õÊ¼»¯Ê±µ÷ÓÃ
-	virtual void f½Ó¿Ú_¼ÆËã();
-	virtual void f½Ó¿Ú_¸üĞÂ();
-	virtual void f½Ó¿Ú_¶¯×÷(const E¶¯»­¶¯×÷ &, const t¶¯»­¶¯×÷Öµ & = {});
-	virtual int f½Ó¿Ú_g¶¥µãĞòºÅ() const;
-	virtual tÏòÁ¿3 f½Ó¿Ú_gĞı×ª() const;
-	virtual tÏòÁ¿3 f½Ó¿Ú_gËõ·Å() const;
-	virtual float f½Ó¿Ú_gÍ¸Ã÷¶È() const;
-	virtual const CÓÎÏ·ËÙ¶È *f½Ó¿Ú_gÓÎÏ·ËÙ¶È() const;	//¶¯»­Ëù´¦»·¾³µÄÓÎÏ·ËÙ¶È
-	static int fg¶¯×÷Öµi(const t¶¯»­¶¯×÷Öµ &);
-	static float fg¶¯×÷Öµf(const t¶¯»­¶¯×÷Öµ &);
-	static bool fg¶¯×÷Öµb(const t¶¯»­¶¯×÷Öµ &);
+	virtual void fæ¥å£_sçˆ¶å¯¹è±¡(void *);	//åˆå§‹åŒ–æ—¶è°ƒç”¨
+	virtual void fæ¥å£_è®¡ç®—();
+	virtual void fæ¥å£_æ›´æ–°();
+	virtual void fæ¥å£_åŠ¨ä½œ(const EåŠ¨ç”»åŠ¨ä½œ &, const tåŠ¨ç”»åŠ¨ä½œå€¼ & = {});
+	virtual int fæ¥å£_gé¡¶ç‚¹åºå·() const;
+	virtual tå‘é‡3 fæ¥å£_gæ—‹è½¬() const;
+	virtual tå‘é‡3 fæ¥å£_gç¼©æ”¾() const;
+	virtual float fæ¥å£_gé€æ˜åº¦() const;
+	virtual const Cæ¸¸æˆé€Ÿåº¦ *fæ¥å£_gæ¸¸æˆé€Ÿåº¦() const;	//åŠ¨ç”»æ‰€å¤„ç¯å¢ƒçš„æ¸¸æˆé€Ÿåº¦
+	static int fgåŠ¨ä½œå€¼i(const tåŠ¨ç”»åŠ¨ä½œå€¼ &);
+	static float fgåŠ¨ä½œå€¼f(const tåŠ¨ç”»åŠ¨ä½œå€¼ &);
+	static bool fgåŠ¨ä½œå€¼b(const tåŠ¨ç”»åŠ¨ä½œå€¼ &);
 };
 }

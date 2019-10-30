@@ -1,16 +1,16 @@
-#pragma once
+ï»¿#pragma once
 #include <string>
-#include "»ù´¡_Êı×é.h"
-namespace ¶«·½É½Õ¯ {
-namespace ¼ÆËã {
-std::wstring fÎÄ±¾ÓïÑÔÇ°×º(const std::wstring &aÃû³Æ, const std::wstring &aÓïÑÔ);
+#include "åŸºç¡€_æ•°ç»„.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+namespace è®¡ç®— {
+std::wstring fæ–‡æœ¬è¯­è¨€å‰ç¼€(const std::wstring &aåç§°, const std::wstring &aè¯­è¨€);
 }
-class CÈ¡ÎÄ±¾ {
+class Cå–æ–‡æœ¬ {
 public:
-	CÈ¡ÎÄ±¾(const CÊôĞÔÊı×é<std::wstring> &Êı×é, const std::wstring &Ãû³Æ);
+	Cå–æ–‡æœ¬(const Cå±æ€§æ•°ç»„<std::wstring> &æ•°ç»„, const std::wstring &åç§°);
 	const std::wstring &operator [](const std::wstring &) const;
-	std::wstring f¼ÆËãÃû³Æ(const std::wstring &) const;
-	const CÊôĞÔÊı×é<std::wstring> *maÎÄ±¾;
-	std::wstring mÃû³Æ;
+	std::wstring fè®¡ç®—åç§°(const std::wstring &) const;
+	const Cå±æ€§æ•°ç»„<std::wstring> *maæ–‡æœ¬;
+	std::wstring måç§°;
 };
 }

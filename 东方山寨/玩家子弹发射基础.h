@@ -1,65 +1,65 @@
-#pragma once
-#include "»ù´¡.h"
-#include "Íæ¼Ò×Óµ¯ÖÆÔì»ú.h"
-namespace ¶«·½É½Õ¯ {
-class IÍæ¼Ò·¢Éä»·¾³ {
+ï»¿#pragma once
+#include "åŸºç¡€.h"
+#include "ç©å®¶å­å¼¹åˆ¶é€ æœº.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+class Iç©å®¶å‘å°„ç¯å¢ƒ {
 public:
-	virtual CÍæ¼Ò &fgÍæ¼Ò() const = 0;
-	virtual tÏòÁ¿2 fg·¢Éä×ø±ê() const = 0;
-	virtual tÏòÁ¿2 fgÖĞĞÄ×ø±ê() const = 0;	//×Ô»úµÄ×ø±ê
-	virtual tÏòÁ¿2 fgÏà¶Ô×ø±ê() const;
-	virtual float fgÏà¶Ô·½Ïòr() const;
-	virtual const CÓÎÏ·ËÙ¶È &fgÓÎÏ·ËÙ¶È() const;
-	virtual const float &fgµÍËÙ½¥±ä() const;
+	virtual Cç©å®¶ &fgç©å®¶() const = 0;
+	virtual tå‘é‡2 fgå‘å°„åæ ‡() const = 0;
+	virtual tå‘é‡2 fgä¸­å¿ƒåæ ‡() const = 0;	//è‡ªæœºçš„åæ ‡
+	virtual tå‘é‡2 fgç›¸å¯¹åæ ‡() const;
+	virtual float fgç›¸å¯¹æ–¹å‘r() const;
+	virtual const Cæ¸¸æˆé€Ÿåº¦ &fgæ¸¸æˆé€Ÿåº¦() const;
+	virtual const float &fgä½é€Ÿæ¸å˜() const;
 };
-class CÍæ¼Ò·¢Éä»·¾³ : public IÍæ¼Ò·¢Éä»·¾³ {
+class Cç©å®¶å‘å°„ç¯å¢ƒ : public Iç©å®¶å‘å°„ç¯å¢ƒ {
 public:
-	CÍæ¼Ò·¢Éä»·¾³(CÍæ¼Ò &);
-	CÍæ¼Ò &fgÍæ¼Ò() const override;
-	tÏòÁ¿2 fg·¢Éä×ø±ê() const override;
-	tÏòÁ¿2 fgÖĞĞÄ×ø±ê() const override;
-	const CÓÎÏ·ËÙ¶È &fgÓÎÏ·ËÙ¶È() const override;
-	tÏòÁ¿2 fgÏà¶Ô×ø±ê() const override;
-	float fgÏà¶Ô·½Ïòr() const override;
-	const float &fgµÍËÙ½¥±ä() const override;
-	CÍæ¼Ò *mÍæ¼Ò = nullptr;
+	Cç©å®¶å‘å°„ç¯å¢ƒ(Cç©å®¶ &);
+	Cç©å®¶ &fgç©å®¶() const override;
+	tå‘é‡2 fgå‘å°„åæ ‡() const override;
+	tå‘é‡2 fgä¸­å¿ƒåæ ‡() const override;
+	const Cæ¸¸æˆé€Ÿåº¦ &fgæ¸¸æˆé€Ÿåº¦() const override;
+	tå‘é‡2 fgç›¸å¯¹åæ ‡() const override;
+	float fgç›¸å¯¹æ–¹å‘r() const override;
+	const float &fgä½é€Ÿæ¸å˜() const override;
+	Cç©å®¶ *mç©å®¶ = nullptr;
 };
-class CÍæ¼Ò×Óµ¯·¢ÉäÆ÷ {
+class Cç©å®¶å­å¼¹å‘å°„å™¨ {
 public:
-	static constexpr float cÇ°·½Ïò = ÊıÑ§::c°ë¦Ğ<float>;
-	static constexpr float c·¢ÉäÊ±¼ä = 0.2f;
-	static constexpr float c·¢Éä¼ä¸ô = 0.05f;
-	static constexpr float cËÙ¶È´óĞ¡ = 2000;
-	CÍæ¼Ò×Óµ¯·¢ÉäÆ÷();
-	//³õÊ¼»¯
-	void f³õÊ¼»¯_·¢Éä»·¾³(std::shared_ptr<IÍæ¼Ò·¢Éä»·¾³>);
-	void f³õÊ¼»¯_Ê±¼ä±äÁ¿();
-	//»ù´¡
-	void f»ù´¡_Ò»¼ü¼ÆËã(float = c·¢Éä¼ä¸ô);	//ÔÚ f½Ó¿Ú_¼ÆËã ÖĞµ÷ÓÃ
-	void f»ù´¡_¼ÆËãÊ±¼ä();
-	void f»ù´¡_·¢Éä¼ä¸ô(float);	//ÔÚ·¢Éä×Óµ¯ºóµ÷ÓÃ
-	bool f»ù´¡_i¿É·¢Éä() const;
-	bool f»ù´¡_i·¢Éä¼ä¸ô() const;
-	bool f»ù´¡_i²»·¢Éä() const;
-	void f»ù´¡_¸´Î»();
-	void f»ù´¡_s×Óµ¯ÊôĞÔ(const SÍæ¼Ò×Óµ¯ÊôĞÔ *);
-	void fÊôĞÔ_s·¢Éä¼ä¸ô(float);
-	//½Ó¿Ú
-	virtual void f½Ó¿Ú_³õÊ¼»¯();
-	virtual void f½Ó¿Ú_¼ÆËã();
-	virtual void f½Ó¿Ú_¸´Î»();
-	virtual void f½Ó¿Ú_²úÉú×Óµ¯();	//ÓÉ"f½Ó¿Ú_¼ÆËã"µ÷ÓÃ, ²úÉú×Óµ¯
-	//Íâ²¿¿ØÖÆ
-	void f·¢Éä();
-	void f¼ÆËã();
+	static constexpr float cå‰æ–¹å‘ = æ•°å­¦::cåŠÏ€<float>;
+	static constexpr float cå‘å°„æ—¶é—´ = 0.2f;
+	static constexpr float cå‘å°„é—´éš” = 0.05f;
+	static constexpr float cé€Ÿåº¦å¤§å° = 2000;
+	Cç©å®¶å­å¼¹å‘å°„å™¨();
+	//åˆå§‹åŒ–
+	void fåˆå§‹åŒ–_å‘å°„ç¯å¢ƒ(std::shared_ptr<Iç©å®¶å‘å°„ç¯å¢ƒ>);
+	void fåˆå§‹åŒ–_æ—¶é—´å˜é‡();
+	//åŸºç¡€
+	void fåŸºç¡€_ä¸€é”®è®¡ç®—(float = cå‘å°„é—´éš”);	//åœ¨ fæ¥å£_è®¡ç®— ä¸­è°ƒç”¨
+	void fåŸºç¡€_è®¡ç®—æ—¶é—´();
+	void fåŸºç¡€_å‘å°„é—´éš”(float);	//åœ¨å‘å°„å­å¼¹åè°ƒç”¨
+	bool fåŸºç¡€_iå¯å‘å°„() const;
+	bool fåŸºç¡€_iå‘å°„é—´éš”() const;
+	bool fåŸºç¡€_iä¸å‘å°„() const;
+	void fåŸºç¡€_å¤ä½();
+	void fåŸºç¡€_så­å¼¹å±æ€§(const Sç©å®¶å­å¼¹å±æ€§ *);
+	void få±æ€§_så‘å°„é—´éš”(float);
+	//æ¥å£
+	virtual void fæ¥å£_åˆå§‹åŒ–();
+	virtual void fæ¥å£_è®¡ç®—();
+	virtual void fæ¥å£_å¤ä½();
+	virtual void fæ¥å£_äº§ç”Ÿå­å¼¹();	//ç”±"fæ¥å£_è®¡ç®—"è°ƒç”¨, äº§ç”Ÿå­å¼¹
+	//å¤–éƒ¨æ§åˆ¶
+	void få‘å°„();
+	void fè®¡ç®—();
 protected:
-	//»·¾³
-	std::shared_ptr<IÍæ¼Ò·¢Éä»·¾³> m·¢Éä»·¾³;
-	std::shared_ptr<CÍæ¼Ò×Óµ¯ÖÆÔì»ú> m×Óµ¯ÖÆÔì»ú;
-	//±äÁ¿
-	float mÊ£ÓàÊ±¼ä = 0;	//Ê£Óà·¢ÉäÊ±¼ä
-	float m¼ä¸ôÊ±¼ä = 0;	//·¢Éä¼ä¸ô
-	float m·¢ÉäÊ±¼ä = 0;	//ÒÑ·¢ÉäÊ±¼ä
-	float m·¢Éä¼ä¸ô = c·¢Éä¼ä¸ô;
+	//ç¯å¢ƒ
+	std::shared_ptr<Iç©å®¶å‘å°„ç¯å¢ƒ> må‘å°„ç¯å¢ƒ;
+	std::shared_ptr<Cç©å®¶å­å¼¹åˆ¶é€ æœº> må­å¼¹åˆ¶é€ æœº;
+	//å˜é‡
+	float må‰©ä½™æ—¶é—´ = 0;	//å‰©ä½™å‘å°„æ—¶é—´
+	float mé—´éš”æ—¶é—´ = 0;	//å‘å°„é—´éš”
+	float må‘å°„æ—¶é—´ = 0;	//å·²å‘å°„æ—¶é—´
+	float må‘å°„é—´éš” = cå‘å°„é—´éš”;
 };
-}	//namespace ¶«·½É½Õ¯
+}	//namespace ä¸œæ–¹å±±å¯¨

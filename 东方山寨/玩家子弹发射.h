@@ -1,8 +1,8 @@
-#pragma once
-#include "Íæ¼Ò×Óµ¯·¢Éä»ù´¡.h"
-namespace ¶«·½É½Õ¯::Íæ¼Ò×Óµ¯·¢Éä {
-class C×Ô»ú»ù´¡ : public CÍæ¼Ò×Óµ¯·¢Éä {
+ï»¿#pragma once
+#include "ç©å®¶å­å¼¹å‘å°„åŸºç¡€.h"
+namespace ä¸œæ–¹å±±å¯¨::ç©å®¶å­å¼¹å‘å°„ {
+class Cè‡ªæœºåŸºç¡€ : public Cç©å®¶å­å¼¹å‘å°„ {
 public:
-	void f½Ó¿Ú_²úÉú×Óµ¯() override;
+	void fæ¥å£_äº§ç”Ÿå­å¼¹() override;
 };
 }

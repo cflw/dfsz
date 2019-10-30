@@ -1,50 +1,50 @@
-#pragma once
-#include "×Óµ¯»ù´¡.h"
-namespace ¶«·½É½Õ¯ {
-class CÇúÏß¼¤¹â : public C×Óµ¯ {
+ï»¿#pragma once
+#include "å­å¼¹åŸºç¡€.h"
+namespace ä¸œæ–¹å±±å¯¨ {
+class Cæ›²çº¿æ¿€å…‰ : public Cå­å¼¹ {
 public:
-	static constexpr float cÄ¬ÈÏ³¤¶È = 20;
-	struct S½Úµã {
-		int mĞòºÅ;
-		tÏòÁ¿2 mÔ­×ø±ê;
-		tÏòÁ¿2 m×ø±ê;
-		tÏòÁ¿2 mËÙ¶È;
-		float m·½Ïò;
-		tÑÕÉ« mÑÕÉ«;
-		S×Óµ¯ÏûÊ§ mÏûÊ§;
-		bool miµÀ¾ß;
-		void f¸üĞÂ(const tÏòÁ¿2 &, const tÏòÁ¿2 &, float, const tÑÕÉ« &);
+	static constexpr float cé»˜è®¤é•¿åº¦ = 20;
+	struct SèŠ‚ç‚¹ {
+		int måºå·;
+		tå‘é‡2 måŸåæ ‡;
+		tå‘é‡2 måæ ‡;
+		tå‘é‡2 mé€Ÿåº¦;
+		float mæ–¹å‘;
+		té¢œè‰² mé¢œè‰²;
+		Så­å¼¹æ¶ˆå¤± mæ¶ˆå¤±;
+		bool mié“å…·;
+		void fæ›´æ–°(const tå‘é‡2 &, const tå‘é‡2 &, float, const té¢œè‰² &);
 	};
-	void f½Ó¿Ú_³õÊ¼»¯() override;
-	void f½Ó¿Ú_²ÎÊı³õÊ¼»¯(const S×Óµ¯²ÎÊı &) override;
-	void f½Ó¿Ú_¼ÆËã() override;
-	void f½Ó¿Ú_¸üĞÂ() override;
-	void f½Ó¿Ú_ÏÔÊ¾() const override;
-	void f½Ó¿Ú_×Ô»úÅĞ¶¨(C×Ô»úÓë×Óµ¯ÅĞ¶¨ &) override;
-	bool f½Ó¿Ú_iÔÚ´°¿ÚÍâ() override;
-	bool f½Ó¿Ú_Õ¨µ¯ÅĞ¶¨(C×Óµ¯ÓëÍæ¼ÒÕ¨µ¯ÅĞ¶¨ &) override;
-	//³õÊ¼»¯
-	void f³õÊ¼»¯_³¤¿í(float, float = 1);
-	void f³õÊ¼»¯_¾«¶È(float);
-	//¶¯×÷
-	void f¶¯×÷_ÏûÊ§(bool);
-	//À©Õ¹
-	S½Úµã &fÀ©Õ¹_È¡½Úµã(int);
-	const S½Úµã &fÀ©Õ¹_È¡½Úµã(int) const;
-	S½Úµã &fÀ©Õ¹_È¡Í·½Úµã();
-	S½Úµã &fÀ©Õ¹_È¡Î²½Úµã();
-	void fÀ©Õ¹_¸üĞÂÍ·½Úµã();
-	void fÀ©Õ¹_½ÚµãÏûÊ§(int);
-	void fÀ©Õ¹_½ÚµãÏûÊ§¼ì²é();	//Èç¹ûÓĞ½ÚµãÏûÊ§¾Íµ÷ÓÃÕâ¸ö
-	std::vector<S½Úµã> &fÑ­»·_È«²¿();
-	Ñ­»·::C·¶Î§<std::vector<S½Úµã>> fÑ­»·_·¶Î§(int, int);
-	Ñ­»·::CÁãÉ¢<std::vector<S½Úµã>> fÑ­»·_ÖÜÎ§(int ½ÚµãĞòºÅ);
-	//ÊôĞÔ
-	float m³õÊ¼»¯_³¤¶È, m³õÊ¼»¯_¿í¶È, m³õÊ¼»¯_¾«¶È = 0.25f;
-	std::vector<S½Úµã> ma½Úµã;
-	S×Óµ¯³öÏÖ m³öÏÖ;
-	float m¼ÆËã¼ÆÊ±;
-	float m¼ÆËãÖÜÆÚ;
-	tp×Óµ¯Í¼ĞÎÊı¾İ mÍ¼ĞÎÊı¾İ;
+	void fæ¥å£_åˆå§‹åŒ–() override;
+	void fæ¥å£_å‚æ•°åˆå§‹åŒ–(const Så­å¼¹å‚æ•° &) override;
+	void fæ¥å£_è®¡ç®—() override;
+	void fæ¥å£_æ›´æ–°() override;
+	void fæ¥å£_æ˜¾ç¤º() const override;
+	void fæ¥å£_è‡ªæœºåˆ¤å®š(Cè‡ªæœºä¸å­å¼¹åˆ¤å®š &) override;
+	bool fæ¥å£_iåœ¨çª—å£å¤–() override;
+	bool fæ¥å£_ç‚¸å¼¹åˆ¤å®š(Cå­å¼¹ä¸ç©å®¶ç‚¸å¼¹åˆ¤å®š &) override;
+	//åˆå§‹åŒ–
+	void fåˆå§‹åŒ–_é•¿å®½(float, float = 1);
+	void fåˆå§‹åŒ–_ç²¾åº¦(float);
+	//åŠ¨ä½œ
+	void fåŠ¨ä½œ_æ¶ˆå¤±(bool);
+	//æ‰©å±•
+	SèŠ‚ç‚¹ &fæ‰©å±•_å–èŠ‚ç‚¹(int);
+	const SèŠ‚ç‚¹ &fæ‰©å±•_å–èŠ‚ç‚¹(int) const;
+	SèŠ‚ç‚¹ &fæ‰©å±•_å–å¤´èŠ‚ç‚¹();
+	SèŠ‚ç‚¹ &fæ‰©å±•_å–å°¾èŠ‚ç‚¹();
+	void fæ‰©å±•_æ›´æ–°å¤´èŠ‚ç‚¹();
+	void fæ‰©å±•_èŠ‚ç‚¹æ¶ˆå¤±(int);
+	void fæ‰©å±•_èŠ‚ç‚¹æ¶ˆå¤±æ£€æŸ¥();	//å¦‚æœæœ‰èŠ‚ç‚¹æ¶ˆå¤±å°±è°ƒç”¨è¿™ä¸ª
+	std::vector<SèŠ‚ç‚¹> &få¾ªç¯_å…¨éƒ¨();
+	å¾ªç¯::CèŒƒå›´<std::vector<SèŠ‚ç‚¹>> få¾ªç¯_èŒƒå›´(int, int);
+	å¾ªç¯::Cé›¶æ•£<std::vector<SèŠ‚ç‚¹>> få¾ªç¯_å‘¨å›´(int èŠ‚ç‚¹åºå·);
+	//å±æ€§
+	float måˆå§‹åŒ–_é•¿åº¦, måˆå§‹åŒ–_å®½åº¦, måˆå§‹åŒ–_ç²¾åº¦ = 0.25f;
+	std::vector<SèŠ‚ç‚¹> maèŠ‚ç‚¹;
+	Så­å¼¹å‡ºç° må‡ºç°;
+	float mè®¡ç®—è®¡æ—¶;
+	float mè®¡ç®—å‘¨æœŸ;
+	tpå­å¼¹å›¾å½¢æ•°æ® må›¾å½¢æ•°æ®;
 };
-}	//namespace ¶«·½É½Õ¯
+}	//namespace ä¸œæ–¹å±±å¯¨
