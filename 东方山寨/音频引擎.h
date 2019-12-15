@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "音频包含.h"
-#include "基础_数组.h"
+#include "基础_属性数组.h"
 namespace 东方山寨 {
 class C声音工厂;
 class C播放控制;

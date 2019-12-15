@@ -1,7 +1,7 @@
 ﻿#include "图形管理.h"
 namespace 东方山寨 {
 C图形管理::C图形管理() {
-	m图形工厂实现.f初始化_数组(ma图形);
+	m图形工厂实现.f初始化_数组(ma图形, ma图形缓冲);
 }
 void C图形管理::f初始化_环境(const C游戏速度 &a游戏速度) {
 	m图形工厂实现.f初始化_环境(a游戏速度);
@@ -27,19 +27,22 @@ void C图形管理::f游戏外显示() {
 	ma图形.fe使用([&](I图形 &a) {
 		va图形.push_back(&a);
 	});
-	std::sort(va图形.begin(), va图形.end(), [](const I图形 *a0, const I图形 *a1)->bool {
-		if (a0->m图层 != a1->m图层) {
-			return a0->m图层 < a1->m图层;
-		} else {
-			return a0->m显示编号 < a1->m显示编号;
-		}
-	});
+	//std::sort(va图形.begin(), va图形.end(), [](const I图形 *a0, const I图形 *a1)->bool {
+	//	if (a0->m图层 != a1->m图层) {
+	//		return a0->m图层 < a1->m图层;
+	//	} else {
+	//		return a0->m显示编号 < a1->m显示编号;
+	//	}
+	//});
 	for (const I图形* vp图形 : va图形) {
-		vp图形->f接口_显示();
+		//vp图形->f兼容显示();
 	}
 }
 C对象数组<I图形> &C图形管理::fg图形数组() {
 	return ma图形;
+}
+C缓冲数组<I图形缓冲> &C图形管理::fg图形缓冲数组() {
+	return ma图形缓冲;
 }
 C图形工厂 C图形管理::f工厂_图形() {
 	return C图形工厂(m图形工厂实现);

@@ -9,7 +9,7 @@ class C子弹;
 //==============================================================================
 class C子弹顶点 {
 public:
-	enum E顶点标记 {
+	enum E顶点标志 {
 		e坐标,	//为true时使用v点的成员变量,为false时使用v中心的成员变量
 		e位置,	//[0,1],如果为false每个点的位置平均分配
 		e出现,
@@ -97,14 +97,9 @@ class I子弹图形数据 {
 public:
 	virtual ~I子弹图形数据() = default;
 };
-using tp子弹图形数据 = std::shared_ptr<I子弹图形数据>;
+using tp子弹图形数据 = std::unique_ptr<I子弹图形数据>;
 class I画子弹 : public I图形管线 {
 public:
-	virtual void f绘制点(const C子弹顶点::C点 &) = 0;
-	virtual void f绘制直线(const C子弹顶点::C直线 &, const C子弹顶点::C直线::ta顶点 &) = 0;
-	virtual void f绘制曲线(const C子弹顶点::C曲线 &, const C子弹顶点::C曲线::ta顶点 &) = 0;
-	virtual void f绘制连续点(const C子弹顶点::C曲线 &, const C子弹顶点::C曲线::ta顶点 &) = 0;
-	virtual void f绘制网格(const C子弹顶点::C网格 &, const C子弹顶点::C网格::ta顶点 &) = 0;
 	virtual void f生成点(tp子弹图形数据 &, const C子弹顶点::C点 &) = 0;
 	virtual void f生成直线(tp子弹图形数据 &, const C子弹顶点::C直线 &, const C子弹顶点::C直线::ta顶点 &) = 0;
 	virtual void f生成曲线(tp子弹图形数据 &, const C子弹顶点::C曲线 &, const C子弹顶点::C曲线::ta顶点 &) = 0;

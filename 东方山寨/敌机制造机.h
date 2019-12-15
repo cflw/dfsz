@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "基础.h"
-#include "基础_数组.h"
+#include "基础_对象数组.h"
+#include "基础_属性数组.h"
 #include "敌机基础.h"
 namespace 东方山寨 {
 class C敌机;

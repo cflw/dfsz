@@ -136,6 +136,7 @@
     <ClCompile Include="图形工厂.cpp" />
     <ClCompile Include="图形引擎.cpp" />
     <ClCompile Include="图形引擎_资源工厂.cpp" />
+    <ClCompile Include="子弹图形缓冲.cpp" />
     <ClCompile Include="敌机图形模板.cpp" />
     <ClCompile Include="场景.cpp" />
     <ClCompile Include="基础.cpp" />
@@ -184,10 +185,12 @@
     <ClCompile Include="计算.cpp" />
     <ClCompile Include="载入.cpp" />
     <ClCompile Include="输入.cpp" />
+    <ClCompile Include="图形缓冲.cpp" />
     <ClCompile Include="道具.cpp" />
     <ClCompile Include="道具动画.cpp" />
     <ClCompile Include="难度.cpp" />
     <ClCompile Include="音频引擎.cpp" />
+    <ClCompile Include="预设图形.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="关卡.h" />
@@ -213,10 +216,18 @@
     <ClInclude Include="图形引擎.h" />
     <ClInclude Include="图形引擎_资源工厂.h" />
     <ClInclude Include="图形基础.h" />
+    <ClInclude Include="基础_动态数组.h" />
+    <ClInclude Include="基础_对象数组.h" />
+    <ClInclude Include="基础_属性数组.h" />
+    <ClInclude Include="基础_扩展数组.h" />
+    <ClInclude Include="基础_数组指针.h" />
+    <ClInclude Include="基础_数组计数.h" />
+    <ClInclude Include="基础_游戏对象.h" />
+    <ClInclude Include="基础_缓冲数组.h" />
+    <ClInclude Include="子弹图形缓冲.h" />
     <ClInclude Include="敌机图形模板.h" />
     <ClInclude Include="场景.h" />
     <ClInclude Include="基础.h" />
-    <ClInclude Include="基础_数组.h" />
     <ClInclude Include="对话.h" />
     <ClInclude Include="对话基础.h" />
     <ClInclude Include="游戏常量.h" />
@@ -267,11 +278,13 @@
     <ClInclude Include="计算.h" />
     <ClInclude Include="载入.h" />
     <ClInclude Include="输入.h" />
+    <ClInclude Include="图形缓冲.h" />
     <ClInclude Include="道具.h" />
     <ClInclude Include="道具动画.h" />
     <ClInclude Include="难度.h" />
     <ClInclude Include="音频包含.h" />
     <ClInclude Include="音频引擎.h" />
+    <ClInclude Include="预设图形.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\cflw代码库\cflw代码库.vcxproj">

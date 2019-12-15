@@ -3,12 +3,16 @@
 #include <experimental/generator>
 #include "数学包含.h"
 #include "基础.h"
-#include "基础_数组.h"
+#include "基础_属性数组.h"
+#include "基础_扩展数组.h"
+#include "基础_对象数组.h"
+#include "基础_缓冲数组.h"
 namespace 东方山寨 {
 typedef std::optional<float> t计算;
 class C子弹;
 struct S子弹属性;
 class I画子弹;
+class C子弹图形缓冲;
 //==============================================================================
 // 子弹制造机
 //==============================================================================
@@ -115,11 +119,12 @@ public:
 	class C实现 {
 	public:
 		void f初始化_环境(const C游戏速度 &);
-		void f初始化_数组(C对象数组<C子弹> &);
+		void f初始化_数组(C对象数组<C子弹> &, C缓冲数组<C子弹图形缓冲> &);
 		void f初始化_资源(const C属性数组<S子弹属性> &, const C扩展数组<I画子弹> &);
 		bool fi有空();
 		void f产生子弹(std::shared_ptr<C子弹>, S子弹参数 &);//调用"f产生子弹"前需要调用"f分配"
 		C对象数组<C子弹> *ma子弹 = nullptr;
+		C缓冲数组<C子弹图形缓冲> *ma子弹图形缓冲 = nullptr;
 		const C游戏速度 *m游戏速度 = nullptr;
 		const C属性数组<S子弹属性> *ma子弹属性 = nullptr;
 		const C扩展数组<I画子弹> *ma画子弹 = nullptr;

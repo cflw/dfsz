@@ -296,6 +296,15 @@
     <ClCompile Include="轨迹.cpp">
       <Filter>游戏本体\玩家</Filter>
     </ClCompile>
+    <ClCompile Include="子弹图形缓冲.cpp">
+      <Filter>游戏本体\子弹基础</Filter>
+    </ClCompile>
+    <ClCompile Include="图形缓冲.cpp">
+      <Filter>图形引擎\图形基础</Filter>
+    </ClCompile>
+    <ClCompile Include="预设图形.cpp">
+      <Filter>图形引擎\图形基础</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="脚本.h">
@@ -335,9 +344,6 @@
       <Filter>游戏本体\敌机</Filter>
     </ClInclude>
     <ClInclude Include="基础.h">
-      <Filter>游戏本体\游戏基础</Filter>
-    </ClInclude>
-    <ClInclude Include="基础_数组.h">
       <Filter>游戏本体\游戏基础</Filter>
     </ClInclude>
     <ClInclude Include="游戏.h">
@@ -543,6 +549,39 @@
     </ClInclude>
     <ClInclude Include="轨迹.h">
       <Filter>游戏本体\玩家</Filter>
+    </ClInclude>
+    <ClInclude Include="子弹图形缓冲.h">
+      <Filter>游戏本体\子弹基础</Filter>
+    </ClInclude>
+    <ClInclude Include="基础_动态数组.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="基础_游戏对象.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="基础_对象数组.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="基础_数组指针.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="基础_属性数组.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="基础_扩展数组.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="基础_数组计数.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="基础_缓冲数组.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="图形缓冲.h">
+      <Filter>图形引擎\图形基础</Filter>
+    </ClInclude>
+    <ClInclude Include="预设图形.h">
+      <Filter>图形引擎\图形基础</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

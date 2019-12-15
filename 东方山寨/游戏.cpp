@@ -8,6 +8,7 @@
 #include "游戏设置.h"
 #include "程序设置.h"
 #include "取文本.h"
+#include "基础_缓冲数组.h"
 //关卡
 #include "关卡.h"
 #include "王战.h"
@@ -25,6 +26,7 @@
 #include "子弹基础.h"
 #include "子弹制造机.h"
 #include "子弹图形接口.h"
+#include "子弹图形缓冲.h"
 //敌机头文件
 #include "敌机基础.h"
 #include "敌机制造机.h"
@@ -61,8 +63,8 @@ public:
 		m数组.clear();
 	}
 	void f统计(const std::wstring &a名称) {
-		double v时间 = m秒表.f上次到现在();
-		m数组[a名称] = v时间;
+		//double v时间 = m秒表.f上次到现在();
+		//m数组[a名称] = v时间;
 	}
 	时间::C秒表 m秒表;
 	std::map<std::wstring, double> m数组;
@@ -75,9 +77,9 @@ class C游戏::C资源 {
 public:
 	C游戏速度 m游戏速度;
 	bool m编译 = false;
-	C图形引擎 *mp图形;
-	C输入引擎 *mp输入;
-	C音频引擎 *mp音频;
+	C图形引擎 *mp图形 = nullptr;
+	C输入引擎 *mp输入 = nullptr;
+	C音频引擎 *mp音频 = nullptr;
 	std::map<std::wstring, int> ma名称标识;
 	t随机数引擎 m随机数引擎;
 	S游戏设置 m游戏设置;
@@ -169,23 +171,25 @@ public:
 	C敌机制造机::C实现 m敌机制造机实现;
 	C玩家子弹制造机::C实现 m玩家子弹制造机实现;
 	//更新
-	t任务 m更新图形;
-	t任务 m更新敌机;
-	t任务 m更新子弹;
-	t任务 m更新场景;
-	t任务 m更新玩家;
+	t任务 m异步更新图形;
+	t任务 m异步更新敌机;
+	t任务 m异步更新子弹;
+	t任务 m异步更新场景;
+	t任务 m异步更新玩家;
 	//游戏变量
 	C对象数组<C子弹> ma子弹{c子弹上限};
 	C对象数组<C玩家子弹> ma玩家子弹{c玩家子弹上限};
 	C对象数组<C道具> ma道具{c道具上限};
 	C对象数组<C敌机> ma敌机{c敌机上限};
+	C缓冲数组<C子弹图形缓冲> ma子弹图形缓冲;
 	C玩家 m玩家;
 	C难度 m难度;
 	t随机数引擎 m随机数引擎;
 	C关卡 *m新关卡 = nullptr;
 	//函数
 	C实现();
-	void f游戏初始化(const S游戏设置 &);
+	void f开始(const S游戏设置 &);
+	void f结束();
 	void f进入关卡(C关卡 &a关卡);
 	void f计算();
 	void f实现_进入关卡();
@@ -196,7 +200,7 @@ C游戏::C实现::C实现() {
 	g内容.m实现 = this;
 	//子弹制造机实现
 	m子弹制造机实现.f初始化_环境(m游戏速度);
-	m子弹制造机实现.f初始化_数组(ma子弹);
+	m子弹制造机实现.f初始化_数组(ma子弹, ma子弹图形缓冲);
 	m子弹制造机实现.f初始化_资源(mp资源->ma子弹属性, mp资源->ma画子弹接口);
 	//敌机制造机实现
 	m敌机制造机实现.f初始化_环境(m游戏速度);
@@ -217,7 +221,7 @@ C游戏::C实现::C实现() {
 	m对话.f初始化_环境(m关卡);
 	m场景.f初始化_图形(mp资源->mp图形->fg画三维());
 }
-void C游戏::C实现::f游戏初始化(const S游戏设置 &a设置) {
+void C游戏::C实现::f开始(const S游戏设置 &a设置) {
 	m玩家.fs自机(a设置.m自机标识);
 	m玩家.fs子机(a设置.m子机标识);
 	m玩家.fs炸弹(a设置.m炸弹标识);
@@ -225,21 +229,31 @@ void C游戏::C实现::f游戏初始化(const S游戏设置 &a设置) {
 	m难度.m基础难度 = a设置.m基础难度;
 	m难度.m增加难度 = a设置.m增加难度;
 }
+void C游戏::C实现::f结束() {
+	ma子弹.f清空();
+	ma玩家子弹.f清空();
+	ma道具.f清空();
+	ma敌机.f清空();
+	m玩家.f游戏结束();
+	m关卡.f结束();
+}
 void C游戏::C实现::f进入关卡(C关卡 &a关卡) {
 	m新关卡 = &a关卡;
 }
 void C游戏::C实现::f计算() {
 	//初始化
 	g负载统计.f开始();
-	m随机数引擎.discard(100);
+	if (m异步更新子弹.valid()) {
+		m异步更新子弹.wait();
+	}
 	//更新对象数组
-	std::vector<std::future<void>> va更新线程;
-	const auto f变化则更新 = [&va更新线程](auto &a容器) {
+	std::vector<std::future<void>> va异步计算;
+	const auto f变化则更新 = [&va异步计算](auto &a容器) {
 		if (a容器.fi变化()) {
 			auto f = [&a容器]() {
 				a容器.f更新();
 			};
-			va更新线程.emplace_back(std::async(f));
+			va异步计算.emplace_back(std::async(f));
 		}
 	};
 	//关卡
@@ -302,7 +316,7 @@ void C游戏::C实现::f计算() {
 	const t圆形 v自机吃道具点 = m玩家.m自机.fg吃道具点();
 	ma道具.fe使用_并行([&](C道具 &a当前道具) {
 		const t圆形 v道具判定点 = a当前道具.fg判定点();
-		if (!a当前道具.fw跟随()) {
+		if (!a当前道具.fi跟随()) {
 			if (数学::f圆形相交判定(v道具判定点, v自机吸道具点)) {
 				a当前道具.fs跟随(&m玩家, 4.f);
 			}
@@ -371,8 +385,8 @@ void C游戏::C实现::f计算() {
 	f变化则更新(va图形);
 	g负载统计.f统计(L"图形");
 	//合并线程
-	for (auto &v线程 : va更新线程) {
-		v线程.wait();
+	for (auto &v异步计算 : va异步计算) {
+		v异步计算.wait();
 	}
 	g负载统计.f统计(L"更新数组");
 }
@@ -380,7 +394,6 @@ void C游戏::C实现::f实现_进入关卡() {
 	m随机数引擎.seed((unsigned int)time(nullptr));
 	m玩家.f关卡初始化();
 	ma子弹.f清空();
-	m关卡.f结束();
 	m关卡.f初始化(*m新关卡);
 	m游戏速度.fs速度(1);
 }
@@ -397,40 +410,59 @@ void C游戏::C实现::f更新() {
 			});
 		});
 	};
-	auto &va图形 = fg图形().fg图形数组();
-	f并行更新(m更新图形, va图形, &I图形::f接口_更新);
-	f并行更新(m更新敌机, ma敌机, &C敌机::f更新);
-	f并行更新(m更新子弹, ma子弹, &C子弹::f接口_更新);
-	f简单更新(m更新场景, m场景, &C场景控制::f更新);
-	f简单更新(m更新玩家, m玩家, &C玩家::f更新);
+	m异步更新图形 = std::async([this]() {
+		auto &va图形 = fg图形().fg图形数组();
+		va图形.fe使用_并行([this](I图形 &a当前) {
+			a当前.f接口_更新();
+		});
+		auto &va缓冲 = fg图形().fg图形缓冲数组();
+		va缓冲.f更新();
+	});
+	f并行更新(m异步更新敌机, ma敌机, &C敌机::f更新);
+	m异步更新子弹 = std::async([this]() {
+		ma子弹.fe使用_并行([this](C子弹 &a当前) {
+			bool &vi可显示 = a当前.m图形缓冲->mi可显示;
+			vi可显示 = a当前.f接口_i可显示();
+			if (vi可显示) {
+				a当前.f接口_更新();
+			}
+		});
+		ma子弹图形缓冲.f更新();
+		ma子弹图形缓冲.f排序([](const C子弹图形缓冲 &a0, const C子弹图形缓冲 &a1)->bool {
+			return a0.m显示编号 < a1.m显示编号;
+		});
+	});
+	f简单更新(m异步更新场景, m场景, &C场景控制::f更新);
+	f简单更新(m异步更新玩家, m玩家, &C玩家::f更新);
 }
 void C游戏::C实现::f显示() {
 	//各种初始化
 	//v资源->v图形->v三维->f设置深度模板(v资源->v图形->v渲染状态.v深度模板.v正常深度, 1);
 	C图形引擎 *const v图形引擎 = mp资源->mp图形;
 	//图层
-	std::map<int, std::vector<const I图形 *>> va图层;
-	auto &va图形 = fg图形().fg图形数组();
-	va图形.fe使用([&](I图形 &a当前图形) {
-		va图层[a当前图形.m图层].push_back(&a当前图形);
-	});
-	auto f显示图形 = [&va图层](int p层) {
-		for (const auto &v图形 : va图层[p层]) {
-			v图形->f接口_显示();
+	m异步更新图形.wait();
+	std::map<int, std::vector<const I图形缓冲 *>> va图层;
+	auto &va图形 = fg图形().fg图形数组();	//现在只用于统计
+	auto &va缓冲 = fg图形().fg图形缓冲数组();
+	for (const auto &v缓冲 : va缓冲.ma缓冲) {
+		va图层[v缓冲->m图层].push_back(v缓冲.get());
+	}
+	auto f显示图形 = [&va图层](int a图层) {
+		for (const auto &v缓冲 : va图层[a图层]) {
+			v缓冲->f显示();
 		}
 	};
-	m更新图形.wait();
 	f显示图形((int)E图层::e底层);
-	m更新场景.wait();
+	m异步更新场景.wait();
 	m场景.f显示();
 	//敌机
-	m更新敌机.wait();
+	m异步更新敌机.wait();
 	ma敌机.fe使用([](C敌机 &a当前敌机) {
 		a当前敌机.f显示();
 	});
 	f显示图形((int)E图层::e敌机);
 	//玩家
-	m更新玩家.wait();
+	m异步更新玩家.wait();
 	m玩家.f显示();
 	ma玩家子弹.fe使用([](C玩家子弹 &a玩家子弹) {
 		a玩家子弹.f接口_显示();
@@ -443,19 +475,12 @@ void C游戏::C实现::f显示() {
 	f显示图形((int)E图层::e道具);
 	f显示图形((int)E图层::e图形);
 	//子弹
-	std::vector<const C子弹 *> v子弹数组;
-	m更新子弹.wait();
-	ma子弹.fe使用([&](C子弹 &a当前子弹) {
-		if (a当前子弹.f接口_可显示()) {
-			v子弹数组.push_back(&a当前子弹);
+	m异步更新子弹.wait();
+	for (const auto &v当前子弹 : ma子弹图形缓冲.ma缓冲) {
+		if (v当前子弹->mi可显示) {
+			v图形引擎->fs图形管线(v当前子弹->m绘制);
+			v当前子弹->f显示();
 		}
-	});
-	std::sort(v子弹数组.begin(), v子弹数组.end(), [](const C子弹 *a0, const C子弹 *a1)->bool {
-		return a0->m显示编号 < a1->m显示编号;
-	});
-	for (const auto &v当前子弹 : v子弹数组) {
-		v图形引擎->fs图形管线(v当前子弹->m绘制);
-		v当前子弹->f接口_显示();
 	}
 	f显示图形((int)E图层::e子弹);
 	//三维结束
@@ -507,8 +532,11 @@ void C游戏::f资源初始化() {
 		mp资源->f编译();
 	}
 }
-void C游戏::f游戏初始化() {
-	mp实现->f游戏初始化(mp资源->m游戏设置);
+void C游戏::f开始() {
+	mp实现->f开始(mp资源->m游戏设置);
+}
+void C游戏::f结束() {
+	mp实现->f结束();
 }
 void C游戏::f进入关卡(C关卡 &a关卡) {
 	mp实现->f进入关卡(a关卡);
@@ -521,6 +549,10 @@ void C游戏::f更新() {
 }
 void C游戏::f显示() const {
 	mp实现->f显示();
+}
+void C游戏::f推进随机数() {
+	mp实现->m随机数引擎.discard(1000);
+	mp资源->m随机数引擎.discard(1000);
 }
 C游戏::C内容 &C游戏::fg内容() {
 	return g内容;

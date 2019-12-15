@@ -8,7 +8,7 @@ float f插值(const std::pair<float, float> &a数值, float a插值) {
 	return 数学::f插值<float>(a数值.first, a数值.second, a插值);
 }
 bool f计时(float &a计时, float p) {
-	a计时 += c帧秒;
+	a计时 += (float)c帧秒;
 	if (a计时 > p) {
 		a计时 = 0;
 		return true;
@@ -53,13 +53,19 @@ int fc随机标识() {
 	return v;
 }
 float f预判自机狙(const t向量2 &a目标坐标, const t向量2 &a目标速度, const t向量2 &a发射坐标, float a发射速度) {
+	//已知问题1：目标坐标与目标速度同向时b>0，t为负。解决方法：b总是取负绝对值
+	//已知问题2：目标坐标与目标速度近似垂直时b≈0，t出现浮动。未解决
+	const t向量2 v目标坐标 = a目标坐标 - a发射坐标;
 	const float a0 = a目标速度.f平方() - std::pow(a发射速度, 2);
-	const float b0 = a目标坐标.f点乘(a目标速度) * 2;
-	const float c0 = a目标坐标.f平方();
+	const float b0 = -abs(v目标坐标.f点乘(a目标速度)) * 2;
+	const float c0 = v目标坐标.f平方();
 	const float d0 = b0 * b0 - 4 * a0 * c0;
 	const float v根号 = (d0 > 0) ? std::sqrt(d0) : 0;
 	const float t = (-b0 - v根号) / (2 * a0);
-	const t向量2 v命中坐标 = a目标坐标 + a目标速度 * t;
-	return a发射坐标.f到点方向r(v命中坐标);
+	//if (t < 0) {
+	//	return v目标坐标.fg方向r();
+	//}
+	const t向量2 v命中坐标 = v目标坐标 + a目标速度 * t;
+	return v命中坐标.fg方向r();
 }
 }}	//命名空间结束

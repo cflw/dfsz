@@ -4,7 +4,9 @@
 #include <cflw数学_随机.h>
 #include "数学包含.h"
 #include "基础.h"
-#include "基础_数组.h"
+#include "基础_对象数组.h"
+#include "基础_属性数组.h"
+#include "基础_扩展数组.h"
 namespace 东方山寨 {
 using Microsoft::WRL::ComPtr;
 typedef std::mt19937 t随机数引擎;
@@ -73,11 +75,13 @@ public:
 	void f初始化_输入接口(C输入引擎 &);
 	void f初始化_音频接口(C音频引擎 &);
 	void f资源初始化();
-	void f游戏初始化();
+	void f开始();	//总的开始,进入游戏前调用
+	void f结束();	//总的结束,回到主菜单前调用
 	void f进入关卡(C关卡 &);
 	void f计算();
 	void f更新();
 	void f显示() const;
+	void f推进随机数();
 public:	//公开控制
 	class C内容 {	//全局控制游戏的类
 		friend C游戏;

@@ -18,10 +18,10 @@ public:
 	void f结束();
 	void f按键控制_下一个();	//按z时调用
 	void f按键控制_跳过();	//按ctrl,或持续按z时调用
-	t标志::reference fg对话标记();
-	bool fg对话标记() const;
+	t标志::reference fg对话标志();
+	bool fg对话标志() const;
 	bool fi对话中() const;
-	bool fw结束() const;
+	bool fi结束() const;
 	//控制
 	void f控制_新对话框(const S对话参数_对话 &);
 	void f控制_显示立绘(const S对话参数_显示立绘 &);

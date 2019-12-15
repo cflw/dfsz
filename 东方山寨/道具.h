@@ -1,7 +1,8 @@
 ﻿#pragma once
 #include <cflw数学_随机.h>
 #include "基础.h"
-#include "基础_数组.h"
+#include "基础_对象数组.h"
+#include "基础_属性数组.h"
 #include "标识.h"
 #include "图形_图片.h"
 namespace 东方山寨 {
@@ -14,7 +15,7 @@ struct S道具属性;
 typedef std::function<void(const S道具属性 &, C玩家 &)> tf道具效果;
 class C道具 : public C内置图片动画 {
 public:
-	enum E标记 {
+	enum E标志 {
 		e使用
 	};
 	static constexpr float c下落加速度 = 64.f;
@@ -39,7 +40,7 @@ public:
 	void f效果(C玩家&);
 	bool fi在窗口外() const;
 	void fs跟随(C玩家 *玩家, float 时间);
-	bool fw跟随() const;
+	bool fi跟随() const;
 	void f计算运动();
 public:
 	C数组计数 *m计数指针;

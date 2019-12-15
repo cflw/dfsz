@@ -2,6 +2,7 @@
 #include "子弹图形接口.h"
 namespace 东方山寨 {
 class C子弹;
+struct S子弹属性;
 class C图形引擎;
 //设备无关的子弹顶点,在"I画子弹::f绘制"中转换成显示用的顶点
 class C画子弹_顶点 : public I画子弹 {
@@ -21,11 +22,6 @@ public:	//函数
 	virtual ~C画子弹_顶点() = default;
 	void f准备() override;
 	void f刷新() override;
-	void f绘制点(const C子弹顶点::C点 &) override;
-	void f绘制直线(const C子弹顶点::C直线 &, const C子弹顶点::C直线::ta顶点 &) override;
-	void f绘制曲线(const C子弹顶点::C曲线 &, const C子弹顶点::C曲线::ta顶点 &) override;
-	void f绘制连续点(const C子弹顶点::C曲线 &, const C子弹顶点::C曲线::ta顶点 &) override;
-	void f绘制网格(const C子弹顶点::C网格 &, const C子弹顶点::C网格::ta顶点 &) override;
 	void f生成点(tp子弹图形数据 &, const C子弹顶点::C点 &) override;
 	void f生成直线(tp子弹图形数据 &, const C子弹顶点::C直线 &, const C子弹顶点::C直线::ta顶点 &) override;
 	void f生成曲线(tp子弹图形数据 &, const C子弹顶点::C曲线 &, const C子弹顶点::C曲线::ta顶点 &) override;
@@ -33,8 +29,7 @@ public:	//函数
 	void f生成网格(tp子弹图形数据 &, const C子弹顶点::C网格 &, const C子弹顶点::C网格::ta顶点 &) override;
 	void f绘制图形数据(const tp子弹图形数据 &) override;
 private:	//内部画子弹函数
-	void f最后画子弹(const C子弹 *);
-	void f画子弹(const C子弹 &, const void *a顶点指针, size_t a顶点大小, const void *a索引指针, size_t a索引大小);
+	void f画子弹(const S子弹属性 &, const void *a顶点指针, size_t a顶点大小, const void *a索引指针, size_t a索引大小);
 	//索引
 	static void f自动索引_长条(int, const tf索引 &);
 	static void f自动索引_网格(int, int, const tf索引 &);
@@ -46,15 +41,11 @@ private:	//内部画子弹函数
 	static void f生成连续点0(const C子弹顶点::C曲线 &, const C子弹顶点::C曲线::ta顶点 &, const tf顶点 &, const tf索引 &);
 	static void f生成网格0(const C子弹顶点::C网格 &, const C子弹顶点::C网格::ta顶点 &, const tf顶点 &, const tf索引 &);
 	//分配函数
-	tf顶点 F分配顶点();
-	tf索引 F分配索引();
 	void f创建图形数据(tp子弹图形数据 &);
-	三维::C渲染控制 *m渲染控制;
+	三维::C渲染控制 *m渲染控制 = nullptr;
 	三维::tp图形管线 m图形管线;
 	三维::tp纹理 m纹理;
-	t自动缓冲 m缓存;
-	工具::C空间<t顶点> m顶点空间;
-	工具::C空间<t索引> m索引空间;
+	t自动缓冲 m缓冲;
 	三维::tp采样器 m采样器;
 	三维::tp缓冲 m常量缓冲;
 };

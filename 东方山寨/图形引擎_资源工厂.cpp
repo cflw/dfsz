@@ -84,11 +84,11 @@ void C顶点工厂::S参数::fs纹理尺寸(const t向量2 &a尺寸) {
 }
 void C顶点工厂::S参数::fs映射点_中心(const t向量2 &a点) {
 	m映射点 = a点;
-	m映射点标记 = e中心;
+	m映射点标志 = e中心;
 }
 void C顶点工厂::S参数::fs映射点_左上(const t向量2 &a点) {
 	m映射点 = a点;
-	m映射点标记 = e左上;
+	m映射点标志 = e左上;
 }
 void C顶点工厂::S参数::fs映射尺寸偏移(float a偏移) {
 	m映射尺寸偏移 = a偏移;
@@ -106,15 +106,15 @@ void C顶点工厂::S参数::fs顶点尺寸偏移(float a) {
 	m标志[e尺寸偏移] = true;
 }
 void C顶点工厂::S参数::f转换映射点() {
-	switch (m映射点标记) {
+	switch (m映射点标志) {
 	case e已转换:
 		break;
 	case e中心:
-		m映射点标记 = e已转换;
+		m映射点标志 = e已转换;
 		break;
 	case e左上:
 		m映射点 += m半尺寸;
-		m映射点标记 = e已转换;
+		m映射点标志 = e已转换;
 		break;
 	}
 }

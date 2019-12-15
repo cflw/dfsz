@@ -1,6 +1,7 @@
 ﻿#pragma once
-#include "基础_数组.h"
+#include "基础_数组指针.h"
 #include "图形基础.h"
+#include "图形缓冲.h"
 #include "图形引擎.h"
 #include "动画接口.h"
 namespace 东方山寨 {
@@ -41,11 +42,11 @@ struct S图片动画属性 {
 //==============================================================================
 // 图片图形
 //==============================================================================
-class C二维图片图形 : public I粒子, public I事件, public I动画 {
+class C二维图片图形 : public I粒子, public I事件, public I动画, public C兼容图形缓冲<C二维图片图形> {
 public:
 	C二维图片图形() = default;
 	void f接口_计算() override;
-	void f接口_显示() const override;
+	void f兼容显示() const;
 	void f接口_初始化(const S图形参数 &) override;
 	t向量3 f接口_g旋转() const override;
 	t向量3 f接口_g缩放() const override;
@@ -60,11 +61,11 @@ protected:
 	const S顶点矩形 *m顶点 = nullptr;
 };
 //三维
-class C三维图片图形 : public I粒子, public I事件, public I动画 {
+class C三维图片图形 : public I粒子, public I事件, public I动画, public C兼容图形缓冲<C二维图片图形> {
 public:
 	C三维图片图形() = default;
 	void f接口_计算() override;
-	void f接口_显示() const override;
+	void f兼容显示() const;
 	void f接口_初始化(const S图形参数 &) override;
 	t向量3 f接口_g旋转() const override;
 	t向量3 f接口_g缩放() const override;

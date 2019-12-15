@@ -5,11 +5,14 @@
 #include "图形包含.h"
 #include "数学包含.h"
 #include "基础.h"
-#include "基础_数组.h"
+#include "基础_对象数组.h"
+#include "基础_属性数组.h"
+#include "基础_缓冲数组.h"
 #include "游戏常量.h"
 namespace 东方山寨 {
 class I图形;
 class I图形管线;
+class I图形缓冲;
 struct S顶点矩形;
 struct S三维顶点;
 class C模型;
@@ -60,6 +63,7 @@ public:
 	着色器::C着色器工厂 &fg着色器工厂();
 	C图形管理 &fg图形管理();
 	C对象数组<I图形> &fg图形数组();
+	C缓冲数组<I图形缓冲> &fg图形缓冲数组();
 	C图形工厂 f工厂_图形();
 	std::shared_ptr<C图形工厂> f工厂_图形p();
 	//画预设图形

@@ -14,7 +14,7 @@ public:
 	static constexpr float c小字号 = 二维::ca中文字号[二维::e五号];
 	C关卡标题(const S关卡标题 &);
 	void f接口_计算() override;
-	void f接口_显示() const override;
+	void f兼容显示() const;
 public:
 	二维::tp文本布局 m布局;
 };
@@ -32,7 +32,7 @@ public:
 	static constexpr float c总长度 = 2 * c边框范围x + c间隔;
 	C总血条(int);
 	void f接口_更新() override;
-	void f接口_显示() const override;
+	void f兼容显示() const;
 	bool f接口_i可销毁() const override;
 	void f减一();
 private:
@@ -52,7 +52,7 @@ public:
 	C分血条(const C敌机 &);
 	void f接口_计算() override;
 	void f接口_更新() override;
-	void f接口_显示() const override;
+	void f兼容显示() const;
 	bool f接口_i可销毁() const override;
 private:
 	二维::tp渲染目标 m渲染目标;
@@ -76,7 +76,7 @@ public:
 	static const t颜色 c正常颜色, c急促颜色0, c急促颜色1;
 	C弹幕时间(const float &);
 	void f接口_更新() override;
-	void f接口_显示() const override;
+	void f兼容显示() const;
 	void f动作_重置颜色();
 private:
 	二维::tp渲染目标 m渲染目标;

@@ -45,7 +45,7 @@ void C对话控制::f开始(tp对话脚本 p) {
 	m对话脚本 = p;
 	m当前对话 = m对话脚本->cbegin();
 	f内部_执行对话事件();
-	fg对话标记() = true;
+	fg对话标志() = true;
 	m跳过等待 = c跳过间隔;
 }
 void C对话控制::f结束() {
@@ -56,8 +56,8 @@ void C对话控制::f结束() {
 		v立绘->f动作_结束();
 	}
 	ma对话立绘.clear();
-	//标记
-	fg对话标记() = false;
+	//标志
+	fg对话标志() = false;
 }
 void C对话控制::f按键控制_下一个() {
 	f内部_执行对话事件();
@@ -67,41 +67,41 @@ void C对话控制::f按键控制_跳过() {
 		f内部_执行对话事件();
 	}
 }
-t标志::reference C对话控制::fg对话标记() {
+t标志::reference C对话控制::fg对话标志() {
 	return m关卡->m标志[C关卡控制::E标志::e对话];
 }
-bool C对话控制::fg对话标记() const {
+bool C对话控制::fg对话标志() const {
 	return m关卡->m标志[C关卡控制::E标志::e对话];
 }
 bool C对话控制::fi对话中() const {
-	return fg对话标记();
+	return fg对话标志();
 }
-bool C对话控制::fw结束() const {
-	return !fg对话标记();
+bool C对话控制::fi结束() const {
+	return !fg对话标志();
 }
-void C对话控制::f控制_新对话框(const S对话参数_对话 &p) {
+void C对话控制::f控制_新对话框(const S对话参数_对话 &a) {
 	f内部_结束对话框();
 	auto v图形工厂 = C游戏::fg资源().f工厂_图形();
-	m当前对话框 = v图形工厂.f产生图形<C对话框>(p);
+	m当前对话框 = v图形工厂.f产生图形<C对话框>(a);
 }
-void C对话控制::f控制_显示立绘(const S对话参数_显示立绘 &p) {
-	assert(ma对话立绘.find(p.m标识) == ma对话立绘.end());	//必须没有
+void C对话控制::f控制_显示立绘(const S对话参数_显示立绘 &a) {
+	assert(ma对话立绘.find(a.m标识) == ma对话立绘.end());	//必须没有
 	auto v图形工厂 = C游戏::fg资源().f工厂_图形();
-	v图形工厂.m参数.m标志[I对话立绘::E初始化标记::e方向] = p.m方向;
-	auto v图形 = v图形工厂.f产生图形(*p.m立绘工厂);
+	v图形工厂.m参数.m标志[I对话立绘::E初始化标志::e方向] = a.m方向;
+	auto v图形 = v图形工厂.f产生图形(*a.m立绘工厂);
 	assert(v图形 != nullptr);	//可能因为达到图形上限而导致异常
-	ma对话立绘[p.m标识] = v图形;
+	ma对话立绘[a.m标识] = v图形;
 	f内部_立绘焦点(v图形.get());
 }
-void C对话控制::f控制_立绘状态(const S对话参数_立绘状态 &p) {
-	auto v立绘 = ma对话立绘.at(p.m标识).get();
-	switch (p.m状态) {
+void C对话控制::f控制_立绘状态(const S对话参数_立绘状态 &a) {
+	auto v立绘 = ma对话立绘.at(a.m标识).get();
+	switch (a.m状态) {
 	case E立绘状态::e聚焦:
 		f内部_立绘焦点(v立绘);
 		break;
 	case E立绘状态::e消失:
 		v立绘->f动作_结束();
-		ma对话立绘.erase(p.m标识);
+		ma对话立绘.erase(a.m标识);
 		break;
 	default:
 		throw;

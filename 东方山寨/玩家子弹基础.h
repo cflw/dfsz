@@ -3,7 +3,8 @@
 #include "图形包含.h"
 #include "基础.h"
 #include "数学基础.h"
-#include "基础_数组.h"
+#include "基础_数组计数.h"
+#include "基础_数组指针.h"
 #include "判定处理_敌机与玩家子弹.h"
 namespace 东方山寨 {
 class C玩家;

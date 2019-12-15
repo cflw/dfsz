@@ -1,5 +1,4 @@
 ﻿#pragma once
-
 #include "子弹基础.h"
 namespace 东方山寨 {
 class C直线激光 : public C子弹 {
@@ -11,7 +10,6 @@ public:
 	void f接口_参数初始化(const S子弹参数 &) override;
 	void f接口_计算() override;
 	void f接口_更新() override;
-	void f接口_显示() const override;
 	void f接口_自机判定(C自机与子弹判定 &) override;
 	bool f接口_i在窗口外() override;
 	bool f接口_炸弹判定(C子弹与玩家炸弹判定 &) override;
@@ -31,6 +29,5 @@ public:
 	std::vector<S节点> ma节点;	//从后到前
 	S子弹出现 m出现;
 	t向量2 m目标;
-	tp子弹图形数据 m图形数据;
 };
 }	//namespace 东方山寨

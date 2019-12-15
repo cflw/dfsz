@@ -68,22 +68,22 @@ unsigned int C循环计算::f计算位(bool w, int i) {
 	}
 	return 0;
 }
-float C循环计算::f计算(int a计数, int a总数, t标志 a标记) {
+float C循环计算::f计算(int a计数, int a总数, t标志 a标志) {
 	float v循环 = (float)a总数;
 	float v = (float)a计数;
-	if (a标记[e首次自增]) {
+	if (a标志[e首次自增]) {
 		v += 1;
 	} else {
 		v循环 -= 1;
 	}
-	if (a标记[e去除末尾]) {
+	if (a标志[e去除末尾]) {
 		v循环 += 1;
 	}
-	if (a标记[e居中]) {
+	if (a标志[e居中]) {
 		v循环 /= 2;
 		v -= v循环;
 	}
-	if (a标记[e小数]) {
+	if (a标志[e小数]) {
 		v /= v循环;
 	}
 	return v;

@@ -19,7 +19,7 @@ public:
 	C对话框(const S对话参数_对话 &);
 	void f接口_计算() override;
 	void f接口_更新() override;
-	void f接口_显示() const override;
+	void f兼容显示() const;
 	bool f接口_i可销毁() const override;
 private:
 	二维::tp画图形 m画图形;
@@ -34,17 +34,17 @@ private:
 };
 class I对话立绘 : public I图形 {
 public:
-	enum E初始化标记 {
+	enum E初始化标志 {
 		e方向,
 	};
-	enum E标记 {
+	enum E标志 {
 		e焦点 = I图形::E标志::e自定义,
 	};
 	static constexpr float c开始位置x = c边框范围x - 32;
 	static constexpr float c开始位置y = -32;	//中心
 	static constexpr float c动画速度 = 4;	//0.25秒完成
 	void f接口_计算() override;
-	void f接口_显示() const override;	//默认画个白色矩形
+	void f兼容显示() const;	//默认画个白色矩形
 	bool f接口_i可销毁() const override;
 	void f接口_初始化(const S图形参数 &) override;
 	virtual void f接口_改变表情(E立绘表情);

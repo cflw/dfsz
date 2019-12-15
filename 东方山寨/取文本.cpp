@@ -16,7 +16,7 @@ const std::wstring &C取文本::operator [](const std::wstring &a名称) const {
 	if (auto v找 = va名称标识.find(v名称); v找 != va名称标识.end()) {
 		return ma文本->fg数据(v找->second);
 	} else {
-		return c空文本;
+		return a名称;	//找不到,返回名称
 	}
 }
 std::wstring C取文本::f计算名称(const std::wstring &a名称) const {

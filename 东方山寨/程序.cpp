@@ -1,4 +1,6 @@
 ﻿#include <future>
+#include <thread>
+#include <experimental/coroutine>
 #include <Windows.h>
 #include <cflw图形_d3d11.h>
 #include <cflw图形_d2d.h>
@@ -32,7 +34,7 @@ void f载入();
 class C画帧速率 {
 public:
 	std::shared_ptr<二维::C画文本> m画文本;
-	时间::C计帧器 m计帧器;
+	时间::C计帧器 m计算, m显示;
 	int m额定速率 = 0;
 	C画帧速率(二维::C二维 &a二维):
 		m画文本(a二维.fc画文本()) {
@@ -45,19 +47,23 @@ public:
 		v格式.fs水平对齐(二维::E文本水平对齐::e右);
 		v格式.fs垂直对齐(二维::E文本垂直对齐::e下);
 		m画文本->m格式 = v文本工厂.fc文本格式(v格式);
-		m计帧器.f重置();
+		m计算.f重置();
+		m显示.f重置();
 	}
 	void fs额定速率(int a额定) {
 		m额定速率 = a额定;
 	}
+	void f计算() {
+		m计算.f计算();
+	}
 	void f显示() {
-		const double v帧速率0 = m计帧器.f计算();	//转整数，四舍五入
-		const double v百分率 = v帧速率0 / m额定速率 * 100;
-		std::wstring v文本0 = std::to_wstring(lround(v帧速率0));
-		v文本0 += L"fps\n(";
-		v文本0 += std::to_wstring(lround(v百分率));
-		v文本0 += L"%)";
-		m画文本->f绘制文本(v文本0);
+		const double v计算帧数 = m计算.fg帧速率();
+		const double v显示帧数 = m显示.f计算();
+		const double v百分率 = v计算帧数 / m额定速率 * 100;
+		std::wstringstream v文本流;
+		v文本流 << std::to_wstring(lround(v显示帧数)) << L"fps\n";
+		v文本流 << std::to_wstring(lround(v百分率)) << L"%";
+		m画文本->f绘制文本(v文本流.str());
 	}
 };
 //==============================================================================
@@ -86,8 +92,11 @@ public:
 	E游戏状态 m新状态 = E游戏状态::e无;
 	t标志 m标志;
 	//异步任务
-	std::future<void> m任务_载入;
-	std::future<void> m任务_资源;
+	//std::future<void> m任务_载入;
+	//std::future<void> m任务_资源;
+	std::thread m线程_显示;
+	std::atomic<bool> mi显示循环 = true;
+	std::atomic<bool> mi显示就绪 = false;
 public:
 	C实现(HINSTANCE a实例): m实例{a实例} {
 		m游戏.f初始化_图形接口(m图形);
@@ -104,9 +113,13 @@ public:
 			} else {	//没有消息时的处理
 				if (m计时器.f滴答()) {
 					f计算();
-					if (m计次器.f滴答()) {
+					//if (m计次器.f滴答()) {
+					//	f更新();
+					//	f显示();
+					//}
+					if (!mi显示就绪) {
 						f更新();
-						f显示();
+						mi显示就绪 = true;
 					}
 				}
 				f切换计算();
@@ -183,8 +196,9 @@ public:
 		m计时器.f重置(c帧秒);
 		m画帧速率 = std::make_unique<C画帧速率>(m图形.fg二维());
 		m日志 = std::make_unique<C日志>(m图形.fg二维());
-		fs渲染间隔(4);
+		fs渲染间隔(1);
 		f日志(C日志::e调试, L"启动...............");
+		m线程_显示 = std::thread(&C程序::C实现::f线程_显示, this);
 	}
 	void f初始化1() {	//重要资源载入完成时调用
 		m游戏.f资源初始化();
@@ -196,6 +210,8 @@ public:
 
 	}
 	void f销毁() {
+		mi显示循环 = false;
+		m线程_显示.join();
 		m图形.f销毁();
 		m画帧速率.reset();
 		m音频.f销毁();
@@ -220,12 +236,18 @@ public:
 			//}
 		}
 		//计算
+		m游戏.f推进随机数();
 		m输入.f更新();
 		m音频.f计算();
 		m界面.f计算();
+		m画帧速率->f计算();
 		m界面图形.f计算();
 		if (m状态 == E游戏状态::e游戏中) {
-			m游戏.f计算();
+			if (m输入.fg按键组().f按键((输入::t索引)E按键::e菜单).f刚按下()) {
+				f切换游戏状态(E游戏状态::e游戏菜单);
+			} else {
+				m游戏.f计算();
+			}
 		} else {
 			m图形.fg画背景().f计算();
 			m图形.fg图形管理().f游戏外计算();
@@ -234,7 +256,7 @@ public:
 	}
 	void f更新() {
 		m界面.f更新();
-		if (m状态 == E游戏状态::e游戏中) {
+		if (f状态_i游戏中()) {
 			m游戏.f更新();
 		} else {
 			m图形.fg图形管理().f游戏外更新();
@@ -242,7 +264,7 @@ public:
 	}
 	void f显示() {
 		m图形.f渲染开始();
-		if (m状态 == E游戏状态::e游戏中 || m状态 == E游戏状态::e游戏菜单) {
+		if (f状态_i游戏中()) {
 			m游戏.f显示();
 		} else {
 			m图形.fg画背景().f显示();
@@ -256,17 +278,30 @@ public:
 		m图形.f画十字({v鼠标坐标.x, v鼠标坐标.y});
 		m图形.f渲染结束();
 	}
+	void f线程_显示() {
+		while (mi显示循环) {
+			if (mi显示就绪) {
+				f显示();
+				mi显示就绪 = false;
+			}
+			std::this_thread::sleep_for(std::chrono::seconds(0));
+		}
+	}
 	void f切换计算() {
 		if (m新状态 != E游戏状态::e无) {
+			const bool vi原游戏中 = f状态_i游戏中();
 			switch (m新状态) {
 			case E游戏状态::e主菜单:
-				m界面.f切换窗口(E窗口::e主菜单);
+				m界面.f切换下个窗口(E窗口::e主菜单);
 				break;
 			case E游戏状态::e游戏中:
 				//m任务_资源.wait();
-				m游戏.f游戏初始化();
+				m游戏.f开始();
 				m游戏.f进入关卡(C关卡::fg注册关卡(L"测试关卡"));
 				m界面.f关闭窗口();
+				break;
+			case E游戏状态::e游戏菜单:
+				m界面.f切换下个窗口(E窗口::e游戏暂停);
 				break;
 			case E游戏状态::e退出:
 				SendMessageW(m窗口, WM_CLOSE, 0, 0);
@@ -274,6 +309,10 @@ public:
 			}
 			m状态 = m新状态;
 			m新状态 = E游戏状态::e无;
+			const bool vi新游戏中 = f状态_i游戏中();
+			if (vi原游戏中 && !vi新游戏中) {
+				m游戏.f结束();
+			}
 		}
 	}
 	void fs渲染间隔(int a) {
@@ -285,6 +324,9 @@ public:
 	}
 	void f切换游戏状态(E游戏状态 a) {
 		m新状态 = a;
+	}
+	bool f状态_i游戏中() const {
+		return m状态 == E游戏状态::e游戏中 || m状态 == E游戏状态::e游戏菜单;
 	}
 	void f输入法开关(bool a) {
 		m输入法开关.f开关(a);

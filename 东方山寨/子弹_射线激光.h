@@ -1,11 +1,15 @@
 ﻿#pragma once
-#include "基础_数组.h"
+#include <experimental/generator>
+#include <cflw工具_循环.h>
+#include "基础_游戏对象.h"
+#include "基础_动态数组.h"
 #include "子弹图形接口.h"
 #include "子弹基础.h"
 namespace 东方山寨 {
+namespace 循环 = cflw::工具::循环;
 class C射线激光 : public C子弹 {
 private:
-	enum E标记 {
+	enum E标志 {
 		e移动 = C子弹::e自定义,
 		e预警线,
 		e变化_排序,	//节点表需要重新排序
@@ -29,7 +33,6 @@ public:
 	void f接口_参数初始化(const S子弹参数 &) override;
 	void f接口_计算() override;
 	void f接口_更新() override;
-	void f接口_显示() const override;
 	void f接口_自机判定(C自机与子弹判定 &) override;
 	bool f接口_炸弹判定(C子弹与玩家炸弹判定 &) override;
 	//初始化
@@ -61,6 +64,5 @@ private:
 	S子弹消失 m消失;
 	循环::C零散<std::vector<S消失段>> m循环缓存_消失段;
 	C子弹顶点::C直线::ta顶点 ma节点;
-	tp子弹图形数据 m图形数据;
 };
 }

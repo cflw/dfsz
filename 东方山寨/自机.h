@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "基础.h"
-#include "基础_数组.h"
+#include "基础_数组指针.h"
 #include "图形引擎.h"
 #include "图形_图片.h"
 #include "玩家子弹发射基础.h"

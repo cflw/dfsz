@@ -98,7 +98,7 @@ void C道具::fs跟随(C玩家 *a玩家, float a时间) {
 		m跟随速度 = 1 * a时间;
 	}
 }
-bool C道具::fw跟随() const {
+bool C道具::fi跟随() const {
 	return m跟随玩家 != nullptr;
 }
 void C道具::f计算运动() {
@@ -152,10 +152,12 @@ void C道具制造机::f产生道具(t道具数量 a数量) {
 		const float v最大半径 = log((float)a数量) * C道具::c道具组半径;
 		const float v最小半径 = v最大半径 / log(v最大半径);
 		const float v间隔弧度 = 数学::c二π<float> / (float)a数量;
-		const std::function<float()> fc大小 = C游戏::g内容.f工厂_随机数f(std::uniform_real_distribution<float>(v最小半径, v最大半径));
-		float v方向 = C游戏::g内容.f工厂_随机数f(数学::f圆周分布r<float>())();
+		auto v随机数 = C游戏::fg内容().f工厂_随机数引擎();
+		const auto v半径分布 = std::uniform_real_distribution<float>(v最小半径, v最大半径);
+		const auto v圆周分布 = 数学::c圆周分布r<float>;
+		float v方向 = v圆周分布(v随机数);
 		for (size_t i = 0; i != a数量; ++i) {
-			m参数.m速度 = t向量2::fc方向r(fc大小(), v方向);
+			m参数.m速度 = t向量2::fc方向r(v半径分布(v随机数), v方向);
 			m参数.m速度.y += C道具::c初始上升速度;
 			m实现->f产生道具(m参数);
 			v方向 += v间隔弧度;

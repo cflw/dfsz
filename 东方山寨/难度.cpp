@@ -17,7 +17,7 @@ bool f单调(float e, float h, float t, float t6) {
 		return false;
 	} else if (e > t6) {	//单调递减
 		return f全比较(工具::f大于<float>);
-	} else if (e < t6) {	//单调递增
+	} else {	//单调递增
 		return f全比较(工具::f小于<float>);
 	}
 }

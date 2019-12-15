@@ -33,9 +33,12 @@ public:
 	}
 	void f初始化窗口实例() {
 		ma窗口.emplace(E窗口::e主菜单, std::make_unique<W主菜单>());
+		ma窗口.emplace(E窗口::e游戏暂停, std::make_unique<W游戏菜单>(W游戏菜单::E上下文::e游戏暂停));
+		ma窗口.emplace(E窗口::e游戏结束, std::make_unique<W游戏菜单>(W游戏菜单::E上下文::e游戏结束));
 		ma窗口.emplace(E窗口::e选择难度, std::make_unique<W选择难度>());
 		ma窗口.emplace(E窗口::e选择飞机, std::make_unique<W选择自机>());
 		ma窗口.emplace(E窗口::e选项, std::make_unique<W选项>());
+
 	}
 	void f更新输入() {
 		m键盘.f更新();
@@ -88,9 +91,15 @@ void C界面引擎::f显示() {
 void C界面引擎::fs时钟频率(float a计算, float a渲染) {
 	m实现->m用户界面.fs时钟频率(a计算, a渲染);
 }
-void C界面引擎::f切换窗口(E窗口 a) {
-	auto &v窗口 = *m实现->ma窗口[a];
+void C界面引擎::f切换下个窗口(E窗口 a窗口) {
+	auto &v窗口 = *m实现->ma窗口[a窗口];
 	m实现->m用户界面.f切换窗口(v窗口);
+	m窗口栈.push(&v窗口);
+}
+void C界面引擎::f切换上个窗口() {
+	m窗口栈.pop();
+	auto vp窗口 = m窗口栈.top();
+	m实现->m用户界面.f切换窗口(*vp窗口);
 }
 void C界面引擎::f关闭窗口() {
 	if (用户界面::W窗口 *v活动窗口 = m实现->m用户界面.m活动窗口) {

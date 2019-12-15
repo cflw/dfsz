@@ -36,7 +36,7 @@ void C对话框::f接口_更新() {
 	m画文本->fs透明度(m透明度);
 	m边框显示宽 = 数学::f插值<float>(0, m边框实际宽, m透明度);
 }
-void C对话框::f接口_显示() const {
+void C对话框::f兼容显示() const {
 	//画图形
 	const float v左 = m方向 ? (c开始位置x - m边框显示宽) : (-c开始位置x);
 	const float v右 = m方向 ? (c开始位置x) : (-c开始位置x + m边框显示宽);
@@ -62,10 +62,10 @@ void I对话立绘::f接口_计算() {
 	const float v速度 = v过秒 * c动画速度;
 	const float v出现目标 = m标志[I图形::E标志::e结束] ? 0 : 1;
 	m出现 = 数学::f线性渐变<float>(m出现, v出现目标, v速度);
-	const float v焦点目标 = m标志[I对话立绘::E标记::e焦点] ? 1 : 0;
+	const float v焦点目标 = m标志[I对话立绘::E标志::e焦点] ? 1 : 0;
 	m焦点 = 数学::f线性渐变<float>(m焦点, v焦点目标, v速度);
 }
-void I对话立绘::f接口_显示() const {
+void I对话立绘::f兼容显示() const {
 	const float v灰 = 数学::f插值<float>(0.5f, 1, m焦点);
 	const float v透明 = std::min<float>(m出现, 数学::f插值<float>(0.8f, 1, m焦点));
 	static auto &v画图形 = C游戏::fg图形().fg画图形();
@@ -76,7 +76,7 @@ bool I对话立绘::f接口_i可销毁() const {
 	return m标志[I图形::E标志::e结束] && m出现 <= 0;
 }
 void I对话立绘::f接口_初始化(const S图形参数 &p) {
-	m方向 = p.m标志[E初始化标记::e方向];
+	m方向 = p.m标志[E初始化标志::e方向];
 	m坐标.x = m方向 ? c开始位置x : -c开始位置x;
 	m坐标.y = c开始位置y;
 }
@@ -86,9 +86,9 @@ void I对话立绘::f动作_表情(E立绘表情 p) {
 	this->f接口_改变表情(p);
 }
 void I对话立绘::f动作_聚焦() {
-	m标志[I对话立绘::E标记::e焦点] = true;
+	m标志[I对话立绘::E标志::e焦点] = true;
 }
 void I对话立绘::f动作_失焦() {
-	m标志[I对话立绘::E标记::e焦点] = false;
+	m标志[I对话立绘::E标志::e焦点] = false;
 }
 }	//namespace 东方山寨

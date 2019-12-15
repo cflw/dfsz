@@ -3,7 +3,8 @@
 #include "数学包含.h"
 #include "基础.h"
 #include "数学基础.h"
-#include "基础_数组.h"
+#include "基础_数组计数.h"
+#include "基础_数组指针.h"
 #include "判定处理_子弹与玩家炸弹.h"
 #include "判定处理_自机与子弹.h"
 #include "游戏常量.h"
@@ -11,9 +12,10 @@
 namespace 东方山寨 {
 struct S子弹属性;
 class I画子弹;
+class C子弹图形缓冲;
 struct S顶点矩形;
 class I子弹图形数据;
-using tp子弹图形数据 = std::shared_ptr<I子弹图形数据>;
+using tp子弹图形数据 = std::unique_ptr<I子弹图形数据>;
 //==============================================================================
 // 基本子弹
 //==============================================================================
@@ -44,12 +46,11 @@ public:
 	virtual void f接口_参数初始化(const S子弹参数 &);
 	virtual void f接口_计算();
 	virtual void f接口_更新();
-	virtual void f接口_显示() const;
 	virtual void f接口_销毁();	//只能通过C子弹::f销毁()调用
 	virtual void f接口_自机判定(C自机与子弹判定 &);
 	virtual bool f接口_炸弹判定(C子弹与玩家炸弹判定 &);//在炸弹动作中调用
 	virtual bool f接口_i在窗口外();
-	virtual bool f接口_可显示() const;
+	virtual bool f接口_i可显示() const;
 	virtual bool f接口_i停止炸弹判定() const;
 	//在事件过程中调用的初始化函数
 	void f初始化_样式(int);
@@ -63,12 +64,12 @@ public:
 	void f动作_加速度(float, float = 1);
 	void f动作_加速度(const t向量2 &, float = 1);
 	void f动作_乘速度(float, float = 1);
-	int f动作_屏幕反弹(int p方向, int p次数 = 1, std::function<bool(int)> p判断 = nullptr);
+	int f动作_屏幕反弹(int 方向, int 次数 = 1, const std::function<bool(int)> &判断 = nullptr);
 	void f动作_透明(float, float = 1);
 	//内部使用变量
-	C数组计数 *m计数指针;
+	C数组计数 *m计数指针 = nullptr;
 	const C游戏速度 *m游戏速度;
-	I画子弹 *m绘制;
+	C子弹图形缓冲 *m图形缓冲 = nullptr;
 	const S子弹属性 *m子弹属性;
 	int m初始化_样式 = -1;
 	int m初始化_绘制 = -1;
@@ -77,7 +78,6 @@ public:
 	float m动画帧;
 	float m方向;
 	float m擦弹间隔;
-	int m显示编号;
 	//float m透明度 = 1;	//TODO：计划中
 	//自由使用变量
 	t向量2 m坐标;

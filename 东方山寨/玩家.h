@@ -1,6 +1,5 @@
 ﻿#pragma once
 #include "基础.h"
-#include "基础_数组.h"
 #include "输入.h"
 #include "玩家子弹发射基础.h"
 #include "自机.h"
@@ -72,6 +71,7 @@ public:
 	void f关卡初始化();	//每一关都调用
 	void f游戏初始化(const S游戏设置 &);	//进入游戏调用
 	void f游戏初始化_玩家成绩图形();
+	void f游戏结束();	//
 	//玩家状态变化
 	void f发射_发射子弹();
 	void f发射_停止发射子弹();

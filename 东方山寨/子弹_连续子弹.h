@@ -5,8 +5,8 @@ class C连续子弹 : public C子弹 {
 private:
 	typedef void (*tf两点操作)(C连续子弹 &, C连续子弹 &);
 	using tp连续子弹 = std::shared_ptr<C连续子弹>;
-	enum E标记 {
-		e窗口外 = C子弹::e自定义,	//在"f接口_计算"中,子弹在窗口外时加标记.在"f接口_在窗口外"用于判断
+	enum E标志 {
+		e窗口外 = C子弹::e自定义,	//在"f接口_计算"中,子弹在窗口外时加标志.在"f接口_在窗口外"用于判断
 		e环形头部,
 		e细分,	//这是通过细分子弹产生的子弹
 	};
@@ -44,10 +44,9 @@ public:	//重写的接口函数
 	void f接口_销毁() override;
 	void f接口_计算() override;
 	void f接口_更新() override;
-	void f接口_显示() const override;
 	void f接口_自机判定(C自机与子弹判定 &) override;
 	bool f接口_i在窗口外() override;
-	bool f接口_可显示() const override;
+	bool f接口_i可显示() const override;
 	bool f接口_炸弹判定(C子弹与玩家炸弹判定 &) override;
 public:		//初始化
 public:		//动作
@@ -70,7 +69,6 @@ private:	//属性
 	S子弹出现 m出现;
 	S子弹消失 m消失;
 	std::shared_ptr<C连续子弹> (*mf细分)(C连续子弹 &, C连续子弹 &, float);
-	tp子弹图形数据 m图形数据;
 };
 //==============================================================================
 // 连续子弹细分工具的实现

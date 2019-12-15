@@ -1,9 +1,11 @@
 ﻿#pragma once
 #include <optional>
+#include <cflw工具_循环.h>
 #include "基础.h"
-#include "基础_数组.h"
+#include "基础_对象数组.h"
 #include "玩家子弹基础.h"
 namespace 东方山寨 {
+namespace 循环 = cflw::工具::循环;
 typedef std::optional<float> t计算;
 class C玩家;
 struct S玩家子弹属性;
@@ -57,7 +59,7 @@ public:
 	C循环 f循环(int);
 	S玩家子弹参数 m参数;
 private:
-	C实现 * m实现 = nullptr;
+	C实现 *m实现 = nullptr;
 };
 template<typename t, typename...t参数> std::shared_ptr<t> C玩家子弹制造机::f产生子弹(const t参数 &...a参数) {
 	static_assert(std::is_base_of<C玩家子弹, t>::value);

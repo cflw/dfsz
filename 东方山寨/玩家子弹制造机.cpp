@@ -26,8 +26,8 @@ int C玩家子弹制造机::C循环::fg总数() const {
 float C玩家子弹制造机::C循环::fg百分比() const {
 	return (float)(m计数) / (float)(m总数 - 1);
 }
-float C玩家子弹制造机::C循环::f计算(t标志 a标记) const {
-	return C循环计算::f计算(fg计数(), fg总数(), a标记);
+float C玩家子弹制造机::C循环::f计算(t标志 a标志) const {
+	return C循环计算::f计算(fg计数(), fg总数(), a标志);
 }
 t向量2 C玩家子弹制造机::C循环::f计算_速度变换(float a大小, float a方向r, float a计算) const {
 	const t向量2 &m速度 = mp参数->m速度;

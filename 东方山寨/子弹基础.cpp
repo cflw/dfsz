@@ -3,6 +3,7 @@
 #include "游戏.h"
 #include "图形引擎.h"
 #include "计算.h"
+#include "子弹图形缓冲.h"
 namespace 东方山寨 {
 //==============================================================================
 // 子弹
@@ -17,6 +18,7 @@ void C子弹::f对象_使用() {
 void C子弹::f对象_销毁() {
 	assert(m标志[e使用]);	//禁止重复销毁
 	this->f接口_销毁();
+	m图形缓冲->f对象_销毁();
 	m标志.reset();
 	m计数指针->f减计数();
 }
@@ -60,10 +62,6 @@ void C子弹::f接口_计算() {
 }
 void C子弹::f接口_更新() {
 }
-void C子弹::f接口_显示() const {
-	auto &v画图形 = C游戏::fg图形().fg画图形();
-	v画图形.f绘制圆形(t圆形(m坐标, 4));
-}
 void C子弹::f接口_销毁() {
 }
 void C子弹::f接口_自机判定(C自机与子弹判定 &a判定) {
@@ -86,7 +84,7 @@ bool C子弹::f接口_炸弹判定(C子弹与玩家炸弹判定 &a判定) {
 bool C子弹::f接口_i在窗口外() {
 	return C边界::c窗口.f外边判断(m坐标, 0);
 }
-bool C子弹::f接口_可显示() const {
+bool C子弹::f接口_i可显示() const {
 	return true;
 }
 bool C子弹::f接口_i停止炸弹判定() const {
@@ -152,7 +150,7 @@ void C子弹::f动作_乘速度(float a乘数, float a时间) {
 	const float v变化量 = pow(a乘数, 1.f / a时间 * v过秒);
 	m速度 *= v变化量;
 }
-int C子弹::f动作_屏幕反弹(int a方向, int a次数, std::function<bool(int)> af判断) {
+int C子弹::f动作_屏幕反弹(int a方向, int a次数, const std::function<bool(int)> &af判断) {
 	int v次数 = 0;
 	if (v次数 >= a次数) {
 		return v次数;

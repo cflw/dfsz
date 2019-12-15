@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include <string>
-#include "基础_数组.h"
+#include "基础_属性数组.h"
 namespace 东方山寨 {
 namespace 计算 {
 std::wstring f文本语言前缀(const std::wstring &a名称, const std::wstring &a语言);
