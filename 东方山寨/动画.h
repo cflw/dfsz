@@ -19,11 +19,11 @@ public:
 	};
 	class C工厂 : public I工厂<I动画> {
 	public:
-		C工厂(std::shared_ptr<S属性>);
+		C工厂(const std::shared_ptr<S属性> &);
 		I动画 *f接口_新建() const override;
 		std::shared_ptr<S属性> m属性;
 	};
-	C角色动画(std::shared_ptr<S属性>);
+	C角色动画(const std::shared_ptr<S属性> &);
 	void f接口_更新() override;
 	void f接口_动作(const E动画动作 &, const t动画动作值 &) override;
 	int f接口_g顶点序号() const override;

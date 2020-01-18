@@ -2,10 +2,12 @@
 #include "基础.h"
 #include "基础_对象数组.h"
 #include "基础_属性数组.h"
+#include "基础_缓冲数组.h"
 #include "敌机基础.h"
 namespace 东方山寨 {
 class C敌机;
 class C游戏速度;
+class I图形缓冲;
 //==============================================================================
 // 敌机制造机
 //==============================================================================
@@ -25,11 +27,12 @@ public:
 	class C实现 {
 	public:
 		void f初始化_环境(const C游戏速度 &);
-		void f初始化_数组(C对象数组<C敌机> &);
+		void f初始化_数组(C对象数组<C敌机> &, C缓冲数组<I图形缓冲> &);
 		void f初始化_资源(const C属性数组<S敌机属性> &);
 		void f产生敌机(std::shared_ptr<C敌机>, S参数 &);
 		bool fi有空() const;
 		C对象数组<C敌机> *ma敌机 = nullptr;
+		C缓冲数组<I图形缓冲> *ma图形缓冲 = nullptr;
 		const C游戏速度 *m游戏速度 = nullptr;
 		const C属性数组<S敌机属性> *ma敌机属性 = nullptr;
 	};

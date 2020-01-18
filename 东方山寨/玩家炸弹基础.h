@@ -8,7 +8,6 @@ class C玩家炸弹 : public C玩家子弹 {
 public:
 	static constexpr float c判定半径 = 16;
 	//炸弹事件
-	void f接口_显示() const override;	//跟据判定半径画圆
 	float f接口_g判定半径() const override;	//如是派生类不是圆形判定就不用重写
 	void f接口_敌机判定(C敌机与玩家子弹判定 &) override;	//如是派生类是圆形判定就不用重写
 	virtual void f接口_子弹判定(C子弹与玩家炸弹判定 &);	//如是派生类是圆形判定就不用重写

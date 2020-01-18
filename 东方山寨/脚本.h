@@ -15,6 +15,9 @@
 //敌机
 #include "敌机基础.h"
 #include "敌机制造机.h"
+//道具
+#include "道具.h"
+#include "道具制造机.h"
 //图形
 #include "图形工厂.h"
 #include "敌机图形模板.h"
@@ -29,7 +32,6 @@
 #include "王战.h"
 //其它
 #include "玩家.h"
-#include "道具.h"
 #include "计算.h"
 #include "取文本.h"
 #include "难度.h"

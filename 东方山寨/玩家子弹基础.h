@@ -1,11 +1,14 @@
 ﻿#pragma once
 #include "数学包含.h"
 #include "图形包含.h"
+#include "图形缓冲.h"
 #include "基础.h"
 #include "数学基础.h"
 #include "基础_数组计数.h"
 #include "基础_数组指针.h"
+#include "基础_缓冲数组.h"
 #include "判定处理_敌机与玩家子弹.h"
+#include "对象图形.h"
 namespace 东方山寨 {
 class C玩家;
 struct S玩家子弹属性;
@@ -38,10 +41,10 @@ public:
 	int f属性_g伤害() const;
 	float f基础_g出现透明度() const;
 	virtual void f接口_初始化(const S玩家子弹参数 &);
+	virtual void f接口_初始化图形(C缓冲数组<I图形缓冲> &);
 	virtual void f接口_销毁();
 	virtual void f接口_计算();
 	virtual void f接口_更新();
-	virtual void f接口_显示() const;
 	virtual void f接口_消失();
 	virtual void f接口_敌机判定(C敌机与玩家子弹判定 &);
 	virtual void f接口_命中敌机(const C敌机 &);
@@ -59,6 +62,7 @@ public:
 	float m动画帧 = 0;
 	float m出现 = 0;
 	t向量2 m缩放;
+	std::unique_ptr<I对象图形<C玩家子弹>> m图形;
 };
 struct S玩家子弹属性 {
 	t向量2 m判定;

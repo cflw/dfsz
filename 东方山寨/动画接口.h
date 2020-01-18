@@ -16,7 +16,7 @@ enum class E动画动作 {
 };
 class I动画 {
 public:
-	virtual void f接口_s父对象(void *);	//初始化时调用
+	virtual void f接口_s父对象(const void *);	//初始化时调用
 	virtual void f接口_计算();
 	virtual void f接口_更新();
 	virtual void f接口_动作(const E动画动作 &, const t动画动作值 & = {});
@@ -29,4 +29,11 @@ public:
 	static float fg动作值f(const t动画动作值 &);
 	static bool fg动作值b(const t动画动作值 &);
 };
-}
+struct S动画缓冲 {
+	S动画缓冲 &operator =(const I动画 &);
+	t向量3 m旋转 = t向量3::c零;
+	t向量3 m缩放 = t向量3::c一;
+	int m顶点序号 = 0;
+	float m透明度 = 1;
+};
+}	//namespace 东方山寨

@@ -1,6 +1,8 @@
 ﻿#pragma once
 #include <vector>
 #include <functional>
+#include <mutex>
+#include <algorithm>
 #include "基础.h"
 namespace 东方山寨 {
 template<typename t值>
@@ -27,6 +29,9 @@ public:
 	void f更新_合并新对象() {
 		std::move(ma新建.begin(), ma新建.end(), std::back_inserter(ma缓冲));
 		ma新建.clear();
+	}
+	void f排序() {
+		std::sort(ma缓冲.begin(), ma缓冲.end());
 	}
 	void f排序(const std::function<bool(const t值 &, const t值 &)> &af比较) {
 		std::sort(ma缓冲.begin(), ma缓冲.end(), [&af比较](const t指针 &a, const t指针 &b)->bool {

@@ -64,14 +64,13 @@ public:
 	C玩家();
 	//void f构造_成绩文本();
 	void f初始化_环境(const C游戏速度 &);
+	void f初始化_在关卡开始();	//每一关都调用
 	void f输入按键(const t向量2 &, const 输入::C按键组 &);
 	void f计算();
 	void f更新();
-	void f显示() const;
-	void f关卡初始化();	//每一关都调用
-	void f游戏初始化(const S游戏设置 &);	//进入游戏调用
-	void f游戏初始化_玩家成绩图形();
-	void f游戏结束();	//
+	void f初始化_在游戏开始(const S游戏设置 &);	//进入游戏调用
+	void f初始化_玩家成绩图形();
+	void f销毁_在游戏结束();	//
 	//玩家状态变化
 	void f发射_发射子弹();
 	void f发射_停止发射子弹();

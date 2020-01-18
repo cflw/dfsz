@@ -305,6 +305,30 @@
     <ClCompile Include="预设图形.cpp">
       <Filter>图形引擎\图形基础</Filter>
     </ClCompile>
+    <ClCompile Include="道具图形.cpp">
+      <Filter>游戏本体\道具</Filter>
+    </ClCompile>
+    <ClCompile Include="敌机图形.cpp">
+      <Filter>游戏本体\敌机</Filter>
+    </ClCompile>
+    <ClCompile Include="道具制造机.cpp">
+      <Filter>游戏本体\道具</Filter>
+    </ClCompile>
+    <ClCompile Include="玩家子弹图形.cpp">
+      <Filter>游戏本体\玩家子弹基础</Filter>
+    </ClCompile>
+    <ClCompile Include="玩家子弹扩展_贯穿.cpp">
+      <Filter>游戏本体\玩家子弹扩展</Filter>
+    </ClCompile>
+    <ClCompile Include="玩家子弹图形_贯穿.cpp">
+      <Filter>游戏本体\玩家子弹扩展</Filter>
+    </ClCompile>
+    <ClCompile Include="自机图形.cpp">
+      <Filter>游戏本体\玩家</Filter>
+    </ClCompile>
+    <ClCompile Include="子机图形.cpp">
+      <Filter>游戏本体\玩家</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="脚本.h">
@@ -582,6 +606,36 @@
     </ClInclude>
     <ClInclude Include="预设图形.h">
       <Filter>图形引擎\图形基础</Filter>
+    </ClInclude>
+    <ClInclude Include="道具图形.h">
+      <Filter>游戏本体\道具</Filter>
+    </ClInclude>
+    <ClInclude Include="敌机图形.h">
+      <Filter>游戏本体\敌机</Filter>
+    </ClInclude>
+    <ClInclude Include="道具制造机.h">
+      <Filter>游戏本体\道具</Filter>
+    </ClInclude>
+    <ClInclude Include="对象图形.h">
+      <Filter>图形引擎\图形基础</Filter>
+    </ClInclude>
+    <ClInclude Include="玩家子弹图形.h">
+      <Filter>游戏本体\玩家子弹基础</Filter>
+    </ClInclude>
+    <ClInclude Include="图层.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="玩家子弹扩展_贯穿.h">
+      <Filter>游戏本体\玩家子弹扩展</Filter>
+    </ClInclude>
+    <ClInclude Include="玩家子弹图形_贯穿.h">
+      <Filter>游戏本体\玩家子弹扩展</Filter>
+    </ClInclude>
+    <ClInclude Include="自机图形.h">
+      <Filter>游戏本体\玩家</Filter>
+    </ClInclude>
+    <ClInclude Include="子机图形.h">
+      <Filter>游戏本体\玩家</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

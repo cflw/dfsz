@@ -1,6 +1,6 @@
 ﻿#include "标识.h"
 #include "判定处理_子弹与玩家炸弹.h"
-#include "道具.h"
+#include "道具制造机.h"
 #include "玩家炸弹基础.h"
 #include "子弹基础.h"
 namespace 东方山寨 {

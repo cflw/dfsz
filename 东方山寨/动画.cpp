@@ -8,7 +8,7 @@ void I动画::f接口_计算() {
 }
 void I动画::f接口_更新() {
 }
-void I动画::f接口_s父对象(void *) {
+void I动画::f接口_s父对象(const void *) {
 }
 int I动画::f接口_g顶点序号() const {
 	return 0;
@@ -27,56 +27,63 @@ float I动画::f接口_g透明度() const {
 const C游戏速度 *I动画::f接口_g游戏速度() const {
 	return &C游戏::g内容.fg游戏速度();
 }
-int I动画::fg动作值i(const t动画动作值 &p) {
-	if (std::holds_alternative<int>(p)) {
-		return std::get<int>(p);
-	} else if (std::holds_alternative<float>(p)) {
-		return (int)std::get<float>(p);
+int I动画::fg动作值i(const t动画动作值 &a值) {
+	if (std::holds_alternative<int>(a值)) {
+		return std::get<int>(a值);
+	} else if (std::holds_alternative<float>(a值)) {
+		return (int)std::get<float>(a值);
 	} else {
-		if (std::get<bool>(p)) {
+		if (std::get<bool>(a值)) {
 			return 1;
 		} else {
 			return 0;
 		}
 	}
 }
-float I动画::fg动作值f(const t动画动作值 &p) {
-	if (std::holds_alternative<float>(p)) {
-		return std::get<float>(p);
-	} else if (std::holds_alternative<int>(p)) {
-		return (float)std::get<int>(p);
+float I动画::fg动作值f(const t动画动作值 &a值) {
+	if (std::holds_alternative<float>(a值)) {
+		return std::get<float>(a值);
+	} else if (std::holds_alternative<int>(a值)) {
+		return (float)std::get<int>(a值);
 	} else {
-		if (std::get<bool>(p)) {
+		if (std::get<bool>(a值)) {
 			return 1;
 		} else {
 			return 0;
 		}
 	}
 }
-bool I动画::fg动作值b(const t动画动作值 &p) {
-	if (std::holds_alternative<bool>(p)) {
-		return std::get<bool>(p);
-	} else if (std::holds_alternative<int>(p)) {
-		return std::get<int>(p);
+bool I动画::fg动作值b(const t动画动作值 &a值) {
+	if (std::holds_alternative<bool>(a值)) {
+		return std::get<bool>(a值);
+	} else if (std::holds_alternative<int>(a值)) {
+		return std::get<int>(a值);
 	} else {
-		return std::get<float>(p);
+		return std::get<float>(a值);
 	}
+}
+S动画缓冲 &S动画缓冲::operator =(const I动画 &a动画) {
+	m顶点序号 = a动画.f接口_g顶点序号();
+	m旋转 = a动画.f接口_g旋转();
+	m缩放 = a动画.f接口_g缩放();
+	m透明度 = a动画.f接口_g透明度();
+	return *this;
 }
 //==============================================================================
 // 角色动画
 //==============================================================================
 //工厂
-C角色动画::C工厂::C工厂(std::shared_ptr<S属性> p):
-	m属性{p} {
+C角色动画::C工厂::C工厂(const std::shared_ptr<S属性> &a属性):
+	m属性(a属性) {
 }
 I动画 *C角色动画::C工厂::f接口_新建() const {
 	return new C角色动画(m属性);
 }
 //类
-C角色动画::C角色动画(std::shared_ptr<S属性> p):
-	m属性{p},
-	m动画方向{&p->m正常},
-	m目标方向{&p->m正常} {
+C角色动画::C角色动画(const std::shared_ptr<S属性> &a属性):
+	m属性(a属性),
+	m动画方向(&a属性->m正常),
+	m目标方向(&a属性->m正常) {
 }
 void C角色动画::f接口_更新() {
 	const auto &v游戏速度 = C游戏::fg内容().fg游戏速度();

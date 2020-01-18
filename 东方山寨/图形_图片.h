@@ -12,32 +12,39 @@ struct S图片动画属性;
 //==============================================================================
 class C画图片动画 {
 public:
-	static void f显示图片(const t向量2 &坐标, const tp纹理 &纹理, const S顶点矩形 *顶点, const I动画 &动画);
+	static void f显示图片(const t向量2 &坐标, const tp纹理 &纹理, const S顶点矩形 *顶点, const I动画 &动画);	//废弃
+	static void f显示图片(const t向量2 &坐标, const tp纹理 &纹理, const S顶点矩形 *顶点, const S动画缓冲 &动画);
 	static void f显示图片2(const tp纹理 &纹理, const S顶点矩形 &顶点, const t向量2 &平移, float 旋转, const t向量2 &缩放, float 透明);
 	static void f显示图片3(const tp纹理 &纹理, const S顶点矩形 &顶点, const t向量2 &平移, const t向量3 &旋转, const t向量3 &缩放, float 透明);
 };
 //==============================================================================
 // 顶点动画,整合画图片的代码
 //==============================================================================
-class C内置图片动画 {
+class C图片动画图形 {
 public:
 	//属性
 	virtual const S图片动画属性 &fg图片动画属性() const = 0;
-	virtual const t向量2 &fg坐标() const = 0;
-	bool fi纹理() const;
+	void f初始化_父对象(const void *父);
 	const S顶点矩形 &fg顶点矩形() const;
-	//动作
-	virtual void f显示() const;
-	void f显示图片() const;
 public:
-	std::unique_ptr<I动画> m动画 = nullptr;
+	std::shared_ptr<I动画> m动画 = nullptr;
+};
+class C图片动画图形缓冲 : public I图形缓冲, public S动画缓冲 {
+public:
+	C图片动画图形缓冲();
+	C图片动画图形缓冲(const C图片动画图形 &);
+	using S动画缓冲::operator=;
+	void f初始化_图形(const C图片动画图形 &);
+	void f显示() const override;
+	t向量2 m坐标;
+	const S图片动画属性 *m属性 = nullptr;
 };
 //属性
 struct S图片动画属性 {
 	t属性指针<tp纹理> m纹理;
 	t属性指针<S顶点矩形> m顶点;
 	t扩展指针<I工厂<I动画>> m动画;
-	std::unique_ptr<I动画> fc动画(void * = nullptr) const;
+	std::shared_ptr<I动画> fc动画(const void *父 = nullptr) const;
 };
 //==============================================================================
 // 图片图形
@@ -61,7 +68,7 @@ protected:
 	const S顶点矩形 *m顶点 = nullptr;
 };
 //三维
-class C三维图片图形 : public I粒子, public I事件, public I动画, public C兼容图形缓冲<C二维图片图形> {
+class C三维图片图形 : public I粒子, public I事件, public I动画, public C兼容图形缓冲<C三维图片图形> {
 public:
 	C三维图片图形() = default;
 	void f接口_计算() override;

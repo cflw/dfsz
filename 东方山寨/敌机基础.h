@@ -2,6 +2,7 @@
 #include "基础.h"
 #include "图形_图片.h"
 #include "动画接口.h"
+#include "对象图形.h"
 namespace 东方山寨 {
 struct S顶点矩形;
 class C游戏速度;
@@ -10,7 +11,7 @@ struct S敌机属性;
 //==============================================================================
 // 敌机类
 //==============================================================================
-class C敌机 : public I事件, public C内置图片动画 {
+class C敌机 : public I事件 {
 public:
 	static constexpr float c判定半径 = 16.f;
 	using tf运动 = std::function<t向量2(const C敌机 &)>;
@@ -19,15 +20,15 @@ public:
 		e无动作,
 		e王,
 	};
-	C敌机() = default;
-	C敌机(int p生命值);
+	C敌机();
+	~C敌机();
+	C敌机(int 生命值);
 	void f对象_使用();
 	void f对象_销毁();
 	bool f对象_i使用() const;
 	void f初始化();
 	void f计算();
 	void f更新();
-	void f显示() const override;
 	void f中弹(int 伤害);
 	//属性
 	const t向量2 &fg坐标() const;
@@ -37,7 +38,6 @@ public:
 	bool fi在窗口外() const;
 	bool fi死亡() const;
 	bool fi王() const;
-	const S顶点矩形 &fg顶点矩形() const;
 	float fg移动方向x() const;
 	float fg移动方向y() const;
 	void fs生命值(int = 1, float 无敌 = 1);
@@ -72,6 +72,7 @@ public:
 	const S敌机属性 *m敌机属性 = nullptr;
 	数学::S有限值<int> m生命值 = {1};
 	float m无敌时间 = 0;
+	std::unique_ptr<I对象图形<C敌机>> m图形;
 };
 //==============================================================================
 // 敌机使用的结构

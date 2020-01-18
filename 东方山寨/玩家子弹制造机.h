@@ -46,33 +46,34 @@ public:
 	class C实现 {
 	public:
 		void f初始化_环境(const C游戏速度 &);
-		void f初始化_数组(C对象数组<C玩家子弹> &);
+		void f初始化_数组(C对象数组<C玩家子弹> &, C缓冲数组<I图形缓冲> &);
 		void f产生子弹(std::shared_ptr<C玩家子弹>, const S玩家子弹参数 &);
 		void f产生炸弹(std::shared_ptr<C玩家炸弹>, const S玩家子弹参数 &);
 		bool fi有空() const;
 		const C游戏速度 *m游戏速度 = nullptr;
-		C对象数组<C玩家子弹> *ma子弹;
+		C对象数组<C玩家子弹> *ma子弹 = nullptr;
+		C缓冲数组<I图形缓冲> *ma图形缓冲 = nullptr;
 	};
 	C玩家子弹制造机(C实现 &);
-	template<typename t, typename...t参数> std::shared_ptr<t> f产生子弹(const t参数 &...);
-	template<typename t, typename...t参数> std::shared_ptr<t> f产生炸弹(const t参数 &...);
+	template<typename t子弹, typename...t参数> std::shared_ptr<t子弹> f产生子弹(const t参数 &...);
+	template<typename t炸弹, typename...t参数> std::shared_ptr<t炸弹> f产生炸弹(const t参数 &...);
 	C循环 f循环(int);
 	S玩家子弹参数 m参数;
 private:
 	C实现 *m实现 = nullptr;
 };
-template<typename t, typename...t参数> std::shared_ptr<t> C玩家子弹制造机::f产生子弹(const t参数 &...a参数) {
-	static_assert(std::is_base_of<C玩家子弹, t>::value);
+template<typename t子弹, typename...t参数> std::shared_ptr<t子弹> C玩家子弹制造机::f产生子弹(const t参数 &...a参数) {
+	static_assert(std::is_base_of<C玩家子弹, t子弹>::value);
 	if (m实现->fi有空()) {
-		std::shared_ptr<t> v新子弹 = std::make_shared<t>(a参数...);
+		std::shared_ptr<t子弹> v新子弹 = std::make_shared<t子弹>(a参数...);
 		m实现->f产生子弹(v新子弹, m参数);
 		return v新子弹;
 	}
 	return nullptr;
 }
-template<typename t, typename...t参数> std::shared_ptr<t> C玩家子弹制造机::f产生炸弹(const t参数 &...a参数) {
-	static_assert(std::is_base_of<C玩家炸弹, t>::value);
-	std::shared_ptr<t> v新子弹 = std::make_shared<t>(a参数...);
+template<typename t炸弹, typename...t参数> std::shared_ptr<t炸弹> C玩家子弹制造机::f产生炸弹(const t参数 &...a参数) {
+	static_assert(std::is_base_of<C玩家炸弹, t炸弹>::value);
+	std::shared_ptr<t炸弹> v新子弹 = std::make_shared<t炸弹>(a参数...);
 	m实现->f产生炸弹(v新子弹, m参数);
 	return v新子弹;
 }

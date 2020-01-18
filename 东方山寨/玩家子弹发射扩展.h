@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "玩家子弹发射基础.h"
 #include "玩家子弹扩展.h"
+#include "玩家子弹扩展_贯穿.h"
 namespace 东方山寨::玩家子弹发射 {
 class C自机基础 : public C玩家子弹发射器 {
 public:
