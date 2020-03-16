@@ -202,7 +202,7 @@ C敌机::tf运动 F敌机运动_目标坐标(const t向量2 &a目标, float a时
 	return [=](const C敌机 &a敌机)->t向量2 {
 		const float v剩余时间 = a敌机.f剩余运动时间(a时间);
 		const t向量2 v坐标差 = a目标 - a敌机.m坐标;
-		return (v剩余时间 >= c帧秒) ? (v坐标差 / v剩余时间) : v坐标差;
+		return (v剩余时间 >= c帧秒<float>) ? (v坐标差 / v剩余时间) : v坐标差;
 	};
 }
 C敌机::tf运动 F敌机运动_平滑移动到(const t向量2 &a最高速度, float a总时间, float a平滑开始, float a平滑结束) {

@@ -107,7 +107,7 @@ struct S子弹属性 {
 	int m动画帧数;
 };
 struct S子弹出现 {
-	static constexpr float c速度 = 4 * c帧秒;
+	static constexpr float c速度 = 4 * c帧秒<float>;
 	S子弹出现() = default;
 	S子弹出现(S子弹出现&, S子弹出现&, float);
 	void f初始化();
@@ -117,7 +117,7 @@ struct S子弹出现 {
 	float m帧;
 };
 struct S子弹消失 {
-	static constexpr float c速度 = 2 * c帧秒;
+	static constexpr float c速度 = 2 * c帧秒<float>;
 	S子弹消失() = default;
 	S子弹消失(S子弹消失&, S子弹消失&, float);
 	void f初始化(float = 0);

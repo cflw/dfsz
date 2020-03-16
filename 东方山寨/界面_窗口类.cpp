@@ -107,8 +107,8 @@ W游戏菜单::W游戏菜单(E上下文 a上下文) {
 		e选项,
 	};
 	const std::span<const int> va目标按钮序号[] = {
-		std::make_span(va游戏中按钮),
-		std::make_span(va游戏结束按钮),
+		std::span(va游戏中按钮),
+		std::span(va游戏结束按钮),
 	};
 	const std::wstring va菜单标题[] = {
 		va界面文本[L"menu.gamepause"],

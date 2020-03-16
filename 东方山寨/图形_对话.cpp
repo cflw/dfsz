@@ -60,14 +60,14 @@ bool C对话框::f接口_i可销毁() const {
 void I对话立绘::f接口_计算() {
 	const float v过秒 = C游戏::fg内容().fg游戏速度().fg秒();
 	const float v速度 = v过秒 * c动画速度;
-	const float v出现目标 = m标志[I图形::E标志::e结束] ? 0 : 1;
+	const float v出现目标 = m标志[I图形::E标志::e结束] ? 0.f : 1.f;
 	m出现 = 数学::f线性渐变<float>(m出现, v出现目标, v速度);
-	const float v焦点目标 = m标志[I对话立绘::E标志::e焦点] ? 1 : 0;
+	const float v焦点目标 = m标志[I对话立绘::E标志::e焦点] ? 1.f : 0.f;
 	m焦点 = 数学::f线性渐变<float>(m焦点, v焦点目标, v速度);
 }
 void I对话立绘::f兼容显示() const {
-	const float v灰 = 数学::f插值<float>(0.5f, 1, m焦点);
-	const float v透明 = std::min<float>(m出现, 数学::f插值<float>(0.8f, 1, m焦点));
+	const float v灰 = 数学::f插值<float>(0.5f, 1.f, m焦点);
+	const float v透明 = std::min<float>(m出现, 数学::f插值<float>(0.8f, 1.f, m焦点));
 	static auto &v画图形 = C游戏::fg图形().fg画图形();
 	v画图形.fs颜色(数学::S颜色::fc黑白(v灰, v透明));
 	v画图形.f填充矩形(数学::S矩形(m坐标, {64, 64}));

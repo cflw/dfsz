@@ -11,7 +11,7 @@ void C王战控制::f初始化_环境(C关卡控制 &a) {
 	m关卡控制 = &a;
 }
 std::shared_ptr<C关卡事件状态> C王战控制::f新事件_(const std::shared_ptr<C王战事件> &a) {
-	mw结束 = false;
+	mi结束 = false;
 	m击破 = nullptr;
 	a->m王战 = this;
 	a->m关卡 = m关卡控制;
@@ -25,17 +25,17 @@ void C王战控制::f计算() {
 	if (m事件 && m事件->m状态->m标志[(int)E关卡事件状态::e初始化]) {	//初始化了才能计算
 		//生命值
 		for (auto &v : ma王) {
-			if (v->fi死亡() && mw结束 == false) {
-				mw结束 = true;
+			if (v->fi死亡() && mi结束 == false) {
+				mi结束 = true;
 				m事件->f事件_王被击破(*v);
 				f事件结束();
 			}
 		}
 		//时间
 		if (m冻结 > 0) {
-			m冻结 -= c帧秒;
+			m冻结 -= c帧秒<float>;
 		} else {
-			m时间 -= c帧秒;
+			m时间 -= c帧秒<float>;
 			const float v地板 = floor(m时间);
 			if (m地板 != v地板) {
 				m地板 = v地板;
@@ -49,8 +49,8 @@ void C王战控制::f计算() {
 					v播放控制.f播放音效l(*v倒计时0);
 				}
 			}
-			if (m时间 <= 0 && mw结束 == false) {
-				mw结束 = true;
+			if (m时间 <= 0 && mi结束 == false) {
+				mi结束 = true;
 				m时间 = 0;
 				m事件->f事件_时间到();
 				f事件结束();
@@ -61,9 +61,8 @@ void C王战控制::f计算() {
 void C王战控制::f王战开始(int a数量) {
 	fg王战标志() = true;
 	assert(m总血条 == nullptr);
-	auto v图形工厂 = C游戏::fg资源().f工厂_图形();
-	m总血条 = v图形工厂.f产生图形<C总血条>(a数量 - 1);
-	m弹幕时间 = v图形工厂.f产生图形<C弹幕时间>(m时间);
+	m总血条 = 图形模板::f总血条(a数量 - 1);
+	m弹幕时间 = 图形模板::f弹幕时间(m时间);
 	m时间 = 10000;
 	m冻结 = 10000;
 }
@@ -126,4 +125,4 @@ C敌机 *C王战控制::fg击破() {
 	}
 	return nullptr;
 }
-}
+}	//namespace 东方山寨

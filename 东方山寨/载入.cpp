@@ -299,8 +299,8 @@ void C载入::f动画(const S载入参数 &a) {
 			a结构.m序号 = a数据.get<int>(L"开始", 0);
 			a结构.m循环 = a数据.get<int>(L"循环", 0);
 			a结构.m帧数 = a数据.get<int>(L"帧数", 0);
-			a结构.m变化速度 = a数据.get<float>(L"变化速度", v变化速度) / (float)c计算频率;
-			a结构.m循环速度 = a数据.get<float>(L"循环速度", v循环速度) / (float)c计算频率;
+			a结构.m变化速度 = a数据.get<float>(L"变化速度", v变化速度) / c计算频率<float>;
+			a结构.m循环速度 = a数据.get<float>(L"循环速度", v循环速度) / c计算频率<float>;
 			a结构.m境像 = a数据.get<bool>(L"镜像", false);
 		};
 		f读组(v属性.m正常, v节点0.get_child(L"正常动画"));

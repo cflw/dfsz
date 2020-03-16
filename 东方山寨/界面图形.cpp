@@ -103,7 +103,7 @@ C界面图形控制::~C界面图形控制() {
 
 }
 void C界面图形控制::f计算() {
-	const float v云加 = (m标志[e云] ? 1 : -1) * c帧秒 * 4;
+	const float v云加 = (m标志[e云] ? 1 : -1) * c帧秒<float> * 4;
 	const float v云透明度 = m云透明度 + v云加;
 	m云透明度 = 数学::f夹取<float>(v云透明度, 0, 1);
 }

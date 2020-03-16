@@ -1,4 +1,6 @@
 ﻿#pragma once
+#include <cmath>
+#include <numbers>
 #include <boost/rational.hpp>
 #include <cflw数学.h>
 #include <cflw数学_向量.h>

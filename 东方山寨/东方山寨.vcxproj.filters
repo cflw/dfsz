@@ -329,6 +329,9 @@
     <ClCompile Include="子机图形.cpp">
       <Filter>游戏本体\玩家</Filter>
     </ClCompile>
+    <ClCompile Include="图形_抬显模板.cpp">
+      <Filter>游戏本体\图形</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="脚本.h">

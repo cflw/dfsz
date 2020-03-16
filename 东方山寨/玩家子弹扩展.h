@@ -9,7 +9,7 @@ namespace 东方山寨::玩家子弹 {
 class C诱导 : public C玩家子弹 {
 private:
 	static constexpr float c初始生命 = 2;
-	static constexpr float c角速度 = 数学::c二π<float> / c计算频率;
+	static constexpr float c角速度 = 数学::c二π<float> / c计算频率<float>;
 public:
 	C诱导();
 	//接口

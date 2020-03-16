@@ -2,6 +2,7 @@
 #include "游戏常量.h"
 #include "图形基础.h"
 #include "图形工厂.h"
+#include "图形缓冲.h"
 namespace 东方山寨 {
 class C玩家成绩图形实现;
 class C画玩家成绩 {
@@ -35,7 +36,7 @@ public:
 	二维::tp文本格式 m文本格式;
 	const C画玩家成绩 *m画成绩 = nullptr;
 };
-template<typename t值> class C玩家成绩图形 : public I图形, public C玩家成绩图形实现 {
+template<typename t值> class C玩家成绩图形 : public I图形, public C玩家成绩图形实现, public C兼容图形缓冲<C玩家成绩图形<t值>> {
 public:
 	static_assert(std::is_arithmetic<t值>::value);
 	using tf跟踪 = std::function<t值()>;
@@ -131,7 +132,8 @@ C玩家成绩图形工厂::f产生图形(
 	std::shared_ptr<C玩家成绩图形<t值>> v图形 = std::make_shared<C玩家成绩图形<t值>>(af跟踪, af计算, af更新);
 	v图形->f实现_初始化环境(*m画玩家成绩);
 	v图形->f实现_初始化(a位置, a格式, a颜色);
-	m图形工厂.f实现_产生图形(v图形);
+	auto v缓冲 = m图形工厂.fc图形缓冲<C玩家成绩图形<t值>>(*v图形);
+	m图形工厂.f实现_产生图形(v图形, v缓冲);
 	ma玩家成绩->push_back(v图形);
 	return v图形;
 }

@@ -25,16 +25,16 @@ void C日志::f添加(E级别 a级别, const std::wstring &a文本) {
 }
 void C日志::f计算() {
 	constexpr float c渐变速度 = 4;
-	constexpr float c渐变秒 = c帧秒 * c渐变速度;
+	constexpr float c渐变秒 = c帧秒<float> * c渐变速度;
 	int i = 0;
 	const int v数量 = ma日志.size();
 	const int v消失 = v数量 - 5;
 	for (S日志 &v日志 : ma日志) {
-		v日志.m出现 += c帧秒;
+		v日志.m出现 += c帧秒<float>;
 		if (i < v消失) {
 			v日志.m消失 += c渐变秒;
 		} else if (v日志.m出现 >= 5) {
-			v日志.m消失 += c帧秒;	//慢慢消失
+			v日志.m消失 += c帧秒<float>;	//慢慢消失
 		}
 		++i;
 	}
@@ -47,7 +47,7 @@ void C日志::f计算() {
 			break;
 		}
 	}
-	m显示位置y = 数学::f倍数渐变<float>(m显示位置y, -c框架范围y, 0.01f, c帧秒);
+	m显示位置y = 数学::f倍数渐变<float>(m显示位置y, -c框架范围y, 0.01f, c帧秒<float>);
 }
 void C日志::f显示() const {
 	float v显示位置y = m显示位置y;

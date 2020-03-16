@@ -278,7 +278,7 @@ C画背景 &C图形引擎::fg画背景() {
 	return *m画背景;
 }
 float C图形引擎::fg渲染秒() const {
-	return (float)c帧秒 * fg渲染帧();
+	return c帧秒<float> * fg渲染帧();
 }
 float C图形引擎::fg渲染帧() const {
 	return (float)*m渲染间隔;

@@ -194,7 +194,7 @@ public:
 		f载入();
 		//m任务_载入 = std::async(f载入);
 		m界面.f初始化0(m图形, m输入);
-		m计时器.f重置(c帧秒);
+		m计时器.f重置(c帧秒<float>);
 		m画帧速率 = std::make_unique<C画帧速率>(m图形.fg二维());
 		m日志 = std::make_unique<C日志>(m图形.fg二维());
 		fs渲染间隔(1);
@@ -324,10 +324,10 @@ public:
 		f切换游戏状态(E游戏状态::e游戏中);
 	}
 	void fs渲染间隔(int a) {
-		const float v渲染频率 = c计算频率 / a;
+		const float v渲染频率 = c计算频率<float> / a;
 		m计次器.f重置(a);
 		m画帧速率->fs额定速率(v渲染频率);
-		m界面.fs时钟频率(c计算频率, v渲染频率);
+		m界面.fs时钟频率(c计算频率<float>, v渲染频率);
 		m渲染间隔 = a;
 	}
 	void f切换游戏状态(E游戏状态 a) {

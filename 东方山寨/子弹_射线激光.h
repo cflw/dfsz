@@ -35,6 +35,7 @@ public:
 	void f接口_更新() override;
 	void f接口_自机判定(C自机与子弹判定 &) override;
 	bool f接口_炸弹判定(C子弹与玩家炸弹判定 &) override;
+	bool f接口_i可显示() const override;
 	//初始化
 	void f初始化_长宽(float = -1, float = -1);
 	//动作

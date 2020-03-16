@@ -93,8 +93,8 @@ void C角色动画::f接口_更新() {
 	const float v循环帧 = m动画方向->m循环速度 * v过帧;
 	//动画帧
 	if (m动画方向 == m目标方向) {	//相同的方向
-		const float &v循环 = m动画方向->m循环;
-		const float &v帧数 = m动画方向->m帧数;
+		const float v循环 = (float)m动画方向->m循环;
+		const float v帧数 = (float)m动画方向->m帧数;
 		if (m动画帧 < v循环) {
 			m动画帧 += v变化帧;
 		} else {

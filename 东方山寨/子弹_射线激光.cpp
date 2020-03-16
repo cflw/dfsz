@@ -10,8 +10,8 @@ struct C射线激光::S段信息 {
 	int v序号;
 	float v中心;
 	S消失段 *v指针;
-	bool operator <(const S段信息 &p) const {
-		return v中心 < p.v中心;
+	bool operator <(const S段信息 &a) const {
+		return v中心 < a.v中心;
 	}
 };
 //常量
@@ -224,14 +224,14 @@ void C射线激光::f接口_自机判定(C自机与子弹判定 &a判定) {
 	}
 	const float v半径 = m子弹属性->fg判定y(m缩放.y);
 	if (a判定.f子弹_提交判定(t圆形{f扩展_g点(v方位.x), v半径})) {
-		bool vw有效 = true;
+		bool vi有效 = true;
 		for (auto &v消失段 : f循环_消失段()) {
 			if (v消失段.v范围.fi范围内(v方位.x)) {
-				vw有效 = false;
+				vi有效 = false;
 				break;
 			}
 		}
-		if (vw有效) {
+		if (vi有效) {
 			a判定.f子弹_判定有效();
 			if (a判定.f子弹_i擦弹()) {
 				f基础_擦弹();
@@ -287,6 +287,12 @@ bool C射线激光::f接口_炸弹判定(C子弹与玩家炸弹判定 &a判定) 
 	}
 	return false;
 }
+bool C射线激光::f接口_i可显示() const {
+	if (f扩展_g总长() == 0) {
+		return false;
+	}
+	return C子弹::f接口_i可显示();
+}
 //初始化
 void C射线激光::f初始化_长宽(float a长, float a宽) {
 	m初始化_长 = a长;
@@ -340,24 +346,24 @@ void C射线激光::f消失段_新建(float a位置, float a半径) {
 	m标志[e变化_数量] = true;
 	m标志[e变化_循环] = true;
 }
-void C射线激光::f消失段_销毁(S消失段 &p段, int p前) {
-	int &v引用这个段 = (p前 < 0) ? m开始段 : ma消失段[p前].v下个段;
-	const int &v下个段 = p段.v下个段;
+void C射线激光::f消失段_销毁(S消失段 &a段, int a前) {
+	int &v引用这个段 = (a前 < 0) ? m开始段 : ma消失段[a前].v下个段;
+	const int &v下个段 = a段.v下个段;
 	if (v下个段 >= 0) {
 		v引用这个段 = v下个段;
 	} else {
 		v引用这个段 = -1;
 	}
-	p段.f对象_销毁();
+	a段.f对象_销毁();
 	m标志[e变化_数量] = true;
 	m标志[e变化_循环] = true;
 }
 void C射线激光::f消失段_排序() {
-	auto vw排序 = m标志[e变化_排序];
-	if (!vw排序) {
+	auto vi排序 = m标志[e变化_排序];
+	if (!vi排序) {
 		return;
 	}
-	vw排序 = false;
+	vi排序 = false;
 	if (m开始段 < 0) {
 		return;
 	}

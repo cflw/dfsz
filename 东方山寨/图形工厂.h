@@ -33,7 +33,7 @@ public:
 		const C游戏速度 *m游戏速度 = nullptr;
 	};
 	C图形工厂(C实现&);
-	void f实现_产生图形(const std::shared_ptr<I图形> &);
+	void f实现_产生图形(const std::shared_ptr<I图形> &, I图形缓冲 * = nullptr);
 	template<typename t, typename...t参数> std::shared_ptr<t> f产生图形(const t参数 &...a参数);
 	template<typename t> std::shared_ptr<t> f产生图形(const I工厂<t> &);
 	template<T有图形缓冲 t> typename t::C图形缓冲 *fc图形缓冲(t &);
@@ -74,6 +74,6 @@ template<T有图形缓冲 t> typename t::C图形缓冲 *C图形工厂::fc图形�
 	}
 }
 template<typename t> I图形缓冲 *C图形工厂::fc图形缓冲(t &) {
-	return nullptr;
+	throw std::runtime_error("图形类未实现图形缓冲");
 }
 }	//namespace 东方山寨

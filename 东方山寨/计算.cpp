@@ -8,7 +8,7 @@ float f插值(const std::pair<float, float> &a数值, float a插值) {
 	return 数学::f插值<float>(a数值.first, a数值.second, a插值);
 }
 bool f计时(float &a计时, float p) {
-	a计时 += (float)c帧秒;
+	a计时 += c帧秒<float>;
 	if (a计时 > p) {
 		a计时 = 0;
 		return true;
@@ -17,10 +17,10 @@ bool f计时(float &a计时, float p) {
 	}
 }
 float f加变化(float a变化, float a时间) {
-	return a变化 * a时间 * (float)c帧秒;
+	return a变化 * a时间 * c帧秒<float>;
 }
 float f乘变化(float a变化, float a时间) {
-	return pow(a变化, 1 / a时间 / (float)c计算频率);
+	return pow(a变化, 1 / a时间 / c计算频率<float>);
 }
 float f距离透明度(float a原透明, float a距离) {
 	const float c最低透明度 = 0.2f;
@@ -38,10 +38,10 @@ void f基本运动计算(t向量2 &a坐标, const t向量2 &a速度, float a时�
 float f到目标时间(const t向量2 &a原, const t向量2 &a目标, float a速度) {
 	const float v距离 = a目标.f到点距离(a原);
 	const float v帧 = v距离 / a速度;
-	return v帧 * (float)c帧秒;
+	return v帧 * c帧秒<float>;
 }
 t向量2 f到目标速度(const t向量2 &a原, const t向量2 &a目标, float a时间) {
-	if (a时间 <= c帧秒) {
+	if (a时间 <= c帧秒<float>) {
 		return a目标 - a原;
 	} else {
 		return (a目标 - a原) / a时间;

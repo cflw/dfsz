@@ -228,7 +228,7 @@ void C分数值::f加分(long long p) {
 	m实际值 += p;
 }
 //吸收值
-const float C吸收值::c减少速度 = 50.f * (float)c帧秒;
+const float C吸收值::c减少速度 = 50.f * c帧秒<float>;
 const float C吸收值::c上限 = 130.f;
 C吸收值::operator int() const {
 	return (int)m值;

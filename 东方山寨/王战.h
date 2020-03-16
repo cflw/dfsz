@@ -35,7 +35,7 @@ private:
 	C王战事件 *m事件 = nullptr;
 	float m时间 = 0, m冻结 = 0, m地板 = 0;
 	C敌机 *m击破 = nullptr;
-	bool mw结束 = false;	//保证 王被击破,时间到 只能调用其中一个一次
+	bool mi结束 = false;	//保证 王被击破,时间到 只能调用其中一个一次
 };
 class C王战事件 : public C关卡事件 {
 public:

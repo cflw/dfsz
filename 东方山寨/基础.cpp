@@ -19,7 +19,7 @@ C游戏速度::C游戏速度(float a速度) : m速度{a速度} {
 	f内部计算();
 }
 void C游戏速度::f内部计算() {
-	m秒 = c帧秒 * m速度;
+	m秒 = c帧秒<float> * m速度;
 }
 void C游戏速度::fs速度(float a速度) {
 	m速度 = a速度;
@@ -95,7 +95,7 @@ C计时器::C计时器(float a时间):
 	m滴答(0), m计时(a时间) {
 }
 bool C计时器::f滴答() {
-	m滴答 += c帧秒;
+	m滴答 += c帧秒<float>;
 	if (m滴答 >= m计时) {
 		m滴答 = 0;
 		return true;
@@ -115,7 +115,7 @@ C单次计时器::C单次计时器(float a时间):
 }
 bool C单次计时器::f滴答() {
 	if (m滴答 < m计时) {
-		m滴答 += c帧秒;
+		m滴答 += c帧秒<float>;
 		return m滴答 >= m计时;
 	} else {
 		return false;

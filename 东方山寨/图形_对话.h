@@ -11,7 +11,7 @@ enum class E立绘表情 {
 };
 class C对话框 : public I图形 {
 public:
-	static constexpr float c透明度速度 = c帧秒 / 0.25;
+	static constexpr float c透明度速度 = c帧秒<float> / 0.25f;
 	static constexpr float c边框 = 16;
 	static constexpr float c开始位置x = c边框范围x - 32;
 	static constexpr float c开始位置y = -96;	//顶部

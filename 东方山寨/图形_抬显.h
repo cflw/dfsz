@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "图形包含.h"
 #include "图形基础.h"
+#include "图形缓冲.h"
 #include "游戏常量.h"
 namespace 东方山寨 {
 class C敌机;
@@ -8,7 +9,7 @@ struct S关卡标题;
 //=============================================================================
 // 标题
 //=============================================================================
-class C关卡标题 : public I粒子 {
+class C关卡标题 : public I粒子, public C兼容图形缓冲<C关卡标题> {
 public:
 	static constexpr float c大字号 = 二维::ca中文字号[二维::e初号];
 	static constexpr float c小字号 = 二维::ca中文字号[二维::e五号];
@@ -22,7 +23,7 @@ public:
 //=============================================================================
 // 血条
 //=============================================================================
-class C总血条 : public I图形 {
+class C总血条 : public I图形, public C兼容图形缓冲<C总血条> {
 public:
 	static constexpr float c变化速度 = 0.5f; 
 	static constexpr float c线宽 = 4;
@@ -41,7 +42,7 @@ private:
 	int m总数, m当前;
 	float m显示, m实际;	//百分比
 };
-class C分血条 : public I图形 {	//圆形血条
+class C分血条 : public I图形, public C兼容图形缓冲<C分血条> {	//圆形血条
 public:
 	static constexpr float c变化速度 = 2.f;
 	static constexpr float c半径 = 64;
@@ -67,14 +68,14 @@ private:
 //=============================================================================
 // 弹幕时间
 //=============================================================================
-class C弹幕时间 : public I图形 {
+class C弹幕时间 : public I图形, public C兼容图形缓冲<C弹幕时间> {
 public:
 	static constexpr float c字号 = 二维::ca中文字号[二维::e一号];
 	static constexpr float c小数字号 = c字号 * 0.6f;
 	static constexpr float c透明度 = 0.5f;
 	static constexpr float c透明度速度 = c透明度 * 2;
 	static const t颜色 c正常颜色, c急促颜色0, c急促颜色1;
-	C弹幕时间(const float &);
+	C弹幕时间(const float &);	//必需是引用
 	void f接口_更新() override;
 	void f兼容显示() const;
 	void f动作_重置颜色();
@@ -86,5 +87,12 @@ private:
 	const float &m实际;
 	float m显示, m透明度 = 1;
 };
-
-}
+//=============================================================================
+// 图形模板
+//=============================================================================
+namespace 图形模板 {
+std::shared_ptr<C总血条> f总血条(int 数量);
+std::shared_ptr<C分血条> f分血条(const C敌机 &);
+std::shared_ptr<C弹幕时间> f弹幕时间(const float &时间);
+}	//namespace 图形模板
+}	//namespace 东方山寨
