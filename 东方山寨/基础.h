@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include <bitset>
 #include <atomic>
-#include <memory>
 namespace 东方山寨 {
 typedef std::bitset<32> t标志;
 //方向
@@ -102,25 +101,5 @@ public:
 private:
 	float m滴答;
 	float m计时;
-};
-//==============================================================================
-// 工厂
-//==============================================================================
-template<typename t> class I工厂 {
-public:
-	virtual t *f接口_新建() const = 0;	//创建对象，返回裸指针，小心内存泄露
-	std::unique_ptr<t> f新建u() const {
-		return std::unique_ptr<t>(this->f接口_新建());
-	}
-	std::shared_ptr<t> f新建s() const {
-		return std::shared_ptr<t>(this->f接口_新建());
-	}
-};
-template<typename t基类, typename t派生类 = t基类> class C简单工厂 : public I工厂<t基类> {
-public:
-	static_assert(std::is_base_of<t基类, t派生类>::value, "");
-	t基类 *f接口_新建() const override {
-		return new t派生类();
-	}
 };
 }	//namespace 东方山寨

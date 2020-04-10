@@ -1,5 +1,4 @@
-﻿#include <experimental/generator>
-#include "界面图形.h"
+﻿#include "界面图形.h"
 #include "游戏.h"
 #include "图形_图片.h"
 #include "图形_背景.h"
@@ -13,14 +12,6 @@ namespace 界面图形 {
 template<typename t>
 bool fi使用(const std::shared_ptr<t> &a) {
 	return a && a->f对象_i使用();
-}
-template<typename t, int n>
-std::experimental::generator<t*> fe使用(std::shared_ptr<t> (&aa)[n]) {
-	for (auto &vp : aa) {
-		if (fi使用(vp)) {
-			co_yield vp.get();
-		}
-	}
 }
 class C消失 {
 public:
@@ -155,8 +146,10 @@ void C界面图形控制::f云(bool a) {
 			}
 		}
 	} else {
-		for (auto &vp云 : 界面图形::fe使用(ma云)) {
-			vp云->f消失();
+		for (auto &vp云 : ma云) {
+			if (fi使用(vp云)) {
+				vp云->f消失();
+			}
 		}
 	}
 }

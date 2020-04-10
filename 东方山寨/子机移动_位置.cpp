@@ -44,8 +44,8 @@ C位置::C工厂::C工厂(const std::initializer_list<t向量2> &a) :
 C位置::C工厂::C工厂(const std::shared_ptr<S属性> &a) :
 	m属性(a) {
 }
-I子机移动 *C位置::C工厂::f接口_新建() const {
-	return new C位置(m属性);
+std::tuple<const std::shared_ptr<C位置::S属性> &> C位置::C工厂::f工厂_g构造实参() const {
+	return std::forward_as_tuple(m属性);
 }
 //主类
 int C位置::f计算序号(int a) {

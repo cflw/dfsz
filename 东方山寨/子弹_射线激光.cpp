@@ -7,18 +7,13 @@ namespace 东方山寨 {
 // 扩展-射线激光
 //==============================================================================
 struct C射线激光::S段信息 {
-	int v序号;
-	float v中心;
-	S消失段 *v指针;
+	int m序号 = 0;
+	float m中心 = 0;	//消失段的中心位置
+	S消失段 *m指针 = nullptr;
 	bool operator <(const S段信息 &a) const {
-		return v中心 < a.v中心;
+		return m中心 < a.m中心;
 	}
 };
-//常量
-const float C射线激光::c消失段半长度 = 16;
-const float C射线激光::c宽度缩放速度 = 1.f / 60.f;
-const float C射线激光::c预警线宽度 = 0.1f;
-const float C射线激光::c炸弹无敌时间 = 0.5f;
 //接口
 void C射线激光::f接口_初始化() {
 	m开始段 = -1;
@@ -79,8 +74,8 @@ void C射线激光::f接口_计算() {
 		const float v段速度 = m速度.fg大小() * v过秒;
 		//处理开始段的范围
 		S消失段 &v这段 = ma消失段[m开始段];
-		v这段.v范围.m小 += v段速度;
-		if (v这段.v范围.fg直径() <= 0) {
+		v这段.m范围.m小 += v段速度;
+		if (v这段.m范围.fg直径() <= 0) {
 			f消失段_销毁(v这段, -1);
 		}
 		//处理所有段
@@ -88,25 +83,25 @@ void C射线激光::f接口_计算() {
 		int v上段序号 = -1;
 		while (v这段序号 >= 0) {
 			S消失段 &v这段 = ma消失段[v这段序号];
-			v这段.v消失.f计算();
+			v这段.m消失.f计算();
 			//消失段的运动
-			v这段.v范围.fs移动(v段速度);
-			float &v这段小位置 = v这段.v范围.m小;
+			v这段.m范围.fs移动(v段速度);
+			float &v这段小位置 = v这段.m范围.m小;
 			if (v这段小位置 >= v总长) {
 				f消失段_销毁(v这段, v上段序号);
 			}
-			float &v这段大位置 = v这段.v范围.m大;
+			float &v这段大位置 = v这段.m范围.m大;
 			if (v这段大位置 > v总长) {
 				v这段大位置 = v总长;
 			}
 			//和上一段的交互
 			if (v上段序号 >= 0) {
 				S消失段 &v上段 = ma消失段[v上段序号];
-				if (v上段.v范围.fi相交(v这段.v范围)) {
-					v上段.v范围.m大 += v段速度;
-					v这段.v范围.m小 -= v段速度;
-					if (v上段.v消失.fi已经消失() && v这段.v消失.fi已经消失()) {
-						v上段.v范围.fs合并(v这段.v范围);
+				if (v上段.m范围.fi相交(v这段.m范围)) {
+					v上段.m范围.m大 += v段速度;
+					v这段.m范围.m小 -= v段速度;
+					if (v上段.m消失.fi已经消失() && v这段.m消失.fi已经消失()) {
+						v上段.m范围.fs合并(v这段.m范围);
 						f消失段_销毁(v这段, v上段序号);
 					}
 				}
@@ -115,7 +110,7 @@ void C射线激光::f接口_计算() {
 			if (v这段.f对象_i使用()) {
 				v上段序号 = v这段序号;
 			}
-			v这段序号 = v这段.v下个段;
+			v这段序号 = v这段.m下个段;
 		}
 	}
 }
@@ -125,7 +120,7 @@ void C射线激光::f接口_更新() {
 	const float v显示长度 = f扩展_g总长();
 	//定义节点
 	C子弹顶点::C直线::ta顶点 va节点;
-	va节点.reserve(f消失段_数量() + 3);
+	va节点.reserve(f消失段_g数量() + 3);
 	//添加节点
 	auto f添加节点0 = [&](float a位置, float a消失) {
 		va节点.push_back(t顶点{a位置, a消失});
@@ -139,14 +134,14 @@ void C射线激光::f接口_更新() {
 	};
 	f添加节点1(v显示长度 - c消失段半长度, 0);
 	for (auto &v消失段 : f循环_消失段()) {
-		const float &v消失 = v消失段.v消失.m帧;
-		const float v小 = v消失段.v范围.fg小();
+		const float &v消失 = v消失段.m消失.m帧;
+		const float v小 = v消失段.m范围.fg小();
 		f添加节点1(v小, 0);
-		const float v大 = v消失段.v范围.fg大();
+		const float v大 = v消失段.m范围.fg大();
 		f添加节点1(v大, 0);
-		const float v半径 = v消失段.v范围.fg半径();
+		const float v半径 = v消失段.m范围.fg半径();
 		if (v半径 <= c消失段半长度) {
-			f添加节点1(v消失段.v范围.fg中心(), v半径 / c消失段半长度 * v消失);
+			f添加节点1(v消失段.m范围.fg中心(), v半径 / c消失段半长度 * v消失);
 		} else {
 			f添加节点1(v小 + c消失段半长度, v消失);
 			f添加节点1(v大 - c消失段半长度, v消失);
@@ -162,14 +157,14 @@ void C射线激光::f接口_更新() {
 	};
 	//如果一个消失段的消失节点在其它消失段中,重新计算消失
 	for (auto &v消失段 : f循环_消失段()) {
-		const float v小位置 = v消失段.v范围.fg小();
+		const float v小位置 = v消失段.m范围.fg小();
 		const auto v开始节点 = std::upper_bound(va节点.begin(), va节点.end(), t顶点{v小位置, 0}, f顶点比较);
-		const float v大位置 = v消失段.v范围.fg大();
+		const float v大位置 = v消失段.m范围.fg大();
 		const auto v结束节点 = std::lower_bound(va节点.begin(), va节点.end(), t顶点{v大位置, 0}, f顶点比较);
-		const float &v段消失 = v消失段.v消失.m帧;
-		const float v半径 = v消失段.v范围.fg半径();
+		const float &v段消失 = v消失段.m消失.m帧;
+		const float v半径 = v消失段.m范围.fg半径();
 		if (v半径 <= c消失段半长度) {
-			const float v中心 = v消失段.v范围.fg中心();
+			const float v中心 = v消失段.m范围.fg中心();
 			for (auto v迭代器 = v开始节点; v迭代器 != v结束节点; ++v迭代器) {
 				auto &v节点 = *v迭代器;
 				const float &v节点位置 = v节点.m位置;
@@ -226,7 +221,7 @@ void C射线激光::f接口_自机判定(C自机与子弹判定 &a判定) {
 	if (a判定.f子弹_提交判定(t圆形{f扩展_g点(v方位.x), v半径})) {
 		bool vi有效 = true;
 		for (auto &v消失段 : f循环_消失段()) {
-			if (v消失段.v范围.fi范围内(v方位.x)) {
+			if (v消失段.m范围.fi范围内(v方位.x)) {
 				vi有效 = false;
 				break;
 			}
@@ -266,7 +261,7 @@ bool C射线激光::f接口_炸弹判定(C子弹与玩家炸弹判定 &a判定) 
 				//是否在消失范围外
 				bool v范围外 = true;
 				for (auto &v消失段 : f循环_消失段()) {
-					if (v范围外 && v消失段.v范围.fi范围内(v位置)) {
+					if (v范围外 && v消失段.m范围.fi范围内(v位置)) {
 						v范围外 = false;
 					}
 				};
@@ -331,14 +326,14 @@ t向量2 C射线激光::f扩展_g点(float a位置) const {
 void C射线激光::f消失段_新建(float a位置, float a半径) {
 	const float v半径 = (a半径 <= c消失段半长度) ? c消失段半长度 : a半径;
 	ma消失段.f新建(1, [&](S消失段 &a, int i) {
-		a.v序号 = i;
-		a.v下个段 = m开始段;
-		a.v范围.fs中心半径(a位置, v半径);
-		if (a.v范围.m小 < 0) {
-			a.v范围.m小 = 0;
+		a.m序号 = i;
+		a.m下个段 = m开始段;
+		a.m范围.fs中心半径(a位置, v半径);
+		if (a.m范围.m小 < 0) {
+			a.m范围.m小 = 0;
 		}
-		a.v消失.f初始化(0);
-		a.v消失.f消失();
+		a.m消失.f初始化();
+		a.m消失.f消失();
 		a.f对象_使用();
 		m开始段 = i;
 	});
@@ -347,8 +342,8 @@ void C射线激光::f消失段_新建(float a位置, float a半径) {
 	m标志[e变化_循环] = true;
 }
 void C射线激光::f消失段_销毁(S消失段 &a段, int a前) {
-	int &v引用这个段 = (a前 < 0) ? m开始段 : ma消失段[a前].v下个段;
-	const int &v下个段 = a段.v下个段;
+	int &v引用这个段 = (a前 < 0) ? m开始段 : ma消失段[a前].m下个段;
+	const int &v下个段 = a段.m下个段;
 	if (v下个段 >= 0) {
 		v引用这个段 = v下个段;
 	} else {
@@ -370,9 +365,9 @@ void C射线激光::f消失段_排序() {
 	std::vector<S段信息> va段信息;
 	for (auto &v消失段 : f循环_消失段()) {
 		S段信息 v信息;
-		v信息.v序号 = v消失段.v序号;
-		v信息.v中心 = v消失段.v范围.fg中心();
-		v信息.v指针 = &v消失段;
+		v信息.m序号 = v消失段.m序号;
+		v信息.m中心 = v消失段.m范围.fg中心();
+		v信息.m指针 = &v消失段;
 		va段信息.push_back(v信息);
 	}
 	std::sort(va段信息.begin(), va段信息.end());
@@ -380,27 +375,27 @@ void C射线激光::f消失段_排序() {
 	auto &&vi循环 = m标志[e变化_循环];
 	int *v指 = &m开始段;
 	for (auto &v信息 : va段信息) {
-		S消失段 *const &vp这段 = v信息.v指针;
-		if (*v指 != v信息.v序号) {
-			*v指 = v信息.v序号;
+		S消失段 *const &vp这段 = v信息.m指针;
+		if (*v指 != v信息.m序号) {
+			*v指 = v信息.m序号;
 			vi循环 = true;
 		}
-		v指 = &vp这段->v下个段;
+		v指 = &vp这段->m下个段;
 	}
 	*v指 = -1;
 }
-int C射线激光::f消失段_数量() {
+int C射线激光::f消失段_g数量() {
 	auto &&vi数量 = m标志[e变化_数量];
 	if (vi数量) {
 		int v新数量 = 0;
 		int v段 = m开始段;
 		while (v段 >= 0) {
 			++v新数量;
-			v段 = ma消失段[v段].v下个段;
+			v段 = ma消失段[v段].m下个段;
 		}
-		m数量 = v新数量;
+		m段数量 = v新数量;
 	}
-	return m数量;
+	return m段数量;
 }
 循环::C零散<std::vector<C射线激光::S消失段>> &C射线激光::f循环_消失段() {
 	auto &&vi循环 = m标志[e变化_循环];
@@ -409,7 +404,7 @@ int C射线激光::f消失段_数量() {
 		int v段 = m开始段;
 		while (v段 >= 0) {
 			va序号.push_back(v段);
-			v段 = ma消失段[v段].v下个段;
+			v段 = ma消失段[v段].m下个段;
 		}
 		m循环缓存_消失段 = 循环::C零散<std::vector<C射线激光::S消失段>>{ma消失段, va序号};
 	}

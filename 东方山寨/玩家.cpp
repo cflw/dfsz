@@ -195,7 +195,7 @@ void C玩家::fs子机(int a) {
 }
 void C玩家::fs炸弹(int a) {
 	const auto &va玩家发射 = C游戏::fg资源().fg玩家发射();
-	m发射炸弹 = va玩家发射.fg扩展(a)->f新建u();
+	m发射炸弹 = va玩家发射.fg扩展(a)->f接口_新建u();
 	m发射炸弹->f初始化_发射环境(std::make_shared<C玩家发射环境>(*this));
 	m发射炸弹->f接口_初始化();
 }

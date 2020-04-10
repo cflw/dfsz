@@ -3,6 +3,7 @@
 #include "基础.h"
 #include "基础_扩展数组.h"
 #include "基础_属性数组.h"
+#include "基础_对象工厂.h"
 #include "图形_图片.h"
 #include "玩家子弹发射基础.h"
 #include "子机移动接口.h"

@@ -66,7 +66,7 @@ public:
 		int fg计数() const;
 		void f变换_平移(const t向量2 &);	//窗口坐标
 	private:
-		S参数 *m参数, m参数备份;
+		S参数 *m参数 = nullptr, m参数备份;
 		int m行, m列, i, j;
 	};
 	void f初始化(C属性数组<S顶点矩形>&);
@@ -80,7 +80,7 @@ public:
 public:
 	S参数 m参数;
 private:
-	C属性数组<S顶点矩形> *ma顶点矩形;
+	C属性数组<S顶点矩形> *ma顶点矩形 = nullptr;
 };
 //==============================================================================
 // 模型工厂
@@ -90,13 +90,13 @@ public:
 	struct S参数 {
 		const S三维顶点 *m顶点 = nullptr;
 		const uint16_t *m索引 = nullptr;
-		size_t m顶点数, m索引数;
+		size_t m顶点数 = 0, m索引数 = 0;
 		void fs顶点(const S三维顶点 *, size_t);
 		void fs索引(const uint16_t *, size_t);
 	} m参数;
 	void f初始化(C属性数组<C模型>&);
 	void f创建模型(int 标识);
 private:
-	C属性数组<C模型> *ma模型;
+	C属性数组<C模型> *ma模型 = nullptr;
 };
 }	//namespace 东方山寨

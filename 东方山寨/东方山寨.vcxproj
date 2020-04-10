@@ -322,6 +322,7 @@
     <ClInclude Include="图形引擎_资源工厂.h" />
     <ClInclude Include="图形基础.h" />
     <ClInclude Include="基础_动态数组.h" />
+    <ClInclude Include="基础_对象工厂.h" />
     <ClInclude Include="基础_对象数组.h" />
     <ClInclude Include="基础_属性数组.h" />
     <ClInclude Include="基础_扩展数组.h" />

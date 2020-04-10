@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "子机移动接口.h"
 #include "基础.h"
+#include "基础_对象工厂.h"
 namespace 东方山寨 {
 namespace 子机移动 {
 //位置
@@ -29,11 +30,11 @@ public:
 		const t向量2 *m正常;
 		const t向量2 *m低速;
 	};
-	class C工厂 : public I工厂<I子机移动> {
+	class C工厂 : public I自动工厂<I子机移动, C位置, C工厂> {
 	public:
 		C工厂(const std::initializer_list<t向量2> &);
 		C工厂(const std::shared_ptr<S属性> &);
-		I子机移动 *f接口_新建() const override;
+		std::tuple<const std::shared_ptr<S属性> &> f工厂_g构造实参() const;
 		std::shared_ptr<S属性> m属性;
 	};
 	static int f计算序号(int);	//跟据火力计算数组开始序号

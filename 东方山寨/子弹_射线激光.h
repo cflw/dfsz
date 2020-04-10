@@ -17,16 +17,17 @@ private:
 		e变化_循环,	//循环缓存重新计算
 	};
 	struct S消失段 : public C简单游戏对象 {	//记录消失的节点
-		int v序号;
-		int v下个段;
-		数学::S范围<float> v范围;	//数字越大离发射点越远
-		S子弹消失 v消失;
+		int m序号 = c空段;
+		int m下个段 = c空段;
+		数学::S范围<float> m范围;	//数字越大离发射点越远
+		S子弹消失 m消失;
 	};
 	struct S段信息;	//在排序时使用
-	static const float c消失段半长度;
-	static const float c宽度缩放速度;
-	static const float c预警线宽度;
-	static const float c炸弹无敌时间;
+	static constexpr int c空段 = -1;	//表示没有段
+	static constexpr float c消失段半长度 = 16;
+	static constexpr float c宽度缩放速度 = 1.f / 60.f;
+	static constexpr float c预警线宽度 = 0.1f;
+	static constexpr float c炸弹无敌时间 = 0.5f;	//激光碰到炸弹后有无敌时间
 public:
 	C射线激光() = default;
 	void f接口_初始化() override;
@@ -51,15 +52,15 @@ public:	//扩展
 	void f消失段_新建(float 位置, float 半径 = 0);
 	void f消失段_销毁(S消失段 &, int 上个段);
 	void f消失段_排序();
-	int f消失段_数量();
+	int f消失段_g数量();	//计算消失段数量并返回
 	//循环
 	循环::C零散<std::vector<S消失段>> &f循环_消失段();
 private:
-	float m初始化_长, m初始化_宽;
-	C动态数组<S消失段> ma消失段;
-	int m开始段 = -1;	//表示一个消失段的序号
-	int m数量 = -1;
-	float m炸弹无敌;	//碰到炸弹后有一个无敌时间
+	float m初始化_长 = 1, m初始化_宽 = 1;
+	C动态数组<S消失段> ma消失段;	//消失段连续存放,实际计算用链表
+	int m开始段 = c空段;	//表示一个消失段的序号
+	int m段数量 = 0;
+	float m炸弹无敌 = 0;	//碰到炸弹后有一个无敌时间
 	t向量2 m目标;
 	S子弹出现 m出现;
 	S子弹消失 m消失;

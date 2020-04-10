@@ -2,6 +2,7 @@
 #include "计算.h"
 namespace 东方山寨 {
 namespace 玩家子弹发射 {
+//属性
 C发散::S属性 C发散::S属性::fc间隔(int a数量, float a发散0, float a发散1, float a并列0, float a并列1) {
 	return S属性(a数量, std::pair<float, float>(a发散0, a发散1), std::pair<float, float>(a并列0, a并列1));
 }
@@ -18,12 +19,14 @@ C发散::S属性::S属性(int a数量, std::pair<float, float> a发散, std::pai
 	m向外张开角度(a发散),
 	m水平坐标间隔(a间隔) {
 }
+//工厂
 C发散::C工厂::C工厂(const S属性 &a属性) :
 	m属性(std::make_shared<S属性>(a属性)) {
 }
-C玩家子弹发射器 *C发散::C工厂::f接口_新建() const {
-	return new C发散(m属性);
+std::tuple<const std::shared_ptr<C发散::S属性> &> C发散::C工厂::f工厂_g构造实参() const {
+	return std::forward_as_tuple(m属性);
 }
+//发散
 C发散::C发散(const std::shared_ptr<S属性> &a属性):
 	m属性(a属性) {
 }

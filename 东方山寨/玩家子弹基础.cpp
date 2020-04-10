@@ -99,7 +99,7 @@ void C玩家子弹::f接口_命中敌机(const C敌机 &) {
 	}
 }
 bool C玩家子弹::f接口_在窗口外() {
-	return C边界::c窗口.f外边判断(m坐标, 0);
+	return C矩形边界::c窗口.f外边判断(m坐标, 0);
 }
 float C玩家子弹::f接口_g判定半径() const {
 	return c判定半径;

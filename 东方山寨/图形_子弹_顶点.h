@@ -18,7 +18,7 @@ private:
 	static constexpr unsigned int c索引缓存数量 = c顶点缓存数量 * 2;
 	static constexpr float c左 = 0, c上 = 0, c右 = 1, c下 = 1, c中 = 0.5f;
 public:	//函数
-	C画子弹_顶点(C图形引擎 &, 三维::C三维 &);
+	C画子弹_顶点(C图形引擎 &, 三维::C三维 &, bool 高光);
 	virtual ~C画子弹_顶点() = default;
 	void f准备() override;
 	void f刷新() override;

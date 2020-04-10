@@ -9,7 +9,7 @@ public:
 		m计数 = 0;
 	}
 	void f加计数() {
-		//assert(m计数 < m数量);
+		//assert(m计数 < m段数量);
 		++m计数;
 		m加变化 = true;
 	}

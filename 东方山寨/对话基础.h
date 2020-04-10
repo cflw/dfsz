@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "基础.h"
+#include "基础_对象工厂.h"
 namespace 东方山寨 {
 enum class E立绘状态 {
 	e聚焦,

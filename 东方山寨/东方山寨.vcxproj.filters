@@ -69,6 +69,9 @@
     <Filter Include="图形引擎\图形基础">
       <UniqueIdentifier>{453bc29f-61f8-4815-a540-7958f9fd570a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="脚本">
+      <UniqueIdentifier>{ca5ba7dc-3e0d-4ef7-9b23-17d3a14f358a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="程序.cpp">
@@ -334,9 +337,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="脚本.h">
-      <Filter>关卡</Filter>
-    </ClInclude>
     <ClInclude Include="子弹基础.h">
       <Filter>游戏本体\子弹基础</Filter>
     </ClInclude>
@@ -639,6 +639,12 @@
     </ClInclude>
     <ClInclude Include="子机图形.h">
       <Filter>游戏本体\玩家</Filter>
+    </ClInclude>
+    <ClInclude Include="基础_对象工厂.h">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClInclude>
+    <ClInclude Include="脚本.h">
+      <Filter>脚本</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -4,6 +4,7 @@
 #include <cflw数学_随机.h>
 #include "数学包含.h"
 #include "基础.h"
+#include "基础_对象工厂.h"
 #include "基础_对象数组.h"
 #include "基础_属性数组.h"
 #include "基础_扩展数组.h"

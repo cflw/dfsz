@@ -114,7 +114,7 @@ void C自机::fs自机属性(const S自机属性 *a属性) {
 	assert((a属性->m纹理.m指针 != nullptr) ? (a属性->m顶点.m指针 != nullptr) : true);
 	//赋值
 	m自机属性 = a属性;
-	m发射子弹 = m自机属性->m发射子弹->f新建u();
+	m发射子弹 = m自机属性->m发射子弹->f接口_新建u();
 	m发射子弹->f接口_初始化();
 	m图形 = nullptr;
 }

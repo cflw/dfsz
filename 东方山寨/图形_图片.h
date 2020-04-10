@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "基础_数组指针.h"
+#include "基础_对象工厂.h"
 #include "图形基础.h"
 #include "图形缓冲.h"
 #include "图形引擎.h"

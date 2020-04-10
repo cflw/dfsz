@@ -37,7 +37,8 @@ enum class E子弹 {
 	e曲线激光
 };
 enum class E画子弹 {
-	e顶点 = c画子弹标识,
+	e正常 = c画子弹标识,
+	e高光,
 	e线条,
 };
 enum class E纹理 {

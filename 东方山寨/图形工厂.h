@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "基础.h"
+#include "基础_对象工厂.h"
 #include "基础_对象数组.h"
 #include "基础_缓冲数组.h"
 #include "基础_数组指针.h"
@@ -59,7 +60,7 @@ template<typename t, typename...t参数> std::shared_ptr<t> C图形工厂::f产�
 template<typename t> std::shared_ptr<t> C图形工厂::f产生图形(const I工厂<t> &a图形工厂) {
 	static_assert(std::is_base_of<I图形, t>::value, "必须继承自I图形");
 	if (m实现->fi有空()) {
-		std::shared_ptr<t> v图形 = a图形工厂.f新建s();
+		std::shared_ptr<t> v图形 = a图形工厂.f接口_新建s();
 		auto *v图形缓冲 = fc图形缓冲<t>(*v图形);
 		m实现->f产生图形(v图形, m参数, v图形缓冲);
 		return v图形;

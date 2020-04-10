@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "子弹基础.h"
 namespace 东方山寨 {
-class C连续子弹 : public C子弹 {
+class C连续子弹 : public C子弹, public std::enable_shared_from_this<C连续子弹> {
 private:
 	typedef void (*tf两点操作)(C连续子弹 &, C连续子弹 &);
 	using tp连续子弹 = std::shared_ptr<C连续子弹>;
@@ -43,6 +43,7 @@ public:	//重写的接口函数
 	void f接口_初始化() override;
 	void f接口_销毁() override;
 	void f接口_计算() override;
+	void f接口_预更新() override;
 	void f接口_更新() override;
 	void f接口_自机判定(C自机与子弹判定 &) override;
 	bool f接口_i在窗口外() override;
@@ -50,21 +51,19 @@ public:	//重写的接口函数
 	bool f接口_炸弹判定(C子弹与玩家炸弹判定 &) override;
 public:		//初始化
 public:		//动作
-	void f动作_消失(bool);
+	void f动作_消失(bool 动画 = true);
 private:	//扩展
-	std::shared_ptr<C连续子弹> fg这指针() const;
 	bool f扩展_i环() const;
 	void f扩展_自动细分();
 	float f扩展_g细分间隔() const;
 	static std::shared_ptr<C连续子弹> f连续子弹_c细分(C连续子弹 &, C连续子弹 &, float);	//新建子弹对象
-	static void f连续子弹_连接0(C连续子弹 &, C连续子弹 &);
-	static void f连续子弹_断开0(C连续子弹 &, C连续子弹 &);
-	static void f连续子弹_细分0(C连续子弹 &, C连续子弹 &, int);	//调用子弹制造机产生细分子弹
-	static void f连续子弹_连接1(C连续子弹 &, C连续子弹 &);
-	static void f连续子弹_断开1(C连续子弹 &, C连续子弹 &);
+	static void f连续子弹_连接(C连续子弹 &, C连续子弹 &);	//断言,带锁
+	static void f连续子弹_断开(C连续子弹 &, C连续子弹 &);	//断言,带锁
+	static void f连续子弹_细分(C连续子弹 &, C连续子弹 &, int);	//调用子弹制造机产生细分子弹
+	static void f连续子弹_连接1(C连续子弹 &, C连续子弹 &);	//危险函数
+	static void f连续子弹_断开1(C连续子弹 &, C连续子弹 &);	//危险函数
 private:	//属性
 	static std::mutex m连接互斥;
-	std::weak_ptr<C连续子弹> m这;
 	std::shared_ptr<C连续子弹> m前, m后;
 	S子弹出现 m出现;
 	S子弹消失 m消失;
@@ -91,7 +90,6 @@ public:
 };
 template<typename t> void C连续子弹::f接口_具体类型初始化(const std::shared_ptr<t> &a这) {
 	static_assert(std::is_base_of<C连续子弹, t>::value, "");
-	a这->m这 = a这;
 	C细分工具<t>::f处理(a这);
 }
 }

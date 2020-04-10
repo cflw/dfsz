@@ -45,7 +45,8 @@ public:
 	virtual void f接口_初始化();
 	virtual void f接口_参数初始化(const S子弹参数 &);
 	virtual void f接口_计算();
-	virtual void f接口_更新();
+	virtual void f接口_预更新();	//更新前的计算
+	virtual void f接口_更新();	//更新图形数据
 	virtual void f接口_销毁();	//只能通过C子弹::f销毁()调用
 	virtual void f接口_自机判定(C自机与子弹判定 &);
 	virtual bool f接口_炸弹判定(C子弹与玩家炸弹判定 &);//在炸弹动作中调用
@@ -59,8 +60,9 @@ public:
 	void f动作_空();
 	void f动作_取消产生();
 	void f动作_消失(bool);	//[需要覆盖]
-	void f动作_旋转(float);
-	bool f动作_限速(float, float, float, float = 1);
+	void f动作_旋转d(float);
+	void f动作_旋转r(float);
+	bool f动作_限速(float 小, float 大, float 变化, float 时间 = 1);
 	void f动作_加速度(float, float = 1);
 	void f动作_加速度(const t向量2 &, float = 1);
 	void f动作_乘速度(float, float = 1);
@@ -104,7 +106,7 @@ struct S子弹属性 {
 	t向量2 m判定修正;
 	t属性指针<tp纹理> m纹理;
 	t属性指针<S顶点矩形> m顶点;
-	int m动画帧数;
+	int m动画帧数 = 0;
 };
 struct S子弹出现 {
 	static constexpr float c速度 = 4 * c帧秒<float>;
@@ -114,7 +116,7 @@ struct S子弹出现 {
 	void f计算();
 	bool fi正在出现() const;
 	bool fi出现完() const;
-	float m帧;
+	float m帧 = 0;
 };
 struct S子弹消失 {
 	static constexpr float c速度 = 2 * c帧秒<float>;
@@ -132,8 +134,17 @@ struct S子弹消失 {
 	bool fi正在消失() const;	//帧＞0
 	bool fi已经消失() const;	//帧≥1
 	bool fi还没消失() const;
-	float m帧;
-	float m目标;
-	float m速度;
+	float m帧 = 0;
+	float m目标 = 0;
+	float m速度 = 0;
+};
+enum class E相对长度 {
+	e倍数,	//原尺寸基础上直接缩放
+	e图形,	//相对图形尺寸缩放
+	e判定,	//相对判定尺寸缩放
+};
+struct S相对长度 {
+	float m值 = 1;
+	E相对长度 m相对 = E相对长度::e倍数;
 };
 }	//namespace 东方山寨

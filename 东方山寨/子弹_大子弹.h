@@ -52,7 +52,7 @@ private:	//扩展
 	static C属性数组<std::vector<bool>> ma节点判定;
 	float m初始化_长 = 1, m初始化_宽 = 1;
 	std::vector<S节点> ma节点;
-	int m长数, m宽数, m数量;
+	int m长数 = 0, m宽数 = 0, m数量 = 0;
 	S子弹出现 m出现;
 	int m循环缓存_周围节点序号 = -1;
 	循环::C零散<std::vector<S节点>> m循环缓存_周围节点循环;

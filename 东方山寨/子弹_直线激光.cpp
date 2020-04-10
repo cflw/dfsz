@@ -22,14 +22,14 @@ void C直线激光::f接口_参数初始化(const S子弹参数 &a) {
 void C直线激光::f接口_计算() {
 	//渐变&消失
 	m出现.f计算();
-	bool v全部消失 = true;
+	bool vi全部消失 = true;
 	for (auto &v节点 : ma节点) {
 		v节点.v消失.f计算();
 		if (v节点.v消失.fi还没消失()) {
-			v全部消失 = false;
+			vi全部消失 = false;
 		}
 	}
-	if (v全部消失) {
+	if (vi全部消失) {
 		f对象_销毁();
 		return;
 	}
@@ -86,8 +86,8 @@ void C直线激光::f接口_自机判定(C自机与子弹判定 &a判定) {
 }
 bool C直线激光::f接口_i在窗口外() {
 	const float v半径 = m子弹属性->fg显示x();
-	bool v = C边界::c窗口.f外边判断(f扩展_取显示端点(1), v半径);
-	v &= C边界::c窗口.f外边判断(f扩展_取显示端点(-1), v半径);
+	bool v = C矩形边界::c窗口.f外边判断(f扩展_取显示端点(1), v半径);
+	v &= C矩形边界::c窗口.f外边判断(f扩展_取显示端点(-1), v半径);
 	return v;
 }
 bool C直线激光::f接口_炸弹判定(C子弹与玩家炸弹判定 &a判定) {
@@ -119,8 +119,8 @@ void C直线激光::f初始化_长宽(float x, float y) {
 	m初始化_长宽.y = y;
 }
 //动作
-void C直线激光::f动作_消失(bool p) {
-	if (p) {
+void C直线激光::f动作_消失(bool a动画) {
+	if (a动画) {
 		for (auto &v节点 : ma节点) {
 			v节点.v消失.f消失(1);
 		}
@@ -129,26 +129,26 @@ void C直线激光::f动作_消失(bool p) {
 	}
 }
 //扩展
-t向量2 C直线激光::f扩展_取固定端点(float p, float p半长) {
-	return m坐标 + t向量2::fc方向r(p半长 * p, m方向);
+t向量2 C直线激光::f扩展_取固定端点(float a位置, float a半长) {
+	return m坐标 + t向量2::fc方向r(a半长 * a位置, m方向);
 }
-t向量2 C直线激光::f扩展_取显示端点(float p) {
-	return f扩展_取固定端点(p, m子弹属性->fg显示x(m缩放.x));
+t向量2 C直线激光::f扩展_取显示端点(float a位置) {
+	return f扩展_取固定端点(a位置, m子弹属性->fg显示x(m缩放.x));
 }
-t向量2 C直线激光::f扩展_取判定端点(float p) {
-	return f扩展_取固定端点(p, m子弹属性->fg判定x(m缩放.x));
+t向量2 C直线激光::f扩展_取判定端点(float a位置) {
+	return f扩展_取固定端点(a位置, m子弹属性->fg判定x(m缩放.x));
 }
-t向量2 C直线激光::f扩展_取节点坐标(int p) {
+t向量2 C直线激光::f扩展_取节点坐标(int a序号) {
 	const int v数量 = ma节点.size();
 	const float v半 = (float)(v数量 - 1) / 2;
-	return f扩展_取显示端点((p - v半) / v半);
+	return f扩展_取显示端点((a序号 - v半) / v半);
 }
-C直线激光::S节点 &C直线激光::f扩展_取节点(int p) {
-	return ma节点[p];
+C直线激光::S节点 &C直线激光::f扩展_取节点(int a序号) {
+	return ma节点[a序号];
 }
-C直线激光::S节点 &C直线激光::f扩展_取坐标最近节点(const t向量2 &p坐标) {
+C直线激光::S节点 &C直线激光::f扩展_取坐标最近节点(const t向量2 &a坐标) {
 	const int v数量 = ma节点.size();
-	const float v方位x = m坐标.f到点方位r(p坐标, m方向).x;
+	const float v方位x = m坐标.f到点方位r(a坐标, m方向).x;
 	const float v判定x = m子弹属性->fg显示x(m缩放.x);	//使用显示长度,这样取的点才能和看到的一样
 	const float v位置 = 数学::C范围变换计算<float>::f变换计算({-v判定x, v判定x}, {0, (float)(v数量 - 1)}, v方位x);
 	const int v序号 = (int)数学::f四舍五入<float>(v位置);	//位置的四舍五入

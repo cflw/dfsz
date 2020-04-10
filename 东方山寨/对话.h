@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <map>
 #include "基础.h"
+#include "基础_对象工厂.h"
 #include "输入.h"
 #include "对话基础.h"
 namespace 东方山寨 {

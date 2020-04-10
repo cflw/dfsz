@@ -72,8 +72,8 @@ public:
 			void f变换_坐标前移(float, t计算 计算 = std::nullopt);
 			void f变换_坐标平移(const t向量2 &移动, t计算 计算 = std::nullopt);	//绝对移动
 		public:
-			S子弹参数 *m参数, *m备份;
-			int m计数, m总数;
+			S子弹参数 *m参数 = nullptr, *m备份 = nullptr;
+			int m计数 = 0, m总数 = 0;
 		};
 		class C迭代器 {
 		public:
@@ -113,8 +113,8 @@ public:
 		}
 	public:
 		S子弹参数 m参数备份;
-		C子弹制造机 *m工厂;
-		int m总数;
+		C子弹制造机 *m工厂 = nullptr;
+		int m总数 = 0;
 	};
 	class C实现 {
 	public:

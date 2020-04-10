@@ -6,15 +6,17 @@ namespace 循环 = cflw::工具::循环;
 class C曲线激光 : public C子弹 {
 public:
 	static constexpr float c默认长度 = 20;
+	static constexpr float c默认精度 = 0.25f;
+	static constexpr float c默认计算周期 = 1.f / c默认精度;
 	struct S节点 {
-		int m序号;
+		int m序号 = -1;
 		t向量2 m原坐标;
 		t向量2 m坐标;
 		t向量2 m速度;
-		float m方向;
+		float m方向 = 0;
 		t颜色 m颜色;
 		S子弹消失 m消失;
-		bool mi道具;
+		bool mi道具 = true;
 		void f更新(const t向量2 &, const t向量2 &, float, const t颜色 &);
 	};
 	void f接口_初始化() override;
@@ -41,10 +43,10 @@ public:
 	循环::C范围<std::vector<S节点>> f循环_范围(int, int);
 	循环::C零散<std::vector<S节点>> f循环_周围(int 节点序号);
 	//属性
-	float m初始化_长度, m初始化_宽度, m初始化_精度 = 0.25f;
+	float m初始化_长度 = c默认长度, m初始化_宽度 = 1, m初始化_精度 = c默认精度;
 	std::vector<S节点> ma节点;
 	S子弹出现 m出现;
-	float m计算计时;
-	float m计算周期;
+	float m计算计时 = 0;
+	float m计算周期 = c默认计算周期;
 };
 }	//namespace 东方山寨

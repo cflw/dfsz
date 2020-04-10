@@ -48,7 +48,7 @@ void C普通子弹::f接口_自机判定(C自机与子弹判定 &a判定) {
 }
 bool C普通子弹::f接口_i在窗口外() {
 	const float v半径 = m子弹属性->fg显示x(m缩放.x);
-	return C边界::c窗口.f外边判断(m坐标, v半径);
+	return C矩形边界::c窗口.f外边判断(m坐标, v半径);
 }
 bool C普通子弹::f接口_炸弹判定(C子弹与玩家炸弹判定 &a判定) {
 	const float v半径 = m子弹属性->fg判定x(m缩放.x);
@@ -61,8 +61,8 @@ bool C普通子弹::f接口_炸弹判定(C子弹与玩家炸弹判定 &a判定) 
 	return false;
 }
 //动作
-void C普通子弹::f动作_消失(bool a) {
-	if (a) {
+void C普通子弹::f动作_消失(bool a动画) {
+	if (a动画) {
 		m消失.f消失();
 	} else {
 		f对象_销毁();

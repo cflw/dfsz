@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "动画接口.h"
+#include "基础_对象工厂.h"
 namespace 东方山寨 {
 //=============================================================================
 // 角色动画
@@ -17,10 +18,10 @@ public:
 		};
 		S动画方向 m正常, m左移, m右移;
 	};
-	class C工厂 : public I工厂<I动画> {
+	class C工厂 : public I自动工厂<I动画, C角色动画, C工厂> {
 	public:
 		C工厂(const std::shared_ptr<S属性> &);
-		I动画 *f接口_新建() const override;
+		std::tuple<const std::shared_ptr<S属性> &> f工厂_g构造实参() const;
 		std::shared_ptr<S属性> m属性;
 	};
 	C角色动画(const std::shared_ptr<S属性> &);

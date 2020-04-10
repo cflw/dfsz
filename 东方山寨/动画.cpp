@@ -76,8 +76,8 @@ S动画缓冲 &S动画缓冲::operator =(const I动画 &a动画) {
 C角色动画::C工厂::C工厂(const std::shared_ptr<S属性> &a属性):
 	m属性(a属性) {
 }
-I动画 *C角色动画::C工厂::f接口_新建() const {
-	return new C角色动画(m属性);
+std::tuple<const std::shared_ptr<C角色动画::S属性> &> C角色动画::C工厂::f工厂_g构造实参() const {
+	return std::forward_as_tuple(m属性);
 }
 //类
 C角色动画::C角色动画(const std::shared_ptr<S属性> &a属性):

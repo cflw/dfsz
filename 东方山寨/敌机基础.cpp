@@ -43,7 +43,7 @@ void C敌机::f更新() {
 	m图形->f更新();
 }
 bool C敌机::fi在窗口外() const {
-	return C边界::c窗口.f外边判断(m坐标, 32);
+	return C矩形边界::c窗口.f外边判断(m坐标, 32);
 }
 void C敌机::f中弹(int a伤害) {
 	//无敌时不会计算伤害
