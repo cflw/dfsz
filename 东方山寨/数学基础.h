@@ -23,22 +23,6 @@ public:
 	bool f上边判断(const t向量2 &, float) const;
 	bool f下边判断(const t向量2 &, float) const;
 	bool f外边判断(const t向量2 &, float) const;
-	//边界限制
-	bool f左边限制(t向量2 &, float) const;
-	bool f右边限制(t向量2 &, float) const;
-	bool f上边限制(t向量2 &, float) const;
-	bool f下边限制(t向量2 &, float) const;
-	bool f左右限制(t向量2 &, float) const;
-	bool f上下限制(t向量2 &, float) const;
-	bool f边界限制(t向量2 &, float) const;
-	//边界反弹
-	bool f左边反弹(t向量2 &, float) const;
-	bool f右边反弹(t向量2 &, float) const;
-	bool f上边反弹(t向量2 &, float) const;
-	bool f下边反弹(t向量2 &, float) const;
-	bool f左右反弹(t向量2 &, float) const;
-	bool f上下反弹(t向量2 &, float) const;
-	bool f边界反弹(t向量2 &, float) const;
 public:
 	float m左 = 0, m上 = 0, m右 = 0, m下 = 0;
 };

@@ -16,6 +16,7 @@ class C子弹图形缓冲;
 struct S顶点矩形;
 class I子弹图形数据;
 using tp子弹图形数据 = std::unique_ptr<I子弹图形数据>;
+class I遮罩;
 //==============================================================================
 // 基本子弹
 //==============================================================================
@@ -40,12 +41,13 @@ public:
 	bool f基础_擦弹();	//在游戏调用
 	t向量2 f基础_到点方位(const t向量2 &) const;
 	bool f基础_i不透明判定(float = c透明阀值) const;
+	bool f基础_i动作() const;	//return m标志[e动作];
 	//子弹扩展的接口
 	template<typename t> static void f接口_具体类型初始化(const std::shared_ptr<t> &);
 	virtual void f接口_初始化();
 	virtual void f接口_参数初始化(const S子弹参数 &);
 	virtual void f接口_计算();
-	virtual void f接口_预更新();	//更新前的计算
+	virtual void f接口_结算();	//计算后的计算
 	virtual void f接口_更新();	//更新图形数据
 	virtual void f接口_销毁();	//只能通过C子弹::f销毁()调用
 	virtual void f接口_自机判定(C自机与子弹判定 &);
@@ -53,6 +55,8 @@ public:
 	virtual bool f接口_i在窗口外();
 	virtual bool f接口_i可显示() const;
 	virtual bool f接口_i停止炸弹判定() const;
+	//子弹扩展事件
+	virtual void f事件_遮罩(I遮罩 &);
 	//在事件过程中调用的初始化函数
 	void f初始化_样式(int);
 	void f初始化_绘制(int);
@@ -70,9 +74,9 @@ public:
 	void f动作_透明(float, float = 1);
 	//内部使用变量
 	C数组计数 *m计数指针 = nullptr;
-	const C游戏速度 *m游戏速度;
+	const C游戏速度 *m游戏速度 = nullptr;
 	C子弹图形缓冲 *m图形缓冲 = nullptr;
-	const S子弹属性 *m子弹属性;
+	const S子弹属性 *m子弹属性 = nullptr;
 	int m初始化_样式 = -1;
 	int m初始化_绘制 = -1;
 	//外部使用变量

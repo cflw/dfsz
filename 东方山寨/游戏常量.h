@@ -10,6 +10,7 @@ constexpr unsigned int c玩家子弹上限 = 1000;
 constexpr unsigned int c道具上限 = 2000;
 constexpr unsigned int c敌机上限 = 100;
 constexpr unsigned int c图形上限 = 5000;
+constexpr unsigned int c遮罩上限 = 200;
 //范围
 constexpr long c标准尺寸x = 640;
 constexpr long c标准尺寸y = 480;

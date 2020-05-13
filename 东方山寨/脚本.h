@@ -18,6 +18,10 @@
 //道具
 #include "道具.h"
 #include "道具制造机.h"
+//遮罩
+#include "遮罩基础.h"
+#include "遮罩_形状.h"
+#include "遮罩工厂.h"
 //图形
 #include "图形工厂.h"
 #include "敌机图形模板.h"

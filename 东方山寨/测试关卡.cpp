@@ -92,6 +92,45 @@ public:
 		float m速度;
 		C计时器 m计时{0.1f};
 	};
+	class C弹幕_遮罩 : public C关卡事件 {
+	public:
+		class C子弹0 : public C普通子弹 {
+		public:
+			void f事件_遮罩(I遮罩 &a遮罩) override {
+				if (a遮罩.f判定_点(m坐标)) {
+					const auto[v坐标, v速度] = 物理::f反弹运动y(m坐标, m速度, 0);
+					m坐标 = v坐标;
+					m速度 = v速度;
+				}
+			}
+		};
+		class C遮罩0 : public C遮罩<遮罩::C下> {
+		public:
+			using t基类 = C遮罩<遮罩::C下>;
+			using t基类::t基类;
+			void f事件_初始化() override {
+				m标志[e子弹] = true;
+			}
+		};
+		void f事件_初始化() override {
+			auto v遮罩制造机 = C游戏::fg内容().f工厂_遮罩();
+			v遮罩制造机.f产生遮罩<C遮罩0>(0);
+		}
+		void f事件_执行() override {
+			if (!m计时.f滴答()) {
+				return;
+			}
+			auto v子弹制造机 = C游戏::fg内容().f工厂_子弹();
+			v子弹制造机.m参数.m颜色[0] = t颜色::c红;
+			v子弹制造机.m参数.m样式 = (int)E子弹::e鳞弹;
+			v子弹制造机.m参数.m坐标 = {0, 100};
+			v子弹制造机.m参数.m速度 = t向量2::fc方向r(100, m方向);
+			v子弹制造机.f产生子弹<C子弹0>();
+			m方向 += 0.1f;
+		}
+		float m方向 = 0;
+		C计时器 m计时{0.01f};
+	};
 	class C产生敌机 : public C关卡事件 {
 	public:
 		class C敌机0 : public C敌机 {
@@ -144,6 +183,27 @@ public:
 		}
 	};
 	class C产生道具 : public C关卡事件 {
+	public:
+		class C遮罩0 : public C遮罩<遮罩::C圆形> {
+		public:
+			using t基类 = C遮罩<遮罩::C圆形>;
+			using t基类::t基类;
+			void f事件_初始化() override {
+				m标志[e道具] = true;
+			}
+			void f遮罩_道具(C道具 &a道具) override {
+				if (f判定_点(a道具.m坐标)) {
+					const auto [v坐标, v速度] = 物理::f反弹运动_圆形(a道具.m坐标, a道具.m速度, m圆形);
+					a道具.m坐标 = v坐标;
+					a道具.m速度 = v速度;
+				}
+			};
+		};
+		void f事件_初始化() {
+			m道具制造机->m参数.m坐标 = t向量2(0, 50);
+			auto v遮罩工厂 = C游戏::fg内容().f工厂_遮罩();
+			v遮罩工厂.f产生遮罩<C遮罩0>(t圆形::fc坐标半径(t向量2(0, -50), 50));
+		}
 		void f事件_执行() override {
 			if (m计时.f滴答()) {
 				m道具制造机->f产生道具(m道具组);
@@ -268,7 +328,8 @@ public:
 		//关卡事件列表
 		//v脚本.f场景<C场景>();
 		//v脚本.f事件<C产生道具>();
-		v脚本.f事件<C产生敌机>();
+		v脚本.f事件<C弹幕_遮罩>();
+		//v脚本.f事件<C产生敌机>();
 		//v脚本.f等待(3);
 		//v脚本.f事件<C切换关卡>();
 		//v脚本.f事件<C王战0>();

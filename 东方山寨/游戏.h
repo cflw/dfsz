@@ -43,6 +43,9 @@ class C难度;
 //道具
 class C道具;
 class C道具制造机;
+//遮罩
+class I遮罩;
+class C遮罩工厂;
 //属性
 struct S子弹属性;
 struct S自机属性;
@@ -102,10 +105,12 @@ public:	//公开控制
 		C敌机制造机 f工厂_敌机() const;
 		C玩家子弹制造机 f工厂_玩家子弹() const;
 		C道具制造机 f工厂_道具() const;
+		C遮罩工厂 f工厂_遮罩() const;
 		std::shared_ptr<C子弹制造机> f工厂_子弹p() const;
 		std::shared_ptr<C敌机制造机> f工厂_敌机p() const;
 		std::shared_ptr<C玩家子弹制造机> f工厂_玩家子弹p() const;
 		std::shared_ptr<C道具制造机> f工厂_道具p() const;
+		std::shared_ptr<C遮罩工厂> f工厂_遮罩p() const;
 		template<typename t> auto f工厂_随机数f(t &&, int = 0) const;
 		t随机数引擎 f工厂_随机数引擎(int = 0) const;
 		//游戏中

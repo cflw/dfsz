@@ -292,6 +292,9 @@
     <ClCompile Include="道具制造机.cpp" />
     <ClCompile Include="道具动画.cpp" />
     <ClCompile Include="道具图形.cpp" />
+    <ClCompile Include="遮罩_形状.cpp" />
+    <ClCompile Include="遮罩基础.cpp" />
+    <ClCompile Include="遮罩工厂.cpp" />
     <ClCompile Include="难度.cpp" />
     <ClCompile Include="音频引擎.cpp" />
     <ClCompile Include="预设图形.cpp" />
@@ -396,6 +399,9 @@
     <ClInclude Include="道具制造机.h" />
     <ClInclude Include="道具动画.h" />
     <ClInclude Include="道具图形.h" />
+    <ClInclude Include="遮罩_形状.h" />
+    <ClInclude Include="遮罩基础.h" />
+    <ClInclude Include="遮罩工厂.h" />
     <ClInclude Include="难度.h" />
     <ClInclude Include="音频包含.h" />
     <ClInclude Include="音频引擎.h" />

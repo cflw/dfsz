@@ -37,9 +37,16 @@ const 输入::C按键组 &C输入引擎::fg按键组() const {
 输入::S方向 C输入引擎::fg方向() const {
 	const float x = 数学::f绝对值最大值(m方向键[0].m方向, m手柄方向.x);
 	const float y = 数学::f绝对值最大值(m方向键[1].m方向, m手柄方向.y);
-	return {x, y, 0};
+	if (输入::fi死区3(x, y, 0, m死区)) {
+		return {0, 0, 0};
+	} else {
+		return {x, y, 0};
+	}
 }
 void C输入引擎::fs缩放(float a) {
 	m输入w.fs缩放(a);
+}
+void C输入引擎::fs死区(float a) {
+	m死区 = a;
 }
 }	//namespace 东方山寨

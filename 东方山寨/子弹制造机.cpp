@@ -173,7 +173,7 @@ void C子弹制造机::C实现::f初始化_资源(const C属性数组<S子弹属
 	ma子弹属性 = &aa子弹属性;
 	ma画子弹 = &aa画子弹;
 }
-void C子弹制造机::C实现::f产生子弹(std::shared_ptr<C子弹> a子弹, S子弹参数 &a) {
+void C子弹制造机::C实现::f产生子弹(const std::shared_ptr<C子弹> &a子弹, S子弹参数 &a) {
 	C子弹 *const v子弹 = a子弹.get();
 	v子弹->f接口_参数初始化(a);
 	v子弹->m动画帧 = 0;
@@ -236,7 +236,7 @@ std::shared_ptr<C子弹> C子弹制造机::f产生子弹() {
 bool C子弹制造机::f实现_i有空() {
 	return m实现->fi有空();
 }
-void C子弹制造机::f实现_产生子弹(std::shared_ptr<C子弹> a子弹) {
+void C子弹制造机::f实现_产生子弹(const std::shared_ptr<C子弹> &a子弹) {
 	m实现->f产生子弹(a子弹, m参数);
 }
 C子弹制造机::C循环 C子弹制造机::f循环(int a次数) {

@@ -10,7 +10,7 @@ public:
 	bool f接口_i在窗口外() override;
 	bool f接口_炸弹判定(C子弹与玩家炸弹判定 &) override;
 	//动作
-	void f动作_消失(bool);
+	void f动作_消失(bool 动画 = true);
 	//属性
 	S子弹出现 m出现;
 	S子弹消失 m消失;

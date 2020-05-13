@@ -43,7 +43,7 @@ public:	//重写的接口函数
 	void f接口_初始化() override;
 	void f接口_销毁() override;
 	void f接口_计算() override;
-	void f接口_预更新() override;
+	void f接口_结算() override;
 	void f接口_更新() override;
 	void f接口_自机判定(C自机与子弹判定 &) override;
 	bool f接口_i在窗口外() override;

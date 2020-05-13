@@ -72,6 +72,9 @@
     <Filter Include="脚本">
       <UniqueIdentifier>{ca5ba7dc-3e0d-4ef7-9b23-17d3a14f358a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="游戏本体\遮罩">
+      <UniqueIdentifier>{84e2b549-6a26-4a5d-8a60-a9c9cd6cb129}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="程序.cpp">
@@ -334,6 +337,15 @@
     </ClCompile>
     <ClCompile Include="图形_抬显模板.cpp">
       <Filter>游戏本体\图形</Filter>
+    </ClCompile>
+    <ClCompile Include="遮罩基础.cpp">
+      <Filter>游戏本体\遮罩</Filter>
+    </ClCompile>
+    <ClCompile Include="遮罩_形状.cpp">
+      <Filter>游戏本体\遮罩</Filter>
+    </ClCompile>
+    <ClCompile Include="遮罩工厂.cpp">
+      <Filter>游戏本体\遮罩</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -645,6 +657,15 @@
     </ClInclude>
     <ClInclude Include="脚本.h">
       <Filter>脚本</Filter>
+    </ClInclude>
+    <ClInclude Include="遮罩基础.h">
+      <Filter>游戏本体\遮罩</Filter>
+    </ClInclude>
+    <ClInclude Include="遮罩_形状.h">
+      <Filter>游戏本体\遮罩</Filter>
+    </ClInclude>
+    <ClInclude Include="遮罩工厂.h">
+      <Filter>游戏本体\遮罩</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

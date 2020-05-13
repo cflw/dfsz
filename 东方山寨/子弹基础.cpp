@@ -47,6 +47,9 @@ t向量2 C子弹::f基础_到点方位(const t向量2 &a坐标) const {
 bool C子弹::f基础_i不透明判定(float a阀值) const {
 	return (m颜色[0].a <= a阀值) && (m颜色[1].a <= a阀值);
 }
+bool C子弹::f基础_i动作() const {
+	return m标志[e动作];
+}
 void C子弹::f接口_初始化() {
 }
 void C子弹::f接口_参数初始化(const S子弹参数 &a) {
@@ -60,7 +63,7 @@ void C子弹::f接口_参数初始化(const S子弹参数 &a) {
 void C子弹::f接口_计算() {
 	f基础_计算运动();
 }
-void C子弹::f接口_预更新() {
+void C子弹::f接口_结算() {
 }
 void C子弹::f接口_更新() {
 }
@@ -91,6 +94,9 @@ bool C子弹::f接口_i可显示() const {
 }
 bool C子弹::f接口_i停止炸弹判定() const {
 	return m标志[e停止炸弹判定];
+}
+//事件
+void C子弹::f事件_遮罩(I遮罩 &) {
 }
 //初始化
 void C子弹::f初始化_样式(int a) {

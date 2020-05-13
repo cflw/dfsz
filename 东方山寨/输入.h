@@ -59,6 +59,7 @@ public:
 	const 输入::C按键组 &fg按键组() const;
 	输入::S方向 fg方向() const;
 	void fs缩放(float);
+	void fs死区(float);
 public:
 	输入w::C输入 m输入w;
 	输入x::C输入 m输入x;
@@ -70,5 +71,6 @@ public:
 	输入::C按键组 m按键组{(size_t)E按键::e数量};
 	输入::C方向键 m方向键[2] = {};
 	输入::S方向 m手柄方向;
+	float m死区 = 0.1f;
 };
 }	//namespace 东方山寨

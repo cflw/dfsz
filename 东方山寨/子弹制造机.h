@@ -122,7 +122,7 @@ public:
 		void f初始化_数组(C对象数组<C子弹> &, C缓冲数组<C子弹图形缓冲> &);
 		void f初始化_资源(const C属性数组<S子弹属性> &, const C扩展数组<I画子弹> &);
 		bool fi有空();
-		void f产生子弹(std::shared_ptr<C子弹>, S子弹参数 &);//调用"f产生子弹"前需要调用"f分配"
+		void f产生子弹(const std::shared_ptr<C子弹> &, S子弹参数 &);//调用"f产生子弹"前需要调用"f分配"
 		C对象数组<C子弹> *ma子弹 = nullptr;
 		C缓冲数组<C子弹图形缓冲> *ma子弹图形缓冲 = nullptr;
 		const C游戏速度 *m游戏速度 = nullptr;
@@ -138,7 +138,7 @@ public:
 	C循环 f循环(int);
 	t循环生成器 f循环(const tf循环模板 &);
 	bool f实现_i有空();
-	void f实现_产生子弹(std::shared_ptr<C子弹>);//不检查数组直接产生,如果不能产生会触发断言
+	void f实现_产生子弹(const std::shared_ptr<C子弹> &);//不检查数组直接产生,如果不能产生会触发断言
 	S子弹参数 m参数;	//公开的
 private:
 	C实现 *m实现 = nullptr;	//在游戏实现中管理子弹制造机实现
