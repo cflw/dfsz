@@ -2,6 +2,7 @@
 #include "图形包含.h"
 #include "数学包含.h"
 #include "图形引擎.h"
+#include "边框常量.h"
 namespace 东方山寨 {
 class C画图片;
 class C画背景 {

@@ -1,5 +1,6 @@
 ﻿#include <cflw视窗.h>
 #include "游戏常量.h"
+#include "边框常量.h"
 #include "图形引擎.h"
 #include "图形引擎_资源工厂.h"
 #include "图形_三维.h"
@@ -205,13 +206,8 @@ std::shared_ptr<C图形工厂> C图形引擎::f工厂_图形p() {
 	return m图形管理->f工厂_图形p();
 }
 void C图形引擎::f画边框() {
-	if (m画边框 == nullptr) {
-		m画边框 = std::make_unique<C画边框>(*this, fg二维());
-		const auto &[v标准宽, v标准高] = C程序::fg标准窗口大小();
-		m画边框->fs标准尺寸(v标准宽, v标准高);
-	}
-	m画边框->f画矩形边框(c边框范围x, c边框范围y);
-	m画边框->f画框架();
+	C画边框 &v画边框 = fg画边框();
+	v画边框.f画框架();
 }
 void C图形引擎::f画十字(const 数学::S向量2 &a坐标, const float &a半径) {
 	if (m画十字 == nullptr) {
@@ -276,6 +272,14 @@ C画背景 &C图形引擎::fg画背景() {
 		m画背景 = std::make_unique<C画背景>(fg画图片());
 	}
 	return *m画背景;
+}
+C画边框 &C图形引擎::fg画边框() {
+	if (m画边框 == nullptr) {
+		m画边框 = std::make_unique<C画边框>(*this, fg二维());
+		const auto &[v标准宽, v标准高] = C程序::fg标准窗口大小();
+		m画边框->fs标准尺寸(v标准宽, v标准高);
+	}
+	return *m画边框;
 }
 float C图形引擎::fg渲染秒() const {
 	return c帧秒<float> * fg渲染帧();

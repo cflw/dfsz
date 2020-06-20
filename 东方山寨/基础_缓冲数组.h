@@ -3,6 +3,7 @@
 #include <functional>
 #include <mutex>
 #include <algorithm>
+#include <iterator>
 #include "基础.h"
 namespace 东方山寨 {
 template<typename t值>

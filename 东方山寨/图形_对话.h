@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "游戏常量.h"
+#include "边框常量.h"
 #include "基础.h"
 #include "图形包含.h"
 #include "数学包含.h"

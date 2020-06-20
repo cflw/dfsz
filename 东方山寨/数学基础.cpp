@@ -2,54 +2,6 @@
 #include "数学基础.h"
 namespace 东方山寨 {
 //==============================================================================
-// 边界
-//==============================================================================
-const C矩形边界 C矩形边界::c边框 = C矩形边界::fc中心矩形(c边框范围x, c边框范围y);
-const C矩形边界 C矩形边界::c窗口 = C矩形边界::fc中心矩形(c框架范围x, c框架范围y);
-const C矩形边界 C矩形边界::c自机 = C矩形边界::fc中心矩形(c移动范围x, c移动范围y);
-//构造
-C矩形边界::C矩形边界(float a左, float a上, float a右, float a下) :
-	m左{a左}, m上{a上}, m右{a右}, m下{a下} {
-}
-C矩形边界 C矩形边界::fc中心矩形(float x, float y) {
-	return {-x, y, x, -y};
-}
-//属性
-float C矩形边界::fg宽度() const {
-	return m右 - m左;
-}
-float C矩形边界::fg高度() const {
-	return m上 - m下;
-}
-float C矩形边界::fg斜边() const {
-	return hypot(fg宽度(), fg高度());
-}
-float C矩形边界::fg半宽度() const {
-	return fg宽度() / 2;
-}
-float C矩形边界::fg半高度() const {
-	return fg高度() / 2;
-}
-float C矩形边界::fg半斜边() const {
-	return fg斜边() / 2;
-}
-//判断
-bool C矩形边界::f左边判断(const t向量2 &a坐标, float d) const {
-	return a坐标.x < m左 - d;
-}
-bool C矩形边界::f右边判断(const t向量2 &a坐标, float d) const {
-	return a坐标.x > m右 + d;
-}
-bool C矩形边界::f上边判断(const t向量2 &a坐标, float d) const {
-	return a坐标.y > m上 + d;
-}
-bool C矩形边界::f下边判断(const t向量2 &a坐标, float d) const {
-	return a坐标.y < m下 - d;
-}
-bool C矩形边界::f外边判断(const t向量2 &a坐标, float d) const {
-	return f左边判断(a坐标, d) || f右边判断(a坐标, d) || f上边判断(a坐标, d) || f下边判断(a坐标, d);
-}
-//==============================================================================
 // 复杂形状
 //==============================================================================
 C复杂形状::C复杂形状(const t向量2 &a坐标, const t向量2 &a半尺寸, float a方向) : 

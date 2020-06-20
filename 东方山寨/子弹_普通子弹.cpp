@@ -48,7 +48,7 @@ void C普通子弹::f接口_自机判定(C自机与子弹判定 &a判定) {
 }
 bool C普通子弹::f接口_i在窗口外() {
 	const float v半径 = m子弹属性->fg显示x(m缩放.x);
-	return C矩形边界::c窗口.f外边判断(m坐标, v半径);
+	return 边框::C矩形::c窗口.f判断(m坐标, v半径);
 }
 bool C普通子弹::f接口_炸弹判定(C子弹与玩家炸弹判定 &a判定) {
 	const float v半径 = m子弹属性->fg判定x(m缩放.x);

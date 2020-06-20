@@ -9,6 +9,7 @@
 #include <cflw工具.h>
 #include <cflw数学_分辨率.h>
 #include "程序常量.h"
+#include "边框常量.h"
 #include "程序.h"
 #include "界面引擎.h"
 #include "图形引擎.h"

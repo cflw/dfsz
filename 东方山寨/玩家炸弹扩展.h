@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "玩家炸弹基础.h"
+#include "边框常量.h"
 namespace 东方山寨::玩家炸弹 {
 class C全屏清弹 : public C玩家炸弹 {
 public:

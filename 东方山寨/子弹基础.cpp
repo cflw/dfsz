@@ -4,6 +4,8 @@
 #include "图形引擎.h"
 #include "计算.h"
 #include "子弹图形缓冲.h"
+#include "边框基础.h"
+#include "边框常量.h"
 namespace 东方山寨 {
 //==============================================================================
 // 子弹
@@ -87,7 +89,7 @@ bool C子弹::f接口_炸弹判定(C子弹与玩家炸弹判定 &a判定) {
 	return false;
 }
 bool C子弹::f接口_i在窗口外() {
-	return C矩形边界::c窗口.f外边判断(m坐标, 0);
+	return 边框::C矩形::c窗口.f判断(m坐标, 0);
 }
 bool C子弹::f接口_i可显示() const {
 	return true;
@@ -107,7 +109,7 @@ void C子弹::f初始化_绘制(int) {
 
 }
 //动作
-void C子弹::f动作_空() {
+void C子弹::f动作_结束() {
 	m标志[C子弹::e动作] = false;
 }
 void C子弹::f动作_取消产生() {

@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "边框常量.h"
 #include "基础.h"
 #include "输入.h"
 #include "玩家子弹发射基础.h"
@@ -14,6 +15,11 @@ struct S子机属性;
 class I子机移动;
 //玩家常量
 const int c玩家数量 = 1;
+constexpr float c自机初始坐标y = -c边框范围y + 64;
+constexpr float c自机移动范围偏移 = -16;
+constexpr float c移动范围x = c边框范围x + c自机移动范围偏移;
+constexpr float c移动范围y = c边框范围y + c自机移动范围偏移;
+const float c移动范围r = (float)hypot(c移动范围x, c移动范围y);
 //==============================================================================
 // 各种值
 //==============================================================================

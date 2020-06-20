@@ -177,7 +177,7 @@ void C弹幕时间::f接口_更新() {
 	}
 }
 void C弹幕时间::f兼容显示() const {
-	static const D2D1_POINT_2F c点 = C游戏::fg图形().fg二维坐标计算().f点(t向量2(0, c边框范围y + c边框厚度));
+	static const D2D1_POINT_2F c点 = C游戏::fg图形().fg二维坐标计算().f点(t向量2(0, c边框范围y + c边框宽度));
 	auto v渲染目标 = C游戏::fg图形().fg二维渲染目标();
 	v渲染目标->DrawTextLayout(c点, m布局.Get(), m画笔.Get());
 }

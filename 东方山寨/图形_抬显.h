@@ -2,7 +2,7 @@
 #include "图形包含.h"
 #include "图形基础.h"
 #include "图形缓冲.h"
-#include "游戏常量.h"
+#include "边框常量.h"
 namespace 东方山寨 {
 class C敌机;
 struct S关卡标题;

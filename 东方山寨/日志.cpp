@@ -1,4 +1,5 @@
 ﻿#include "游戏常量.h"
+#include "边框常量.h"
 #include "数学包含.h"
 #include "日志.h"
 namespace 东方山寨 {

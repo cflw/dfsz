@@ -79,6 +79,7 @@ public:
 	C画三维 &fg画三维();
 	C画玩家成绩 &fg画玩家成绩();
 	C画背景 &fg画背景();
+	C画边框 &fg画边框();
 	//属性
 	float fg渲染秒() const;	//游戏速度无关
 	float fg渲染帧() const;

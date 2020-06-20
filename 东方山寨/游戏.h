@@ -46,6 +46,7 @@ class C道具制造机;
 //遮罩
 class I遮罩;
 class C遮罩工厂;
+class I边框;
 //属性
 struct S子弹属性;
 struct S自机属性;
@@ -100,6 +101,7 @@ public:	//公开控制
 		C王战控制 &fg王战控制() const;
 		C难度 &fg难度() const;
 		C玩家 &fg玩家() const;
+		const I边框 &fg边框() const;
 		//工厂
 		C子弹制造机 f工厂_子弹() const;
 		C敌机制造机 f工厂_敌机() const;
@@ -116,6 +118,7 @@ public:	//公开控制
 		//游戏中
 		void f游戏_全屏清弹(const t向量2 & = t向量2::c零, float = 600, bool 道具 = false);
 		void f游戏_进入关卡(C关卡 &);
+		void f游戏_切换边框(const I边框 &);
 	private:
 		C实现 *m实现 = nullptr;
 	};

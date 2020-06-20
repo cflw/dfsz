@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "游戏常量.h"
+#include "边框常量.h"
 #include "图形基础.h"
 #include "图形工厂.h"
 #include "图形缓冲.h"

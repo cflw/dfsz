@@ -284,9 +284,6 @@
     <ClCompile Include="图形_背景.cpp">
       <Filter>游戏本体\图形</Filter>
     </ClCompile>
-    <ClCompile Include="图形_画边框.cpp">
-      <Filter>图形引擎</Filter>
-    </ClCompile>
     <ClCompile Include="图形_子弹_线条.cpp">
       <Filter>游戏本体\子弹基础</Filter>
     </ClCompile>
@@ -341,10 +338,19 @@
     <ClCompile Include="遮罩基础.cpp">
       <Filter>游戏本体\遮罩</Filter>
     </ClCompile>
-    <ClCompile Include="遮罩_形状.cpp">
+    <ClCompile Include="遮罩工厂.cpp">
       <Filter>游戏本体\遮罩</Filter>
     </ClCompile>
-    <ClCompile Include="遮罩工厂.cpp">
+    <ClCompile Include="图形_画边框.cpp">
+      <Filter>游戏本体\遮罩</Filter>
+    </ClCompile>
+    <ClCompile Include="边框基础.cpp">
+      <Filter>游戏本体\遮罩</Filter>
+    </ClCompile>
+    <ClCompile Include="遮罩形状.cpp">
+      <Filter>游戏本体\遮罩</Filter>
+    </ClCompile>
+    <ClCompile Include="边框形状.cpp">
       <Filter>游戏本体\遮罩</Filter>
     </ClCompile>
   </ItemGroup>
@@ -574,9 +580,6 @@
     <ClInclude Include="图形_画图片.h">
       <Filter>图形引擎</Filter>
     </ClInclude>
-    <ClInclude Include="图形_画边框.h">
-      <Filter>图形引擎</Filter>
-    </ClInclude>
     <ClInclude Include="图形_子弹_线条.h">
       <Filter>游戏本体\子弹基础</Filter>
     </ClInclude>
@@ -661,10 +664,22 @@
     <ClInclude Include="遮罩基础.h">
       <Filter>游戏本体\遮罩</Filter>
     </ClInclude>
-    <ClInclude Include="遮罩_形状.h">
+    <ClInclude Include="遮罩工厂.h">
       <Filter>游戏本体\遮罩</Filter>
     </ClInclude>
-    <ClInclude Include="遮罩工厂.h">
+    <ClInclude Include="边框常量.h">
+      <Filter>游戏本体\遮罩</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_画边框.h">
+      <Filter>游戏本体\遮罩</Filter>
+    </ClInclude>
+    <ClInclude Include="边框基础.h">
+      <Filter>游戏本体\遮罩</Filter>
+    </ClInclude>
+    <ClInclude Include="遮罩形状.h">
+      <Filter>游戏本体\遮罩</Filter>
+    </ClInclude>
+    <ClInclude Include="边框形状.h">
       <Filter>游戏本体\遮罩</Filter>
     </ClInclude>
   </ItemGroup>

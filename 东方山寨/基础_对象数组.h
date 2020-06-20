@@ -3,6 +3,7 @@
 #include <memory>
 #include <functional>
 #include <algorithm>
+#include <iterator>
 #include <mutex>
 #include <execution>
 #include "基础_数组计数.h"

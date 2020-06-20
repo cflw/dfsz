@@ -9,6 +9,8 @@
 #include "判定处理_自机与子弹.h"
 #include "游戏常量.h"
 #include "子弹制造机.h"
+#include "边框常量.h"
+#include "边框形状.h"
 namespace 东方山寨 {
 struct S子弹属性;
 class I画子弹;
@@ -61,7 +63,7 @@ public:
 	void f初始化_样式(int);
 	void f初始化_绘制(int);
 	//子弹动作
-	void f动作_空();
+	void f动作_结束();	//停止执行动作
 	void f动作_取消产生();
 	void f动作_消失(bool);	//[需要覆盖]
 	void f动作_旋转d(float);

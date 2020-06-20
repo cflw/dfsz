@@ -64,7 +64,7 @@ C关卡脚本 C关卡控制::fc脚本() {
 void C关卡控制::f计算() {
 	const float v秒 = C游戏::g内容.fg游戏速度().fg秒();
 	m经过时间 += v秒;
-	bool v删除 = false;
+	bool vi删除 = false;
 	m关卡->f事件_执行();
 	f合并事件();
 	for (auto &v事件状态 : ma事件) {
@@ -89,12 +89,12 @@ void C关卡控制::f计算() {
 			if (v事件状态->fi结束()) {
 				v事件.f事件_结束();
 				v事件状态.reset();
-				v删除 = true;
+				vi删除 = true;
 			}
 		}
 	}
 	//删除
-	if (v删除) {
+	if (vi删除) {
 		auto f删除 = [](const std::shared_ptr<C关卡事件状态> &a)->bool {
 			return a == nullptr;
 		};

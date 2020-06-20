@@ -131,6 +131,45 @@ public:
 		float m方向 = 0;
 		C计时器 m计时{0.01f};
 	};
+	class C弹幕_边框 : public C关卡事件 {
+	public:
+		class C子弹0 : public C普通子弹 {
+		public:
+			C子弹0(const 边框::C矩形 &a边框):
+				mp边框(&a边框) {
+			}
+			void f事件_执行() override {
+				if (mp边框->f反弹(m坐标, m速度, 0, 1)) {
+					m颜色[0] = t颜色::c蓝;
+					f动作_结束();
+				}
+			}
+			const 边框::C矩形 *mp边框 = nullptr;
+		};
+		void f事件_初始化() override {
+			C游戏::fg内容().f游戏_切换边框(m边框);
+		}
+		void f事件_执行() override {
+			m时间 += c帧秒<float>;
+			const float v移动 = std::sin(m时间) * c边框范围x;
+			const float v左 = std::max(-c边框范围x + v移动, -c边框范围x);
+			const float v右 = std::min(c边框范围x + v移动, c边框范围x);
+			m边框.m矩形.fs左右(v左, v右);
+			if (m计时.f滴答()) {
+				auto v子弹工厂 = C游戏::fg内容().f工厂_子弹();
+				v子弹工厂.m参数.m坐标.x = m边框.m矩形.fg中心().x;
+				v子弹工厂.m参数.m坐标.y = 100;
+				v子弹工厂.m参数.m速度 = t向量2::fc方向r(200, m时间 * 10);
+				v子弹工厂.f产生子弹<C子弹0>(m边框);
+			}
+		}
+		void f事件_结束() override {
+			C游戏::fg内容().f游戏_切换边框(边框::C矩形::c标准);
+		}
+		C计时器 m计时{0.01f};
+		边框::C矩形 m边框;
+		float m时间 = 0;
+	};
 	class C产生敌机 : public C关卡事件 {
 	public:
 		class C敌机0 : public C敌机 {
@@ -328,7 +367,7 @@ public:
 		//关卡事件列表
 		//v脚本.f场景<C场景>();
 		//v脚本.f事件<C产生道具>();
-		v脚本.f事件<C弹幕_遮罩>();
+		v脚本.f事件<C弹幕_边框>();
 		//v脚本.f事件<C产生敌机>();
 		//v脚本.f等待(3);
 		//v脚本.f事件<C切换关卡>();
