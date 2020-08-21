@@ -9,8 +9,8 @@ public:
 	static constexpr float c判定半径 = 16;
 	//炸弹事件
 	float f接口_g判定半径() const override;	//如是派生类不是圆形判定就不用重写
-	void f接口_敌机判定(C敌机与玩家子弹判定 &) override;	//如是派生类是圆形判定就不用重写
-	virtual void f接口_子弹判定(C子弹与玩家炸弹判定 &);	//如是派生类是圆形判定就不用重写
+	bool f接口_敌机判定(C敌机与玩家子弹判定 &) override;	//如是派生类是圆形判定就不用重写
+	virtual bool f接口_子弹判定(C子弹与玩家炸弹判定 &);	//如是派生类是圆形判定就不用重写
 	virtual bool f接口_i产生道具() const;
 };
 //发射并控制炸弹

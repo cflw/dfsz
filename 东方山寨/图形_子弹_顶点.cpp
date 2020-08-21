@@ -65,9 +65,7 @@ public:
 		const float v总透明 = v出现透明 * v消失透明;
 		m颜色[0] = a颜色0;
 		m颜色[0].a *= v总透明;
-		for (int i = 0; i != 3; ++i) {
-			m颜色[1].m值[i] = 数学::f插值(a颜色1.m值[i], a颜色0.m值[i], v颜色插值);
-		}
+		m颜色[1] = a颜色1.f颜色分量插值(a颜色0, v颜色插值);
 		m颜色[1].a = a颜色0.a * v总透明;
 	}
 	void fs颜色(const t颜色 *const *a颜色, float a出现, float a消失) {

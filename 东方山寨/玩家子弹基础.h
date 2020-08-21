@@ -3,7 +3,8 @@
 #include "图形包含.h"
 #include "图形缓冲.h"
 #include "基础.h"
-#include "数学基础.h"
+#include "数学包含.h"
+#include "数学_形状.h"
 #include "基础_数组计数.h"
 #include "基础_数组指针.h"
 #include "基础_缓冲数组.h"
@@ -46,7 +47,7 @@ public:
 	virtual void f接口_计算();
 	virtual void f接口_更新();
 	virtual void f接口_消失();
-	virtual void f接口_敌机判定(C敌机与玩家子弹判定 &);
+	virtual bool f接口_敌机判定(C敌机与玩家子弹判定 &);
 	virtual void f接口_命中敌机(const C敌机 &);
 	virtual bool f接口_在窗口外();
 	virtual float f接口_g判定半径() const;

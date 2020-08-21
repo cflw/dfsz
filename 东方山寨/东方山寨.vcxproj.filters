@@ -75,6 +75,9 @@
     <Filter Include="游戏本体\遮罩">
       <UniqueIdentifier>{84e2b549-6a26-4a5d-8a60-a9c9cd6cb129}</UniqueIdentifier>
     </Filter>
+    <Filter Include="数学">
+      <UniqueIdentifier>{1d95dc6c-141c-4d4a-9e8d-5c9f027cd9f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="程序.cpp">
@@ -85,9 +88,6 @@
     </ClCompile>
     <ClCompile Include="测试关卡.cpp">
       <Filter>关卡</Filter>
-    </ClCompile>
-    <ClCompile Include="计算.cpp">
-      <Filter>程序</Filter>
     </ClCompile>
     <ClCompile Include="载入.cpp">
       <Filter>载入</Filter>
@@ -230,9 +230,6 @@
     <ClCompile Include="音频引擎.cpp">
       <Filter>音频引擎</Filter>
     </ClCompile>
-    <ClCompile Include="数学基础.cpp">
-      <Filter>游戏本体\游戏基础</Filter>
-    </ClCompile>
     <ClCompile Include="日志.cpp">
       <Filter>程序</Filter>
     </ClCompile>
@@ -352,6 +349,21 @@
     </ClCompile>
     <ClCompile Include="边框形状.cpp">
       <Filter>游戏本体\遮罩</Filter>
+    </ClCompile>
+    <ClCompile Include="计算.cpp">
+      <Filter>数学</Filter>
+    </ClCompile>
+    <ClCompile Include="数学_运动.cpp">
+      <Filter>数学</Filter>
+    </ClCompile>
+    <ClCompile Include="数学_形状.cpp">
+      <Filter>数学</Filter>
+    </ClCompile>
+    <ClCompile Include="敌机扩展.cpp">
+      <Filter>游戏本体\敌机</Filter>
+    </ClCompile>
+    <ClCompile Include="敌机模板.cpp">
+      <Filter>游戏本体\敌机</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -496,9 +508,6 @@
     <ClInclude Include="程序.h">
       <Filter>程序</Filter>
     </ClInclude>
-    <ClInclude Include="计算.h">
-      <Filter>程序</Filter>
-    </ClInclude>
     <ClInclude Include="输入.h">
       <Filter>程序</Filter>
     </ClInclude>
@@ -516,12 +525,6 @@
     </ClInclude>
     <ClInclude Include="音频包含.h">
       <Filter>音频引擎</Filter>
-    </ClInclude>
-    <ClInclude Include="数学基础.h">
-      <Filter>游戏本体\游戏基础</Filter>
-    </ClInclude>
-    <ClInclude Include="数学包含.h">
-      <Filter>程序</Filter>
     </ClInclude>
     <ClInclude Include="图形包含.h">
       <Filter>图形引擎</Filter>
@@ -681,6 +684,24 @@
     </ClInclude>
     <ClInclude Include="边框形状.h">
       <Filter>游戏本体\遮罩</Filter>
+    </ClInclude>
+    <ClInclude Include="计算.h">
+      <Filter>数学</Filter>
+    </ClInclude>
+    <ClInclude Include="数学包含.h">
+      <Filter>数学</Filter>
+    </ClInclude>
+    <ClInclude Include="数学_运动.h">
+      <Filter>数学</Filter>
+    </ClInclude>
+    <ClInclude Include="数学_形状.h">
+      <Filter>数学</Filter>
+    </ClInclude>
+    <ClInclude Include="敌机扩展.h">
+      <Filter>游戏本体\敌机</Filter>
+    </ClInclude>
+    <ClInclude Include="敌机模板.h">
+      <Filter>游戏本体\敌机</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

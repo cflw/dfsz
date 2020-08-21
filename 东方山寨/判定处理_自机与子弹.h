@@ -10,6 +10,7 @@ public:
 		e碰撞 = 0x2,
 	};
 	void f绑定自机(C自机 *);
+	void f计算判定();
 	int f子弹_提交判定(const t圆形 &);
 	int f子弹_提交判定(const t旋转矩形 &);
 	void f子弹_判定有效();	//在子弹调用

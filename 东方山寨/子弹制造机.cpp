@@ -136,9 +136,7 @@ void C子弹制造机::C循环::C变换::f变换_速度平滑插值(const t向�
 void C子弹制造机::C循环::C变换::f变换_颜色(int i0, const t颜色 &a颜色, t计算 a计算) {
 	const float v计算 = a计算.value_or(f计算(C循环计算::c小数));
 	t颜色 &v修改色 = m参数->m颜色[i0];
-	for (int i1 = 0; i1 != 4; ++i1) {
-		v修改色.m值[i1] = 数学::f插值(v修改色.m值[i1], a颜色.m值[i1], v计算);
-	}
+	v修改色 = v修改色.f全插值(a颜色, v计算);
 }
 void C子弹制造机::C循环::C变换::f变换_坐标插值(const t向量2 &a目标, t计算 a计算) {
 	const float v计算 = a计算.value_or(f计算(C循环计算::c小数));

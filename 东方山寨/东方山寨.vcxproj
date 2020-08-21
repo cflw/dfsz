@@ -273,7 +273,10 @@
     <ClCompile Include="对话.cpp" />
     <ClCompile Include="敌机基础.cpp" />
     <ClCompile Include="敌机制造机.cpp" />
-    <ClCompile Include="数学基础.cpp" />
+    <ClCompile Include="敌机扩展.cpp" />
+    <ClCompile Include="敌机模板.cpp" />
+    <ClCompile Include="数学_运动.cpp" />
+    <ClCompile Include="数学_形状.cpp" />
     <ClCompile Include="日志.cpp" />
     <ClCompile Include="测试关卡.cpp" />
     <ClCompile Include="游戏.cpp" />
@@ -364,9 +367,12 @@
     <ClInclude Include="基础.h" />
     <ClInclude Include="对话.h" />
     <ClInclude Include="对话基础.h" />
+    <ClInclude Include="敌机扩展.h" />
+    <ClInclude Include="敌机模板.h" />
+    <ClInclude Include="数学_运动.h" />
     <ClInclude Include="游戏常量.h" />
     <ClInclude Include="数学包含.h" />
-    <ClInclude Include="数学基础.h" />
+    <ClInclude Include="数学_形状.h" />
     <ClInclude Include="日志.h" />
     <ClInclude Include="标识.h" />
     <ClInclude Include="子弹_大子弹.h" />

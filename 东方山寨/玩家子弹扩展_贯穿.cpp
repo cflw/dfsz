@@ -29,21 +29,22 @@ void C贯穿::f接口_计算() {
 	f基础_计算时间();
 	f基础_计算方向();
 }
-void C贯穿::f接口_敌机判定(C敌机与玩家子弹判定 &a判定) {
+bool C贯穿::f接口_敌机判定(C敌机与玩家子弹判定 &a判定) {
 	if (m消失 >= 0.5f) {	//消失的子弹不参与判定
-		return;
+		return false;
 	}
 	const bool v结果 = a判定.f玩家子弹_提交判定(t旋转矩形::fc线段(m坐标, fg末端(), 4));
 	if (v结果) {
 		f接口_命中敌机(*a判定.m敌机);
 	}
+	return v结果;
 }
 void C贯穿::f接口_命中敌机(const C敌机 &a敌机) {
 	if (m消失时间点 <= m出现 - c消失间隔 || m消失时间点 >= m出现) {
 		m消失时间点 = m出现;
 		//计算消失位置
 		const float v敌机判定半径 = a敌机.fg判定半径();
-		const t向量2 v敌机方位 = m坐标.f到点方位r(a敌机.m坐标, m方向);
+		const t向量2 v敌机方位 = m坐标.f到点方位r(a敌机.fg坐标(), m方向);
 		const float v水平距离差 = [&]()->float {
 			const float v垂直距离 = abs(v敌机方位.y);
 			if (v垂直距离 == 0) {

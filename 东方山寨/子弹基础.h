@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include "图形包含.h"
 #include "数学包含.h"
+#include "数学_形状.h"
 #include "基础.h"
-#include "数学基础.h"
 #include "基础_数组计数.h"
 #include "基础_数组指针.h"
 #include "判定处理_子弹与玩家炸弹.h"

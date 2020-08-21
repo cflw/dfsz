@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "数学基础.h"
+#include "数学包含.h"
 #include "图形包含.h"
 namespace 东方山寨 {
 constexpr int c最大次数 = 4;

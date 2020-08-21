@@ -13,7 +13,7 @@ private:
 public:
 	void f接口_初始化图形(C缓冲数组<I图形缓冲> &) override;
 	void f接口_计算() override;
-	void f接口_敌机判定(C敌机与玩家子弹判定 &) override;
+	bool f接口_敌机判定(C敌机与玩家子弹判定 &) override;
 	void f接口_命中敌机(const C敌机 &) override;
 	float fg透明度() const;
 	t向量2 fg末端() const;

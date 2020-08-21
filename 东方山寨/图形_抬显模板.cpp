@@ -10,10 +10,10 @@ std::shared_ptr<C总血条> f总血条(int a数量) {
 	v图形工厂.m参数.m图层 = (int)E图层::e抬显;
 	return v图形工厂.f产生图形<C总血条>(a数量);
 }
-std::shared_ptr<C分血条> f分血条(const C敌机 &a敌机) {
+std::shared_ptr<C分血条> f分血条(const C敌机 &a敌机, const t颜色 &a颜色) {
 	auto v图形工厂 = C游戏::fg资源().f工厂_图形();
 	v图形工厂.m参数.m图层 = (int)E图层::e抬显;
-	return v图形工厂.f产生图形<C分血条>(a敌机);
+	return v图形工厂.f产生图形<C分血条>(a敌机, a颜色);
 }
 std::shared_ptr<C弹幕时间> f弹幕时间(const float &a时间) {
 	auto v图形工厂 = C游戏::fg资源().f工厂_图形();

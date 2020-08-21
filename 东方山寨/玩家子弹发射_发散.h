@@ -24,5 +24,5 @@ public:
 private:
 	std::shared_ptr<S属性> m属性;
 };
-}
-}
+}	//namespace 玩家子弹发射
+}	//namespace 东方山寨

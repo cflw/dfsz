@@ -2,7 +2,7 @@
 #include <concepts>
 #include "基础.h"
 #include "基础_游戏对象.h"
-#include "数学基础.h"
+#include "数学包含.h"
 namespace 东方山寨 {
 class C数组计数;
 class C自机;

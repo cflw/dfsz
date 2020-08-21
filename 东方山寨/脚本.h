@@ -15,6 +15,8 @@
 //敌机
 #include "敌机基础.h"
 #include "敌机制造机.h"
+#include "敌机扩展.h"
+#include "敌机模板.h"
 //道具
 #include "道具.h"
 #include "道具制造机.h"

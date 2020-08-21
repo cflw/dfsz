@@ -14,13 +14,13 @@ namespace 东方山寨 {
 float C玩家炸弹::f接口_g判定半径() const {
 	return c判定半径;
 }
-void C玩家炸弹::f接口_敌机判定(C敌机与玩家子弹判定 &a判定) {
+bool C玩家炸弹::f接口_敌机判定(C敌机与玩家子弹判定 &a判定) {
 	const t圆形 v判定圆{m坐标, this->f接口_g判定半径()};
-	a判定.f玩家子弹_提交判定(v判定圆);
+	return a判定.f玩家子弹_提交判定(v判定圆);
 }
-void C玩家炸弹::f接口_子弹判定(C子弹与玩家炸弹判定 &a判定) {
+bool C玩家炸弹::f接口_子弹判定(C子弹与玩家炸弹判定 &a判定) {
 	const t圆形 v判定圆{m坐标, this->f接口_g判定半径()};
-	a判定.f炸弹_提交判定(v判定圆);
+	return a判定.f炸弹_提交判定(v判定圆);
 }
 bool C玩家炸弹::f接口_i产生道具() const {
 	return m标志[C玩家子弹::e产生道具];

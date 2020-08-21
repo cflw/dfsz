@@ -1,6 +1,6 @@
 ﻿#include <cflw工具_运算.h>
 #include <cflw数学_函数方程.h>
-#include "数学基础.h"
+#include "数学包含.h"
 #include "难度.h"
 namespace 东方山寨 {
 namespace 工具 = cflw::工具;
