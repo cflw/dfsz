@@ -17,7 +17,7 @@ bool f计时(float &a计时, float p) {
 	}
 }
 float f加变化(float a变化, float a时间) {
-	return a变化 * a时间 * c帧秒<float>;
+	return a变化 * c帧秒<float> / a时间;
 }
 float f乘变化(float a变化, float a时间) {
 	return pow(a变化, 1 / a时间 / c计算频率<float>);

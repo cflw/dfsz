@@ -4,14 +4,17 @@
 #include <filesystem>
 #include <memory>
 namespace 东方山寨 {
+using t属性文件 = cflw::文件::json::C文件;
+using t属性树 = boost::property_tree::wptree;
+using tp属性树 = std::unique_ptr<boost::property_tree::wptree>;
+using t节点 = std::pair<const std::wstring, boost::property_tree::wptree>;
+using t可选属性树 = boost::optional<const boost::property_tree::wptree &>;
 struct S载入参数 {
 	const boost::property_tree::wptree &m树;
 	const std::filesystem::path &m路径;
 };
 class C载入 {
 public:
-	typedef std::unique_ptr<boost::property_tree::wptree> tp树;
-	typedef boost::property_tree::wptree t树;
 	typedef void(*tf载入数据)(const S载入参数 &);
 	static std::map<int, tf载入数据> g载入函数;
 	static void f汇总(const S载入参数 &);

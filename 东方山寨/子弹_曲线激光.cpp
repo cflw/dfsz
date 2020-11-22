@@ -7,17 +7,16 @@ namespace 东方山寨 {
 // 扩展-曲线激光
 //==============================================================================
 //曲线激光节点
-void C曲线激光::S节点::f更新(const t向量2 &p坐标, const t向量2 &p速度, float p方向, const t颜色 &p颜色) {
-	m原坐标 = m坐标 = p坐标;
-	m速度 = p速度;
-	m方向 = p方向;
-	m颜色 = p颜色;
+void C曲线激光::S节点::f更新(const t向量2 &a坐标, const t向量2 &a速度, float a方向, const t颜色 &a颜色) {
+	m原坐标 = m坐标 = a坐标;
+	m速度 = a速度;
+	m方向 = a方向;
+	m颜色 = a颜色;
 }
 //接口
 void C曲线激光::f接口_初始化() {
 	const int v数量 = (int)m初始化_长度;
 	assert(v数量 > 1);
-	m出现.f初始化();
 	m计算计时 = 0;
 	m计算周期 = 1 / m初始化_精度;
 	ma节点.resize(v数量);
@@ -32,6 +31,7 @@ void C曲线激光::f接口_初始化() {
 void C曲线激光::f接口_参数初始化(const S子弹参数 &a) {
 	C子弹::f接口_参数初始化(a);
 	f初始化_长宽(a.m长宽.x, a.m长宽.y);
+	m出现.f初始化(a.m出现);
 }
 void C曲线激光::f接口_计算() {
 	//渐变&消失
@@ -119,7 +119,7 @@ bool C曲线激光::f接口_炸弹判定(C子弹与玩家炸弹判定 &a判定) 
 		}
 		if (a判定.f子弹_提交判定(v节点.m坐标, v半径)) {
 			f扩展_节点消失(v节点.m序号);
-			for (auto &v节点 : f循环_范围(v节点.m序号 - 1, v节点.m序号 + 2)) {
+			for (auto &v节点 : fe范围(v节点.m序号 - 1, v节点.m序号 + 2)) {
 				if (v节点.mi道具) {
 					v节点.mi道具 = false;
 					a判定.f子弹_产生道具(v节点.m坐标, v节点.m速度);
@@ -142,7 +142,7 @@ void C曲线激光::f初始化_精度(float a精度) {
 void C曲线激光::f动作_消失(bool a动画) {
 	if (a动画) {
 		for (auto &v节点 : ma节点) {
-			v节点.m消失.f消失(1);
+			v节点.m消失.f消失();
 		}
 	} else {
 		f对象_销毁();
@@ -180,7 +180,7 @@ void C曲线激光::f扩展_更新头节点() {
 void C曲线激光::f扩展_节点消失(int a序号) {
 	auto &v = f扩展_取节点(a序号);
 	v.m消失.f消失(2);
-	for (auto &v节点 : f循环_周围(a序号)) {
+	for (auto &v节点 : fe周围(a序号)) {
 		if (v节点.m消失.fi正在消失()) {
 			v节点.m消失.f消失();
 		} else {
@@ -203,10 +203,10 @@ void C曲线激光::f扩展_节点消失检查() {
 		}
 	}
 }
-std::vector<C曲线激光::S节点> &C曲线激光::f循环_全部() {
+std::vector<C曲线激光::S节点> &C曲线激光::fe节点() {
 	return ma节点;
 }
-循环::C零散<std::vector<C曲线激光::S节点>> C曲线激光::f循环_周围(int a序号) {
+循环::C零散<std::vector<C曲线激光::S节点>> C曲线激光::fe周围(int a序号) {
 	if (a序号 <= 0) {
 		return {ma节点, {a序号 + 1}};
 	} else if (a序号 >= (int)ma节点.size() - 1) {
@@ -215,7 +215,34 @@ std::vector<C曲线激光::S节点> &C曲线激光::f循环_全部() {
 		return {ma节点, {a序号 - 1, a序号 + 1}};
 	}
 }
-循环::C范围<std::vector<C曲线激光::S节点>> C曲线激光::f循环_范围(int a开始, int a结束) {
+循环::C范围<std::vector<C曲线激光::S节点>> C曲线激光::fe范围(int a开始, int a结束) {
 	return {ma节点, a开始, a结束};
 }
+std::experimental::generator<C曲线激光::S节点> C曲线激光::fe节点插值(int a数量) {
+	const float v节点上限 = (float)(ma节点.size() - 1);
+	const float v循环上限 = (float)(a数量 - 1);
+	for (int i = 0; i != a数量; ++i) {
+		const float v序号 = (float)i * v节点上限 / v循环上限;
+		const float v序号下 = std::floor(v序号);
+		const int j = (int)v序号;
+		if (v序号 == v序号下) {
+			co_yield ma节点[j];
+		} else {
+			const float v插值 = v序号 - v序号下;
+			co_yield 数学::f插值(ma节点[j], ma节点[j + 1], v插值);
+		}
+	}
 }
+}	//namespace 东方山寨
+namespace cflw::数学 {
+template<> 东方山寨::C曲线激光::S节点 f插值<东方山寨::C曲线激光::S节点>(const 东方山寨::C曲线激光::S节点 &a前, const 东方山寨::C曲线激光::S节点 &a后, float a插值) {
+	东方山寨::C曲线激光::S节点 v节点;
+	v节点.m序号 = (a前.m序号 + a后.m序号) / 2;
+	v节点.m原坐标 = 数学::f插值(a前.m原坐标, a后.m原坐标, a插值);
+	v节点.m坐标 = 数学::f插值(a前.m坐标, a后.m坐标, a插值);
+	v节点.m速度 = 数学::f插值(a前.m速度, a后.m速度, a插值);
+	v节点.m方向 = 数学::c弧度计算<float>.f插值(a前.m方向, a后.m方向, a插值);
+	v节点.m颜色 = 数学::f插值(a前.m颜色, a后.m颜色, a插值);
+	return v节点;
+}
+}	//namespace cflw::数学

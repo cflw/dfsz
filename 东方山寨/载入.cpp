@@ -35,11 +35,9 @@
 //敌机
 #include "敌机基础.h"
 namespace 东方山寨 {
-using t属性文件 = cflw::文件::json::C文件;
-using t属性树 = boost::property_tree::wptree;
-//=============================================================================
+//==============================================================================
 // 读json
-//=============================================================================
+//==============================================================================
 class C读json文件 {
 public:
 	static bool f读取(boost::property_tree::wptree &a输出树, const std::filesystem::path &a路径) {
@@ -65,9 +63,54 @@ public:
 		}
 	}
 };
-//=============================================================================
+//==============================================================================
+// 解析文件
+//==============================================================================
+class C解析助手 {
+public:
+	//名称标识
+	static S名称标识层 &f创建全局名称标识(C名称标识组 &a标识组, const t属性树 &a节点) {
+		const std::wstring v名称 = a节点.get<std::wstring>(L"名称");
+		const int v标识 = a节点.get<int>(L"标识", 计算::fc随机标识());
+		return a标识组.f创建层(v名称, v标识);
+	}
+	static S名称标识层 &f创建节点名称标识(C名称标识组 &a标识组, const t属性树 &a节点) {
+		const std::wstring v名称 = a节点.get<std::wstring>(L"名称", L"");
+		const int v标识 = a节点.get<int>(L"标识", 0);
+		return a标识组.f创建层(v名称, v标识);
+	}
+	//获取
+	static t向量2 f获取向量2(const t属性树 &a节点) {
+		const float x = a节点.get<float>(L"x", 0);
+		const float y = a节点.get<float>(L"y", 0);
+		return t向量2{x, y};
+	}
+	static t向量2 f获取向量3(const t属性树 &a节点) {
+		const float x = a节点.get<float>(L"x", 0);
+		const float y = a节点.get<float>(L"y", 0);
+		const float z = a节点.get<float>(L"z", 0);
+		return t向量2{x, y};
+	}
+	static t向量2 f获取纹理坐标(const t属性树 &a节点) {
+		const float x = a节点.get<float>(L"u", 0);
+		const float y = a节点.get<float>(L"v", 0);
+		return t向量2{x, y};
+	}
+	static t向量2 f获取尺寸(const t属性树 &a节点) {
+		const float x = a节点.get<float>(L"宽", 0);
+		const float y = a节点.get<float>(L"高", 0);
+		return t向量2{x, y};
+	}
+	static std::wstring f获取路径(const S载入参数 &a载入参数, const t属性树 &a节点) {
+		if (const auto &v路径节点 = a节点.get_optional<std::wstring>(L"路径")) {
+			return C程序::f计算路径(*v路径节点, a载入参数.m路径).native();
+		}
+		return L"";
+	}
+};
+//==============================================================================
 // 解析数据
-//=============================================================================
+//==============================================================================
 class C解析引用 {
 public:
 	C解析引用(int a引用, bool a存在 = true) :
@@ -135,41 +178,22 @@ public:
 		return m引用;
 	}
 private:
-	int m引用;
-	bool m存在;
-};
-//纹理
-class C解析纹理json {
-public:
-	static std::wstring f解析路径(const boost::property_tree::wptree &a树) {
-		return a树.get<std::wstring>(L"路径");
-	}
-	static t向量2 f解析尺寸(const boost::property_tree::wptree &a树) {
-		const float x = a树.get<float>(L"尺寸.宽");
-		const float y = a树.get<float>(L"尺寸.高");
-		return {x, y};
-	}
-};
-//顶点
-class C解析顶点json {
-public:
-	static void f解析(int p标识, const t向量2 &p纹理尺寸, const boost::property_tree::wptree &a树) {
-		auto &v顶点工厂 = C游戏::g资源.fg顶点工厂();
-	}
+	int m引用;	//全局标识
+	bool m存在;	//?
 };
 //子机移动
 class C解析子机移动json {
 public:
 	typedef std::unique_ptr<I工厂<I子机移动>> t返回值;
 	typedef std::unique_ptr<I工厂<I子机移动>> (*tf解析)(int, const boost::property_tree::wptree &);
-	static std::unique_ptr<I工厂<I子机移动>> f汇总(int p类型, int p子机数, const boost::property_tree::wptree &a树) {
+	static std::unique_ptr<I工厂<I子机移动>> f汇总(int a类型, int a子机数, const boost::property_tree::wptree &a树) {
 		static const std::map<int, tf解析> v解析函数{
 			{0, f位置}
 		};
-		return v解析函数.at(p类型)(p子机数, a树);
+		return v解析函数.at(a类型)(a子机数, a树);
 	}
-	static std::unique_ptr<I工厂<I子机移动>> f位置(int p子机数, const boost::property_tree::wptree &a树) {
-		const int v数量 = (1 + p子机数) * p子机数 / 2;//=1+2+..+子机数
+	static std::unique_ptr<I工厂<I子机移动>> f位置(int a子机数, const boost::property_tree::wptree &a树) {
+		const int v数量 = (1 + a子机数) * a子机数 / 2;//=1+2+..+子机数
 		const int v总数量 = v数量 * 2;
 		std::vector<t向量2> v数组;
 		//int i1 = 0;
@@ -221,24 +245,21 @@ void C载入::f汇总(const S载入参数 &a) {
 void C载入::f图形(const S载入参数 &a) {
 	const int v全局标识 = a.m树.get<int>(L"全局.标识", 计算::fc随机标识());
 	const std::wstring &v全局名称 = a.m树.get<std::wstring>(L"全局.名称");
-	const C名称标识 v名称标识0(v全局名称, v全局标识);
-	const boost::property_tree::wptree &va数据 = a.m树.get_child(L"数据");
+	C名称标识组 v名称标识组;
+	const C名称标识 v名称标识0 = v名称标识组.f创建层(v全局名称, v全局标识);
 	auto &v纹理工厂 = C游戏::g资源.fg纹理工厂();
 	auto &v顶点工厂 = C游戏::g资源.fg顶点工厂();
 	int v主标识 = -1;
-	for (const auto &[v名称0_, v节点0] : va数据) {
+	for (const auto &[v名称0_, v节点0] : a.m树.get_child(L"数据")) {
 		v主标识 = v节点0.get<int>(L"标识", ++v主标识);
-		const int v图形标识 = 计算::f标识(v全局标识, v主标识, 0);
 		const std::wstring &v图形名称 = v节点0.get<std::wstring>(L"名称", std::wstring(L"图形") + std::to_wstring(v主标识));
-		const C名称标识 v名称标识1 = v名称标识0.f创建层(v图形名称);
+		const C名称标识 v名称标识1 = v名称标识0.f创建层(v图形名称, v主标识);
 		//纹理
-		const t树 &v纹理节点 = v节点0.get_child(L"纹理");
-		if (const std::wstring v纹理路径 = v纹理节点.get<std::wstring>(L"路径", L""); !v纹理路径.empty()) {
-			v纹理工厂.f创建纹理(v图形标识, C程序::f计算路径(v纹理路径, a.m路径).native());
+		const t属性树 &v纹理节点 = v节点0.get_child(L"纹理");
+		if (const std::wstring v纹理路径 = C解析助手::f获取路径(a, v纹理节点); !v纹理路径.empty()) {
+			v纹理工厂.f创建纹理(v名称标识1, v纹理路径);
 		}
-		const float v纹理尺寸x = v纹理节点.get<float>(L"尺寸.宽", 0);
-		const float v纹理尺寸y = v纹理节点.get<float>(L"尺寸.高", 0);
-		const t向量2 v纹理尺寸{v纹理尺寸x, v纹理尺寸y};
+		const t向量2 v纹理尺寸 = C解析助手::f获取尺寸(v纹理节点.get_child(L"尺寸"));
 		v顶点工厂.m参数.fs纹理尺寸(v纹理尺寸);
 		//顶点
 		int v顶点主标识 = -1;
@@ -265,24 +286,16 @@ void C载入::f图形(const S载入参数 &a) {
 			for (auto &v循环 : v顶点工厂.f循环(v列数, v行数)) {
 				const C名称标识 v名称标识3 = v名称标识2.f创建层(std::to_wstring(++v顶点子标识));
 				v循环.f变换_平移(v顶点尺寸);
-				v顶点工厂.f创建矩形(计算::f标识(v图形标识, 0, ++v顶点总标识));
+				v顶点工厂.f创建矩形(v名称标识3);
 			}
 		}
-
-		//if (const auto &v切割 = v节点0.get_child_optional(L"顶点切割")) {
-		//	const int v列数 = v切割->get<int>(L"列数", 1);
-		//	const int v行数 = v切割->get<int>(L"行数", 1);
-		//	v顶点工厂.f自动化_完整切割(v图形标识, v纹理尺寸, v列数, v行数);
-		//} else {
-		//	v顶点工厂.f自动化_完整纹理(v图形标识, v纹理尺寸);
-		//}
 	}
-
 }
 void C载入::f动画(const S载入参数 &a) {
 	const int v全局标识 = a.m树.get<int>(L"全局.标识", 计算::fc随机标识());
 	const std::wstring v全局名称 = a.m树.get<std::wstring>(L"全局.名称");
-	const C名称标识 v名称标识0 = C名称标识(v全局名称, v全局标识);
+	C名称标识组 v名称标识组;
+	const C名称标识 v名称标识0 = v名称标识组.f创建层(v全局名称, v全局标识);
 	const boost::property_tree::wptree &va数据 = a.m树.get_child(L"数据");
 	auto &va动画 = C游戏::g资源.fg动画();
 	int v主标识 = -1;
@@ -291,7 +304,6 @@ void C载入::f动画(const S载入参数 &a) {
 		v主标识 = v节点0.get<int>(L"标识", ++v主标识);
 		const std::wstring v动画名称 = v节点0.get<std::wstring>(L"名称", L"");
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v动画名称, v主标识);
-		const int v动画标识 = 计算::f标识(v全局标识, v主标识, 0);
 		C角色动画::S属性 v属性;
 		const float v变化速度 = v节点0.get<float>(L"变化速度", 8);
 		const float v循环速度 = v节点0.get<float>(L"循环速度", 8);
@@ -306,13 +318,14 @@ void C载入::f动画(const S载入参数 &a) {
 		f读组(v属性.m正常, v节点0.get_child(L"正常动画"));
 		f读组(v属性.m左移, v节点0.get_child(L"左移动画"));
 		f读组(v属性.m右移, v节点0.get_child(L"右移动画"));
-		va动画.f添加(v动画标识, new C角色动画::C工厂(std::make_shared<C角色动画::S属性>(v属性)));
+		va动画.f添加(v名称标识1, new C角色动画::C工厂(std::make_shared<C角色动画::S属性>(v属性)));
 	}
 }
 void C载入::f子弹(const S载入参数 &a) {
 	const int v全局标识 = a.m树.get<int>(L"全局.标识", 计算::fc随机标识());
 	const std::wstring v全局名称 = a.m树.get<std::wstring>(L"全局.名称");
-	const C名称标识 v名称标识0 = C名称标识(v全局名称, v全局标识);
+	C名称标识组 v名称标识组;
+	const C名称标识 v名称标识0 = v名称标识组.f创建层(v全局名称, v全局标识);
 	assert(c子弹标识 == v全局标识);
 	const boost::property_tree::wptree &va数据 = a.m树.get_child(L"数据");
 	auto &v纹理工厂 = C游戏::g资源.fg纹理工厂();
@@ -323,21 +336,21 @@ void C载入::f子弹(const S载入参数 &a) {
 		const auto &v子弹节点 = v0.second;
 		v主标识 = v子弹节点.get<int>(L"标识", ++v主标识);
 		const std::wstring v子弹名称 = v子弹节点.get<std::wstring>(L"名称", L"");
-		const int v子弹标识 = 计算::f标识(v全局标识, v主标识, 0);
+		const C名称标识 v名称标识1 = v名称标识0.f创建层(v子弹名称, v主标识);
+		const int v子弹标识 = v名称标识1;
 		//纹理
-		const t树 &v纹理节点 = v子弹节点.get_child(L"纹理");
-		const std::wstring v纹理路径 = v纹理节点.get<std::wstring>(L"路径");
-		v纹理工厂.f创建纹理(v子弹标识, C程序::f计算路径(v纹理路径, a.m路径).native());
+		const t属性树 &v纹理节点 = v子弹节点.get_child(L"纹理");
+		const std::wstring v纹理路径 = C解析助手::f获取路径(a, v纹理节点);
+		v纹理工厂.f创建纹理(v子弹标识, v纹理路径);
 		//顶点
-		const float v纹理尺寸x = v纹理节点.get<float>(L"尺寸.宽");
-		const float v纹理尺寸y = v纹理节点.get<float>(L"尺寸.高");
-		v顶点工厂.f自动化_完整纹理(v子弹标识, t向量2{v纹理尺寸x, v纹理尺寸y});
+		const t向量2 v纹理尺寸 = C解析助手::f获取尺寸(v纹理节点.get_child(L"尺寸"));
+		v顶点工厂.f自动化_完整纹理(v子弹标识, v纹理尺寸);
 		//属性
 		S子弹属性 &v属性 = va子弹属性.f取空(v子弹标识);
 		const int v判定类型 = v子弹节点.get<int>(L"判定.类型");
 		switch (v判定类型) {
 			case 0: {	//圆形
-				const float v纹理尺寸d = (v纹理尺寸x + v纹理尺寸y) / 2;
+				const float v纹理尺寸d = (v纹理尺寸.x + v纹理尺寸.y) / 2;
 				const float v判定r = v子弹节点.get<float>(L"判定.判定r", v纹理尺寸d / 2);
 				const float v修正r = v子弹节点.get<float>(L"判定.修正r", v纹理尺寸d / 4);
 				v属性.m判定 = t向量2{v判定r, 0};
@@ -345,10 +358,10 @@ void C载入::f子弹(const S载入参数 &a) {
 				break;
 			}
 			case 1: {	//矩形
-				const float v判定x = v子弹节点.get<float>(L"判定.判定x", v纹理尺寸x / 2);
-				const float v判定y = v子弹节点.get<float>(L"判定.判定y", v纹理尺寸y / 2);
-				const float v修正x = v子弹节点.get<float>(L"判定.修正x", v纹理尺寸x / 4);
-				const float v修正y = v子弹节点.get<float>(L"判定.修正y", v纹理尺寸y / 4);
+				const float v判定x = v子弹节点.get<float>(L"判定.判定x", v纹理尺寸.x / 2);
+				const float v判定y = v子弹节点.get<float>(L"判定.判定y", v纹理尺寸.y / 2);
+				const float v修正x = v子弹节点.get<float>(L"判定.修正x", v纹理尺寸.x / 4);
+				const float v修正y = v子弹节点.get<float>(L"判定.修正y", v纹理尺寸.y / 4);
 				v属性.m判定 = t向量2{v判定x, v判定y};
 				v属性.m判定修正 = t向量2{v修正x, v修正y};
 				break;
@@ -365,7 +378,8 @@ void C载入::f子弹(const S载入参数 &a) {
 void C载入::f敌机(const S载入参数 &a) {
 	const int v全局标识 = a.m树.get<int>(L"全局.标识", 计算::fc随机标识());
 	const std::wstring v全局名称 = a.m树.get<std::wstring>(L"全局.名称");
-	const C名称标识 v名称标识0 = C名称标识(v全局名称, v全局标识);
+	C名称标识组 v名称标识组;
+	const C名称标识 v名称标识0 = v名称标识组.f创建层(v全局名称, v全局标识);
 	const int v全局动画引用 = a.m树.get<int>(L"全局.动画.引用.标识", 0);
 	const int v全局顶点引用 = a.m树.get<int>(L"全局.顶点.引用.标识", 0);
 	auto &va敌机属性 = C游戏::g资源.fg敌机属性();
@@ -375,9 +389,9 @@ void C载入::f敌机(const S载入参数 &a) {
 	for (const auto &v0 : va数据) {
 		const auto &v节点0 = v0.second;
 		v主标识 = v节点0.get<int>(L"标识", ++v主标识);
-		const int v敌机标识 = 计算::f标识(v全局标识, v主标识, 0);
 		const std::wstring v敌机名称 = v节点0.get<std::wstring>(L"名称", L""); 
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v敌机名称, v主标识);
+		const int v敌机标识 = v名称标识1;
 		auto &v属性 = va敌机属性.f取空(v敌机标识);
 		v属性.m判定半径 = v节点0.get<float>(L"判定半径", 16);
 		const auto &v纹理路径 = v节点0.get_optional<std::wstring>(L"纹理.路径");
@@ -394,7 +408,8 @@ void C载入::f敌机(const S载入参数 &a) {
 void C载入::f自机(const S载入参数 &a) {
 	const int v全局标识 = a.m树.get<int>(L"全局.标识", 计算::fc随机标识());
 	const std::wstring v全局名称 = a.m树.get<std::wstring>(L"全局.名称");
-	const C名称标识 v名称标识0 = C名称标识(v全局名称, v全局标识);
+	C名称标识组 v名称标识组;
+	const C名称标识 v名称标识0 = v名称标识组.f创建层(v全局名称, v全局标识);
 	const int v全局发射引用 = a.m树.get<int>(L"全局.发射.引用.标识", 0);
 	const int v全局动画引用 = a.m树.get<int>(L"全局.动画.引用.标识", 0);
 	const int v全局顶点引用 = a.m树.get<int>(L"全局.顶点.引用.标识", 0);
@@ -406,9 +421,9 @@ void C载入::f自机(const S载入参数 &a) {
 	for (const auto &v0 : va数据) {
 		const auto &v节点0 = v0.second;
 		v主标识 = v节点0.get<int>(L"标识", ++v主标识);
-		const int v自机标识 = 计算::f标识(v全局标识, v主标识, 0);
 		const std::wstring v自机名称 = v节点0.get<std::wstring>(L"名称", L"");
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v自机名称, v主标识);
+		const int v自机标识 = v名称标识1;
 		auto &v属性 = va自机属性.f取空(v自机标识);
 		//纹理
 		const auto &v纹理路径 = v节点0.get_optional<std::wstring>(L"纹理.路径");
@@ -432,7 +447,8 @@ void C载入::f自机(const S载入参数 &a) {
 void C载入::f子机(const S载入参数 &a) {
 	const int v全局标识 = a.m树.get<int>(L"全局.标识", 计算::fc随机标识());
 	const std::wstring v全局名称 = a.m树.get<std::wstring>(L"全局.名称");
-	const C名称标识 v名称标识0 = C名称标识(v全局名称, v全局标识);
+	C名称标识组 v名称标识组;
+	const C名称标识 v名称标识0 = v名称标识组.f创建层(v全局名称, v全局标识);
 	assert(c子机标识 == v全局标识);
 	const C解析引用 v全局纹理引用 = {a.m树.get<int>(L"全局.纹理.引用.标识", 0)};
 	const C解析引用 v全局顶点引用 = {a.m树.get<int>(L"全局.顶点.引用.标识", 0)};
@@ -446,9 +462,9 @@ void C载入::f子机(const S载入参数 &a) {
 	for (const auto &v0 : va数据) {
 		const auto &v节点0 = v0.second;
 		v主标识 = v节点0.get<int>(L"标识", ++v主标识);
-		const int v子机标识 = 计算::f标识(v全局标识, v主标识, 0);
 		const std::wstring v子机名称 = v节点0.get<std::wstring>(L"名称", L"");
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v子机名称, v主标识);
+		const int v子机标识 = v名称标识1;
 		auto &v子机属性 = va子机.f取空(v子机标识);
 		const int v类型 = v节点0.get<int>(L"类型", 0);
 		//子机数
@@ -481,7 +497,8 @@ void C载入::f子机位置(const S载入参数 &a) {
 	auto &va子机移动 = C游戏::g资源.fg子机移动();
 	for (const auto &v0 : va数据) {
 		const auto &v节点0 = v0.second;
-		const int v子机移动标识 = v全局标识 + v节点0.get<int>(L"标识");
+		const int v主标识 = v节点0.get<int>(L"标识");
+		const int v子机移动标识 = 计算::f标识(v全局标识, v主标识, 0);
 		const int v类型 = v节点0.get<int>(L"类型", 0);
 		const int v子机数 = v节点0.get<int>(L"子机数", 0);
 		const auto &va值 = v节点0.get_child(L"值");
@@ -491,7 +508,8 @@ void C载入::f子机位置(const S载入参数 &a) {
 void C载入::f玩家子弹(const S载入参数 &a) {
 	const int v全局标识 = a.m树.get<int>(L"全局.标识", 计算::fc随机标识());
 	const std::wstring v全局名称 = a.m树.get<std::wstring>(L"全局.名称");
-	const C名称标识 v名称标识0 = C名称标识(v全局名称, v全局标识);
+	C名称标识组 v名称标识组;
+	const C名称标识 v名称标识0 = v名称标识组.f创建层(v全局名称, v全局标识);
 	const C解析引用 v全局顶点引用 = {a.m树.get<int>(L"全局.顶点.引用.标识", 0)};
 	const C解析引用 v全局纹理引用 = {a.m树.get<int>(L"全局.纹理.引用.标识", 0)};
 	const auto &va数据 = a.m树.get_child(L"数据");
@@ -500,8 +518,8 @@ void C载入::f玩家子弹(const S载入参数 &a) {
 	for (const auto &[v名称0_, v节点0] : va数据) {
 		v主标识 = v节点0.get<int>(L"标识", ++v主标识);
 		const std::wstring v玩家子弹名称 = v节点0.get<std::wstring>(L"名称", L"");
-		const int v玩家子弹标识 = 计算::f标识(v全局标识, v主标识, 0);
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v玩家子弹名称, v主标识);
+		const int v玩家子弹标识 = v名称标识1;
 		auto &v玩家子弹属性 = va玩家子弹属性.f取空(v玩家子弹标识);
 		//图形
 		C解析引用::f解析赋值(v玩家子弹属性.m纹理, v全局纹理引用, v节点0.get_child_optional(L"纹理.引用"));
@@ -570,11 +588,12 @@ void C载入::f纹理列表0(const S载入参数 &a) {
 	const std::wstring v全局名称 = std::wstring(L"纹理.") + a.m树.get<std::wstring>(L"全局.名称");
 	const auto &va数据 = a.m树.get_child(L"数据");
 	auto &v纹理工厂 = C游戏::fg资源().fg纹理工厂();
-	const C名称标识 v名称标识0 = C名称标识(v全局名称, v全局标识);
+	C名称标识组 v名称标识组;
+	const C名称标识 v名称标识0 = v名称标识组.f创建层(v全局名称, v全局标识);
 	int v主标识 = -1;
 	for (const auto &[v名称0, v树0] : va数据) {
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, ++v主标识);
-		v纹理工厂.f创建纹理(v名称标识1.fg标识(), C程序::f计算路径(v树0.get_value<std::wstring>(), a.m路径));
+		v纹理工厂.f创建纹理(v名称标识1, C程序::f计算路径(v树0.get_value<std::wstring>(), a.m路径));
 	}
 }
 void C载入::f模型列表0(const S载入参数 &a) {
@@ -583,7 +602,8 @@ void C载入::f模型列表0(const S载入参数 &a) {
 	const std::wstring v全局名称 = std::wstring(L"模型.") + a.m树.get<std::wstring>(L"全局.名称");
 	const auto &va数据 = a.m树.get_child(L"数据");
 	auto &v模型工厂 = C游戏::fg图形().fg模型工厂();
-	const C名称标识 v名称标识0 = C名称标识(v全局名称, v全局标识); 
+	C名称标识组 v名称标识组;
+	const C名称标识 v名称标识0 = v名称标识组.f创建层(v全局名称, v全局标识);
 	int v主标识 = -1;
 	for (const auto &[v名称0_, v树0] : va数据) {
 		const std::wstring &v名称0 = v树0.get<std::wstring>(L"名称", c模型名称 + std::to_wstring(++v主标识));
@@ -605,7 +625,7 @@ void C载入::f模型列表0(const S载入参数 &a) {
 		}
 		v模型工厂.m参数.fs顶点(va顶点.data(), va顶点.size());
 		v模型工厂.m参数.fs索引(va索引.data(), va索引.size());
-		v模型工厂.f创建模型(v名称标识1.fg标识());
+		v模型工厂.f创建模型(v名称标识1);
 	}
 }
 void C载入::f声音列表0(const S载入参数 &a) {
@@ -614,11 +634,12 @@ void C载入::f声音列表0(const S载入参数 &a) {
 	const std::wstring v全局名称 = std::wstring(L"声音.") + a.m树.get<std::wstring>(L"全局.名称");
 	const auto &va数据 = a.m树.get_child(L"数据");
 	auto &v声音工厂 = C游戏::fg音频().fg声音工厂();
-	const C名称标识 v名称标识0 = C名称标识(v全局名称, v全局标识);
+	C名称标识组 v名称标识组;
+	const C名称标识 v名称标识0 = v名称标识组.f创建层(v全局名称, v全局标识);
 	int v主标识 = -1;
 	for (const auto &[v名称0, v树0] : va数据) {
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, ++v主标识);
-		v声音工厂.f创建声音(v名称标识1.fg标识(), C程序::f计算路径(v树0.get_value<std::wstring>(), a.m路径));
+		v声音工厂.f创建声音(v名称标识1, C程序::f计算路径(v树0.get_value<std::wstring>(), a.m路径));
 	}
 }
 void C载入::f声音列表1(const S载入参数 &) {
@@ -630,11 +651,12 @@ void C载入::f文本(const S载入参数 &a) {
 	const std::wstring v语言 = a.m树.get<std::wstring>(L"全局.语言");
 	const auto &va数据 = a.m树.get_child(L"数据");
 	auto &va文本 = C游戏::fg资源().f新文本数组(v全局名称, v语言);
-	const C名称标识 v名称标识0 = C名称标识(v全局名称, v全局标识);
+	C名称标识组 v名称标识组;
+	const C名称标识 v名称标识0 = v名称标识组.f创建层(v全局名称, v全局标识);
 	int v主标识 = -1;
 	for (const auto &[v名称0, v树0] : va数据) {
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, ++v主标识);
-		va文本.f添加(v名称标识1.fg标识(), v树0.get_value<std::wstring>());
+		va文本.f添加(v名称标识1, v树0.get_value<std::wstring>());
 	}
 }
 //=============================================================================

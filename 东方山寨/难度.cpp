@@ -25,9 +25,12 @@ tf难度 F一次(float e, float t6) {
 	//y = kx + b
 	return 数学::F一次函数::fc两点({c简单, e}, {c折磨6, t6});
 }
-//tf难度 F二次(float e, float t, float t6) {
-//	//y = ax^2 + bx + c
-//	return 数学::F二次函数::fc三点({c简单, e}, {c折磨, t}, {c折磨6, t6});
+tf难度 F二次(float e, float t, float t6) {
+	//y = ax^2 + bx + c
+	return 数学::F二次函数::fc三点({c简单, e}, {c折磨, t}, {c折磨6, t6});
+}
+//tf难度 F四次(float e, float h, float t, float t6) {
+//
 //}
 //tf难度 F指数(float e, float t, float t6) {
 //	//y = a^x * b + c
@@ -39,7 +42,9 @@ tf难度 F一次(float e, float t6) {
 tf难度 F线性插值(float e, float h, float t, float t6) {
 	const float k1 = (t - e) / (c折磨 - c简单);
 	const float k5 = (t6 - t) / (c折磨6 - c折磨);
-	const float k10 = (std::abs(k1) < std::abs(k5)) ? (k5 * 2) : (k5 * 0.5f);
+	const float k10a = (std::abs(k1) < std::abs(k5)) ? (k5 * 2) : (k5 * 0.5f);	//t6之后的斜率
+	const float t16 = t6 + k10a * 10;	//t16时(x=20)的值
+	const float k10 = (t16 < 0) ? (t6 * 0.1f) : k10a;	//矫正后的斜率，确保x=20内y是正数
 	return [=](float x)->float {
 		if (x <= c困难) {	//简单~困难
 			return 数学::f插值2<float>(c简单, e, c困难, h, x);

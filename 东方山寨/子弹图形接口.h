@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include <concepts>
 #include "数学包含.h"
 #include "图形包含.h"
 #include "基础.h"
@@ -93,11 +94,19 @@ public:
 //==============================================================================
 // 画子弹接口
 //==============================================================================
+class I子弹图形数据;
+using tp子弹图形数据 = std::unique_ptr<I子弹图形数据>;
+template<typename t> concept T子弹图形数据 = std::derived_from<t, I子弹图形数据>;
 class I子弹图形数据 {
 public:
 	virtual ~I子弹图形数据() = default;
 };
-using tp子弹图形数据 = std::unique_ptr<I子弹图形数据>;
+template<T子弹图形数据 t子弹图形数据> t子弹图形数据 *f创建子弹图形数据(tp子弹图形数据 &a数据) {
+	if (a数据 == nullptr || dynamic_cast<t子弹图形数据*>(a数据.get()) == nullptr) {
+		a数据 = std::make_unique<t子弹图形数据>();
+	}
+	return static_cast<t子弹图形数据 *>(a数据.get());
+}
 class I画子弹 : public I图形管线 {
 public:
 	virtual void f生成点(tp子弹图形数据 &, const C子弹顶点::C点 &) = 0;

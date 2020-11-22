@@ -22,6 +22,7 @@ struct S子弹参数 {	//产生子弹所需的参数
 	t向量2 m缩放 = t向量2(1, 1);
 	t向量2 m长宽 = t向量2::c零;
 	t颜色 m颜色[2];
+	float m出现 = 0;
 	C属性数组<S子弹属性>::t指针 m样式;
 	C扩展数组<I画子弹>::t指针 m绘制;
 	C属性数组<S子弹属性>::t指针 m缓存_样式;
@@ -37,6 +38,7 @@ struct S子弹参数 {	//产生子弹所需的参数
 	void fs样式(int);
 	void fs绘制(int);
 	void fs子弹基础(const C子弹 &);
+	void fs立即出现(bool);
 };
 class C子弹制造机 {
 public:

@@ -48,7 +48,7 @@ void C画图片::fs坐标(const t向量2 &a坐标) {
 void C画图片::fs透明度(float a透明度) {
 	m透明度 = a透明度;
 }
-void C画图片::fs纹理(tp纹理 a纹理) {
+void C画图片::fs纹理(三维::tp纹理 a纹理) {
 	if (m纹理 != a纹理) {
 		f刷新();
 		m纹理 = a纹理;

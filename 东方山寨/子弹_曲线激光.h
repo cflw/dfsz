@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include <experimental/generator>
 #include <cflw工具_循环.h>
 #include "子弹基础.h"
 namespace 东方山寨 {
@@ -39,9 +40,10 @@ public:
 	void f扩展_更新头节点();
 	void f扩展_节点消失(int);
 	void f扩展_节点消失检查();	//如果有节点消失就调用这个
-	std::vector<S节点> &f循环_全部();
-	循环::C范围<std::vector<S节点>> f循环_范围(int, int);
-	循环::C零散<std::vector<S节点>> f循环_周围(int 节点序号);
+	std::vector<S节点> &fe节点();
+	循环::C范围<std::vector<S节点>> fe范围(int, int);
+	循环::C零散<std::vector<S节点>> fe周围(int 节点序号);
+	std::experimental::generator<S节点> fe节点插值(int 数量);
 	//属性
 	float m初始化_长度 = c默认长度, m初始化_宽度 = 1, m初始化_精度 = c默认精度;
 	std::vector<S节点> ma节点;
@@ -50,3 +52,6 @@ public:
 	float m计算周期 = c默认计算周期;
 };
 }	//namespace 东方山寨
+namespace cflw::数学 {
+template<> 东方山寨::C曲线激光::S节点 f插值<东方山寨::C曲线激光::S节点>(const 东方山寨::C曲线激光::S节点 &, const 东方山寨::C曲线激光::S节点 &, float);
+}

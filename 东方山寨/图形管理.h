@@ -12,6 +12,7 @@ namespace 东方山寨 {
 class C图形管理 {
 public:
 	C图形管理();
+	~C图形管理();
 	void f初始化_环境(const C游戏速度 &);
 	void f游戏外计算();
 	void f游戏外更新();

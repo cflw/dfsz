@@ -10,6 +10,10 @@ template<typename t值>
 class C缓冲数组 {
 public:
 	using t指针 = std::unique_ptr<t值>;
+	void f清空() {
+		ma缓冲.clear();
+		ma新建.clear();
+	}
 	template<typename t派生 = t值, typename...t参数>
 	t派生 *f新建(t参数&&...a参数) {
 		std::unique_ptr<t派生> v指针0 = std::make_unique<t派生>(std::forward<t参数>(a参数)...);

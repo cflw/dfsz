@@ -85,10 +85,11 @@ public:
 //==============================================================================
 class C计时器 {
 public:
-	C计时器(float a时间 = 1);
+	static constexpr float c立即滴答 = 9999;
+	C计时器(float 时间 = 1, float 滴答 = 0);
 	bool f滴答();
 	void f停止();
-	void f重置(float);
+	void f重置(float, float = 0);
 private:
 	float m滴答;
 	float m计时;

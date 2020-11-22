@@ -116,9 +116,10 @@ struct S子弹属性 {
 };
 struct S子弹出现 {
 	static constexpr float c速度 = 4 * c帧秒<float>;
+	static constexpr float c未出现 = 0;
+	static constexpr float c已出现 = 1;
 	S子弹出现() = default;
-	S子弹出现(S子弹出现&, S子弹出现&, float);
-	void f初始化();
+	void f初始化(float 初始帧 = c未出现);
 	void f计算();
 	bool fi正在出现() const;
 	bool fi出现完() const;
@@ -127,7 +128,6 @@ struct S子弹出现 {
 struct S子弹消失 {
 	static constexpr float c速度 = 2 * c帧秒<float>;
 	S子弹消失() = default;
-	S子弹消失(S子弹消失&, S子弹消失&, float);
 	void f初始化(float = 0);
 	void f计算();
 	void f消失(float 目标 = 1);
@@ -154,3 +154,7 @@ struct S相对长度 {
 	E相对长度 m相对 = E相对长度::e倍数;
 };
 }	//namespace 东方山寨
+namespace cflw::数学 {
+template<> 东方山寨::S子弹出现 f插值<东方山寨::S子弹出现>(const 东方山寨::S子弹出现 &, const 东方山寨::S子弹出现 &, float);
+template<> 东方山寨::S子弹消失 f插值<东方山寨::S子弹消失>(const 东方山寨::S子弹消失 &, const 东方山寨::S子弹消失 &, float);
+}	//namespace cflw::数学

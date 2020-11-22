@@ -41,7 +41,6 @@ private:	//内部画子弹函数
 	static void f生成连续点0(const C子弹顶点::C曲线 &, const C子弹顶点::C曲线::ta顶点 &, const tf顶点 &, const tf索引 &);
 	static void f生成网格0(const C子弹顶点::C网格 &, const C子弹顶点::C网格::ta顶点 &, const tf顶点 &, const tf索引 &);
 	//分配函数
-	void f创建图形数据(tp子弹图形数据 &);
 	三维::C渲染控制 *m渲染控制 = nullptr;
 	三维::tp图形管线 m图形管线;
 	三维::tp纹理 m纹理;

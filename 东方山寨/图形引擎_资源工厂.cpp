@@ -9,13 +9,13 @@ namespace 视窗 = cflw::视窗;
 //=============================================================================
 C纹理工厂::~C纹理工厂() {
 }
-void C纹理工厂::f初始化(三维::C三维 &a三维, C属性数组<tp纹理> &aa纹理) {
+void C纹理工厂::f初始化(三维::C三维 &a三维, C属性数组<三维::tp纹理> &aa纹理) {
 	m工厂 = &a三维.fg纹理工厂();
 	ma纹理 = &aa纹理;
 }
-tp纹理 C纹理工厂::f创建纹理(int a标识, const std::wstring &a文件) const {
+三维::tp纹理 C纹理工厂::f创建纹理(int a标识, const std::wstring &a文件) const {
 	if (ma纹理->fi不存在(a标识)) {
-		tp纹理 v纹理;
+		三维::tp纹理 v纹理;
 		HRESULT hr = m工厂->f从文件创建纹理(v纹理, a文件.c_str());
 		if (FAILED(hr)) {
 			__debugbreak();
@@ -27,13 +27,13 @@ tp纹理 C纹理工厂::f创建纹理(int a标识, const std::wstring &a文件) 
 		return ma纹理->fg数据(a标识);
 	}
 }
-tp纹理 C纹理工厂::f创建纹理(int a标识, const 纹理::I纹理 &a纹理) {
+三维::tp纹理 C纹理工厂::f创建纹理(int a标识, const 纹理::I纹理 &a纹理) {
 	if (ma纹理->fi不存在(a标识)) {
 		try {
 			三维::tp纹理2 v纹理2;
 			HRESULT hr = m工厂->f从纹理对象创建纹理2(v纹理2, a纹理);
 			视窗::f失败则抛出(hr);
-			tp纹理 v纹理;
+			三维::tp纹理 v纹理;
 			hr = m工厂->f创建纹理资源视图(v纹理, v纹理2, a纹理.fg格式());
 			视窗::f失败则抛出(hr);
 			ma纹理->f添加(a标识, v纹理);

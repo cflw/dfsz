@@ -137,7 +137,7 @@ void C画三维::fs雾范围(float a开始, float a范围) {
 	m常量p.m雾范围 = a范围;
 	m更新p = true;
 }
-void C画三维::fs纹理(三维::tp纹理 a纹理) {
+void C画三维::fs纹理(tp纹理 a纹理) {
 	if (m纹理 != a纹理) {
 		m缓冲.f刷新();
 		m纹理 = a纹理;

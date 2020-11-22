@@ -106,7 +106,7 @@
       <AdditionalIncludeDirectories>$(cflw_develop)\cflw代码库;$(cflw_develop)\用户界面;$(boost);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
-      <EnableModules>true</EnableModules>
+      <EnableModules>false</EnableModules>
       <AdditionalOptions>/await %(AdditionalOptions)</AdditionalOptions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
@@ -137,7 +137,7 @@
       <AdditionalIncludeDirectories>$(cflw_develop)\cflw代码库;$(cflw_develop)\用户界面;$(boost);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
-      <EnableModules>true</EnableModules>
+      <EnableModules>false</EnableModules>
       <AdditionalOptions>/await %(AdditionalOptions)</AdditionalOptions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
@@ -238,7 +238,7 @@
     <ClCompile Include="图形_三维.cpp" />
     <ClCompile Include="图形_图片.cpp" />
     <ClCompile Include="动画.cpp" />
-    <ClCompile Include="图形_子弹_工具.h" />
+    <ClInclude Include="图形_子弹_工具.h" />
     <ClCompile Include="图形_子弹_线条.cpp" />
     <ClCompile Include="图形_对话.cpp" />
     <ClCompile Include="图形_抬显.cpp" />

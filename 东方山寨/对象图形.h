@@ -8,6 +8,7 @@ public:
 	I对象图形(const t类 &a对象):
 		m对象(&a对象) {
 	}
+	virtual ~I对象图形() = default;
 	virtual void f计算() {}
 	virtual void f更新() {}
 	virtual I图形缓冲 &fg图形缓冲() const = 0;

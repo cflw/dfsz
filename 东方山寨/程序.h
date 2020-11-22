@@ -34,7 +34,7 @@ public:
 	static C图形引擎 &fg图形();
 	static C音频引擎 &fg音频();
 	static C界面图形控制 &fg界面图形();
-	static std::filesystem::path f计算路径(const std::filesystem::path &目标, const std::filesystem::path & p当前文件 = L"");
+	static std::filesystem::path f计算路径(const std::filesystem::path &目标, const std::filesystem::path & 当前文件 = L"");
 	static const std::filesystem::path &fg数据目录();
 	static void f输入法开关(bool);
 	static int fg渲染间隔();

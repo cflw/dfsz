@@ -20,7 +20,7 @@ public:
 	static constexpr float c判定半径 = 0.5f;
 	static constexpr float c擦弹半径 = 32;
 	static constexpr float c道具半径 = 32;
-	static constexpr float c移动速度 = 360;
+	static constexpr float c移动速度 = 300;
 	static constexpr float c动画速度 = 8 / 120.f;
 	static constexpr float c决死时间 = 0.2f;
 	static constexpr float c无决死时间 = -9999;

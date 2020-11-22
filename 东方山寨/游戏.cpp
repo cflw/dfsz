@@ -500,8 +500,8 @@ void C游戏::C实现::f显示() {
 	//图层
 	m异步更新图形.wait();
 	std::map<int, std::vector<const I图形缓冲 *>> va图层;
-	auto &va图形 = fg图形().fg图形数组();	//现在只用于统计
-	auto &va缓冲 = fg图形().fg图形缓冲数组();
+	auto &va图形 = v图形引擎->fg图形数组();	//现在只用于统计
+	auto &va缓冲 = v图形引擎->fg图形缓冲数组();
 	for (const auto &v缓冲 : va缓冲.ma缓冲) {
 		va图层[v缓冲->m图层].push_back(v缓冲.get());
 	}

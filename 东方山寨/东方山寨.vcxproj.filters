@@ -287,12 +287,6 @@
     <ClCompile Include="图形_子弹_顶点.cpp">
       <Filter>游戏本体\子弹基础</Filter>
     </ClCompile>
-    <ClCompile Include="图形_子弹_工具.h">
-      <Filter>游戏本体\子弹基础</Filter>
-    </ClCompile>
-    <ClCompile Include="难度.cpp">
-      <Filter>游戏本体\玩家</Filter>
-    </ClCompile>
     <ClCompile Include="轨迹.cpp">
       <Filter>游戏本体\玩家</Filter>
     </ClCompile>
@@ -364,6 +358,9 @@
     </ClCompile>
     <ClCompile Include="敌机模板.cpp">
       <Filter>游戏本体\敌机</Filter>
+    </ClCompile>
+    <ClCompile Include="难度.cpp">
+      <Filter>数学</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -589,9 +586,6 @@
     <ClInclude Include="图形_子弹_顶点.h">
       <Filter>游戏本体\子弹基础</Filter>
     </ClInclude>
-    <ClInclude Include="难度.h">
-      <Filter>游戏本体\玩家</Filter>
-    </ClInclude>
     <ClInclude Include="轨迹.h">
       <Filter>游戏本体\玩家</Filter>
     </ClInclude>
@@ -702,6 +696,12 @@
     </ClInclude>
     <ClInclude Include="敌机模板.h">
       <Filter>游戏本体\敌机</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_子弹_工具.h">
+      <Filter>游戏本体\子弹基础</Filter>
+    </ClInclude>
+    <ClInclude Include="难度.h">
+      <Filter>数学</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

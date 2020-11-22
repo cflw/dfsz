@@ -18,7 +18,7 @@ public:
 	void f刷新() override;
 	void fs坐标(const t向量2 &);
 	void fs透明度(float);
-	void fs纹理(tp纹理);
+	void fs纹理(三维::tp纹理);
 	void f变换_重置();
 	void f变换_旋转(const t向量3 &xyz);
 	void f变换_旋转(float z);
@@ -30,14 +30,14 @@ public:
 	三维::C渲染控制 &m渲染控制;
 	三维::C渲染状态 &m渲染状态;
 	t自动缓冲 m缓存;
-	tp顶点着色器 m顶点着色器;
-	tp像素着色器 m像素着色器;
-	tp输入布局 m输入布局;
+	三维::tp顶点着色器 m顶点着色器;
+	三维::tp像素着色器 m像素着色器;
+	三维::tp输入布局 m输入布局;
 	//绘制变量
 	t向量2 m坐标;
 	t矩阵4 m矩阵;
 	float m透明度;
-	tp纹理 m纹理;
-	tp缓冲 m常量缓冲;
+	三维::tp纹理 m纹理;
+	三维::tp缓冲 m常量缓冲;
 };
 }	//namespace 东方山寨
