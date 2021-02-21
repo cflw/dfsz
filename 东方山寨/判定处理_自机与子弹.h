@@ -2,6 +2,7 @@
 #include "数学包含.h"
 namespace 东方山寨 {
 class C自机;
+class C子弹;
 class C自机与子弹判定 {
 public:
 	enum E判定结果 {
@@ -10,6 +11,7 @@ public:
 		e碰撞 = 0x2,
 	};
 	void f绑定自机(C自机 *);
+	void f绑定子弹(C子弹 *);
 	void f计算判定();
 	int f子弹_提交判定(const t圆形 &);
 	int f子弹_提交判定(const t旋转矩形 &);
@@ -17,13 +19,14 @@ public:
 	bool f子弹_i碰撞() const;
 	bool f子弹_i擦弹() const;
 	const t向量2 &fg自机坐标() const;
+	int f结算_g擦弹数() const;
 private:
 	void f碰撞成立处理();
 	void f擦弹成立处理();
-	C自机 *m自机;
+	C自机 *m自机 = nullptr;
+	C子弹 *m子弹 = nullptr;
 	t圆形 m碰撞点, m擦弹点;
-	int m擦弹数;
-	int m判定结果;
+	int m擦弹数 = 0;
+	int m判定结果 = 0;
 };
-
-}
+}	//namespace 东方山寨

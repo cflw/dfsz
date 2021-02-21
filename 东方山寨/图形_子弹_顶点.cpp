@@ -179,7 +179,7 @@ void C画子弹_顶点::f绘制图形数据(const tp子弹图形数据 &a数据)
 	f画子弹(*v数据.m子弹属性, v数据.m顶点.get(), v数据.m顶点使用大小, v数据.m索引.get(), v数据.m索引使用大小);
 }
 void C画子弹_顶点::f画子弹(const S子弹属性 &a子弹属性, const void *a顶点指针, size_t a顶点大小, const void *a索引指针, size_t a索引大小) {
-	三维::tp纹理 v目标纹理 = *a子弹属性.m纹理;
+	三维::tp纹理资源视图 v目标纹理 = a子弹属性.m纹理->m纹理;
 	if (m纹理 != v目标纹理) {
 		m缓冲.f刷新();
 		m纹理 = v目标纹理;

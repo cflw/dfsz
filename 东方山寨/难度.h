@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <functional>
+#include <optional>
 #include <boost/rational.hpp>
 namespace 东方山寨 {
 using tf难度 = std::function<float(float)>;
@@ -17,12 +18,14 @@ constexpr float c折磨5 = 9;
 constexpr float c折磨6 = 10;
 //计算
 bool f单调(float e, float h, float t, float t6);	//难度函数在x∈[1,+∞)必需单调递增或单调递减
+tf难度 F常数(float);
 tf难度 F一次(float e, float t6);
 tf难度 F二次(float e, float t, float t6);
 //tf难度 F四次(float e, float h, float t, float t6);
 //tf难度 F指数(float e, float t, float t6);
 //tf难度 F反(float e, float t, float t6);
 tf难度 F线性插值(float e, float h, float t, float t6);	//插值
+tf难度 F线性插值(std::optional<float> e, std::optional<float> h, std::optional<float> t, std::optional<float> t6);	//参数可空
 }	//namespace 难度
 //控制
 class C难度 {
@@ -34,5 +37,14 @@ public:
 	float fg动态难度() const;
 	int m基础难度 = 1;
 	int m增加难度 = 0;	//单位1/100 0000
+};
+//难度值
+struct C难度值 {
+public:
+	C难度值(const tf难度 &);
+	void operator ()(float);	//重新计算难度值
+	operator float() const;	//取难度值
+	const tf难度 mf计算;
+	float m值 = 0;
 };
 }	//namespace 东方山寨

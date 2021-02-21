@@ -8,12 +8,13 @@ namespace 东方山寨 {
 //图形缓冲接口
 class I图形缓冲 : public C简单游戏对象 {
 public:
+	virtual ~I图形缓冲() = default;
 	void f初始化_图层(int a图层) {
 		m图层 = a图层;
 		m显示编号 = 计算::fg显示编号();
 	}
 	virtual void f显示() const = 0;
-	std::strong_ordering operator <=>(const I图形缓冲 &a图形缓冲) {
+	std::strong_ordering operator <=>(const I图形缓冲 &a图形缓冲) const {
 		if (m图层 != a图形缓冲.m图层) {
 			return m图层 <=> a图形缓冲.m图层;
 		} else {

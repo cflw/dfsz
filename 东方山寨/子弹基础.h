@@ -1,6 +1,6 @@
 ﻿#pragma once
-#include "图形包含.h"
 #include "数学包含.h"
+#include "图形资源.h"
 #include "数学_形状.h"
 #include "基础.h"
 #include "基础_数组计数.h"
@@ -44,6 +44,10 @@ public:
 	t向量2 f基础_到点方位(const t向量2 &) const;
 	bool f基础_i不透明判定(float = c透明阀值) const;
 	bool f基础_i动作() const;	//return m标志[e动作];
+	//初始化, 只能在 f接口_参数初始化 中调用
+	void f初始化_长度到缩放(float);	//把长宽转换成缩放
+	void f初始化_宽度到缩放(float);
+	void f初始化_长宽到缩放(const t向量2 &);
 	//子弹扩展的接口
 	template<typename t> static void f接口_具体类型初始化(const std::shared_ptr<t> &);
 	virtual void f接口_初始化();
@@ -59,9 +63,6 @@ public:
 	virtual bool f接口_i停止炸弹判定() const;
 	//子弹扩展事件
 	virtual void f事件_遮罩(I遮罩 &);
-	//在事件过程中调用的初始化函数
-	void f初始化_样式(int);
-	void f初始化_绘制(int);
 	//子弹动作
 	void f动作_结束();	//停止执行动作
 	void f动作_取消产生();
@@ -79,13 +80,11 @@ public:
 	const C游戏速度 *m游戏速度 = nullptr;
 	C子弹图形缓冲 *m图形缓冲 = nullptr;
 	const S子弹属性 *m子弹属性 = nullptr;
-	int m初始化_样式 = -1;
-	int m初始化_绘制 = -1;
 	//外部使用变量
 	t标志 m标志;
-	float m动画帧;
-	float m方向;
-	float m擦弹间隔;
+	float m动画帧 = 0;
+	float m方向 = 0;
+	float m擦弹间隔 = 0;
 	//float m透明度 = 1;	//TODO：计划中
 	//自由使用变量
 	t向量2 m坐标;
@@ -100,17 +99,20 @@ template<typename t> void C子弹::f接口_具体类型初始化(const std::shar
 //==============================================================================
 struct S子弹属性 {
 	static float f判定计算(float 原始, float 修正, float 倍数);
-	float fg判定x(float = 1) const;
-	float fg判定y(float = 1) const;
-	t向量2 fg判定(const t向量2 &) const;
-	float fg显示x(float = 1) const;
-	float fg显示y(float = 1) const;
+	float fg判定x(float 缩放 = 1) const;
+	float fg判定y(float 缩放 = 1) const;
+	t向量2 fg判定(const t向量2 &缩放) const;
+	float fg显示x(float 缩放 = 1) const;
+	float fg显示y(float 缩放 = 1) const;
 	t向量2 fg显示(const t向量2 &) const;
+	float fg缩放x(float 像素 = 0) const;	//根据实际长度计算缩放
+	float fg缩放y(float 像素 = 0) const;
+	t向量2 fg缩放(const t向量2 &) const;
 	bool fi圆形() const;
 	bool fi矩形() const;
 	t向量2 m判定;
 	t向量2 m判定修正;
-	t属性指针<tp纹理> m纹理;
+	t属性指针<S纹理> m纹理;
 	t属性指针<S顶点矩形> m顶点;
 	int m动画帧数 = 0;
 };
@@ -126,7 +128,7 @@ struct S子弹出现 {
 	float m帧 = 0;
 };
 struct S子弹消失 {
-	static constexpr float c速度 = 2 * c帧秒<float>;
+	static constexpr float c速度 = 4 * c帧秒<float>;
 	S子弹消失() = default;
 	void f初始化(float = 0);
 	void f计算();

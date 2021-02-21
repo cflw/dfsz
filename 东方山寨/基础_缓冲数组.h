@@ -11,7 +11,13 @@ class C缓冲数组 {
 public:
 	using t指针 = std::unique_ptr<t值>;
 	void f清空() {
+		for (auto &v对象 : ma缓冲) {
+			v对象->f对象_销毁();
+		}
 		ma缓冲.clear();
+		for (auto &v对象 : ma新建) {
+			v对象->f对象_销毁();
+		}
 		ma新建.clear();
 	}
 	template<typename t派生 = t值, typename...t参数>
@@ -23,8 +29,8 @@ public:
 		return v指针1;
 	}
 	void f更新() {
-		f更新_删除不使用对象();
 		f更新_合并新对象();
+		f更新_删除不使用对象();
 	}
 	void f更新_删除不使用对象() {
 		ma缓冲.erase(std::remove_if(ma缓冲.begin(), ma缓冲.end(), [](const t指针 &a指针)->bool {
@@ -36,7 +42,9 @@ public:
 		ma新建.clear();
 	}
 	void f排序() {
-		std::sort(ma缓冲.begin(), ma缓冲.end());
+		std::sort(ma缓冲.begin(), ma缓冲.end(), [](const t指针 &a, const t指针 &b)->bool {
+			return *a < *b;
+		});
 	}
 	void f排序(const std::function<bool(const t值 &, const t值 &)> &af比较) {
 		std::sort(ma缓冲.begin(), ma缓冲.end(), [&af比较](const t指针 &a, const t指针 &b)->bool {
@@ -47,4 +55,4 @@ public:
 	std::vector<t指针> ma新建;
 	std::mutex m新建锁;
 };
-}
+}	//namespace 东方山寨

@@ -1,9 +1,10 @@
 ﻿#pragma once
 #include "数学包含.h"
-namespace 东方山寨 {
-namespace 计算 {
+namespace 东方山寨::计算 {
 //杂烩
 float f插值(const std::pair<float, float> &, float);
+int f偶数则加一(int);
+int f奇数则加一(int);
 //时间
 bool f计时(float &计时, float a);
 //变化
@@ -16,4 +17,8 @@ void f基本运动计算(t向量2 &, const t向量2 &, float);
 float f到目标时间(const t向量2 &原, const t向量2 &目标, float 速度);
 t向量2 f到目标速度(const t向量2 &原, const t向量2 &目标, float 时间);
 float f预判自机狙(const t向量2 &目标坐标, const t向量2 &目标速度, const t向量2 &发射坐标, float 发射速度);
-}}
+float f圆周自机狙(const t向量2 &目标坐标, const t向量2 &发射坐标, float 半径, float 角方向);
+float f圆周运动半径(float 线速度, float 角速度);
+std::pair<float, float> f圆周运动速度(float 半径, float 时间, float 角度 = 数学::cπ<float>);	//得到线速度和角速度
+float f圆周运动角速度(float 半径, float 线速度);
+}	//namespace 东方山寨::计算

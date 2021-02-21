@@ -6,9 +6,10 @@ namespace 东方山寨 {
 namespace 循环 = cflw::工具::循环;
 class C曲线激光 : public C子弹 {
 public:
-	static constexpr float c默认长度 = 20;
-	static constexpr float c默认精度 = 0.25f;
-	static constexpr float c默认计算周期 = 1.f / c默认精度;
+	static constexpr float c默认长度 = 200;	//像素长度
+	static constexpr float c节点基数 = 60.f;	//激光长度=激光速度*1秒 所需的节点数
+	static constexpr float c节点精度 = c节点基数 / c计算频率<float>;	//240hz下的精度是0.25
+	static constexpr float c节点计算周期 = c计算频率<float> / c节点基数;	//精度的倒数
 	struct S节点 {
 		int m序号 = -1;
 		t向量2 m原坐标;
@@ -27,9 +28,6 @@ public:
 	void f接口_自机判定(C自机与子弹判定 &) override;
 	bool f接口_i在窗口外() override;
 	bool f接口_炸弹判定(C子弹与玩家炸弹判定 &) override;
-	//初始化
-	void f初始化_长宽(float, float = 1);
-	void f初始化_精度(float);
 	//动作
 	void f动作_消失(bool);
 	//扩展
@@ -45,11 +43,9 @@ public:
 	循环::C零散<std::vector<S节点>> fe周围(int 节点序号);
 	std::experimental::generator<S节点> fe节点插值(int 数量);
 	//属性
-	float m初始化_长度 = c默认长度, m初始化_宽度 = 1, m初始化_精度 = c默认精度;
 	std::vector<S节点> ma节点;
 	S子弹出现 m出现;
 	float m计算计时 = 0;
-	float m计算周期 = c默认计算周期;
 };
 }	//namespace 东方山寨
 namespace cflw::数学 {

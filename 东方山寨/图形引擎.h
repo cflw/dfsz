@@ -9,26 +9,33 @@
 #include "基础_属性数组.h"
 #include "基础_缓冲数组.h"
 #include "游戏常量.h"
+#include "图形资源.h"
 namespace 东方山寨 {
+//接口
 class I图形;
 class I图形管线;
 class I图形缓冲;
+//资源
 struct S顶点矩形;
+struct S纹理;
 struct S三维顶点;
 class C模型;
+//工厂
 class C纹理工厂;
 class C顶点工厂;
 class C模型工厂;
+//管理
+class C图形管理;
+class C背景管理;
+//绘制
+class C画图片管线;
 class C画图片;
 class C画三维;
 class C画玩家成绩;
 using t画图片 = class C画图片;
 class C图形层;
-class C图形管理;
 class C图形工厂;
-class C画背景;
 class C画边框;
-using t顶点 = S顶点矩形;
 //==============================================================================
 // 图形引擎
 //==============================================================================
@@ -54,7 +61,7 @@ public:
 	void fs图形管线(I图形管线 *);
 	void fs图形资源窗口大小();	//窗口大小改变之后调用
 	//资源&工厂
-	C属性数组<tp纹理> &fg纹理();
+	C属性数组<S纹理> &fg纹理();
 	C纹理工厂 &fg纹理工厂();
 	C属性数组<S顶点矩形> &fg顶点矩形();
 	C顶点工厂 &fg顶点工厂();
@@ -67,6 +74,7 @@ public:
 	C缓冲数组<I图形缓冲> &fg图形缓冲数组();
 	C图形工厂 f工厂_图形();
 	std::shared_ptr<C图形工厂> f工厂_图形p();
+	C背景管理 &fg背景管理();
 	//画预设图形
 	void f画边框();
 	void f画十字(const t向量2 &, const float &半径 = 16);
@@ -76,10 +84,11 @@ public:
 	二维::C画图形 &fg画图形();
 	std::shared_ptr<二维::C画文本> fc画文本();
 	二维::C画文本 &fg画文本();
+	std::unique_ptr<C画图片> fc画图片();
 	C画图片 &fg画图片();
+	C画图片管线 &fg画图片管线();
 	C画三维 &fg画三维();
 	C画玩家成绩 &fg画玩家成绩();
-	C画背景 &fg画背景();
 	C画边框 &fg画边框();
 	//属性
 	float fg渲染秒() const;	//游戏速度无关
@@ -95,7 +104,7 @@ public:
 	float m比例 = 4.f / 3.f;
 	const int *m渲染间隔 = nullptr;
 	//资源
-	C属性数组<tp纹理> ma纹理;
+	C属性数组<S纹理> ma纹理;
 	std::unique_ptr<C纹理工厂> m纹理工厂;
 	C属性数组<S顶点矩形> ma顶点矩形;
 	std::unique_ptr<C顶点工厂> m顶点工厂;
@@ -103,35 +112,16 @@ public:
 	std::unique_ptr<C模型工厂> m模型工厂;
 	std::unique_ptr<着色器::C着色器工厂> m着色器工厂;
 	std::unique_ptr<C图形管理> m图形管理;
+	std::unique_ptr<C背景管理> m背景管理;
 	//绘制
 	std::shared_ptr<二维::C画图形> m画图形;
 	std::shared_ptr<二维::C画图形> m画十字;
 	std::shared_ptr<二维::C画文本> m画文本;
 	std::shared_ptr<二维::C画文本> m画调试文本;
+	std::unique_ptr<C画图片管线> m画图片管线;
 	std::unique_ptr<C画图片> m画图片;
 	std::unique_ptr<C画三维> m画三维;
 	std::unique_ptr<C画玩家成绩> m画玩家成绩;
-	std::unique_ptr<C画背景> m画背景;
 	std::unique_ptr<C画边框> m画边框;
-};
-//==============================================================================
-// 二维顶点,一个纹理的其中一个片段
-//==============================================================================
-struct S顶点矩形 {
-	enum E方位 {
-		e左, e上, e右, e下
-	};
-	float m坐标[4] = {}, m纹理[4] = {};	//左,上,右,下
-	float fg坐标x(float 插值) const;
-	float fg坐标y(float 插值) const;
-	float fg纹理x(float 插值) const;
-	float fg纹理y(float 插值) const;
-	float fg宽() const;
-	float fg高() const;
-};
-struct S顶点顶点 {
-	t向量2 m坐标;
-	t向量2 m纹理;
-	float m透明度 = 0;
 };
 }	//namespace 东方山寨

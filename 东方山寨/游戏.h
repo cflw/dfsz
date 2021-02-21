@@ -15,7 +15,7 @@ typedef std::mt19937 t随机数引擎;
 // 类
 //==============================================================================
 class C游戏;
-struct S游戏设置;
+class C游戏设置;
 class C图形引擎;
 class C输入引擎;
 class C音频引擎;
@@ -119,6 +119,7 @@ public:	//公开控制
 		void f游戏_全屏清弹(const t向量2 & = t向量2::c零, float = 600, bool 道具 = false);
 		void f游戏_进入关卡(C关卡 &);
 		void f游戏_切换边框(const I边框 &);
+		void f游戏_结束游戏();	//结束关卡回到标题画面
 	private:
 		C实现 *m实现 = nullptr;
 	};
@@ -156,7 +157,7 @@ public:	//公开控制
 	};
 	static C内容 &fg内容();
 	static C取资源 &fg资源();
-	static S游戏设置 &fg设置();
+	static C游戏设置 &fg设置();
 	static C图形引擎 &fg图形();
 	static C音频引擎 &fg音频();
 	static C内容 g内容;

@@ -10,9 +10,9 @@ public:
 	C矩形();
 	C矩形(const t矩形 &);
 	//边框
-	bool f判断(const t向量2 &坐标, float 外偏移) const override;
-	int f反弹(t向量2 &坐标, t向量2 &速度, float 外偏移, int 次数 = c最大次数) const override;
-	int f限制(t向量2 &坐标, float 外偏移, int 次数 = c最大次数) const override;
+	bool f判断(const t向量2 &坐标, float 外偏移 = 0) const override;
+	int f反弹(t向量2 &坐标, t向量2 &速度, float 外偏移 = 0, int 次数 = c最大次数) const override;
+	int f限制(t向量2 &坐标, float 外偏移 = 0, int 次数 = c最大次数) const override;
 	void f显示(const S画边框参数 &) const override;
 	//判断
 	bool f左边判断(const t向量2 &, float 外偏移) const;

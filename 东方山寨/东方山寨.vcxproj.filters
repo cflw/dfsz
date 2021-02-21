@@ -170,9 +170,6 @@
     <ClCompile Include="图形引擎.cpp">
       <Filter>图形引擎</Filter>
     </ClCompile>
-    <ClCompile Include="图形引擎_资源工厂.cpp">
-      <Filter>图形引擎</Filter>
-    </ClCompile>
     <ClCompile Include="图形_图片.cpp">
       <Filter>游戏本体\图形</Filter>
     </ClCompile>
@@ -232,9 +229,6 @@
     </ClCompile>
     <ClCompile Include="日志.cpp">
       <Filter>程序</Filter>
-    </ClCompile>
-    <ClCompile Include="界面_窗口类.cpp">
-      <Filter>界面</Filter>
     </ClCompile>
     <ClCompile Include="界面引擎.cpp">
       <Filter>界面</Filter>
@@ -362,6 +356,42 @@
     <ClCompile Include="难度.cpp">
       <Filter>数学</Filter>
     </ClCompile>
+    <ClCompile Include="东方月亮船2.cpp">
+      <Filter>关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="东方月亮船_附加符卡.cpp">
+      <Filter>关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_选择模式.cpp">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_选择自机.cpp">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_选择难度.cpp">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_选择关卡.cpp">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_游戏菜单.cpp">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_主菜单.cpp">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="关卡列表.cpp">
+      <Filter>关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="图形资源.cpp">
+      <Filter>图形引擎\图形基础</Filter>
+    </ClCompile>
+    <ClCompile Include="图形资源工厂.cpp">
+      <Filter>图形引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_背景模板.cpp">
+      <Filter>游戏本体\图形</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="子弹基础.h">
@@ -440,9 +470,6 @@
       <Filter>游戏本体\玩家子弹基础</Filter>
     </ClInclude>
     <ClInclude Include="图形引擎.h">
-      <Filter>图形引擎</Filter>
-    </ClInclude>
-    <ClInclude Include="图形引擎_资源工厂.h">
       <Filter>图形引擎</Filter>
     </ClInclude>
     <ClInclude Include="载入.h">
@@ -528,9 +555,6 @@
     </ClInclude>
     <ClInclude Include="日志.h">
       <Filter>程序</Filter>
-    </ClInclude>
-    <ClInclude Include="界面_窗口类.h">
-      <Filter>界面</Filter>
     </ClInclude>
     <ClInclude Include="界面引擎.h">
       <Filter>界面</Filter>
@@ -702,6 +726,36 @@
     </ClInclude>
     <ClInclude Include="难度.h">
       <Filter>数学</Filter>
+    </ClInclude>
+    <ClInclude Include="界面_选择模式.h">
+      <Filter>界面</Filter>
+    </ClInclude>
+    <ClInclude Include="界面_选择自机.h">
+      <Filter>界面</Filter>
+    </ClInclude>
+    <ClInclude Include="界面_选择难度.h">
+      <Filter>界面</Filter>
+    </ClInclude>
+    <ClInclude Include="界面_选择关卡.h">
+      <Filter>界面</Filter>
+    </ClInclude>
+    <ClInclude Include="界面_游戏菜单.h">
+      <Filter>界面</Filter>
+    </ClInclude>
+    <ClInclude Include="界面包含.h">
+      <Filter>界面</Filter>
+    </ClInclude>
+    <ClInclude Include="界面_主菜单.h">
+      <Filter>界面</Filter>
+    </ClInclude>
+    <ClInclude Include="关卡列表.h">
+      <Filter>关卡</Filter>
+    </ClInclude>
+    <ClInclude Include="图形资源.h">
+      <Filter>图形引擎\图形基础</Filter>
+    </ClInclude>
+    <ClInclude Include="图形资源工厂.h">
+      <Filter>图形引擎</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

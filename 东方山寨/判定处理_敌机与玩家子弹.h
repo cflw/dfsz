@@ -13,8 +13,10 @@ public:
 	bool f玩家子弹_提交判定(const tf判定 &);
 	bool f玩家子弹_提交判定(const t圆形 &);
 	bool f玩家子弹_提交判定(const t旋转矩形 &);
+	int f结算_g造成伤害() const;
 	C敌机 *m敌机 = nullptr;
 	C玩家子弹 *m子弹 = nullptr;
 	t圆形 m敌机判定;
+	int m造成伤害 = 0;
 };
 }	//namespace 东方山寨

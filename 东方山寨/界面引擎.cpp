@@ -3,14 +3,21 @@
 #include <用户界面接口实现_输入w.h>
 #include <用户界面接口实现_输入x.h>
 #include "界面引擎.h"
-#include "界面_窗口类.h"
+#include "界面_主菜单.h"
+#include "界面_游戏菜单.h"
+#include "界面_选择模式.h"
+#include "界面_选择难度.h"
+#include "界面_选择自机.h"
+#include "界面_选择关卡.h"
 #include "界面_选项.h"
 #include "界面音频.h"
 #include "图形引擎.h"
 #include "输入.h"
 #include "音频引擎.h"
 namespace 东方山寨 {
-//实现
+//==============================================================================
+// 引擎
+//==============================================================================
 class C界面引擎::C实现 {
 public:
 	void f初始化图形(二维::C二维 &a二维) {
@@ -35,10 +42,11 @@ public:
 		ma窗口.emplace(E窗口::e主菜单, std::make_unique<W主菜单>());
 		ma窗口.emplace(E窗口::e游戏暂停, std::make_unique<W游戏菜单>(W游戏菜单::E上下文::e游戏暂停));
 		ma窗口.emplace(E窗口::e游戏结束, std::make_unique<W游戏菜单>(W游戏菜单::E上下文::e游戏结束));
+		ma窗口.emplace(E窗口::e选择模式, std::make_unique<W选择模式>());
 		ma窗口.emplace(E窗口::e选择难度, std::make_unique<W选择难度>());
 		ma窗口.emplace(E窗口::e选择飞机, std::make_unique<W选择自机>());
+		ma窗口.emplace(E窗口::e选择关卡, std::make_unique<W选择关卡>());
 		ma窗口.emplace(E窗口::e选项, std::make_unique<W选项>());
-
 	}
 	void f更新输入() {
 		m键盘.f更新();
@@ -107,4 +115,4 @@ void C界面引擎::f关闭窗口() {
 	}
 }
 
-}
+}	//namespace 东方山寨

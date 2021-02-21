@@ -12,7 +12,8 @@ enum class E游戏状态 {
 	e主菜单,
 	e游戏中,
 	e游戏菜单,
-	e退出,
+	e结束游戏,
+	e退出程序,
 };
 enum class E游戏标志 {
 	e载入0,

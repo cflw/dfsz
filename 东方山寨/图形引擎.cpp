@@ -2,7 +2,8 @@
 #include "游戏常量.h"
 #include "边框常量.h"
 #include "图形引擎.h"
-#include "图形引擎_资源工厂.h"
+#include "图形资源.h"
+#include "图形资源工厂.h"
 #include "图形_三维.h"
 #include "图形_玩家成绩.h"
 #include "图形_画图片.h"
@@ -118,8 +119,8 @@ void C图形引擎::fs图形资源窗口大小() {
 		};
 		m三维->fg渲染控制().f更新资源(m二维常量缓冲.Get(), c缓冲数据);
 	}
-	if (m画背景) {	//是否进入过游戏
-		m画背景->fs屏幕尺寸(v标准宽, v标准高);
+	if (m背景管理) {
+		m背景管理->fs屏幕尺寸(v标准宽, v标准高);
 	}
 	if (m画边框) {
 		m画边框->fs标准尺寸(v标准宽, v标准高);
@@ -140,7 +141,7 @@ void C图形引擎::fs图形资源窗口大小() {
 二维::C坐标转换 &C图形引擎::fg二维坐标计算() const {
 	return m二维->fg坐标计算();
 }
-C属性数组<三维::tp纹理> &C图形引擎::fg纹理() {
+C属性数组<S纹理> &C图形引擎::fg纹理() {
 	return ma纹理;
 }
 C纹理工厂 &C图形引擎::fg纹理工厂() {
@@ -209,6 +210,14 @@ void C图形引擎::f画边框() {
 	C画边框 &v画边框 = fg画边框();
 	v画边框.f画框架();
 }
+C背景管理 &C图形引擎::fg背景管理() {
+	if (m背景管理 == nullptr) {
+		m背景管理 = std::make_unique<C背景管理>();
+		const auto &[v标准宽, v标准高] = C程序::fg标准窗口大小();
+		m背景管理->fs屏幕尺寸(v标准宽, v标准高);
+	}
+	return *m背景管理;
+}
 void C图形引擎::f画十字(const 数学::S向量2 &a坐标, const float &a半径) {
 	if (m画十字 == nullptr) {
 		m画十字 = fc画图形();
@@ -240,11 +249,20 @@ std::shared_ptr<二维::C画图形> C图形引擎::fc画图形() {
 	}
 	return *m画图形;
 }
+std::unique_ptr<C画图片> C图形引擎::fc画图片() {
+	return std::make_unique<C画图片>(fg画图片管线());
+}
 C画图片 &C图形引擎::fg画图片() {
 	if (m画图片 == nullptr) {
-		m画图片 = std::make_unique<C画图片>(*this, *m三维);
+		m画图片 = fc画图片();
 	}
 	return *m画图片;
+}
+C画图片管线 &C图形引擎::fg画图片管线() {
+	if (m画图片管线 == nullptr) {
+		m画图片管线 = std::make_unique<C画图片管线>(*this, *m三维);
+	}
+	return *m画图片管线;
 }
 std::shared_ptr<二维::C画文本> C图形引擎::fc画文本() {
 	return m二维->fc画文本();
@@ -267,12 +285,6 @@ C画玩家成绩 &C图形引擎::fg画玩家成绩() {
 	}
 	return *m画玩家成绩;
 }
-C画背景 &C图形引擎::fg画背景() {
-	if (m画背景 == nullptr) {
-		m画背景 = std::make_unique<C画背景>(fg画图片());
-	}
-	return *m画背景;
-}
 C画边框 &C图形引擎::fg画边框() {
 	if (m画边框 == nullptr) {
 		m画边框 = std::make_unique<C画边框>(*this, fg二维());
@@ -293,26 +305,5 @@ float C图形引擎::fg渲染帧() const {
 void I图形管线::f自动准备() {
 	auto &v图形 = C游戏::fg图形();
 	v图形.fs图形管线(this);
-}
-//==============================================================================
-// 二维顶点,一个纹理的其中一个片段
-//==============================================================================
-float S顶点矩形::fg坐标x(float a插值) const {
-	return 数学::f插值<float>(m坐标[e左], m坐标[e右], a插值);
-}
-float S顶点矩形::fg坐标y(float a插值) const {
-	return 数学::f插值<float>(m坐标[e上], m坐标[e下], a插值);
-}
-float S顶点矩形::fg纹理x(float a插值) const {
-	return 数学::f插值<float>(m纹理[e左], m纹理[e右], a插值);
-}
-float S顶点矩形::fg纹理y(float a插值) const {
-	return 数学::f插值<float>(m纹理[e上], m纹理[e下], a插值);
-}
-float S顶点矩形::fg宽() const {
-	return m坐标[e右] - m坐标[e左];
-}
-float S顶点矩形::fg高() const {
-	return m坐标[e上] - m坐标[e下];
 }
 }	//namespace 东方山寨

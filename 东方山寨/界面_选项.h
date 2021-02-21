@@ -9,7 +9,7 @@ constexpr float c选项窗口高 = 250;
 //==============================================================================
 // 模板
 //==============================================================================
-class W选项列表 : public 用户界面::W窗口 {
+class W选项列表 : public 用户界面::W窗口框架 {
 public:
 	static constexpr float c行高 = 20;
 	static constexpr float c行距 = c行高 * 0.5f;
@@ -107,5 +107,4 @@ public:
 	std::vector<W选项列表 *> ma页;
 	std::vector<std::unique_ptr<用户界面::W按钮>> ma按钮;	//底部按钮
 };
-
-}
+}	//namespace 东方山寨

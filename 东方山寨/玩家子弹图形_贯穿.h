@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "图形资源.h"
 #include "对象图形.h"
 #include "图形_图片.h"
 #include "预设图形.h"
@@ -39,6 +40,5 @@ public:
 	I图形缓冲 &fg图形缓冲() const override;
 	C图形缓冲 *m图形缓冲 = nullptr;
 };
-
 }	//namespace 玩家子弹
 }	//namespace 东方山寨

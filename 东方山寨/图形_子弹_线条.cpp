@@ -247,9 +247,9 @@ void C画子弹_线条::f绘制网格(const C图形数据_网格 &a图形数据)
 	//画圆
 	数学::C二维序号计算<int> f序号{a图形数据.m宽数};
 	for (int y = 0; y != a图形数据.m高数; ++y) {
-		const float v位置y = t位置计算::f右到中(y, a图形数据.m高数 - 1) * a图形数据.m节点尺寸.y;
+		const float v位置y = -(y - (a图形数据.m高数 - 1) * 0.5f) * a图形数据.m节点尺寸.y;
 		for (int x = 0; x != a图形数据.m宽数; ++x) {
-			const float v位置x = t位置计算::f右到中(x, a图形数据.m宽数 - 1) * a图形数据.m节点尺寸.x;
+			const float v位置x = (x - (a图形数据.m宽数 - 1) * 0.5f) * a图形数据.m节点尺寸.x;
 			const auto &v节点 = a图形数据.ma节点[f序号(y, x)];
 			v颜色.a = v节点.m透明度;
 			m画图->fs颜色(v颜色);

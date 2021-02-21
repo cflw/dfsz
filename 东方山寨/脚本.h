@@ -31,6 +31,7 @@
 #include "图形_抬显.h"
 #include "图形_三维.h"
 #include "图形_对话.h"
+#include "图形_背景.h"
 //关卡
 #include "关卡.h"
 #include "场景.h"
@@ -52,5 +53,6 @@ using tp敌机工厂 = std::shared_ptr<C敌机制造机>;
 using tp图形工厂 = std::shared_ptr<C图形工厂>;
 t向量2 fg自机坐标();
 t向量2 fg自机速度(float 秒 = 0.5f);
+using 工具::C计次器;
 }
 using namespace 东方山寨;

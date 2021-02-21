@@ -1,6 +1,8 @@
 ﻿#pragma once
 #include <cflw工具_循环.h>
-#include "图形引擎.h"
+#include "基础.h"
+#include "图形资源.h"
+#include "基础_属性数组.h"
 namespace 东方山寨 {
 namespace 循环 = cflw::工具::循环;
 //==============================================================================
@@ -9,12 +11,12 @@ namespace 循环 = cflw::工具::循环;
 class C纹理工厂 {
 public:
 	~C纹理工厂();
-	void f初始化(三维::C三维&, C属性数组<三维::tp纹理>&);
-	三维::tp纹理 f创建纹理(int, const std::wstring &) const;	//如果纹理不存在,则从文件中读取
-	三维::tp纹理 f创建纹理(int, const 纹理::I纹理 &);
+	void f初始化(三维::C三维 &, C属性数组<S纹理> &);
+	void f创建纹理(int, const std::wstring &) const;	//如果纹理不存在,则从文件中读取
+	void f创建纹理(int, const 纹理::I纹理 &) const;
 private:
-	三维::C纹理工厂 *m工厂;
-	C属性数组<三维::tp纹理> *ma纹理;
+	三维::C纹理工厂 *m纹理工厂 = nullptr;
+	C属性数组<S纹理> *ma纹理;
 };
 //==============================================================================
 // 平面顶点工厂,从纹理裁出一块矩形
@@ -70,7 +72,7 @@ public:
 		int m行, m列, i, j;
 	};
 	void f初始化(C属性数组<S顶点矩形>&);
-	static S顶点矩形 f创建矩形(const S参数 &);
+	static S顶点矩形 fc顶点矩形(const S参数 &);
 	void f创建矩形(int 标识);
 	void f复制矩形(int 新, int 旧);
 	C循环 f循环(int, int);

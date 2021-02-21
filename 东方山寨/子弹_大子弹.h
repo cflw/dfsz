@@ -19,7 +19,6 @@ private:
 	static const float c细分直径;
 public:
 	C大子弹() = default;
-	C大子弹(float, float);
 	void f接口_初始化() override;
 	void f接口_参数初始化(const S子弹参数 &) override;
 	void f接口_计算() override;
@@ -27,11 +26,10 @@ public:
 	void f接口_自机判定(C自机与子弹判定 &) override;
 	bool f接口_i在窗口外() override;
 	bool f接口_炸弹判定(C子弹与玩家炸弹判定 &) override;
-	//初始化
-	void f初始化_长宽(float, float = -1);
 	//动作
 	void f动作_消失(bool);
 private:	//扩展
+	//大子弹节点序号方向：x→、y↓
 	std::pair<int, int> f扩展_计算限制长宽(int, int);
 	void f扩展_节点消失(int);
 	void f扩展_节点消失检查();	//如果有节点消失就调用这个
@@ -50,7 +48,6 @@ private:	//扩展
 	循环::C零散<std::vector<S节点>> &f循环_周围(int);
 	//属性
 	static C属性数组<std::vector<bool>> ma节点判定;
-	float m初始化_长 = 1, m初始化_宽 = 1;
 	std::vector<S节点> ma节点;
 	int m长数 = 0, m宽数 = 0, m数量 = 0;
 	S子弹出现 m出现;

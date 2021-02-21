@@ -16,6 +16,7 @@ public:	//连接工具
 		C连接工具();
 		C连接工具(tf两点操作);
 		C连接工具 &operator +=(const std::shared_ptr<C连续子弹> &);
+		void f重置();
 	private:
 		std::shared_ptr<C连续子弹> m这;
 		tf两点操作 mf连接;
@@ -26,6 +27,7 @@ public:	//连接工具
 		C环形工具(tf两点操作);
 		~C环形工具();
 		C环形工具 &operator +=(const std::shared_ptr<C连续子弹> &);
+		void f重置();
 	private:
 		std::shared_ptr<C连续子弹> m头, m这;
 		tf两点操作 mf连接;
@@ -57,8 +59,8 @@ private:	//扩展
 	void f扩展_自动细分();
 	float f扩展_g细分间隔() const;
 	static std::shared_ptr<C连续子弹> f连续子弹_c细分(C连续子弹 &, C连续子弹 &, float);	//新建子弹对象
-	static void f连续子弹_连接(C连续子弹 &, C连续子弹 &);	//断言,带锁
-	static void f连续子弹_断开(C连续子弹 &, C连续子弹 &);	//断言,带锁
+	static void f连续子弹_连接(C连续子弹 &, C连续子弹 &);	//有断言
+	static void f连续子弹_断开(C连续子弹 &, C连续子弹 &);	//有断言
 	static void f连续子弹_细分(C连续子弹 &, C连续子弹 &, int);	//调用子弹制造机产生细分子弹
 	static void f连续子弹_连接1(C连续子弹 &, C连续子弹 &);	//危险函数
 	static void f连续子弹_断开1(C连续子弹 &, C连续子弹 &);	//危险函数

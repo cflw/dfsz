@@ -21,6 +21,11 @@ bool f单调(float e, float h, float t, float t6) {
 		return f全比较(工具::f小于<float>);
 	}
 }
+tf难度 F常数(float a) {
+	return [a](float)->float {
+		return a;
+	};
+}
 tf难度 F一次(float e, float t6) {
 	//y = kx + b
 	return 数学::F一次函数::fc两点({c简单, e}, {c折磨6, t6});
@@ -57,32 +62,82 @@ tf难度 F线性插值(float e, float h, float t, float t6) {
 		}
 	};
 }
-//tf难度 F自动(float e, float h, float t, float t6) {
-	//const auto f一次 = F一次(e, t6);
-	//const auto f二次 = F二次(e, t, t6);
-	//const auto f指数 = F指数(e, t, t6);
-	//const auto f反 = F反(e, t, t6);
-	//const auto f线性插值 = F线性插值(e, h, t, t6);
-	//const float v一次差 = std::abs(f一次(h));
-	//const float v二次差 = std::abs(f一次(h));
-	//const float v指数差 = std::abs(f一次(h));
-	//const float v反差 = std::abs(f一次(h));
-	//const float v插值差 = std::abs(f线性插值(h));
-	//const std::pair<const float &, const tf难度 &> va[] = {
-		//{v一次差, f一次},
-		//{v二次差, f二次},
-		//{v指数差, f指数},
-		//{v反差, f反},
-		//{v插值差, f线性插值},
-	//};
-	//const std::pair<const float &, const tf难度 &> *v选择 = &va[0];
-	//for (const auto &v : va) {
-	//	if (v选择->first > v.first) {
-	//		v选择 = &v;
-	//	}
-	//}
-	//return v选择->second;
-//}
+tf难度 F线性插值(std::optional<float> e, std::optional<float> h, std::optional<float> t, std::optional<float> t6) {
+	const bool v有e = e.has_value();
+	const bool v有h = h.has_value();
+	const bool v有t = t.has_value();
+	const bool v有t6 = t6.has_value();
+	if (v有e) {
+		if (v有h) {
+			if (v有t) {
+				if (v有t6) {	//oooo, 有重载,应该不会成立
+					throw;
+					//return F线性插值(*e, *h, *t, *t6);
+				} else {	//ooox
+					const float k3 = (*t - *h) / (c折磨 - c困难);
+					const float _t6 = *t + 10 * k3;
+					return F线性插值(*e, *h, *t, _t6);
+				}
+			} else {
+				if (v有t6) {	//ooxo
+					const float k3 = (*t6 - *h) / (c折磨6 - c困难);
+					const float _t = *h + 2 * k3;
+					return F线性插值(*e, *h, _t, *t6);
+				} else {	//ooxx
+					return 数学::F一次函数::fc两点({c简单, *e}, {c困难, *h});
+				}
+			}
+		} else {
+			if (v有t) {
+				if (v有t6) {	//oxoo
+					const float k1 = (*t - *e) / (c折磨 - c简单);
+					const float _h = *e + 2 * k1;
+					return F线性插值(*e, _h, *t, *t6);
+				} else {	//oxox
+					return 数学::F一次函数::fc两点({c简单, *e}, {c折磨, *t});
+				}
+			} else {
+				if (v有t6) {	//oxxo
+					return 数学::F一次函数::fc两点({c简单, *e}, {c折磨6, *t6});
+				} else {	//oxxx
+					return F常数(*e);
+				}
+			}
+		}
+	} else {
+		if (v有h) {
+			if (v有t) {
+				if (v有t6) {	//xooo
+					const float k3 = (*t - *h) / (c折磨 - c困难);
+					const float _e = *h - 2 * k3;
+					return F线性插值(_e, *h, *t, *t6);
+				} else {	//xoox
+					return 数学::F一次函数::fc两点({c困难, *h}, {c折磨, *t});
+				}
+			} else {
+				if (v有t6) {	//xoxo
+					return 数学::F一次函数::fc两点({c困难, *h}, {c折磨6, *t6});
+				} else {	//xoxx
+					return F常数(*h);
+				}
+			}
+		} else {
+			if (v有t) {
+				if (v有t6) {	//xxoo
+					return 数学::F一次函数::fc两点({c折磨, *t}, {c折磨6, *t6});
+				} else {	//xxox
+					return F常数(*t);
+				}
+			} else {
+				if (v有t6) {	//xxxo
+					return F常数(*t6);
+				} else {	//xxxx
+					throw;
+				}
+			}
+		}
+	}
+}
 }	//namespace 难度
 //==============================================================================
 // 控制
@@ -106,6 +161,18 @@ float C难度::fg基础难度() const {
 }
 float C难度::fg动态难度() const {
 	return (float)m基础难度 + (float)m增加难度 / 100'0000.f;
+}
+//==============================================================================
+// 难度值
+//==============================================================================
+C难度值::C难度值(const tf难度 &af计算):
+	mf计算(af计算) {
+}
+void C难度值::operator ()(float a难度) {
+	m值 = mf计算(a难度);
+}
+C难度值::operator float() const {
+	return m值;
 }
 
 }	//namespace 东方山寨

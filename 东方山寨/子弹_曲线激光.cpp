@@ -15,11 +15,7 @@ void C曲线激光::S节点::f更新(const t向量2 &a坐标, const t向量2 &a�
 }
 //接口
 void C曲线激光::f接口_初始化() {
-	const int v数量 = (int)m初始化_长度;
-	assert(v数量 > 1);
 	m计算计时 = 0;
-	m计算周期 = 1 / m初始化_精度;
-	ma节点.resize(v数量);
 	int i = 0;
 	for (auto &v节点 : ma节点) {
 		v节点.m序号 = (i++);
@@ -30,7 +26,15 @@ void C曲线激光::f接口_初始化() {
 }
 void C曲线激光::f接口_参数初始化(const S子弹参数 &a) {
 	C子弹::f接口_参数初始化(a);
-	f初始化_长宽(a.m长宽.x, a.m长宽.y);
+	//长
+	const float v像素长 = a.m长宽.x > 0 ? a.m长宽.x : c默认长度;
+	const float v倍数长 = c节点基数 * v像素长 / m速度.fg大小();
+	assert(v倍数长 >= 2);
+	const size_t v数量 = (size_t)std::round(v倍数长);
+	ma节点.resize(v数量);
+	//宽
+	f初始化_宽度到缩放(a.m长宽.y);
+	//其他
 	m出现.f初始化(a.m出现);
 }
 void C曲线激光::f接口_计算() {
@@ -51,8 +55,8 @@ void C曲线激光::f接口_计算() {
 	f基础_计算运动();
 	f基础_计算方向();
 	m计算计时 += m游戏速度->fg速度();
-	if (m计算计时 >= m计算周期) {
-		m计算计时 -= m计算周期;
+	if (m计算计时 >= c节点计算周期) {
+		m计算计时 -= c节点计算周期;
 		for (int i = (int)ma节点.size() - 1; i != 0; --i) {
 			auto &v这 = f扩展_取节点(i);
 			auto &v前 = f扩展_取节点(i - 1);
@@ -129,14 +133,6 @@ bool C曲线激光::f接口_炸弹判定(C子弹与玩家炸弹判定 &a判定) 
 		}
 	}
 	return v真;
-}
-//初始化
-void C曲线激光::f初始化_长宽(float a长, float a宽) {
-	m初始化_长度 = (a长 > 1) ? a长 : c默认长度;
-	m初始化_宽度 = (a宽 > 0) ? a宽 : 1;
-}
-void C曲线激光::f初始化_精度(float a精度) {
-	m初始化_精度 = a精度;
 }
 //动作
 void C曲线激光::f动作_消失(bool a动画) {

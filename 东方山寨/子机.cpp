@@ -51,9 +51,9 @@ C子机::C子机() {
 }
 void C子机::f坐标_移动(const t向量2 &a目标) {
 	m目标坐标 = a目标;
-	const float m游戏速度 = this->m游戏速度->fg速度();
-	const float v渐变倍数 = 0.2f * m游戏速度;
-	const float v最大渐变 = 10.f * m游戏速度;
+	const float v游戏速度 = this->m游戏速度->fg速度();
+	const float v渐变倍数 = 0.2f * v游戏速度;
+	const float v最大渐变 = 10.f * v游戏速度;
 	m坐标.fs倍数渐变(a目标, v渐变倍数, 0, v最大渐变);
 }
 void C子机::f坐标_重置(const t向量2 &a目标) {
@@ -193,4 +193,4 @@ int C子机组::fg子机数上限() const {
 循环::C范围<const std::vector<C子机>> C子机组::fe使用c() const {
 	return 循环::C范围<const std::vector<C子机>>{ma子机, 0, m数量};
 }
-}
+}	//namespace 东方山寨

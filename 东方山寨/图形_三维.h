@@ -1,32 +1,16 @@
 ﻿#pragma once
 #include <cflw工具_循环.h>
-#include "图形包含.h"
 #include "数学包含.h"
+#include "图形包含.h"
+#include "图形资源.h"
 #include "基础.h"
 namespace 东方山寨 {
 class C图形引擎;
 using tp模型 = const class C模型*;
 //定义
-struct S三维顶点 {
-	数学::S向量3 m坐标;
-	数学::S向量2 m纹理;
-};
 struct VS_3D {
 	数学::S向量4 m坐标0;
 	数学::S向量2 m纹理;
-};
-class C模型 {
-public:
-	C模型(const S三维顶点 *, size_t, const uint16_t *, size_t);
-	C模型(const C模型 &) = delete;
-	C模型(C模型 &&);
-	C模型 &operator =(const C模型 &) = delete;
-	C模型 &operator =(C模型 &&);
-	~C模型();
-public:	//成员变量在构造完成之后只读
-	S三维顶点 *m顶点;
-	uint16_t *m索引;
-	size_t m顶点数, m索引数;
 };
 class C场景循环 : public 工具::循环::I循环<C场景循环> {
 public:
@@ -52,7 +36,7 @@ public:
 	void fs相机(const 数学::S相机 &);
 	void fs雾颜色(const 数学::S颜色 &);
 	void fs雾范围(float 开始, float 范围);
-	void fs纹理(三维::tp纹理);
+	void fs纹理(const S纹理 &);
 	void f画模型(const C模型 &);
 	void f画平面(int x, int y);
 public:
@@ -69,7 +53,7 @@ public:
 	数学::S矩阵4 m物体矩阵;
 	三维::tp图形管线 m图形管线;
 	三维::C自动缓冲 m缓冲;
-	三维::tp纹理 m纹理;
+	三维::tp纹理资源视图 m纹理;
 	工具::C空间<VS_3D> m顶点空间;
 	三维::tp缓冲 m常量缓冲v, m常量缓冲p;
 	三维::tp采样器 m采样器;

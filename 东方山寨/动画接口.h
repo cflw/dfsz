@@ -34,6 +34,6 @@ struct S动画缓冲 {
 	t向量3 m旋转 = t向量3::c零;
 	t向量3 m缩放 = t向量3::c一;
 	int m顶点序号 = 0;
-	float m透明度 = 1;
+	float m透明度 = 0;
 };
 }	//namespace 东方山寨

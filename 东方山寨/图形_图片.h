@@ -3,7 +3,7 @@
 #include "基础_对象工厂.h"
 #include "图形基础.h"
 #include "图形缓冲.h"
-#include "图形引擎.h"
+#include "图形资源.h"
 #include "动画接口.h"
 namespace 东方山寨 {
 struct S图形参数;
@@ -13,10 +13,10 @@ struct S图片动画属性;
 //==============================================================================
 class C画图片动画 {
 public:
-	static void f显示图片(const t向量2 &坐标, const tp纹理 &纹理, const S顶点矩形 *顶点, const I动画 &动画);	//废弃
-	static void f显示图片(const t向量2 &坐标, const tp纹理 &纹理, const S顶点矩形 *顶点, const S动画缓冲 &动画);
-	static void f显示图片2(const tp纹理 &纹理, const S顶点矩形 &顶点, const t向量2 &平移, float 旋转, const t向量2 &缩放, float 透明);
-	static void f显示图片3(const tp纹理 &纹理, const S顶点矩形 &顶点, const t向量2 &平移, const t向量3 &旋转, const t向量3 &缩放, float 透明);
+	static void f显示图片(const t向量2 &坐标, const S纹理 &纹理, const S顶点矩形 *顶点, const I动画 &动画);	//废弃
+	static void f显示图片(const t向量2 &坐标, const S纹理 &纹理, const S顶点矩形 *顶点, const S动画缓冲 &动画);
+	static void f显示图片2(const S纹理 &纹理, const S顶点矩形 &顶点, const t向量2 &平移, float 旋转, const t向量2 &缩放, float 透明);
+	static void f显示图片3(const S纹理 &纹理, const S顶点矩形 &顶点, const t向量2 &平移, const t向量3 &旋转, const t向量3 &缩放, float 透明);
 };
 //==============================================================================
 // 顶点动画,整合画图片的代码
@@ -42,7 +42,7 @@ public:
 };
 //属性
 struct S图片动画属性 {
-	t属性指针<tp纹理> m纹理;
+	t属性指针<S纹理> m纹理;
 	t属性指针<S顶点矩形> m顶点;
 	t扩展指针<I工厂<I动画>> m动画;
 	std::shared_ptr<I动画> fc动画(const void *父 = nullptr) const;
@@ -65,7 +65,7 @@ public:
 protected:
 	float m旋转 = 0;
 	t向量2 m缩放 = t向量2::c一;
-	const tp纹理 *m纹理 = nullptr;
+	const S纹理 *m纹理 = nullptr;
 	const S顶点矩形 *m顶点 = nullptr;
 };
 //三维
@@ -84,7 +84,7 @@ public:
 protected:
 	t向量3 m旋转 = t向量3::c零;
 	t向量3 m缩放 = t向量3::c一;
-	const tp纹理 *m纹理 = nullptr;
+	const S纹理 *m纹理 = nullptr;
 	const S顶点矩形 *m顶点 = nullptr;
 };
 

@@ -52,6 +52,22 @@ bool C子弹::f基础_i不透明判定(float a阀值) const {
 bool C子弹::f基础_i动作() const {
 	return m标志[e动作];
 }
+//初始化
+void C子弹::f初始化_长度到缩放(float x) {
+	if (x) {
+		m缩放.x = m子弹属性->fg缩放x(x * 0.5f);
+	}
+}
+void C子弹::f初始化_宽度到缩放(float y) {
+	if (y) {
+		m缩放.y = m子弹属性->fg缩放y(y * 0.5f);
+	}
+}
+void C子弹::f初始化_长宽到缩放(const t向量2 &a长宽) {
+	f初始化_长度到缩放(a长宽.x);
+	f初始化_宽度到缩放(a长宽.y);
+}
+//接口
 void C子弹::f接口_初始化() {
 }
 void C子弹::f接口_参数初始化(const S子弹参数 &a) {
@@ -61,6 +77,7 @@ void C子弹::f接口_参数初始化(const S子弹参数 &a) {
 	m颜色[1] = a.m颜色[1];
 	m方向 = a.m速度.fg方向r();
 	m缩放 = a.m缩放;
+	m子弹属性 = a.m样式.m指针;
 }
 void C子弹::f接口_计算() {
 	f基础_计算运动();
@@ -99,14 +116,6 @@ bool C子弹::f接口_i停止炸弹判定() const {
 }
 //事件
 void C子弹::f事件_遮罩(I遮罩 &) {
-}
-//初始化
-void C子弹::f初始化_样式(int a) {
-	auto &va子弹属性 = C游戏::g资源.fg子弹属性();
-	m子弹属性 = va子弹属性.fg指针(a);
-}
-void C子弹::f初始化_绘制(int) {
-
 }
 //动作
 void C子弹::f动作_结束() {
@@ -217,7 +226,16 @@ float S子弹属性::fg显示y(float y) const {
 	return m顶点->fg高() * y * 0.5f;
 }
 t向量2 S子弹属性::fg显示(const t向量2 &a向量) const {
-	return{fg显示x(a向量.x), fg显示y(a向量.y)};
+	return {fg显示x(a向量.x), fg显示y(a向量.y)};
+}
+float S子弹属性::fg缩放x(float x) const {
+	return x / fg显示x();
+}
+float S子弹属性::fg缩放y(float y) const {
+	return y / fg显示y();
+}
+t向量2 S子弹属性::fg缩放(const t向量2 &a缩放) const {
+	return {fg缩放x(a缩放.x), fg缩放y(a缩放.y)};
 }
 bool S子弹属性::fi圆形() const {
 	return m判定.y <= 0;

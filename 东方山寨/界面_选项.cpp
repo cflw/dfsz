@@ -77,16 +77,19 @@ W选项::W选项() {
 	}
 }
 void W选项::f事件_按键(用户界面::W窗口 &a窗口, const 用户界面::S按键参数 &a参数) {
-	switch (a窗口.m标识) {
-	case e确定:
-		if (auto v分辨率 = w图形设置.fg分辨率()) {
-			C程序::fs窗口大小(v分辨率->first, v分辨率->second);
+	switch (a参数.m按键) {
+	case 用户界面::E按键::e确定:
+		switch (a窗口.m标识) {
+		case e确定:
+			if (auto v分辨率 = w图形设置.fg分辨率()) {
+				C程序::fs窗口大小(v分辨率->first, v分辨率->second);
+			}
+			C界面引擎::g这->f切换上个窗口();
+			break;
+		case e取消:
+			C界面引擎::g这->f切换上个窗口();
+			break;
 		}
-		C界面引擎::g这->f切换上个窗口();
-		break;
-	case e取消:
-		C界面引擎::g这->f切换上个窗口();
-		break;
 	}
 }
 void W选项::f响应_初始化() {
@@ -126,7 +129,7 @@ W图形设置::W图形设置() {
 	const auto &va界面文本 = C游戏::fg资源().fg界面文本();
 	auto w分辨率 = std::make_unique<用户界面::W横向选择列表>(e分辨率);
 	for (const auto &[v枚举, v宽, v高] : ca分辨率) {
-		const int v序号 = w分辨率->ma文本.size();
+		const int v序号 = (int)w分辨率->ma文本.size();
 		w分辨率->ma文本.push_back(std::to_wstring(v宽) + L"x" + std::to_wstring(v高));
 		ma分辨率.emplace(v序号, std::make_pair(v宽, v高));
 	}

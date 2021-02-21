@@ -7,7 +7,7 @@
 #include "子机.h"
 #include "轨迹.h"
 namespace 东方山寨 {
-struct S游戏设置;
+class C游戏设置;
 class C玩家;
 struct S自机属性;
 enum class E玩家发射;
@@ -74,7 +74,7 @@ public:
 	void f输入按键(const t向量2 &, const 输入::C按键组 &);
 	void f计算();
 	void f更新();
-	void f初始化_在游戏开始(const S游戏设置 &);	//进入游戏调用
+	void f初始化_在游戏开始(const C游戏设置 &);	//进入游戏调用
 	void f初始化_玩家成绩图形();
 	void f销毁_在游戏结束();	//
 	//玩家状态变化

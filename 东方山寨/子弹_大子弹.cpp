@@ -8,28 +8,22 @@ namespace 东方山寨 {
 // 扩展-大子弹
 //==============================================================================
 //常量
-const float C大子弹::c细分半径 = 32.f / 3.f;
+const float C大子弹::c细分半径 = 16.f / 3.f;
 const float C大子弹::c细分直径 = c细分半径 * 2;
 C属性数组<std::vector<bool>> C大子弹::ma节点判定;
-//构造函数
-C大子弹::C大子弹(float a长, float a宽) :
-	m初始化_长(a长), m初始化_宽(a宽) {
-}
 //接口
 void C大子弹::f接口_初始化() {
 	m出现.f初始化();
 	//长宽
-	m缩放.x = m初始化_长;
-	m缩放.y = m初始化_宽;
-	const float v判定长 = m子弹属性->fg显示x(m缩放.x);
-	const float v判定宽 = m子弹属性->fg显示y(m缩放.y);
-	m长数 = v判定长 / c细分半径;
-	m宽数 = v判定宽 / c细分半径;
+	const float v显示长 = m子弹属性->fg显示x(m缩放.x);
+	const float v显示宽 = m子弹属性->fg显示y(m缩放.y);
+	m长数 = v显示长 / c细分半径;
+	m宽数 = v显示宽 / c细分半径;
 	assert(m子弹属性->fi圆形() ? (m长数 == m宽数) : true);
 	m数量 = m长数 * m宽数;
 	assert(m数量 >= 1);
 	//计算节点判定
-	const int v节点判定标识 = ((int&)v判定长 >> 1) ^ (int&)v判定宽;	//随便哈希
+	const int v节点判定标识 = ((int&)v显示长 >> 1) ^ (int&)v显示宽;	//随便哈希
 	if (ma节点判定.fi不存在(v节点判定标识)) {
 		std::vector<bool> va节点判定;
 		va节点判定.resize(m数量);
@@ -60,7 +54,7 @@ void C大子弹::f接口_初始化() {
 }
 void C大子弹::f接口_参数初始化(const S子弹参数 &a) {
 	C子弹::f接口_参数初始化(a);
-	f初始化_长宽(a.m长宽.x, a.m长宽.y);
+	f初始化_长宽到缩放(a.m长宽);
 }
 void C大子弹::f接口_计算() {
 	//渐变&消失
@@ -160,11 +154,6 @@ bool C大子弹::f接口_炸弹判定(C子弹与玩家炸弹判定 &a判定) {
 	} else {
 		return false;
 	}
-}
-//初始化
-void C大子弹::f初始化_长宽(float a长, float a宽) {
-	m初始化_长 = a长;
-	m初始化_宽 = a宽 <= 0 ? a长 : a宽;
 }
 //动作
 void C大子弹::f动作_消失(bool a) {
@@ -269,32 +258,25 @@ std::pair<int, int> C大子弹::f节点_g二维序号(int a) {
 	return {v长1, v宽1};
 }
 t向量2 C大子弹::f节点_g相对坐标(int a序号) {
-	auto f计算偏移 = [](int i, int n)->float {
-		return t位置计算::f右到中(i, n - 1) * c细分直径;
-	};
-	const auto v序号 = f节点_g二维序号(a序号);
-	const float v长偏移 = f计算偏移(v序号.first, m长数);
-	const float v宽偏移 = f计算偏移(v序号.second, m宽数);
+	const auto [v序号x, v序号y] = f节点_g二维序号(a序号);
+	const float v长偏移 = (v序号x - (m长数 - 1) * 0.5f) * c细分直径;
+	const float v宽偏移 = -(v序号y - (m宽数 - 1) * 0.5f) * c细分直径;
 	return t向量2{v长偏移, v宽偏移};
 }
 t向量2 C大子弹::f节点_g坐标(int a序号) {
 	return m坐标 + f节点_g相对坐标(a序号).f旋转r(m方向);
 }
 int C大子弹::f节点_g坐标对应序号(const t向量2 &a坐标) {
-	auto f计算序号 = [](float p, int n)->int {
-		return (int)t位置计算::f中到右(p / c细分直径, (n - 1));
-	};
 	const t向量2 v方位 = m坐标.f到点方位r(a坐标, m方向);
-	const int v序号 = f节点_g一维序号(f计算序号(v方位.x, m长数), f计算序号(v方位.y, m宽数));
+	const int v序号x = (int)((v方位.x / c细分直径) + (m长数 - 1) * 0.5f);
+	const int v序号y = (int)(-(v方位.y / c细分直径) + (m宽数 - 1) * 0.5f);
+	const int v序号 = f节点_g一维序号(v序号x, v序号y);
 	return v序号;
 }
 float C大子弹::f节点_g相对方向(int a序号) {
-	auto f计算偏移 = [](int i, int n)->float {
-		return t位置计算::f右到中(i, n - 1);
-	};
 	const auto [v长, v宽] = f节点_g二维序号(a序号);
-	const float v长偏移 = f计算偏移(v长, m长数);
-	const float v宽偏移 = f计算偏移(v宽, m宽数);
+	const float v长偏移 = v长 - (m长数 - 1) * 0.5f;
+	const float v宽偏移 = -v宽 + (m宽数 - 1) * 0.5f;
 	return t向量2{v长偏移, v宽偏移}.fg方向r();
 }
 float C大子弹::f节点_g方向(int a序号) {

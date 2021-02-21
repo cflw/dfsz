@@ -1,7 +1,8 @@
-﻿#include "玩家子弹图形_贯穿.h"
+﻿#include "游戏.h"
+#include "图形引擎.h"
+#include "玩家子弹图形_贯穿.h"
 #include "图层.h"
 #include "玩家子弹基础.h"
-#include "游戏.h"
 #include "图形_画图片.h"
 #include "玩家子弹扩展_贯穿.h"
 namespace 东方山寨::玩家子弹 {

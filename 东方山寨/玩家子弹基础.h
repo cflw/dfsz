@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "数学包含.h"
-#include "图形包含.h"
+#include "图形资源.h"
 #include "图形缓冲.h"
 #include "基础.h"
 #include "数学包含.h"
@@ -68,8 +68,8 @@ public:
 struct S玩家子弹属性 {
 	t向量2 m判定;
 	t向量2 m帧半尺寸;
-	t属性指针<tp纹理> m纹理;
-	t属性指针<tp纹理> m消失纹理;
+	t属性指针<S纹理> m纹理;
+	t属性指针<S纹理> m消失纹理;
 	t属性指针<S顶点矩形> m顶点;
 	t属性指针<S顶点矩形> m消失顶点;
 	int m动画帧数 = 0;

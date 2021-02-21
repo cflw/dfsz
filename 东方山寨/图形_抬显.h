@@ -6,6 +6,11 @@
 namespace 东方山寨 {
 class C敌机;
 struct S关卡标题;
+class C符卡控制;
+class C王战时间控制;
+constexpr float c抬显最大透明度 = 0.8f;
+constexpr float c抬显最小透明度 = 0.5f;
+constexpr float c抬显透明度速度 = (c抬显最大透明度 - c抬显最小透明度) * 2.f;
 //==============================================================================
 // 标题
 //==============================================================================
@@ -73,10 +78,8 @@ class C弹幕时间 : public I图形, public C兼容图形缓冲<C弹幕时间> 
 public:
 	static constexpr float c字号 = 二维::ca中文字号[二维::e一号];
 	static constexpr float c小数字号 = c字号 * 0.6f;
-	static constexpr float c透明度 = 0.5f;
-	static constexpr float c透明度速度 = c透明度 * 2;
 	static const t颜色 c正常颜色, c急促颜色0, c急促颜色1;
-	C弹幕时间(const float &);	//必需是引用
+	C弹幕时间(const C王战时间控制 &);	//必需是引用
 	void f接口_更新() override;
 	void f兼容显示() const;
 	void f动作_重置颜色();
@@ -85,8 +88,36 @@ private:
 	二维::tp纯色画笔 m画笔;
 	二维::tp文本布局 m布局;
 	二维::tp文本格式 m格式;
-	const float &m实际;
-	float m显示, m透明度 = 1;
+	const C王战时间控制 *m时间控制 = nullptr;
+	float m显示;	//文本
+	float m透明度 = c抬显最大透明度;
+};
+//==============================================================================
+// 符卡文本,包含符卡名和分数
+//==============================================================================
+class C符卡文本 : public I图形 {
+public:
+	static constexpr float c字号 = 二维::ca中文字号[二维::e三号];
+	static constexpr t颜色 c结束颜色 = t颜色(0, 1, 0, c抬显最大透明度);
+	class C图形缓冲 : public I图形缓冲 {
+	public:
+		void f显示() const override;
+		二维::tp画文本 m画分数;
+		二维::tp画文本 m画名称;
+		二维::tp文本格式 m格式;
+		std::wstring m显示分数;
+		std::wstring m显示名称;
+	};
+	C符卡文本(const C符卡控制 &符卡控制);
+	void f接口_初始化(const S图形参数 &);
+	void f接口_更新() override;
+	bool f接口_i可销毁() const override;
+	void f动作_结束();
+	const C符卡控制 *m符卡控制 = nullptr;
+	int m显示分数 = 0;
+	float m分数透明度 = c抬显最大透明度;
+	float m名称透明度 = c抬显最大透明度;
+	float m出现 = 0;
 };
 //==============================================================================
 // 图形模板
@@ -94,6 +125,7 @@ private:
 namespace 图形模板 {
 std::shared_ptr<C总血条> f总血条(int 数量);
 std::shared_ptr<C分血条> f分血条(const C敌机 &, const t颜色 & = t颜色::c粉);
-std::shared_ptr<C弹幕时间> f弹幕时间(const float &时间);
+std::shared_ptr<C弹幕时间> f弹幕时间(const C王战时间控制 &);
+std::shared_ptr<C符卡文本> f符卡文本(const C符卡控制 &);
 }	//namespace 图形模板
 }	//namespace 东方山寨

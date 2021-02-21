@@ -105,7 +105,7 @@ void C角色动画::f接口_更新() {
 		}
 	} else {	//不同的方向
 		if (m目标方向 == &m属性->m正常) {
-			const float &v循环 = m动画方向->m循环;
+			const float v循环 = (float)m动画方向->m循环;
 			if (m动画帧 > v循环) {
 				m动画帧 = v循环;
 			}

@@ -2,7 +2,7 @@
 namespace 东方山寨 {
 //启动
 constexpr wchar_t c启动文件[] = L"~/boot/dfylc0.json";
-constexpr wchar_t c窗口标题[] = L"东方月亮船";
+constexpr wchar_t c游戏名称[] = L"东方月亮船";
 //字体&名称
 constexpr wchar_t c数字字体[] = L"Consolas";
 constexpr wchar_t c文本字体[] = L"微软雅黑";

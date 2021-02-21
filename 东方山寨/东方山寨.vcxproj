@@ -229,7 +229,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="东方月亮船1.cpp" />
+    <ClCompile Include="东方月亮船2.cpp" />
+    <ClCompile Include="东方月亮船_附加符卡.cpp" />
     <ClCompile Include="关卡.cpp" />
+    <ClCompile Include="关卡列表.cpp" />
     <ClCompile Include="关卡效果.cpp" />
     <ClCompile Include="判定处理_子弹与玩家炸弹.cpp" />
     <ClCompile Include="判定处理_敌机与玩家子弹.cpp" />
@@ -238,6 +241,7 @@
     <ClCompile Include="图形_三维.cpp" />
     <ClCompile Include="图形_图片.cpp" />
     <ClCompile Include="动画.cpp" />
+    <ClInclude Include="关卡列表.h" />
     <ClInclude Include="图形_子弹_工具.h" />
     <ClCompile Include="图形_子弹_线条.cpp" />
     <ClCompile Include="图形_对话.cpp" />
@@ -247,11 +251,13 @@
     <ClCompile Include="图形_画图片.cpp" />
     <ClCompile Include="图形_画边框.cpp" />
     <ClCompile Include="图形_背景.cpp" />
+    <ClCompile Include="图形_背景模板.cpp" />
     <ClCompile Include="图形基础.cpp" />
     <ClCompile Include="图形管理.cpp" />
     <ClCompile Include="图形工厂.cpp" />
     <ClCompile Include="图形引擎.cpp" />
-    <ClCompile Include="图形引擎_资源工厂.cpp" />
+    <ClCompile Include="图形资源工厂.cpp" />
+    <ClCompile Include="图形资源.cpp" />
     <ClCompile Include="子弹图形缓冲.cpp" />
     <ClCompile Include="子机图形.cpp" />
     <ClCompile Include="敌机图形.cpp" />
@@ -297,7 +303,12 @@
     <ClCompile Include="玩家子弹扩展_贯穿.cpp" />
     <ClCompile Include="玩家炸弹扩展.cpp" />
     <ClCompile Include="玩家炸弹基础.cpp" />
-    <ClCompile Include="界面_窗口类.cpp" />
+    <ClCompile Include="界面_游戏菜单.cpp" />
+    <ClCompile Include="界面_主菜单.cpp" />
+    <ClCompile Include="界面_选择关卡.cpp" />
+    <ClCompile Include="界面_选择模式.cpp" />
+    <ClCompile Include="界面_选择自机.cpp" />
+    <ClCompile Include="界面_选择难度.cpp" />
     <ClCompile Include="界面_选项.cpp" />
     <ClCompile Include="界面图形.cpp" />
     <ClCompile Include="界面引擎.cpp" />
@@ -347,8 +358,9 @@
     <ClInclude Include="图形管理.h" />
     <ClInclude Include="图形工厂.h" />
     <ClInclude Include="图形引擎.h" />
-    <ClInclude Include="图形引擎_资源工厂.h" />
+    <ClInclude Include="图形资源工厂.h" />
     <ClInclude Include="图形基础.h" />
+    <ClInclude Include="图形资源.h" />
     <ClInclude Include="基础_动态数组.h" />
     <ClInclude Include="基础_对象工厂.h" />
     <ClInclude Include="基础_对象数组.h" />
@@ -407,8 +419,14 @@
     <ClInclude Include="玩家子弹扩展_贯穿.h" />
     <ClInclude Include="玩家炸弹扩展.h" />
     <ClInclude Include="玩家炸弹基础.h" />
-    <ClInclude Include="界面_窗口类.h" />
+    <ClInclude Include="界面_游戏菜单.h" />
+    <ClInclude Include="界面_主菜单.h" />
+    <ClInclude Include="界面_选择关卡.h" />
+    <ClInclude Include="界面_选择模式.h" />
+    <ClInclude Include="界面_选择自机.h" />
+    <ClInclude Include="界面_选择难度.h" />
     <ClInclude Include="界面_选项.h" />
+    <ClInclude Include="界面包含.h" />
     <ClInclude Include="界面图形.h" />
     <ClInclude Include="界面引擎.h" />
     <ClInclude Include="界面音频.h" />
