@@ -63,6 +63,7 @@ class I动画;
 class C纹理工厂;	//包含头文件"图形_资源工厂.h"
 class C顶点工厂;
 class C模型工厂;
+class C静态立绘管理;
 //其它资源
 class C取文本;
 //==============================================================================
@@ -144,6 +145,7 @@ public:	//公开控制
 		C扩展数组<I工厂<I动画>> &fg动画() const;
 		C纹理工厂 &fg纹理工厂() const;
 		C顶点工厂 &fg顶点工厂() const;
+		C静态立绘管理 &fg静态立绘() const;
 		std::map<std::wstring, int> &fg名称标识() const;
 		int fc随机标识() const;
 		int fg标识(const std::wstring &) const;

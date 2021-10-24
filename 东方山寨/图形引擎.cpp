@@ -158,6 +158,8 @@ C顶点工厂 &C图形引擎::fg顶点工厂() {
 	if (m顶点工厂 == nullptr) {
 		m顶点工厂 = std::make_unique<C顶点工厂>();
 		m顶点工厂->f初始化(ma顶点矩形);
+	} else {
+		m顶点工厂->m参数.f重置();
 	}
 	return *m顶点工厂;
 }
@@ -258,7 +260,7 @@ C画图片 &C图形引擎::fg画图片() {
 	}
 	return *m画图片;
 }
-C画图片管线 &C图形引擎::fg画图片管线() {
+C画图片管线 &C图形引擎::fg画图片管线() {	//废弃
 	if (m画图片管线 == nullptr) {
 		m画图片管线 = std::make_unique<C画图片管线>(*this, *m三维);
 	}

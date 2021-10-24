@@ -1,8 +1,8 @@
 ﻿#pragma once
 namespace 东方山寨 {
 namespace 计算 {
-constexpr int f标识(int a, int a大, int a小) {
-	return a + a大 + (a小 << 16);
+constexpr int f标识(int a0, int a1, int a2 = 0, int a3 = 0) {	//可以当成一个哈希函数处理
+	return a0 + a1 + (a2 << 8) + (a3 << 16);
 }
 int fc随机标识();	//为了避免撞车,实际上并不随机
 }	//namespace 计算

@@ -98,7 +98,7 @@ void f得分_固定(const S道具属性 &a属性, C玩家 &a玩家) {
 	a玩家.m成绩.m得分 += a属性.m值;
 }
 void f得分_最大点(const S道具属性 &a属性, C玩家 &a玩家) {
-	a玩家.m成绩.m得分 += a玩家.m成绩.m最大点 * a属性.m值;
+	a玩家.m成绩.m得分 += static_cast<long long>(a玩家.m成绩.m最大点) * a属性.m值;
 }
 void f残机_十分之一(const S道具属性 &a属性, C玩家 &a玩家) {
 	a玩家.m成绩.m残机 += boost::rational<int>(a属性.m值, 10);

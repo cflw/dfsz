@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "图形包含.h"
 #include "数学包含.h"
-#include "基础.h"
+#include "图形管线接口.h"
 namespace 东方山寨 {
 class C图形引擎;
 struct S纹理;
@@ -26,9 +26,9 @@ public:
 	void f刷新() override;
 	void f绘制(const VS_IMAGE *顶点, const WORD *索引);
 	void fs纹理(const 三维::tp纹理资源视图 &);
-private:
-	三维::C渲染控制 &m渲染控制;
-	三维::C渲染状态 &m渲染状态;
+protected:
+	三维::C渲染控制 *m渲染控制 = nullptr;
+	三维::C渲染状态 *m渲染状态 = nullptr;
 	三维::C自动缓冲 m缓冲;
 	三维::tp顶点着色器 m顶点着色器;
 	三维::tp像素着色器 m像素着色器;

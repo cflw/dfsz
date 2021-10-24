@@ -3,7 +3,7 @@
 #include "数学包含.h"
 #include "图形包含.h"
 #include "图形资源.h"
-#include "基础.h"
+#include "图形管线接口.h"
 namespace 东方山寨 {
 class C图形引擎;
 using tp模型 = const class C模型*;
@@ -27,6 +27,7 @@ public:
 	static constexpr size_t c顶点缓冲数量 = 1000;
 	static constexpr size_t c索引缓冲数量 = 2000;
 	C画三维(C图形引擎 &, 三维::C三维 &);
+	~C画三维() = default;
 	void f准备() override;
 	void f刷新() override;
 	void f更新常量缓冲();

@@ -86,7 +86,7 @@ float f圆周自机狙(const t向量2 &a目标坐标, const t向量2 &a发射坐
 float f圆周运动半径(float a线速度, float a角速度) {
 	return a线速度 / a角速度;
 }
-std::pair<float, float> f圆周运动速度(float a半径, float a时间, float a角度) {
+std::tuple<float, float> f圆周运动速度(float a半径, float a时间, float a角度) {
 	const float v角速度 = a角度 / a时间;
 	const float v弧长 = std::abs(a半径 * a角度);
 	const float v线速度 = v弧长 / a时间;
@@ -94,5 +94,14 @@ std::pair<float, float> f圆周运动速度(float a半径, float a时间, float 
 }
 float f圆周运动角速度(float a半径, float a线速度) {
 	return a线速度 / a半径;
+}
+float f静止变速运动加速度(float a距离, float a时间) {
+	return a距离 * 2 / (a时间 * a时间);
+}
+std::tuple<float, float> f静止变速运动(float a距离, float a时间) {
+	const float v加速度 = f静止变速运动加速度(a距离, a时间);
+	const float v每帧加速度 = f加变化(v加速度, a时间);
+	const float v速度 = v加速度 * a时间;
+	return {v速度, v每帧加速度};
 }
 }	//namespace 东方山寨::计算

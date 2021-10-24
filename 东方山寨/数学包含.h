@@ -3,6 +3,7 @@
 #include <numbers>
 #include <boost/rational.hpp>
 #include <cflw数学.h>
+#include <cflw数学_常数.h>
 #include <cflw数学_向量.h>
 #include <cflw数学_平面几何.h>
 #include <cflw数学_图形.h>
@@ -20,6 +21,7 @@ using t向量4 = 数学::S向量4;
 using t圆形 = 数学::S圆形;
 using t矩形 = 数学::S矩形;
 using t旋转矩形 = 数学::S旋转矩形;
+using t圆角矩形 = 数学::S圆角矩形;
 using t直线 = 数学::S直线2;
 using t线段 = 数学::S线段2;
 using t颜色 = 数学::S颜色;

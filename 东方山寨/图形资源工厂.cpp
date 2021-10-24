@@ -14,32 +14,35 @@ void C纹理工厂::f初始化(三维::C三维 &a三维, C属性数组<S纹理> 
 	m纹理工厂 = &a三维.fg纹理工厂();
 	ma纹理 = &aa纹理;
 }
-void C纹理工厂::f创建纹理(int a标识, const std::wstring &a文件) const {
+const S纹理 *C纹理工厂::f创建纹理(int a标识, const std::wstring &a文件) const {
 	if (ma纹理->fi不存在(a标识)) {
+		if (a文件.empty()) {	//路径是空的
+			return nullptr;
+		}
 		auto &v图像工厂 = m纹理工厂->fg图像工厂();
 		auto v纹理 = v图像工厂.f一键读取(a文件);
 		return f创建纹理(a标识, *v纹理);
 	} else {
-		//return ma纹理->fg数据(a标识);
+		return &ma纹理->fg数据(a标识);
 	}
 }
-void C纹理工厂::f创建纹理(int a标识, const 纹理::I纹理 &a纹理) const {
+const S纹理 *C纹理工厂::f创建纹理(int a标识, const 纹理::I纹理 &a纹理) const {
 	if (ma纹理->fi不存在(a标识)) {
 		try {
 			三维::tp纹理2 v纹理2;
 			HRESULT hr = m纹理工厂->f从纹理对象创建纹理2(v纹理2, a纹理);
 			视窗::f失败则抛出(hr);
-			S纹理 v纹理;
-			hr = m纹理工厂->f从纹理资源创建纹理资源视图(v纹理.m纹理, v纹理2, m纹理工厂->fg最近纹理描述());
+			S纹理 m最后创建纹理;
+			hr = m纹理工厂->f从纹理资源创建纹理资源视图(m最后创建纹理.m纹理, v纹理2, m纹理工厂->fg最近纹理描述());
 			视窗::f失败则抛出(hr);
-			v纹理.m尺寸 = t向量2(a纹理.fg宽(), a纹理.fg高());
-			ma纹理->f添加(a标识, v纹理);
-			//return v纹理;
+			m最后创建纹理.m尺寸 = t向量2(a纹理.fg宽(), a纹理.fg高());
+			ma纹理->f添加(a标识, m最后创建纹理);
+			return &m最后创建纹理;
 		} catch (HRESULT hr) {
-			//return nullptr;
+			return nullptr;
 		}
 	} else {
-		//return ma纹理->fg数据(a标识);
+		return &ma纹理->fg数据(a标识);
 	}
 }
 //==============================================================================
@@ -70,6 +73,14 @@ void C顶点工厂::C循环::f变换_平移(const t向量2 &a向量) {
 	v映射点.y += a向量.y * j;
 }
 //参数
+void C顶点工厂::S参数::f重置() {
+	m标志.reset();
+	m映射点标志 = e已转换;
+	m半尺寸 = t向量2::c零;
+	m纹理尺寸 = t向量2::c零;
+	m纹理尺寸 = t向量2::c零;
+	m映射点 = t向量2::c零;
+}
 void C顶点工厂::S参数::fs顶点半尺寸(const t向量2 &a半尺寸) {
 	m半尺寸 = a半尺寸;
 }
@@ -81,11 +92,11 @@ void C顶点工厂::S参数::fs纹理尺寸(const t向量2 &a尺寸) {
 }
 void C顶点工厂::S参数::fs映射点_中心(const t向量2 &a点) {
 	m映射点 = a点;
-	m映射点标志 = e中心;
+	m映射点标志 = E映射点::e中心;
 }
 void C顶点工厂::S参数::fs映射点_左上(const t向量2 &a点) {
 	m映射点 = a点;
-	m映射点标志 = e左上;
+	m映射点标志 = E映射点::e左上;
 }
 void C顶点工厂::S参数::fs映射尺寸偏移(float a偏移) {
 	m映射尺寸偏移 = a偏移;

@@ -3,6 +3,7 @@
 #include "数学包含.h"
 #include "图形包含.h"
 #include "基础.h"
+#include "图形管线接口.h"
 namespace 东方山寨 {
 class C子弹;
 //==============================================================================
@@ -116,4 +117,4 @@ public:
 	virtual void f生成网格(tp子弹图形数据 &, const C子弹顶点::C网格 &, const C子弹顶点::C网格::ta顶点 &) = 0;
 	virtual void f绘制图形数据(const tp子弹图形数据 &) = 0;
 };
-}
+}	//namespace 东方山寨

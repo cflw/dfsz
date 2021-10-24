@@ -31,8 +31,8 @@ public:
 			a.f画模型(*m模型_夜空);
 		}
 	}
-	tp模型 m模型_夜空;
-	const S纹理 *m纹理_夜空;
+	tp模型 m模型_夜空 = nullptr;
+	const S纹理 *m纹理_夜空 = nullptr;
 	float m移动 = 0;
 	数学::S相机 m相机;
 };
@@ -43,42 +43,72 @@ public:
 	}
 	class C弹幕 : public C关卡事件 {
 	public:
-		class C激光0 : public C曲线激光 {
+		using t当前弹幕 = C弹幕;
+		class C子弹0 : public C普通子弹 {
 		public:
-			C激光0(float a角速度):
-				m角速度(a角速度) {
+			C子弹0(const t当前弹幕 *a当前弹幕, float a角度, float a旋转角):
+				m当前弹幕(a当前弹幕),
+				m角度(a角度),
+				m初始速度大小(std::get<0>(a当前弹幕->c运动0)),
+				m旋转角(a旋转角) {
+			}
+			void f事件_初始化() override {
+				m当前速度方向 = m速度.fg方向r();
 			}
 			void f事件_执行() override {
-				f动作_旋转r(m角速度);
-				m时间 += m游戏速度->fg秒();
-				if (m时间 >= 2) {
-					f动作_结束();
+				m计时 += c帧秒<float>;
+				if (m计时 >= 1) {
+					switch (m阶段) {
+					case 0:
+						m初始速度大小 = std::get<0>(m当前弹幕->c运动1);
+						m目标速度大小 = 0;
+						m当前速度方向 = m角度;
+						break;
+					case 1:
+						m初始速度大小 = 0;
+						m目标速度大小 = 200;
+						m当前速度方向 = m角度 + m旋转角;
+						break;
+					case 2:
+						f动作_结束();
+						return;
+					}
+					++m阶段;
+					m计时 = 0;
 				}
+				const float v当前速度大小 = std::lerp(m初始速度大小, m目标速度大小, m计时);
+				m速度 = t向量2::fc方向r(v当前速度大小, m当前速度方向);
 			}
-			float m角速度;
-			float m时间 = 0;
+			const t当前弹幕 *m当前弹幕 = nullptr;
+			float m角度 = 0;
+			float m旋转角 = 0;
+			float m初始速度大小 = 0;
+			float m目标速度大小 = 0;
+			float m当前速度方向 = 0;
+			float m计时 = 0;
+			int m阶段 = 0;
 		};
+		void f事件_初始化() override {
+		}
 		void f事件_执行() override {
-			if (m计时器.f滴答()) {
+			if (m计时.f滴答()) {
 				auto v子弹工厂 = C游戏::fg内容().f工厂_子弹();
-				v子弹工厂.m参数.m坐标 = {0, 100};
-				const auto &[v线速度, v角速度] = 计算::f圆周运动速度(c曲线激光半径, 4, m方向);
-				const float v方向 = 计算::f圆周自机狙(fg自机坐标(), v子弹工厂.m参数.m坐标, c曲线激光半径, m方向);
-				v子弹工厂.m参数.m速度 = t向量2::fc方向r(v线速度, v方向);
-				v子弹工厂.m参数.fs样式((int)E子弹::e曲线激光);
-				v子弹工厂.m参数.m绘制 = (int)E画子弹::e高光;
-				v子弹工厂.m参数.fs长度(200);
-				v子弹工厂.m参数.fs宽度(20);
-				for (auto v循环0 : v子弹工厂.f循环(1)) {
+				v子弹工厂.m参数.m坐标 = {0, 50};
+				v子弹工厂.m参数.m速度 = {std::get<0>(c运动0), 0};
+				v子弹工厂.m参数.m颜色[0] = t颜色::c紫;
+				auto vf随机数 = C游戏::fg内容().f工厂_随机数f(std::uniform_real_distribution<float>(-0.1f, 0.1f));
+				for (auto v循环0 : v子弹工厂.f循环(600)) {
 					v循环0.f变换_圆形();
-					v子弹工厂.f产生子弹<C激光0>(v角速度);
+					const float v圈数 = v循环0.fg百分比() * 12;
+					v子弹工厂.f产生子弹<C子弹0>(this, v圈数 * 数学::c二π<float>, m旋转角 + vf随机数());
 				}
-				m方向 = -m方向;
+				m旋转角 = -m旋转角;
 			}
 		}
-		static constexpr float c曲线激光半径 = c边框范围r;
-		float m方向 = 数学::cπ<float>;
-		C计时器 m计时器{1};
+		const std::tuple<float, float> c运动0 = 计算::f静止变速运动(100, 1);
+		const std::tuple<float, float> c运动1 = 计算::f静止变速运动(60, 1);
+		C计时器 m计时 = {3, 9999};
+		float m旋转角 = 数学::c半π<float>;
 	};
 	class C弹幕_测试难度 : public C关卡事件 {
 		void f计算难度() {
@@ -391,30 +421,30 @@ public:
 	void f事件_初始化() override {
 		C关卡脚本 v脚本 = m关卡->fc脚本();
 		//关卡事件列表
-		v脚本.f场景<C场景>();
+		//v脚本.f场景<C场景>();
 		//v脚本.f事件<C产生道具>();
 		//v脚本.f事件<C弹幕>();
 		//v脚本.f事件<C产生敌机>();
 		//v脚本.f等待(3);
 		//v脚本.f事件<C切换关卡>();
-		v脚本.f事件<C王战0>();
+		//v脚本.f事件<C王战0>();
 		//v脚本.f等待(1);
 		//v脚本.f事件(C关卡效果::F显示标题({L"主标题", L"场景"}));
 
 		//对话
 	
-		//C对话脚本 v对话;
-		//static C简单工厂<I对话立绘> v立绘工厂;
-		//const auto &va文本 = C游戏::fg资源().fg普通文本();
-		//v对话.f显示立绘(v立绘工厂, 0, false);
-		//v对话.f对话(va文本[L"s1.boss0.name"], false);
-		//v对话.f显示立绘(v立绘工厂, 1, true);
-		//v对话.f对话(va文本[L"s1.boss1.name"], true);
-		//v对话.f立绘聚焦(0);
-		//v对话.f对话(va文本[L"s1a.0"], false);
-		//v对话.f立绘聚焦(1);
-		//v对话.f对话(va文本[L"s1a.1"], true);
-		//v脚本.f对话(v对话);
+		C对话脚本 v对话;
+		static C静态立绘建造机 v立绘{*C游戏::fg资源().fg静态立绘().ma属性[L"立绘.灵梦"]};
+		const auto &va文本 = C游戏::fg资源().fg普通文本();
+		v对话.f显示立绘(v立绘, 0, E对话方向::e从左向右);
+		v对话.f对话(va文本[L"s1.boss0.name"], E对话方向::e从左向右);
+		v对话.f显示立绘(v立绘, 1, E对话方向::e从右向左);
+		v对话.f对话(va文本[L"s1.boss1.name"], E对话方向::e从右向左);
+		v对话.f立绘聚焦(0);
+		v对话.f对话(va文本[L"s1a.0"], E对话方向::e从左向右);
+		v对话.f立绘聚焦(1);
+		v对话.f对话(va文本[L"s1a.1"], E对话方向::e从右向左);
+		v脚本.f对话(v对话);
 		//m关卡->f切换关卡(fg关卡(L"测试子弹类"));
 	}
 } g测试关卡;

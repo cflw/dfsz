@@ -8,10 +8,12 @@ namespace 东方山寨 {
 class C关卡控制;
 class C对话框;
 class I对话立绘;
+class I图形建造机;
 class C对话控制 {
 public:
 	static constexpr float c跳过间隔 = 0.1f;
 	static constexpr float c按住确定跳过的等待时间 = 1;
+	~C对话控制();
 	void f初始化_环境(C关卡控制 &);
 	void f计算();
 	void f输入按键(const 输入::C按键组 &);
@@ -45,11 +47,14 @@ private:
 	float m输入_确定时间 = 0;	//按住z的时间
 	bool m等待 = false;
 };
+struct S对话立绘句柄 {
+	I对话立绘 *m立绘 = nullptr;
+};
 class C对话脚本 {
 public:
 	operator tp对话脚本() const;
-	C对话脚本 &f对话(const std::wstring &, bool = false);
-	C对话脚本 &f显示立绘(const I工厂<I对话立绘> &, int 标识, bool 方向);	//不要传递临时工厂对象
+	C对话脚本 &f对话(const std::wstring &, E对话方向 = E对话方向::e从左向右);
+	C对话脚本 &f显示立绘(const I图形建造机 &, int 标识, E对话方向 方向);	//不要传递临时对象
 	C对话脚本 &f立绘聚焦(int 标识);
 	C对话脚本 &f立绘消失(int 标识);
 	std::shared_ptr<ta对话事件> ma对话事件 = std::make_shared<ta对话事件>();

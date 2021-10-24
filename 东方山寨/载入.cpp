@@ -1,6 +1,8 @@
 ﻿#include <tuple>
 #include <boost/property_tree/json_parser.hpp>
 #include <cflw文件_json.h>
+#include "载入基础.h"
+#include "载入解析.h"
 //基础
 #include "程序常量.h"
 #include "游戏常量.h"
@@ -34,7 +36,7 @@
 #include "玩家炸弹扩展.h"
 //敌机
 #include "敌机基础.h"
-namespace 东方山寨 {
+namespace 东方山寨::载入 {
 //==============================================================================
 // 读json
 //==============================================================================
@@ -64,123 +66,8 @@ public:
 	}
 };
 //==============================================================================
-// 解析文件
-//==============================================================================
-class C解析助手 {
-public:
-	//名称标识
-	static S名称标识层 &f创建全局名称标识(C名称标识组 &a标识组, const t属性树 &a节点) {
-		const std::wstring v名称 = a节点.get<std::wstring>(L"名称");
-		const int v标识 = a节点.get<int>(L"标识", 计算::fc随机标识());
-		return a标识组.f创建层(v名称, v标识);
-	}
-	static S名称标识层 &f创建节点名称标识(C名称标识组 &a标识组, const t属性树 &a节点) {
-		const std::wstring v名称 = a节点.get<std::wstring>(L"名称", L"");
-		const int v标识 = a节点.get<int>(L"标识", 0);
-		return a标识组.f创建层(v名称, v标识);
-	}
-	//获取
-	static t向量2 f获取向量2(const t属性树 &a节点) {
-		const float x = a节点.get<float>(L"x", 0);
-		const float y = a节点.get<float>(L"y", 0);
-		return t向量2{x, y};
-	}
-	static t向量2 f获取向量3(const t属性树 &a节点) {
-		const float x = a节点.get<float>(L"x", 0);
-		const float y = a节点.get<float>(L"y", 0);
-		const float z = a节点.get<float>(L"z", 0);
-		return t向量2{x, y};
-	}
-	static t向量2 f获取纹理坐标(const t属性树 &a节点) {
-		const float x = a节点.get<float>(L"u", 0);
-		const float y = a节点.get<float>(L"v", 0);
-		return t向量2{x, y};
-	}
-	static t向量2 f获取尺寸(const t属性树 &a节点) {
-		const float x = a节点.get<float>(L"宽", 0);
-		const float y = a节点.get<float>(L"高", 0);
-		return t向量2{x, y};
-	}
-	static std::wstring f获取路径(const S载入参数 &a载入参数, const t属性树 &a节点) {
-		if (const auto &v路径节点 = a节点.get_optional<std::wstring>(L"路径")) {
-			return C程序::f计算路径(*v路径节点, a载入参数.m路径).native();
-		}
-		return L"";
-	}
-};
-//==============================================================================
 // 解析数据
 //==============================================================================
-class C解析引用 {
-public:
-	C解析引用(int a引用, bool a存在 = true) :
-		m引用(a引用),
-		m存在(a存在) {
-	}
-	template<typename t>
-	static void f解析赋值(t &a, const C解析引用 &a全局引用, const boost::optional<const boost::property_tree::wptree &> &a树) {
-		if (a树) {
-			if (const std::wstring v名称 = a全局引用.f解析名称标识(*a树); !v名称.empty()) {
-				a = v名称;
-			} else if (const auto &v引用 = a全局引用.f解析数字标识(*a树)) {
-				a = v引用.fg值();
-			} else {
-				a = 0;
-			}
-		} else {
-			a = 0;
-		}
-	}
-	template<typename t>
-	static void f解析名称赋值(t &a, const boost::optional<const boost::property_tree::wptree &> &a树) {
-		if (a树) {
-			if (const auto &v名称标识 = a树->get_optional<std::wstring>(L"名称")) {
-				a = *v名称标识;
-			} else {
-				a = 0;
-			}
-		} else {
-			a = 0;
-		}
-	}
-	operator bool() const {
-		return fi存在();
-	}
-	std::wstring f解析名称标识(const boost::property_tree::wptree &a树) const {
-		if (const auto &v名称标识 = a树.get_optional<std::wstring>(L"名称")) {
-			return *v名称标识;
-		} else {
-			return L"";
-		}
-	}
-	C解析引用 f解析数字标识(const boost::property_tree::wptree &a树) const {
-		bool v存在 = false;
-		int v引用 = 0;
-		int v子引用 = 0;
-		if (const auto &v引用节点 = a树.get_optional<int>(L"标识")) {
-			v引用 = *v引用节点;
-			v存在 = true;
-		}
-		if (const auto &v子引用节点 = a树.get_optional<int>(L"子标识")) {
-			v子引用 = *v子引用节点;
-			v存在 = true;
-		}
-		if (a树.get<bool>(L"绝对", false)) {
-			return {计算::f标识(v引用, 0, v子引用), v存在};
-		} else {
-			return {计算::f标识(m引用, v引用, v子引用), v存在};
-		}
-	}
-	bool fi存在() const {
-		return m存在;
-	}
-	int fg值() const {
-		return m引用;
-	}
-private:
-	int m引用;	//全局标识
-	bool m存在;	//?
-};
 //子机移动
 class C解析子机移动json {
 public:
@@ -208,9 +95,9 @@ public:
 		return std::make_unique<子机移动::C位置::C工厂>(va属性);
 	}
 };
-//=============================================================================
+//==============================================================================
 // 载入数据
-//=============================================================================
+//==============================================================================
 void C载入::f汇总(const S载入参数 &a) {
 	static const std::map<std::wstring, tf载入数据> v载入函数{
 		{L"载入列表0", f汇总},
@@ -228,6 +115,7 @@ void C载入::f汇总(const S载入参数 &a) {
 		{L"声音列表0", f声音列表0},
 		{L"声音列表1", f声音列表1},
 		{L"文本", f文本},
+		{L"立绘列表1", f立绘列表1},
 	};
 	const boost::property_tree::wptree &v数据 = a.m树.get_child(L"数据");
 	for (const auto &v0 : v数据) {
@@ -251,7 +139,7 @@ void C载入::f图形(const S载入参数 &a) {
 	auto &v顶点工厂 = C游戏::g资源.fg顶点工厂();
 	int v主标识 = -1;
 	for (const auto &[v名称0_, v节点0] : a.m树.get_child(L"数据")) {
-		v主标识 = v节点0.get<int>(L"标识", ++v主标识);
+		v主标识 = v节点0.get<int>(L"标识", v主标识 + 1);
 		const std::wstring &v图形名称 = v节点0.get<std::wstring>(L"名称", std::wstring(L"图形") + std::to_wstring(v主标识));
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v图形名称, v主标识);
 		//纹理
@@ -262,11 +150,11 @@ void C载入::f图形(const S载入参数 &a) {
 		const t向量2 v纹理尺寸 = C解析助手::f获取尺寸(v纹理节点.get_child(L"尺寸"));
 		v顶点工厂.m参数.fs纹理尺寸(v纹理尺寸);
 		//顶点
-		int v顶点主标识 = -1;
-		int v顶点总标识 = -1;
+		int v顶点矩形标识 = 0;
 		for (const auto &[v名称1_, v节点1] : v节点0.get_child(L"顶点")) {
-			const std::wstring v顶点名称 = v节点1.get<std::wstring>(L"名称", std::wstring(L"顶点") + std::to_wstring(++v顶点主标识));
-			const C名称标识 v名称标识2 = v名称标识1.f创建层(v顶点名称);
+			const std::wstring v顶点名称 = v节点1.get<std::wstring>(L"名称", std::wstring(L"顶点") + std::to_wstring(v顶点矩形标识));
+			const C名称标识 v名称标识2 = v名称标识1.f创建层(v顶点名称, v顶点矩形标识);
+			++v顶点矩形标识;
 			const float x = v节点1.get<float>(L"x", 0);
 			const float y = v节点1.get<float>(L"y", 0);
 			const float v宽 = v节点1.get<float>(L"宽", v纹理尺寸.x - x);
@@ -282,11 +170,13 @@ void C载入::f图形(const S载入参数 &a) {
 			v顶点工厂.m参数.fs映射点_左上({x, y});
 			v顶点工厂.m参数.fs顶点尺寸(v顶点尺寸);
 			v顶点工厂.m参数.fs顶点中心偏移({v偏移x, v偏移y});
-			int v顶点子标识 = -1;
+			int v切片标识 = 0;
 			for (auto &v循环 : v顶点工厂.f循环(v列数, v行数)) {
-				const C名称标识 v名称标识3 = v名称标识2.f创建层(std::to_wstring(++v顶点子标识));
+				const C名称标识 v名称标识3 = v名称标识2.f创建层(std::to_wstring(v切片标识), v切片标识);
+				++v切片标识;
 				v循环.f变换_平移(v顶点尺寸);
-				v顶点工厂.f创建矩形(v名称标识3);
+				const int v计算切片标识 = v名称标识3;
+				v顶点工厂.f创建矩形(v计算切片标识);
 			}
 		}
 	}
@@ -301,7 +191,7 @@ void C载入::f动画(const S载入参数 &a) {
 	int v主标识 = -1;
 	for (const auto &v0 : va数据) {
 		const auto &v节点0 = v0.second;
-		v主标识 = v节点0.get<int>(L"标识", ++v主标识);
+		v主标识 = v节点0.get<int>(L"标识", v主标识 + 1);
 		const std::wstring v动画名称 = v节点0.get<std::wstring>(L"名称", L"");
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v动画名称, v主标识);
 		C角色动画::S属性 v属性;
@@ -334,7 +224,7 @@ void C载入::f子弹(const S载入参数 &a) {
 	int v主标识 = -1;
 	for (const auto &v0 : va数据) {
 		const auto &v子弹节点 = v0.second;
-		v主标识 = v子弹节点.get<int>(L"标识", ++v主标识);
+		v主标识 = v子弹节点.get<int>(L"标识", v主标识 + 1);
 		const std::wstring v子弹名称 = v子弹节点.get<std::wstring>(L"名称", L"");
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v子弹名称, v主标识);
 		const int v子弹标识 = v名称标识1;
@@ -388,7 +278,7 @@ void C载入::f敌机(const S载入参数 &a) {
 	int v主标识 = -1;
 	for (const auto &v0 : va数据) {
 		const auto &v节点0 = v0.second;
-		v主标识 = v节点0.get<int>(L"标识", ++v主标识);
+		v主标识 = v节点0.get<int>(L"标识", v主标识 + 1);
 		const std::wstring v敌机名称 = v节点0.get<std::wstring>(L"名称", L""); 
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v敌机名称, v主标识);
 		const int v敌机标识 = v名称标识1;
@@ -420,7 +310,7 @@ void C载入::f自机(const S载入参数 &a) {
 	int v主标识 = -1;
 	for (const auto &v0 : va数据) {
 		const auto &v节点0 = v0.second;
-		v主标识 = v节点0.get<int>(L"标识", ++v主标识);
+		v主标识 = v节点0.get<int>(L"标识", v主标识 + 1);
 		const std::wstring v自机名称 = v节点0.get<std::wstring>(L"名称", L"");
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v自机名称, v主标识);
 		const int v自机标识 = v名称标识1;
@@ -461,7 +351,7 @@ void C载入::f子机(const S载入参数 &a) {
 	int v主标识 = -1;
 	for (const auto &v0 : va数据) {
 		const auto &v节点0 = v0.second;
-		v主标识 = v节点0.get<int>(L"标识", ++v主标识);
+		v主标识 = v节点0.get<int>(L"标识", v主标识 + 1);
 		const std::wstring v子机名称 = v节点0.get<std::wstring>(L"名称", L"");
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v子机名称, v主标识);
 		const int v子机标识 = v名称标识1;
@@ -516,7 +406,7 @@ void C载入::f玩家子弹(const S载入参数 &a) {
 	auto &va玩家子弹属性 = C游戏::fg资源().fg玩家子弹属性();
 	int v主标识 = -1;
 	for (const auto &[v名称0_, v节点0] : va数据) {
-		v主标识 = v节点0.get<int>(L"标识", ++v主标识);
+		v主标识 = v节点0.get<int>(L"标识", v主标识 + 1);
 		const std::wstring v玩家子弹名称 = v节点0.get<std::wstring>(L"名称", L"");
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v玩家子弹名称, v主标识);
 		const int v玩家子弹标识 = v名称标识1;
@@ -558,23 +448,26 @@ void C载入::f玩家子弹(const S载入参数 &a) {
 void C载入::f玩家发射(const S载入参数 &a) {
 	const int v全局标识 = a.m树.get<int>(L"全局.标识", 计算::fc随机标识());
 	assert(c玩家发射标识 == v全局标识);
+	const std::wstring v全局名称 = a.m树.get<std::wstring>(L"全局.名称");
+	C名称标识组 v名称标识组;
+	const C名称标识 v名称标识0 = v名称标识组.f创建层(v全局名称, v全局标识);
 	const auto &va数据 = a.m树.get_child(L"数据");
 	auto &va玩家发射 = C游戏::g资源.fg玩家发射();
-	for (const auto &v0 : va数据) {
-		const auto &v射击节点 = v0.second;
-		const int v射击标识 = 计算::f标识(v全局标识, v射击节点.get<int>(L"标识"), 0);
-		const int v射击类型 = v射击节点.get<int>(L"类型");
+	int v主标识 = -1;
+	for (const auto &[v名称0, v树0] : va数据) {
+		v主标识 = v树0.get<int>(L"标识", v主标识 + 1);
+		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, v主标识);
+		const int v射击类型 = v树0.get<int>(L"类型");
 		switch (v射击类型) {
 			case 1:
 			{	//发散
-				const int v数量 = v射击节点.get<int>(L"数量");
-				const int v发散0 = v射击节点.get<int>(L"发散0");
-				const int v发散1 = v射击节点.get<int>(L"发散1");
-				const int v并列0 = v射击节点.get<int>(L"并列0");
-				const int v并列1 = v射击节点.get<int>(L"并列1");
+				const int v数量 = v树0.get<int>(L"数量");
+				const int v发散0 = v树0.get<int>(L"发散0");
+				const int v发散1 = v树0.get<int>(L"发散1");
+				const int v并列0 = v树0.get<int>(L"并列0");
+				const int v并列1 = v树0.get<int>(L"并列1");
 				const auto v射击属性 = 玩家子弹发射::C发散::S属性::fc总(v数量, v发散0, v发散1, v并列0, v并列1);
-				//va玩家发射.f添加(v射击标识, new 玩家子弹发射::C发散::C工厂(v射击属性));
-				va玩家发射.f构造<玩家子弹发射::C发散::C工厂>(v射击标识, v射击属性);
+				va玩家发射.f构造<玩家子弹发射::C发散::C工厂>(v名称标识1, v射击属性);
 				break;
 			}
 			default:
@@ -629,6 +522,7 @@ void C载入::f模型列表0(const S载入参数 &a) {
 	}
 }
 void C载入::f声音列表0(const S载入参数 &a) {
+	//音效
 	const std::wstring c模型名称 = L"模型";
 	const int v全局标识 = a.m树.get<int>(L"全局.标识", 计算::fc随机标识());
 	const std::wstring v全局名称 = std::wstring(L"声音.") + a.m树.get<std::wstring>(L"全局.名称");
@@ -643,7 +537,7 @@ void C载入::f声音列表0(const S载入参数 &a) {
 	}
 }
 void C载入::f声音列表1(const S载入参数 &) {
-
+	//音乐
 }
 void C载入::f文本(const S载入参数 &a) {
 	const int v全局标识 = 计算::fc随机标识();
@@ -670,10 +564,10 @@ void C内部载入::f道具() {
 		int m效果值;
 		float m判定半径;
 		float m最大透明;
-		int m图形标识;
-		int m图形子标识;
+		int m图形标识1;	//纹理
+		int m图形标识2;	//顶点
 	} v道具属性表[] = {
-		//序号			效果						值 半径 透明	图形标识
+		//序号				效果					值 半径 透明	图形标识
 		{E道具::e残机,		道具效果::f残机_十分之一,	10, 8, 1,		0, 1},
 		{E道具::e残机碎片,	道具效果::f残机_十分之一,	3, 8, 1	,		0, 0},
 		{E道具::e炸弹,		道具效果::f炸弹_十分之一,	10, 8, 1,		0, 3},
@@ -689,9 +583,9 @@ void C内部载入::f道具() {
 		v属性.m值 = v.m效果值;
 		v属性.m判定半径 = v.m判定半径;
 		v属性.m最大透明度 = v.m最大透明;
-		const int v道具图形标识 = 计算::f标识(c道具标识, v.m图形标识, 0);
+		const int v道具图形标识 = 计算::f标识(c道具标识, v.m图形标识1);
 		v属性.m纹理 = v道具图形标识;
-		v属性.m顶点 = 计算::f标识(v道具图形标识, 0, v.m图形子标识);
+		v属性.m顶点 = 计算::f标识(v道具图形标识, 0, 0, v.m图形标识2);
 		v属性.m动画 = (int)E动画::e道具;
 	}
 }
@@ -742,22 +636,24 @@ void C内部载入::f玩家子弹() {
 	}
 }
 void C内部载入::f玩家子弹发射() {
-	struct S内置发射属性{
+	struct S内置发射属性 {
+		std::wstring m名称;
 		E玩家发射 m标识;
 		I工厂<C玩家子弹发射器> *m发射对象;
 	};
 	const S内置发射属性 v玩家发射表[] = {
-		{E玩家发射::e测试子弹, new C简单工厂<C玩家子弹发射器, 玩家子弹发射::C自机基础>()},
-		{E玩家发射::e自机基础, new C简单工厂<C玩家子弹发射器, 玩家子弹发射::C自机基础>()},
-		{E玩家发射::e灵梦诱导, new C简单工厂<C玩家子弹发射器, 玩家子弹发射::C灵梦诱导>()},
-		{E玩家发射::e灵梦集中, new C简单工厂<C玩家子弹发射器, 玩家子弹发射::C灵梦集中>()},
-		{E玩家发射::e魔理沙贯穿, new C简单工厂<C玩家子弹发射器, 玩家子弹发射::C魔理沙贯穿>()},
-		{E玩家发射::e魔理沙范围, new C简单工厂<C玩家子弹发射器, 玩家子弹发射::C魔理沙范围>()},
-		{E玩家发射::e全屏清弹, new C简单工厂<C玩家子弹发射器, C玩家炸弹简单发射器<玩家炸弹::C全屏清弹>>()},
-		{E玩家发射::e测试炸弹, new C简单工厂<C玩家子弹发射器, C玩家炸弹简单发射器<玩家炸弹::C风神录>>()},
+		{L"玩家发射.测试", E玩家发射::e测试子弹, new C简单工厂<C玩家子弹发射器, 玩家子弹发射::C自机基础>()},
+		{L"玩家发射.自机", E玩家发射::e自机基础, new C简单工厂<C玩家子弹发射器, 玩家子弹发射::C自机基础>()},
+		{L"玩家发射.灵梦诱导", E玩家发射::e灵梦诱导, new C简单工厂<C玩家子弹发射器, 玩家子弹发射::C灵梦诱导>()},
+		{L"玩家发射.灵梦集中", E玩家发射::e灵梦集中, new C简单工厂<C玩家子弹发射器, 玩家子弹发射::C灵梦集中>()},
+		{L"玩家发射.魔理沙贯穿", E玩家发射::e魔理沙贯穿, new C简单工厂<C玩家子弹发射器, 玩家子弹发射::C魔理沙贯穿>()},
+		{L"玩家发射.魔理沙范围", E玩家发射::e魔理沙范围, new C简单工厂<C玩家子弹发射器, 玩家子弹发射::C魔理沙范围>()},
+		{L"玩家发射.全屏清弹", E玩家发射::e全屏清弹, new C简单工厂<C玩家子弹发射器, C玩家炸弹简单发射器<玩家炸弹::C全屏清弹>>()},
+		{L"玩家发射.测试炸弹", E玩家发射::e测试炸弹, new C简单工厂<C玩家子弹发射器, C玩家炸弹简单发射器<玩家炸弹::C风神录>>()},
 	};
 	auto &va玩家发射 = C游戏::g资源.fg玩家发射();
 	for (auto &v : v玩家发射表) {
+		C全局名称标识::f创建(v.m名称, (int)v.m标识);
 		va玩家发射.f添加((int)v.m标识, v.m发射对象);
 	}
 }

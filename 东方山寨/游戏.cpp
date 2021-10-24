@@ -19,6 +19,7 @@
 #include "图形引擎.h"
 #include "图形资源工厂.h"
 #include "图形工厂.h"
+#include "图形_静态立绘.h"
 //判定处理
 #include "判定处理_敌机与玩家子弹.h"
 #include "判定处理_子弹与玩家炸弹.h"
@@ -83,6 +84,7 @@ public:
 		std::unique_ptr<C属性数组<std::wstring>> mp数组;
 	};
 	std::vector<S文本数组属性> ma文本数组;
+	C静态立绘管理 m静态立绘管理;
 	//扩展
 	C扩展数组<I工厂<C玩家子弹发射器>> ma玩家发射;
 	C扩展数组<I画子弹> ma画子弹接口;
@@ -95,7 +97,7 @@ public:
 	}
 	//编译
 	void f编译() {
-		assert(m编译 == false);
+		assert(m编译 == false);	//f编译 只能调用一次
 		auto &va纹理 = mp图形->fg纹理();
 		auto &va顶点 = mp图形->fg顶点矩形();
 		auto f编译纹理顶点属性 = [&](auto &a) {
@@ -131,6 +133,7 @@ public:
 		for (auto &v道具属性 : ma道具属性.ma数据) {
 			f编译纹理顶点动画属性(v道具属性);
 		}
+		m静态立绘管理.f编译(va纹理, va顶点);
 		m编译 = true;
 	}
 	t向量2 f输入_方向键() {
@@ -554,6 +557,9 @@ void C游戏::C实现::f显示() {
 		}
 	}
 	f显示图形((int)E图层::e子弹);
+	//立绘
+	f显示图形((int)E图层::e立绘);
+	f显示图形((int)E图层::e对话);
 	//三维结束
 	v图形引擎->fs图形管线(nullptr);
 	//边框
@@ -807,6 +813,9 @@ C纹理工厂 &C游戏::C取资源::fg纹理工厂() const {
 }
 C顶点工厂 &C游戏::C取资源::fg顶点工厂() const {
 	return m资源->mp图形->fg顶点工厂();
+}
+C静态立绘管理 &C游戏::C取资源::fg静态立绘() const {
+	return m资源->m静态立绘管理;
 }
 std::map<std::wstring, int> &C游戏::C取资源::fg名称标识() const {
 	return m资源->ma名称标识;

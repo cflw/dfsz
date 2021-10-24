@@ -7,6 +7,7 @@
 #include "图形引擎.h"
 #include "图形基础.h"
 #include "图形缓冲.h"
+#include "图形建造机.h"
 namespace 东方山寨 {
 //==============================================================================
 // 图形工厂
@@ -37,7 +38,7 @@ public:
 	C图形工厂(C实现&);
 	void f实现_产生图形(const std::shared_ptr<I图形> &, I图形缓冲 * = nullptr);
 	template<typename t, typename...t参数> std::shared_ptr<t> f产生图形(const t参数 &...a参数);
-	template<typename t> std::shared_ptr<t> f产生图形(const I工厂<t> &);
+	std::shared_ptr<I图形> f产生图形(const I图形建造机 &);
 	template<T有图形缓冲 t> typename t::C图形缓冲 *fc图形缓冲(t &);
 	template<typename t> I图形缓冲 *fc图形缓冲(t &);
 public:
@@ -58,18 +59,8 @@ template<typename t, typename...t参数> std::shared_ptr<t> C图形工厂::f产�
 	}
 	return nullptr;
 }
-template<typename t> std::shared_ptr<t> C图形工厂::f产生图形(const I工厂<t> &a图形工厂) {
-	static_assert(std::is_base_of<I图形, t>::value, "必须继承自I图形");
-	if (m实现->fi有空()) {
-		std::shared_ptr<t> v图形 = a图形工厂.f接口_新建s();
-		auto *v图形缓冲 = fc图形缓冲<t>(*v图形);
-		m实现->f产生图形(v图形, m参数, v图形缓冲);
-		return v图形;
-	}
-	return nullptr;
-}
 template<T有图形缓冲 t> typename t::C图形缓冲 *C图形工厂::fc图形缓冲(t &a) {
-	if constexpr (T兼容图形缓冲<t>) {
+	if constexpr (T兼容图形缓冲<t>) {	//以后改掉
 		return m实现->ma图形缓冲->f新建<typename t::C图形缓冲>(a);
 	} else {
 		return m实现->ma图形缓冲->f新建<typename t::C图形缓冲>();

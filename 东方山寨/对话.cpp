@@ -4,12 +4,15 @@
 #include "图形工厂.h"
 #include "输入.h"
 #include "关卡.h"
+#include "图形_对话立绘.h"
 namespace 东方山寨 {
 //==============================================================================
 // 对话控制
 //==============================================================================
-void C对话控制::f初始化_环境(C关卡控制 &p关卡) {
-	m关卡 = &p关卡;
+C对话控制::~C对话控制() {
+}
+void C对话控制::f初始化_环境(C关卡控制 &a关卡) {
+	m关卡 = &a关卡;
 }
 void C对话控制::f计算() {
 	m跳过等待 -= c帧秒<float>;
@@ -20,11 +23,11 @@ void C对话控制::f计算() {
 		}
 	}
 }
-void C对话控制::f输入按键(const 输入::C按键组 &p) {
-	const auto v确定键 = p.f按键((输入::t索引)E按键::e确定);
-	if (v确定键.f按下()) {
+void C对话控制::f输入按键(const 输入::C按键组 &a按键) {
+	const auto v确定键 = a按键.fg按键((输入::t索引)E按键::e确定);
+	if (v确定键.fi按下()) {
 		m输入_确定时间 += c帧秒<float>;
-		if (v确定键.f刚按下()) {
+		if (v确定键.fi刚按下()) {
 			f按键控制_下一个();
 			return;
 		}
@@ -35,14 +38,14 @@ void C对话控制::f输入按键(const 输入::C按键组 &p) {
 	} else {
 		m输入_确定时间 = 0;
 	}
-	const auto v跳过键 = p.f按键((输入::t索引)E按键::e跳过);
-	if (v跳过键.f按下()) {
+	const auto v跳过键 = a按键.fg按键((输入::t索引)E按键::e跳过);
+	if (v跳过键.fi按下()) {
 		f按键控制_跳过();
 		return;
 	}
 }
-void C对话控制::f开始(tp对话脚本 p) {
-	m对话脚本 = p;
+void C对话控制::f开始(tp对话脚本 a脚本) {
+	m对话脚本 = a脚本;
 	m当前对话 = m对话脚本->cbegin();
 	f内部_执行对话事件();
 	fg对话标志() = true;
@@ -82,14 +85,18 @@ bool C对话控制::fi结束() const {
 void C对话控制::f控制_新对话框(const S对话参数_对话 &a) {
 	f内部_结束对话框();
 	auto v图形工厂 = C游戏::fg资源().f工厂_图形();
+	v图形工厂.m参数.m图层 = (int)E图层::e对话;
 	m当前对话框 = v图形工厂.f产生图形<C对话框>(a);
 }
 void C对话控制::f控制_显示立绘(const S对话参数_显示立绘 &a) {
 	assert(ma对话立绘.find(a.m标识) == ma对话立绘.end());	//必须没有
 	auto v图形工厂 = C游戏::fg资源().f工厂_图形();
-	v图形工厂.m参数.m标志[I对话立绘::E初始化标志::e方向] = a.m方向;
-	auto v图形 = v图形工厂.f产生图形(*a.m立绘工厂);
-	assert(v图形 != nullptr);	//可能因为达到图形上限而导致异常
+	v图形工厂.m参数.m图层 = (int)E图层::e立绘;
+	v图形工厂.m参数.m标志[I对话立绘::E初始化标志::e方向] = ft对话方向(a.m方向);
+	auto v图形0 = v图形工厂.f产生图形(*a.m立绘工厂);
+	assert(v图形0 != nullptr);	//可能因为达到图形上限而导致异常.这里不应该用断言,以后改掉
+	assert(std::dynamic_pointer_cast<I对话立绘>(v图形0));	//检查创建的图形对象是否是对话立绘
+	auto v图形 = std::static_pointer_cast<I对话立绘>(v图形0);
 	ma对话立绘[a.m标识] = v图形;
 	f内部_立绘焦点(v图形.get());
 }
@@ -137,12 +144,12 @@ void C对话控制::f内部_结束对话框() {
 		m当前对话框 = nullptr;
 	}
 }
-void C对话控制::f内部_立绘焦点(I对话立绘 *p) {
+void C对话控制::f内部_立绘焦点(I对话立绘 *a立绘) {
 	if (m当前立绘) {
 		m当前立绘->f动作_失焦();
 	}
-	p->f动作_聚焦();
-	m当前立绘 = p;
+	a立绘->f动作_聚焦();
+	m当前立绘 = a立绘;
 }
 //==============================================================================
 // 对话脚本
@@ -150,20 +157,20 @@ void C对话控制::f内部_立绘焦点(I对话立绘 *p) {
 C对话脚本::operator tp对话脚本() const {
 	return ma对话事件;
 }
-C对话脚本 &C对话脚本::f对话(const std::wstring &a文本, bool a方向) {
-	ma对话事件->push_back(std::make_unique<对话事件::C对话>(S对话参数_对话{a文本, a方向}));
+C对话脚本 &C对话脚本::f对话(const std::wstring &a文本, E对话方向 a方向) {
+	ma对话事件->push_back(std::make_unique<对话事件::C对话>(S对话参数_对话(a文本, a方向)));
 	return *this;
 }
-C对话脚本 &C对话脚本::f显示立绘(const I工厂<I对话立绘> &a立绘, int a标识, bool a方向) {
-	ma对话事件->push_back(std::make_unique<对话事件::C显示立绘>(S对话参数_显示立绘{&a立绘, a标识, a方向}));
+C对话脚本 &C对话脚本::f显示立绘(const I图形建造机 &a立绘, int a标识, E对话方向 a方向) {
+	ma对话事件->push_back(std::make_unique<对话事件::C显示立绘>(S对话参数_显示立绘(&a立绘, a标识, a方向)));
 	return *this;
 }
 C对话脚本 &C对话脚本::f立绘聚焦(int a标识) {
-	ma对话事件->push_back(std::make_unique<对话事件::C立绘状态>(S对话参数_立绘状态{a标识, E立绘状态::e聚焦}));
+	ma对话事件->push_back(std::make_unique<对话事件::C立绘状态>(S对话参数_立绘状态(a标识, E立绘状态::e聚焦)));
 	return *this;
 }
 C对话脚本 &C对话脚本::f立绘消失(int a标识) {
-	ma对话事件->push_back(std::make_unique<对话事件::C立绘状态>(S对话参数_立绘状态{a标识, E立绘状态::e消失}));
+	ma对话事件->push_back(std::make_unique<对话事件::C立绘状态>(S对话参数_立绘状态(a标识, E立绘状态::e消失)));
 	return *this;
 }
 //==============================================================================

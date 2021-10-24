@@ -392,6 +392,18 @@
     <ClCompile Include="图形_背景模板.cpp">
       <Filter>游戏本体\图形</Filter>
     </ClCompile>
+    <ClCompile Include="图形_静态立绘.cpp">
+      <Filter>游戏本体\图形</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_对话立绘.cpp">
+      <Filter>游戏本体\图形</Filter>
+    </ClCompile>
+    <ClCompile Include="载入解析.cpp">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_立绘.cpp">
+      <Filter>载入</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="子弹基础.h">
@@ -755,6 +767,24 @@
       <Filter>图形引擎\图形基础</Filter>
     </ClInclude>
     <ClInclude Include="图形资源工厂.h">
+      <Filter>图形引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_静态立绘.h">
+      <Filter>游戏本体\图形</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_对话立绘.h">
+      <Filter>游戏本体\图形</Filter>
+    </ClInclude>
+    <ClInclude Include="载入解析.h">
+      <Filter>载入</Filter>
+    </ClInclude>
+    <ClInclude Include="载入基础.h">
+      <Filter>载入</Filter>
+    </ClInclude>
+    <ClInclude Include="图形管线接口.h">
+      <Filter>图形引擎\图形基础</Filter>
+    </ClInclude>
+    <ClInclude Include="图形建造机.h">
       <Filter>图形引擎</Filter>
     </ClInclude>
   </ItemGroup>

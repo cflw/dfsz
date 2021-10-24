@@ -4,16 +4,15 @@
 #include <cflw视窗.h>
 #include "图形包含.h"
 #include "数学包含.h"
-#include "基础.h"
 #include "基础_对象数组.h"
 #include "基础_属性数组.h"
 #include "基础_缓冲数组.h"
 #include "游戏常量.h"
 #include "图形资源.h"
+#include "图形管线接口.h"
 namespace 东方山寨 {
 //接口
 class I图形;
-class I图形管线;
 class I图形缓冲;
 //资源
 struct S顶点矩形;
@@ -86,7 +85,7 @@ public:
 	二维::C画文本 &fg画文本();
 	std::unique_ptr<C画图片> fc画图片();
 	C画图片 &fg画图片();
-	C画图片管线 &fg画图片管线();
+	C画图片管线 &fg画图片管线();	//废弃
 	C画三维 &fg画三维();
 	C画玩家成绩 &fg画玩家成绩();
 	C画边框 &fg画边框();
@@ -99,7 +98,7 @@ public:
 	std::unique_ptr<二维::C二维> m二维;
 	二维::C文本工厂 m文本;
 	三维::tp缓冲 m二维常量缓冲;	//二维
-	I图形管线 *m图形管线 = nullptr;
+	I图形管线 *m图形管线 = nullptr;	//当前设置的图形管线
 	float m缩放 = 1;
 	float m比例 = 4.f / 3.f;
 	const int *m渲染间隔 = nullptr;

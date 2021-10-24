@@ -109,7 +109,7 @@ public:
 	float fg暂停时间() const;
 public:
 	C关卡事件状态 *m状态 = nullptr;
-	C关卡控制 *m关卡;
+	C关卡控制 *m关卡 = nullptr;
 };
 //特殊关卡事件
 class C关卡效果事件 : public C关卡事件 {

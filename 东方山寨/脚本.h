@@ -31,6 +31,8 @@
 #include "图形_抬显.h"
 #include "图形_三维.h"
 #include "图形_对话.h"
+#include "图形_对话立绘.h"
+#include "图形_静态立绘.h"
 #include "图形_背景.h"
 //关卡
 #include "关卡.h"

@@ -24,9 +24,12 @@ public:
 	t派生 *f新建(t参数&&...a参数) {
 		std::unique_ptr<t派生> v指针0 = std::make_unique<t派生>(std::forward<t参数>(a参数)...);
 		t派生 *const v指针1 = v指针0.get();
-		std::lock_guard<std::mutex> v锁(m新建锁);
-		ma新建.push_back(std::move(v指针0));
+		f添加(std::move(v指针0));
 		return v指针1;
+	}
+	void f添加(t指针 &&a指针) {
+		std::lock_guard<std::mutex> v锁(m新建锁);
+		ma新建.push_back(std::move(a指针));
 	}
 	void f更新() {
 		f更新_合并新对象();
