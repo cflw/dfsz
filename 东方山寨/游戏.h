@@ -24,6 +24,7 @@ class C关卡脚本;
 class C关卡控制;
 class C王战控制;
 class C关卡;
+class C抬显控制;
 //子弹
 class C子弹;
 class C子弹制造机;
@@ -58,10 +59,10 @@ class C玩家炸弹;
 //图形
 class I图形;
 class C图形工厂;
-class I画子弹;
+class I图形管线;
 class I动画;
 class C纹理工厂;	//包含头文件"图形_资源工厂.h"
-class C顶点工厂;
+class C顶点矩形工厂;
 class C模型工厂;
 class C静态立绘管理;
 //其它资源
@@ -100,6 +101,7 @@ public:	//公开控制
 		C自机 &fg自机() const;
 		C关卡控制 &fg关卡控制() const;
 		C王战控制 &fg王战控制() const;
+		C抬显控制 &fg抬显控制() const;
 		C难度 &fg难度() const;
 		C玩家 &fg玩家() const;
 		const I边框 &fg边框() const;
@@ -140,11 +142,10 @@ public:	//公开控制
 		C取文本 fg普通文本() const;
 		C取文本 fg界面文本() const;
 		C扩展数组<I工厂<C玩家子弹发射器>> &fg玩家发射() const;
-		C扩展数组<I画子弹> &fg画子弹() const;
 		C扩展数组<I工厂<I子机移动>> &fg子机移动() const;
 		C扩展数组<I工厂<I动画>> &fg动画() const;
 		C纹理工厂 &fg纹理工厂() const;
-		C顶点工厂 &fg顶点工厂() const;
+		C顶点矩形工厂 &fg顶点工厂() const;
 		C静态立绘管理 &fg静态立绘() const;
 		std::map<std::wstring, int> &fg名称标识() const;
 		int fc随机标识() const;

@@ -55,6 +55,7 @@ public:
 		e射击,	//按z
 		e炸弹,
 		e低速移动,	//按shift
+		e对话,	//对话中,无法射击且无敌
 	};
 	struct S成绩 {
 		long long m得分;
@@ -82,15 +83,17 @@ public:
 	void f发射_停止发射子弹();
 	void f复活();
 	t向量2 f计算复活位置();
-	void f发射_抑制发射子弹(float 时间, bool 立即停止 = true);
-	void f发射_抑制发射炸弹(float 时间);
+	void f发射_抑制发射(float 时间);
+	void fs对话(bool);
 	//一个玩家的设置
 	void fs自机(int);
 	void fs子机(int);
 	void fs炸弹(int);
+	//玩家状态
 	bool f发射_i可发射子弹() const;
 	bool f发射_i可发射炸弹() const;
 	bool fi可复活() const;
+	bool fi对话() const;
 public:	//包含自机&子机&成绩
 	C自机 m自机;
 	C子机组 m子机组;
@@ -101,7 +104,7 @@ public:	//变量
 	t标志 m标志;
 	float m低速渐变;	//[0(高速),1(低速)]
 	float m复活时间;	//减
-	float m抑制子弹 = 0, m抑制炸弹 = 0;
+	float m抑制发射时间 = 0;
 	//C边框文本 m成绩文本;
 	t向量2 m方向键;
 	const C游戏速度 *m游戏速度 = nullptr;

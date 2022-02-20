@@ -46,6 +46,9 @@
 #include "取文本.h"
 #include "难度.h"
 #include "轨迹.h"
+import 东方山寨.基础_计时器;
+import 东方山寨.图形_符卡立绘函数;
+import 东方山寨.图形_符卡立绘模板;
 namespace 东方山寨 {
 using t子弹工厂 = C子弹制造机;
 using t敌机工厂 = C敌机制造机;

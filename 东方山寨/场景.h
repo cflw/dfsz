@@ -19,4 +19,4 @@ private:
 	std::shared_ptr<I场景> m场景, m新场景;
 	C画三维 *m画三维 = nullptr;
 };
-}
+}	//namespace 东方山寨

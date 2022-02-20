@@ -2,6 +2,7 @@
 #include "游戏常量.h"
 #include "自机.h"
 #include "游戏.h"
+#include "关卡.h"
 #include "玩家.h"
 #include "自机图形.h"
 #include "边框基础.h"
@@ -132,8 +133,7 @@ t向量2 C自机::fg移动预判(float a时间) const {
 	return m坐标 + m移动 * a时间;
 }
 bool C自机::fi无敌() const {
-	return (m无敌时间 > 0) || c调试_自机无敌;
-	//return m无敌时间 > 0;
+	return (m无敌时间 > 0) || C游戏::fg内容().fg关卡控制().fi对话() || c调试_自机无敌;
 }
 bool C自机::fi死亡() const {
 	return m决死时间 >= c决死时间;

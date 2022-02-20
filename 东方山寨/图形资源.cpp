@@ -20,8 +20,8 @@ S顶点矩形 S顶点矩形::fc纹理切片(const t向量2 &a纹理尺寸, float
 	return v;
 }
 S顶点矩形 S顶点矩形::fc填充背景(const t向量2 &a屏幕尺寸, const t向量2 &a纹理尺寸) {
-	C顶点工厂::S参数 v顶点参数;
-	v顶点参数.fs顶点尺寸(a屏幕尺寸);
+	C顶点矩形工厂::S参数 v顶点参数;
+	v顶点参数.fs裁剪尺寸(a屏幕尺寸);
 	//纹理
 	const float v屏幕比 = a屏幕尺寸.fg横纵比();
 	const float v纹理比 = a纹理尺寸.fg横纵比();
@@ -34,9 +34,8 @@ S顶点矩形 S顶点矩形::fc填充背景(const t向量2 &a屏幕尺寸, const
 		const float v纹理缩放 = a屏幕尺寸.y / a纹理尺寸.y;
 		v顶点参数.fs纹理尺寸(a纹理尺寸 * v纹理缩放);
 	}
-	v顶点参数.fs映射点_左上(t向量2::c零);
-	v顶点参数.f转换映射点();
-	return C顶点工厂::fc顶点矩形(v顶点参数);
+	v顶点参数.fs裁剪坐标(t向量2::c零);
+	return C顶点矩形工厂::fc顶点矩形(v顶点参数);
 }
 S顶点矩形 S顶点矩形::fc适应背景(const t向量2 &a屏幕尺寸, const t向量2 &a纹理尺寸) {
 	//未实现

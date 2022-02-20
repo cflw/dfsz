@@ -11,6 +11,7 @@ namespace 东方山寨 {
 typedef std::optional<float> t计算;
 class C子弹;
 struct S子弹属性;
+class I图形管线;
 class I画子弹;
 class C子弹图形缓冲;
 //==============================================================================
@@ -19,15 +20,15 @@ class C子弹图形缓冲;
 struct S子弹参数 {	//产生子弹所需的参数
 	t向量2 m坐标;
 	t向量2 m速度;
-	t向量2 m缩放 = t向量2(1, 1);
-	t向量2 m长宽 = t向量2::c零;	//缩放和长宽只能同时存在一个,长宽会覆盖缩放
+	t向量2 m缩放;
+	t向量2 m长宽;	//缩放和长宽只能同时存在一个,长宽会覆盖缩放
 	t颜色 m颜色[2];
 	float m出现 = 0;
 	C属性数组<S子弹属性>::t指针 m样式;
 	C扩展数组<I画子弹>::t指针 m绘制;
 	C属性数组<S子弹属性>::t指针 m缓存_样式;
 	C扩展数组<I画子弹>::t指针 m缓存_绘制;
-	S子弹参数();
+	S子弹参数();	//设置默认值
 	void fs坐标(const t向量2 &);
 	void fs速度(const t向量2 &);
 	void fs速度_到自机(float 大小);
@@ -122,14 +123,14 @@ public:
 	public:
 		void f初始化_环境(const C游戏速度 &);
 		void f初始化_数组(C对象数组<C子弹> &, C缓冲数组<C子弹图形缓冲> &);
-		void f初始化_资源(const C属性数组<S子弹属性> &, const C扩展数组<I画子弹> &);
+		void f初始化_资源(const C属性数组<S子弹属性> &, const C扩展数组<I图形管线> &);
 		bool fi有空();
 		void f产生子弹(const std::shared_ptr<C子弹> &, S子弹参数 &);//调用"f产生子弹"前需要调用"f分配"
 		C对象数组<C子弹> *ma子弹 = nullptr;
 		C缓冲数组<C子弹图形缓冲> *ma子弹图形缓冲 = nullptr;
 		const C游戏速度 *m游戏速度 = nullptr;
 		const C属性数组<S子弹属性> *ma子弹属性 = nullptr;
-		const C扩展数组<I画子弹> *ma画子弹 = nullptr;
+		const C扩展数组<I图形管线> *ma画子弹 = nullptr;
 	};
 	using t循环生成器 = std::experimental::generator<C循环::C变换>;
 	using tf循环模板 = std::function<t循环生成器(C子弹制造机&)>;

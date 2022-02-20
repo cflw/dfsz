@@ -19,6 +19,7 @@ public:
 		float m方向 = 0;
 		float m透明度 = 0;
 	};
+	using t图形缓冲 = C图形缓冲;
 	C贯穿激光图形_图片(const C玩家子弹 &, C缓冲数组<I图形缓冲> &);
 	void f计算() override;
 	void f更新() override;
@@ -34,6 +35,7 @@ public:
 		const S玩家子弹属性 *m属性 = nullptr;
 		float m透明度 = 0;
 	};
+	using t图形缓冲 = C图形缓冲;
 	C贯穿激光图形_线条(const C玩家子弹 &, C缓冲数组<I图形缓冲> &);
 	void f计算() override;
 	void f更新() override;

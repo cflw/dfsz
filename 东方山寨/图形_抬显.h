@@ -11,6 +11,7 @@ class C王战时间控制;
 constexpr float c抬显最大透明度 = 0.8f;
 constexpr float c抬显最小透明度 = 0.5f;
 constexpr float c抬显透明度速度 = (c抬显最大透明度 - c抬显最小透明度) * 2.f;
+constexpr float c血条透明度 = 0.6f;
 //==============================================================================
 // 标题
 //==============================================================================
@@ -53,7 +54,6 @@ public:
 	static constexpr float c线宽 = 4;
 	static constexpr float c外圈 = c半径 + c线宽 / 2 + 2;
 	static constexpr float c内圈 = c半径 - c线宽 / 2 - 2;
-	static constexpr float c透明度 = 0.6f;
 	C分血条(const C敌机 &, const t颜色 & = t颜色::c粉);
 	void f接口_计算() override;
 	void f接口_更新() override;
@@ -108,6 +108,7 @@ public:
 		std::wstring m显示分数;
 		std::wstring m显示名称;
 	};
+	using t图形缓冲 = C图形缓冲;
 	C符卡文本(const C符卡控制 &符卡控制);
 	void f接口_初始化(const S图形参数 &);
 	void f接口_更新() override;

@@ -71,28 +71,4 @@ public:
 	static unsigned int f计算位(bool, int);
 	static float f计算(int 计数, int 总数, t标志);
 };
-//==============================================================================
-// 计时器
-//==============================================================================
-class C计时器 {
-public:
-	static constexpr float c立即滴答 = 9999;
-	C计时器(float 时间 = 1, float 滴答 = 0);
-	bool f滴答();
-	void f停止();
-	void f重置(float, float = 0);
-private:
-	float m滴答;
-	float m计时;
-};
-//滴答一次后就停止的计时器
-class C单次计时器 {
-public:
-	C单次计时器(float 时间 = 1);
-	bool f滴答();
-	void f重置(float);
-private:
-	float m滴答;
-	float m计时;
-};
 }	//namespace 东方山寨

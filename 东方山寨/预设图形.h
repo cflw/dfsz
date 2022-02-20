@@ -12,6 +12,7 @@ public:
 		float m半径;
 		float m线条宽度 = 1;
 	};
+	using t图形缓冲 = C图形缓冲;
 	C圆形() = default;
 	C圆形(float, float);
 	void f接口_计算() override;
@@ -31,6 +32,7 @@ public:
 		float m半径;
 		float m线条宽度 = 1;
 	};
+	using t图形缓冲 = C图形缓冲;
 	C十字() = default;
 	C十字(float, float);
 	void f接口_计算() override;

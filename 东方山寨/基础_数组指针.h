@@ -1,13 +1,20 @@
 ﻿#pragma once
 #include <string>
+#include <memory>
 namespace 东方山寨 {
 //映射指针
 template<typename t值> class C映射指针 {
 public:
 	typedef C映射指针<t值> t这;
 	C映射指针() = default;
-	C映射指针(int a整数, t值 *a指针) :
+	C映射指针(int a整数, t值 *a指针):
 		m整数(a整数), m指针(a指针) {
+	}
+	C映射指针(int a整数):
+		m整数(a整数), m指针(nullptr) {
+	}
+	C映射指针(t值 *a指针):
+		m整数(0), m指针(a指针) {
 	}
 	t这 &operator =(int a整数) {
 		if (a整数 == 0) {

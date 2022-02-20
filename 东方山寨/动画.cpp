@@ -15,6 +15,9 @@ int I动画::f接口_g顶点序号() const {
 }
 void I动画::f接口_动作(const E动画动作 &, const t动画动作值 &) {
 }
+t向量2 I动画::f接口_g坐标() const {
+	return t向量2::c零;
+}
 t向量3 I动画::f接口_g旋转() const {
 	return t向量3::c零;
 }
@@ -62,12 +65,14 @@ bool I动画::fg动作值b(const t动画动作值 &a值) {
 		return std::get<float>(a值);
 	}
 }
-S动画缓冲 &S动画缓冲::operator =(const I动画 &a动画) {
-	m顶点序号 = a动画.f接口_g顶点序号();
-	m旋转 = a动画.f接口_g旋转();
-	m缩放 = a动画.f接口_g缩放();
-	m透明度 = a动画.f接口_g透明度();
-	return *this;
+S动画缓冲 I动画::fg动画缓冲() const {
+	S动画缓冲 v;
+	v.m坐标 = this->f接口_g坐标();
+	v.m旋转 = this->f接口_g旋转();
+	v.m缩放 = this->f接口_g缩放();
+	v.m顶点序号 = this->f接口_g顶点序号();
+	v.m透明度 = this->f接口_g透明度();
+	return v;
 }
 //==============================================================================
 // 角色动画

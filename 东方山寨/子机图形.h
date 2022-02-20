@@ -18,5 +18,4 @@ public:
 	void f计算() override;
 	void f更新() override;
 };
-
 }	//namespace 东方山寨

@@ -7,6 +7,7 @@
 #include "基础_对象数组.h"
 #include "基础_属性数组.h"
 #include "基础_缓冲数组.h"
+#include "基础_扩展数组.h"
 #include "游戏常量.h"
 #include "图形资源.h"
 #include "图形管线接口.h"
@@ -14,6 +15,7 @@ namespace 东方山寨 {
 //接口
 class I图形;
 class I图形缓冲;
+class I图形管线;
 //资源
 struct S顶点矩形;
 struct S纹理;
@@ -21,13 +23,12 @@ struct S三维顶点;
 class C模型;
 //工厂
 class C纹理工厂;
-class C顶点工厂;
+class C顶点矩形工厂;
 class C模型工厂;
 //管理
 class C图形管理;
 class C背景管理;
 //绘制
-class C画图片管线;
 class C画图片;
 class C画三维;
 class C画玩家成绩;
@@ -35,6 +36,16 @@ using t画图片 = class C画图片;
 class C图形层;
 class C图形工厂;
 class C画边框;
+//图形管线
+constexpr int c图形管线标识 = 1109021423;	//0x421A52EF
+enum class E图形管线 {
+	e图片 = c图形管线标识,
+	e子弹正常,
+	e子弹高光,
+	e子弹线条,
+	e三维场景,
+	e静态立绘,
+};
 //==============================================================================
 // 图形引擎
 //==============================================================================
@@ -63,7 +74,7 @@ public:
 	C属性数组<S纹理> &fg纹理();
 	C纹理工厂 &fg纹理工厂();
 	C属性数组<S顶点矩形> &fg顶点矩形();
-	C顶点工厂 &fg顶点工厂();
+	C顶点矩形工厂 &fg顶点工厂();
 	C属性数组<C模型> &fg模型();
 	C模型工厂 &fg模型工厂();
 	ID3D11Buffer *fg二维常量缓冲();
@@ -74,6 +85,8 @@ public:
 	C图形工厂 f工厂_图形();
 	std::shared_ptr<C图形工厂> f工厂_图形p();
 	C背景管理 &fg背景管理();
+	C扩展数组<I图形管线> &fg图形管线数组();
+	template<typename t图形管线> t图形管线 *fg图形管线(E图形管线) const;
 	//画预设图形
 	void f画边框();
 	void f画十字(const t向量2 &, const float &半径 = 16);
@@ -85,7 +98,6 @@ public:
 	二维::C画文本 &fg画文本();
 	std::unique_ptr<C画图片> fc画图片();
 	C画图片 &fg画图片();
-	C画图片管线 &fg画图片管线();	//废弃
 	C画三维 &fg画三维();
 	C画玩家成绩 &fg画玩家成绩();
 	C画边框 &fg画边框();
@@ -106,21 +118,25 @@ public:
 	C属性数组<S纹理> ma纹理;
 	std::unique_ptr<C纹理工厂> m纹理工厂;
 	C属性数组<S顶点矩形> ma顶点矩形;
-	std::unique_ptr<C顶点工厂> m顶点工厂;
+	std::unique_ptr<C顶点矩形工厂> m顶点工厂;
 	C属性数组<C模型> ma模型;
 	std::unique_ptr<C模型工厂> m模型工厂;
 	std::unique_ptr<着色器::C着色器工厂> m着色器工厂;
 	std::unique_ptr<C图形管理> m图形管理;
 	std::unique_ptr<C背景管理> m背景管理;
+	C扩展数组<I图形管线> ma图形管线;
 	//绘制
 	std::shared_ptr<二维::C画图形> m画图形;
 	std::shared_ptr<二维::C画图形> m画十字;
 	std::shared_ptr<二维::C画文本> m画文本;
 	std::shared_ptr<二维::C画文本> m画调试文本;
-	std::unique_ptr<C画图片管线> m画图片管线;
 	std::unique_ptr<C画图片> m画图片;
 	std::unique_ptr<C画三维> m画三维;
 	std::unique_ptr<C画玩家成绩> m画玩家成绩;
 	std::unique_ptr<C画边框> m画边框;
 };
+template<typename t图形管线>
+t图形管线 *C图形引擎::fg图形管线(E图形管线 a) const {
+	return ma图形管线.fg扩展<t图形管线>((int)a);
+}
 }	//namespace 东方山寨

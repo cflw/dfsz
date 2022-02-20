@@ -23,6 +23,7 @@
 #include "界面图形.h"
 #include "界面音频.h"
 #include "图形_背景.h"
+import 东方山寨.基础_计时器;
 namespace 东方山寨 {
 namespace 时间 = cflw::时间;
 namespace 视窗 = cflw::视窗;
@@ -328,7 +329,7 @@ public:
 		C游戏设置 &v设置 = C游戏::fg设置();
 		v设置.m自机标识 = (int)E自机::e灵梦;
 		v设置.m子机标识 = (int)E子机::e灵梦诱导;
-		v设置.m火力 = 4;
+		v设置.m火力 = 0;
 		v设置.m基础难度 = 5;
 		static C关卡 *va关卡[] = {
 			&C关卡管理::fg关卡(L"测试关卡"),

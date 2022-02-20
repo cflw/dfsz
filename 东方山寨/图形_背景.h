@@ -24,6 +24,7 @@ public:
 		const S顶点矩形 *m顶点矩形 = nullptr;
 		float m透明度 = 0;
 	};
+	using t图形缓冲 = C图形缓冲;
 	C背景(const C背景管理 &);
 	void f接口_初始化(const S图形参数 &) override;
 	void f接口_更新() override;

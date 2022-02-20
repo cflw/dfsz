@@ -154,9 +154,9 @@ C纹理工厂 &C图形引擎::fg纹理工厂() {
 C属性数组<S顶点矩形> &C图形引擎::fg顶点矩形() {
 	return ma顶点矩形;
 }
-C顶点工厂 &C图形引擎::fg顶点工厂() {
+C顶点矩形工厂 &C图形引擎::fg顶点工厂() {
 	if (m顶点工厂 == nullptr) {
-		m顶点工厂 = std::make_unique<C顶点工厂>();
+		m顶点工厂 = std::make_unique<C顶点矩形工厂>();
 		m顶点工厂->f初始化(ma顶点矩形);
 	} else {
 		m顶点工厂->m参数.f重置();
@@ -220,6 +220,9 @@ C背景管理 &C图形引擎::fg背景管理() {
 	}
 	return *m背景管理;
 }
+C扩展数组<I图形管线> &C图形引擎::fg图形管线数组() {
+	return ma图形管线;
+}
 void C图形引擎::f画十字(const 数学::S向量2 &a坐标, const float &a半径) {
 	if (m画十字 == nullptr) {
 		m画十字 = fc画图形();
@@ -252,19 +255,13 @@ std::shared_ptr<二维::C画图形> C图形引擎::fc画图形() {
 	return *m画图形;
 }
 std::unique_ptr<C画图片> C图形引擎::fc画图片() {
-	return std::make_unique<C画图片>(fg画图片管线());
+	return std::make_unique<C画图片>(*fg图形管线<C画图片管线>(E图形管线::e图片));
 }
 C画图片 &C图形引擎::fg画图片() {
 	if (m画图片 == nullptr) {
 		m画图片 = fc画图片();
 	}
 	return *m画图片;
-}
-C画图片管线 &C图形引擎::fg画图片管线() {	//废弃
-	if (m画图片管线 == nullptr) {
-		m画图片管线 = std::make_unique<C画图片管线>(*this, *m三维);
-	}
-	return *m画图片管线;
 }
 std::shared_ptr<二维::C画文本> C图形引擎::fc画文本() {
 	return m二维->fc画文本();
@@ -277,7 +274,7 @@ std::shared_ptr<二维::C画文本> C图形引擎::fc画文本() {
 }
 C画三维 &C图形引擎::fg画三维() {
 	if (m画三维 == nullptr) {
-		m画三维 = std::make_unique<C画三维>(*this, *m三维);
+		m画三维 = std::make_unique<C画三维>(*fg图形管线<C画三维管线>(E图形管线::e三维场景));
 	}
 	return *m画三维;
 }

@@ -34,8 +34,7 @@ void C玩家::f计算() {
 	const bool v炸弹键 = m标志[e炸弹];
 	const float v过秒 = m游戏速度->fg秒();
 	//时间
-	m抑制子弹 -= v过秒;
-	m抑制炸弹 -= v过秒;
+	m抑制发射时间 -= v过秒;
 	//渐变
 	const float v渐变目标 = v减速键 ? 1.f : 0.f;
 	m低速渐变 = 数学::f线性渐变<float>(m低速渐变, v渐变目标, 8 * v过秒);
@@ -167,14 +166,9 @@ void C玩家::f发射_停止发射子弹() {
 	m自机.f发射_停止发射子弹();
 	m子机组.f发射_停止发射子弹();
 }
-void C玩家::f发射_抑制发射子弹(float a时间, bool a立即停止) {
-	m抑制子弹 = a时间;
-	if (a立即停止) {
-		f发射_停止发射子弹();
-	}
-}
-void C玩家::f发射_抑制发射炸弹(float a时间) {
-	m抑制炸弹 = a时间;
+void C玩家::f发射_抑制发射(float a时间) {
+	m抑制发射时间 = a时间;
+	f发射_停止发射子弹();
 }
 void C玩家::f复活() {
 	C游戏::fg内容().f游戏_全屏清弹(m自机.fg坐标());
@@ -186,6 +180,12 @@ void C玩家::f复活() {
 }
 t向量2 C玩家::f计算复活位置() {
 	return {0, c自机初始坐标y - 数学::f插值<float>(0, c复活距离, m复活时间 / c复活时间)};
+}
+void C玩家::fs对话(bool a) {
+	m标志[e对话] = a;
+	if (a) {
+		f发射_停止发射子弹();
+	}
 }
 void C玩家::fs自机(int a) {
 	const auto &va自机属性 = C游戏::fg资源().fg自机属性();
@@ -207,19 +207,28 @@ bool C玩家::f发射_i可发射子弹() const {
 	if (m标志[e正在复活]) {
 		return false;
 	}
-	if (m抑制子弹 > 0) {
+	if (m标志[e对话]) {
+		return false;
+	}
+	if (m抑制发射时间 > 0) {
 		return false;
 	}
 	return true;
 }
 bool C玩家::f发射_i可发射炸弹() const {
-	if (m抑制炸弹 > 0) {
+	if (m标志[e对话]) {
+		return false;
+	}
+	if (m抑制发射时间 > 0) {
 		return false;
 	}
 	return true;
 }
 bool C玩家::fi可复活() const {
 	return m成绩.m残机 >= 1;
+}
+bool C玩家::fi对话() const {
+	return m标志[e对话];
 }
 //==============================================================================
 // 各种值

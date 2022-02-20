@@ -27,7 +27,7 @@ public:
 template<typename t> concept T图形缓冲 = std::derived_from<t, I图形缓冲>;
 //判断是否有图形缓冲,当t中有 C图形缓冲 时为真
 template<typename t> concept T有图形缓冲 = requires(t) {
-	typename t::C图形缓冲;
+	typename t::t图形缓冲;
 };
 //出于代码向前兼容的考虑写的兼容图形缓冲类，直接继承就行，不用对代码做太多修改，把“f接口_显示”改成“f兼容显示”即可。
 //该兼容代码存在数据竞争，以后全部改掉删掉
@@ -44,10 +44,11 @@ public:
 		}
 		const t *m = nullptr;
 	};
+	using t图形缓冲 = C图形缓冲;
 };
 template<typename t> concept T兼容图形缓冲 = requires {
-	typename t::C图形缓冲;
-	requires std::derived_from<typename t::C图形缓冲, I图形缓冲>;
-	requires std::is_constructible_v<typename t::C图形缓冲, const t &>;
+	typename t::t图形缓冲;
+	requires std::derived_from<typename t::t图形缓冲, I图形缓冲>;
+	requires std::is_constructible_v<typename t::t图形缓冲, const t &>;
 };
 }	//namespace 东方山寨

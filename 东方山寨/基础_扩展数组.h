@@ -2,9 +2,12 @@
 #include <cassert>
 #include <vector>
 #include <map>
+#include <memory>
+#include "程序常量.h"
 #include "基础_数组指针.h"
 #include "游戏_名称标识.h"
 namespace 东方山寨 {
+//扩展数组可以直接构造对象
 template<typename t值> class C扩展数组 : public std::map<int, std::unique_ptr<t值>> {
 public:
 	using value_type = t值;
@@ -41,6 +44,16 @@ public:
 	t值 *fg扩展(int a键) const {
 		assert(fi存在(a键));
 		return t基类::at(a键).get();
+	}
+	template<typename t派生>
+	t派生 *fg扩展(int a键) const {
+		assert(fi存在(a键));
+		t值 *const vp = t基类::at(a键).get();
+		if constexpr (c调试) {
+			return dynamic_cast<t派生 *>(vp);
+		} else {
+			return static_cast<t派生 *>(vp);
+		}
 	}
 	bool fi存在(int a键) const {
 		return t基类::find(a键) != t基类::end();

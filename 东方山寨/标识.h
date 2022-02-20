@@ -4,14 +4,13 @@ namespace 计算 {
 constexpr int f标识(int a0, int a1, int a2 = 0, int a3 = 0) {	//可以当成一个哈希函数处理
 	return a0 + a1 + (a2 << 8) + (a3 << 16);
 }
-int fc随机标识();	//为了避免撞车,实际上并不随机
+int fc随机标识();	//为了避免可能的重复,实际上并不随机
 }	//namespace 计算
 //上限
 constexpr int c标识上限 = 2147483647;	//0x7fffffff
 //常量
 constexpr int c子弹标识 = 1329182951;//0x4f39b8e7
 constexpr int c子弹扩展标识 = 1208143544;//0x4802ceb8
-constexpr int c画子弹标识 = 1321863430;	//0x4eca0906
 constexpr int c子弹纹理标识 = 487792821;	//0x1d1320b5
 constexpr int c自机标识 = 670299935;	//0x27f3f71f
 constexpr int c内置动画标识 = 0;
@@ -35,11 +34,6 @@ enum class E子弹 {
 	e米弹,
 	e鳞弹,
 	e曲线激光
-};
-enum class E画子弹 {
-	e正常 = c画子弹标识,
-	e高光,
-	e线条,
 };
 enum class E纹理 {
 	e空 = 0,

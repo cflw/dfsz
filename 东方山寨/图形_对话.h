@@ -26,6 +26,7 @@ public:
 		t圆角矩形 m方框矩形;
 		t向量2 m文本坐标;	//中心坐标
 	};
+	using t图形缓冲 = C图形缓冲;
 	C对话框(const S对话参数_对话 &);
 	void f接口_初始化(const S图形参数 &) override;
 	void f接口_计算() override;

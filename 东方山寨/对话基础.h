@@ -11,13 +11,21 @@ enum class E对话方向 {
 	e从左向右,	//false
 	e从右向左,	//true
 };
+enum class E立绘表情 {
+	e无,
+	e正常,
+	e高兴,
+	e伤心,
+	e愤怒,
+	c最大值,
+};
 //图形
 class I对话立绘;
 //功能
 class C对话控制;
 class C对话脚本;
-class I对话事件;
-using ta对话事件 = std::vector<std::unique_ptr<I对话事件>>;
+using tf对话事件 = std::function<void(C对话控制&)>;
+using ta对话事件 = std::vector<tf对话事件>;
 using tp对话脚本 = std::shared_ptr<const ta对话事件>;
 struct S对话参数_对话 {
 	std::wstring m文本;
@@ -31,6 +39,10 @@ struct S对话参数_显示立绘 {
 struct S对话参数_立绘状态 {
 	int m标识 = 0;
 	E立绘状态 m状态 = E立绘状态::e聚焦;
+};
+struct S对话参数_立绘表情 {
+	int m标识 = 0;
+	E立绘表情 m表情 = E立绘表情::e无;
 };
 constexpr bool ft对话方向(E对话方向 a方向) {
 	switch (a方向) {
@@ -48,5 +60,6 @@ constexpr E对话方向 ft对话方向(bool a方向) {
 	case true:
 		return E对话方向::e从右向左;
 	}
+	return E对话方向::e从左向右;
 }
 }	//namespace 东方山寨

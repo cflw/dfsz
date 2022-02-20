@@ -78,6 +78,12 @@
     <Filter Include="数学">
       <UniqueIdentifier>{1d95dc6c-141c-4d4a-9e8d-5c9f027cd9f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="游戏本体\对话">
+      <UniqueIdentifier>{9b4bbeeb-8fe5-46d4-be0e-5c837ca8d0ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏本体\抬显">
+      <UniqueIdentifier>{1a1ae134-96e1-449e-8205-bee6372b51fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="程序.cpp">
@@ -86,7 +92,7 @@
     <ClCompile Include="输入.cpp">
       <Filter>程序</Filter>
     </ClCompile>
-    <ClCompile Include="测试关卡.cpp">
+    <ClCompile Include="测试关卡.ixx">
       <Filter>关卡</Filter>
     </ClCompile>
     <ClCompile Include="载入.cpp">
@@ -200,9 +206,6 @@
     <ClCompile Include="游戏_名称标识.cpp">
       <Filter>游戏本体\游戏基础</Filter>
     </ClCompile>
-    <ClCompile Include="图形_抬显.cpp">
-      <Filter>游戏本体\图形</Filter>
-    </ClCompile>
     <ClCompile Include="王战.cpp">
       <Filter>游戏本体\关卡</Filter>
     </ClCompile>
@@ -211,12 +214,6 @@
     </ClCompile>
     <ClCompile Include="场景.cpp">
       <Filter>游戏本体\关卡</Filter>
-    </ClCompile>
-    <ClCompile Include="对话.cpp">
-      <Filter>游戏本体\关卡</Filter>
-    </ClCompile>
-    <ClCompile Include="图形_对话.cpp">
-      <Filter>游戏本体\图形</Filter>
     </ClCompile>
     <ClCompile Include="图形_玩家成绩.cpp">
       <Filter>游戏本体\玩家</Filter>
@@ -236,7 +233,7 @@
     <ClCompile Include="游戏设置.cpp">
       <Filter>游戏本体\游戏基础</Filter>
     </ClCompile>
-    <ClCompile Include="东方月亮船1.cpp">
+    <ClCompile Include="东方月亮船1.ixx">
       <Filter>关卡</Filter>
     </ClCompile>
     <ClCompile Include="玩家子弹图形模板.cpp">
@@ -317,16 +314,10 @@
     <ClCompile Include="子机图形.cpp">
       <Filter>游戏本体\玩家</Filter>
     </ClCompile>
-    <ClCompile Include="图形_抬显模板.cpp">
-      <Filter>游戏本体\图形</Filter>
-    </ClCompile>
     <ClCompile Include="遮罩基础.cpp">
       <Filter>游戏本体\遮罩</Filter>
     </ClCompile>
     <ClCompile Include="遮罩工厂.cpp">
-      <Filter>游戏本体\遮罩</Filter>
-    </ClCompile>
-    <ClCompile Include="图形_画边框.cpp">
       <Filter>游戏本体\遮罩</Filter>
     </ClCompile>
     <ClCompile Include="边框基础.cpp">
@@ -356,10 +347,10 @@
     <ClCompile Include="难度.cpp">
       <Filter>数学</Filter>
     </ClCompile>
-    <ClCompile Include="东方月亮船2.cpp">
+    <ClCompile Include="东方月亮船2.ixx">
       <Filter>关卡</Filter>
     </ClCompile>
-    <ClCompile Include="东方月亮船_附加符卡.cpp">
+    <ClCompile Include="东方月亮船_附加符卡.ixx">
       <Filter>关卡</Filter>
     </ClCompile>
     <ClCompile Include="界面_选择模式.cpp">
@@ -392,17 +383,50 @@
     <ClCompile Include="图形_背景模板.cpp">
       <Filter>游戏本体\图形</Filter>
     </ClCompile>
-    <ClCompile Include="图形_静态立绘.cpp">
-      <Filter>游戏本体\图形</Filter>
-    </ClCompile>
-    <ClCompile Include="图形_对话立绘.cpp">
-      <Filter>游戏本体\图形</Filter>
-    </ClCompile>
     <ClCompile Include="载入解析.cpp">
       <Filter>载入</Filter>
     </ClCompile>
     <ClCompile Include="载入_立绘.cpp">
       <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="对话.cpp">
+      <Filter>游戏本体\对话</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_对话.cpp">
+      <Filter>游戏本体\对话</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_对话立绘.cpp">
+      <Filter>游戏本体\对话</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_静态立绘.cpp">
+      <Filter>游戏本体\对话</Filter>
+    </ClCompile>
+    <ClCompile Include="基础_结构.ixx">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClCompile>
+    <ClCompile Include="基础_计时器.ixx">
+      <Filter>游戏本体\游戏基础</Filter>
+    </ClCompile>
+    <ClCompile Include="抬显.ixx">
+      <Filter>游戏本体\抬显</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_抬显.cpp">
+      <Filter>游戏本体\抬显</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_抬显模板.cpp">
+      <Filter>游戏本体\抬显</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_画边框.cpp">
+      <Filter>游戏本体\抬显</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_符卡立绘.ixx">
+      <Filter>游戏本体\抬显</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_符卡立绘函数.ixx">
+      <Filter>游戏本体\抬显</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_符卡立绘模板.ixx">
+      <Filter>游戏本体\抬显</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -523,9 +547,6 @@
     <ClInclude Include="游戏_名称标识.h">
       <Filter>游戏本体\游戏基础</Filter>
     </ClInclude>
-    <ClInclude Include="图形_抬显.h">
-      <Filter>游戏本体\图形</Filter>
-    </ClInclude>
     <ClInclude Include="王战.h">
       <Filter>游戏本体\关卡</Filter>
     </ClInclude>
@@ -535,20 +556,11 @@
     <ClInclude Include="场景.h">
       <Filter>游戏本体\关卡</Filter>
     </ClInclude>
-    <ClInclude Include="对话.h">
-      <Filter>游戏本体\关卡</Filter>
-    </ClInclude>
-    <ClInclude Include="图形_对话.h">
-      <Filter>游戏本体\图形</Filter>
-    </ClInclude>
     <ClInclude Include="程序.h">
       <Filter>程序</Filter>
     </ClInclude>
     <ClInclude Include="输入.h">
       <Filter>程序</Filter>
-    </ClInclude>
-    <ClInclude Include="对话基础.h">
-      <Filter>游戏本体\关卡</Filter>
     </ClInclude>
     <ClInclude Include="图形_玩家成绩.h">
       <Filter>游戏本体\玩家</Filter>
@@ -691,9 +703,6 @@
     <ClInclude Include="基础_对象工厂.h">
       <Filter>游戏本体\游戏基础</Filter>
     </ClInclude>
-    <ClInclude Include="脚本.h">
-      <Filter>脚本</Filter>
-    </ClInclude>
     <ClInclude Include="遮罩基础.h">
       <Filter>游戏本体\遮罩</Filter>
     </ClInclude>
@@ -701,9 +710,6 @@
       <Filter>游戏本体\遮罩</Filter>
     </ClInclude>
     <ClInclude Include="边框常量.h">
-      <Filter>游戏本体\遮罩</Filter>
-    </ClInclude>
-    <ClInclude Include="图形_画边框.h">
       <Filter>游戏本体\遮罩</Filter>
     </ClInclude>
     <ClInclude Include="边框基础.h">
@@ -769,12 +775,6 @@
     <ClInclude Include="图形资源工厂.h">
       <Filter>图形引擎</Filter>
     </ClInclude>
-    <ClInclude Include="图形_静态立绘.h">
-      <Filter>游戏本体\图形</Filter>
-    </ClInclude>
-    <ClInclude Include="图形_对话立绘.h">
-      <Filter>游戏本体\图形</Filter>
-    </ClInclude>
     <ClInclude Include="载入解析.h">
       <Filter>载入</Filter>
     </ClInclude>
@@ -786,6 +786,30 @@
     </ClInclude>
     <ClInclude Include="图形建造机.h">
       <Filter>图形引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="对话.h">
+      <Filter>游戏本体\对话</Filter>
+    </ClInclude>
+    <ClInclude Include="对话基础.h">
+      <Filter>游戏本体\对话</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_对话.h">
+      <Filter>游戏本体\对话</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_对话立绘.h">
+      <Filter>游戏本体\对话</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_静态立绘.h">
+      <Filter>游戏本体\对话</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_抬显.h">
+      <Filter>游戏本体\抬显</Filter>
+    </ClInclude>
+    <ClInclude Include="图形_画边框.h">
+      <Filter>游戏本体\抬显</Filter>
+    </ClInclude>
+    <ClInclude Include="脚本.h">
+      <Filter>脚本</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

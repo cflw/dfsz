@@ -21,6 +21,7 @@
 #include "图形_子弹_线条.h"
 #include "图形_子弹_顶点.h"
 #include "道具动画.h"
+#include "图形_静态立绘.h"
 //其它
 #include "道具.h"
 #include "子弹基础.h"
@@ -167,9 +168,9 @@ void C载入::f图形(const S载入参数 &a) {
 			const float v分高 = v高 / (float)v行数;
 			//创建矩形
 			const t向量2 v顶点尺寸{v分宽, v分高};
-			v顶点工厂.m参数.fs映射点_左上({x, y});
-			v顶点工厂.m参数.fs顶点尺寸(v顶点尺寸);
-			v顶点工厂.m参数.fs顶点中心偏移({v偏移x, v偏移y});
+			v顶点工厂.m参数.fs裁剪坐标({x, y});
+			v顶点工厂.m参数.fs裁剪尺寸(v顶点尺寸);
+			v顶点工厂.m参数.fs矩形坐标({v偏移x, v偏移y});
 			int v切片标识 = 0;
 			for (auto &v循环 : v顶点工厂.f循环(v列数, v行数)) {
 				const C名称标识 v名称标识3 = v名称标识2.f创建层(std::to_wstring(v切片标识), v切片标识);
@@ -589,17 +590,15 @@ void C内部载入::f道具() {
 		v属性.m动画 = (int)E动画::e道具;
 	}
 }
-void C内部载入::f画子弹() {
+void C内部载入::f图形管线() {
 	auto &v图形 = C游戏::fg图形();
-	std::pair<E画子弹, I画子弹 *> v画子弹表[] = {
-		{E画子弹::e正常, new C画子弹_顶点(v图形, *v图形.m三维, false)},
-		{E画子弹::e高光, new C画子弹_顶点(v图形, *v图形.m三维, true)},
-		{E画子弹::e线条, new C画子弹_线条(*v图形.m二维)},
-	};
-	auto &va画子弹 = C游戏::fg资源().fg画子弹();
-	for (auto &v : v画子弹表) {
-		va画子弹.f添加((int)v.first, v.second);
-	}
+	auto &va图形管线 = v图形.fg图形管线数组();
+	va图形管线.f构造<C画图片管线>((int)E图形管线::e图片, v图形, *v图形.m三维);
+	va图形管线.f构造<C画子弹_顶点>((int)E图形管线::e子弹正常, v图形, *v图形.m三维, false);
+	va图形管线.f构造<C画子弹_顶点>((int)E图形管线::e子弹高光, v图形, *v图形.m三维, true);
+	va图形管线.f构造<C画子弹_线条>((int)E图形管线::e子弹线条, *v图形.m二维);
+	va图形管线.f构造<C画三维管线>((int)E图形管线::e三维场景, v图形, *v图形.m三维);
+	va图形管线.f构造<C静态立绘管线>((int)E图形管线::e静态立绘, v图形, *v图形.m三维);
 }
 void C内部载入::f子机() {
 	auto &va子机属性 = C游戏::g资源.fg子机属性();
@@ -722,7 +721,7 @@ void f载入() {
 	boost::property_tree::wptree v根树;
 	C读json文件::f读取(v根树, v载入文件);
 	C载入::f汇总({v根树 , v载入文件});
-	C内部载入::f画子弹();
+	C内部载入::f图形管线();
 	//C内部载入::f子机();
 	//C内部载入::f玩家子弹();
 	C内部载入::f玩家子弹发射();

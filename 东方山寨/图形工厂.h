@@ -39,7 +39,7 @@ public:
 	void f实现_产生图形(const std::shared_ptr<I图形> &, I图形缓冲 * = nullptr);
 	template<typename t, typename...t参数> std::shared_ptr<t> f产生图形(const t参数 &...a参数);
 	std::shared_ptr<I图形> f产生图形(const I图形建造机 &);
-	template<T有图形缓冲 t> typename t::C图形缓冲 *fc图形缓冲(t &);
+	template<T有图形缓冲 t> typename t::t图形缓冲 *fc图形缓冲(t &);
 	template<typename t> I图形缓冲 *fc图形缓冲(t &);
 public:
 	S图形参数 m参数;
@@ -59,11 +59,11 @@ template<typename t, typename...t参数> std::shared_ptr<t> C图形工厂::f产�
 	}
 	return nullptr;
 }
-template<T有图形缓冲 t> typename t::C图形缓冲 *C图形工厂::fc图形缓冲(t &a) {
+template<T有图形缓冲 t> typename t::t图形缓冲 *C图形工厂::fc图形缓冲(t &a) {
 	if constexpr (T兼容图形缓冲<t>) {	//以后改掉
-		return m实现->ma图形缓冲->f新建<typename t::C图形缓冲>(a);
+		return m实现->ma图形缓冲->f新建<typename t::t图形缓冲>(a);
 	} else {
-		return m实现->ma图形缓冲->f新建<typename t::C图形缓冲>();
+		return m实现->ma图形缓冲->f新建<typename t::t图形缓冲>();
 	}
 }
 template<typename t> I图形缓冲 *C图形工厂::fc图形缓冲(t &) {

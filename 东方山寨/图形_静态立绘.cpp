@@ -7,7 +7,6 @@ namespace 东方山寨 {
 //==============================================================================
 // 静态立绘图形管线
 //==============================================================================
-std::unique_ptr<C静态立绘管线> C静态立绘管线::g这;
 C静态立绘管线::C静态立绘管线(C图形引擎 &a引擎, 三维::C三维 &a三维):
 	C画图片管线(a引擎, a三维) {
 	三维::S深度模板参数 v深度模板参数 = m渲染状态->m深度模板参数.m模板比较;
@@ -16,15 +15,13 @@ C静态立绘管线::C静态立绘管线(C图形引擎 &a引擎, 三维::C三维
 	v深度模板参数.FrontFace.StencilDepthFailOp = D3D11_STENCIL_OP_KEEP;
 	v深度模板参数.FrontFace.StencilPassOp = D3D11_STENCIL_OP_REPLACE;
 	v深度模板参数.FrontFace.StencilFunc = D3D11_COMPARISON_GREATER;
+	v深度模板参数.BackFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
+	v深度模板参数.BackFace.StencilDepthFailOp = D3D11_STENCIL_OP_KEEP;
+	v深度模板参数.BackFace.StencilPassOp = D3D11_STENCIL_OP_REPLACE;
+	v深度模板参数.BackFace.StencilFunc = D3D11_COMPARISON_GREATER;
 	a三维.fg设备()->CreateDepthStencilState(&v深度模板参数, &m深度模板);
 }
 C静态立绘管线::~C静态立绘管线() {
-}
-C静态立绘管线 &C静态立绘管线::fg这() {
-	if (g这 == nullptr) {
-		g这 = std::make_unique<C静态立绘管线>(C程序::fg图形(), C程序::fg图形().fg三维());
-	}
-	return *g这;
 }
 void C静态立绘管线::f准备() {
 	m渲染控制->fs顶点着色器(m顶点着色器.Get());
@@ -57,11 +54,10 @@ void C静态对话立绘::C图形缓冲::f画组件(const S静态立绘组件 &a
 	const S顶点矩形 &v矩形 = *a组件.m矩形;
 	auto f赋顶点 = [&](VS_IMAGE &a顶点, int x, int y) {
 		//坐标
-		数学::S向量4 v{0, 0, 0, 1};
-		v.x += v矩形.m坐标[x];
-		v.y += v矩形.m坐标[y];
-		a顶点.m坐标.x = v.x + m坐标.x;
-		a顶点.m坐标.y = v.y + m坐标.y;
+		const float v坐标x = v矩形.m坐标[x] * m缩放x;
+		const float v坐标y = v矩形.m坐标[y];
+		a顶点.m坐标.x = v坐标x + m坐标.x;
+		a顶点.m坐标.y = v坐标y + m坐标.y;
 		//纹理
 		a顶点.m纹理.x = v矩形.m纹理[x];
 		a顶点.m纹理.y = v矩形.m纹理[y];
@@ -90,21 +86,28 @@ C静态对话立绘::C静态对话立绘(const S静态立绘属性 &a属性):
 	m属性(&a属性) {
 }
 void C静态对话立绘::f接口_初始化(const S图形参数 &a参数) {
+	I对话立绘::f接口_初始化(a参数);
 	C图形缓冲 *const v缓冲 = (C图形缓冲 *)m图形缓冲;
-	v缓冲->m图形管线 = &C静态立绘管线::fg这();
+	v缓冲->m图形管线 = C游戏::fg图形().fg图形管线<C静态立绘管线>(E图形管线::e静态立绘);
+	f接口_改变表情(E立绘表情::e无);
 }
 void C静态对话立绘::f接口_更新() {
 	const float v渲染秒 = C游戏::fg图形().fg渲染秒();
+	const float v速度 = v渲染秒 * c动画速度;
 	C图形缓冲 *const v缓冲 = (C图形缓冲 *)m图形缓冲;
-	const S静态立绘属性::S表情映射 &v表情映射 = m属性->ma表情映射.at(m表情);
-	const size_t v数量 = std::size(v表情映射.ma组件);
+	const size_t v数量 = std::size(m表情映射->ma组件);
 	for (size_t i = 0; i != v数量; ++i) {
-		v缓冲->ma组件[i] = v表情映射.ma组件[i].m指针;
+		v缓冲->ma组件[i] = m表情映射->ma组件[i].m指针;
 	}
-	v缓冲->m透明度 = 数学::f线性渐变<float>(v缓冲->m透明度, 0.5f, v渲染秒);
+	v缓冲->m坐标 = fg显示坐标();
+	v缓冲->m缩放x = fg显示方向();
+	v缓冲->m透明度 = 数学::f线性渐变<float>(v缓冲->m透明度, fg显示透明度(), v速度);
 }
 void C静态对话立绘::f接口_改变表情(E立绘表情 a表情) {
-	m表情 = a表情;
+	m表情映射 = &m属性->ma表情映射.at(a表情);
+}
+float C静态对话立绘::fg显示方向() const {
+	return m方向 == m属性->m方向 ? 1 : -1;
 }
 //==============================================================================
 // 静态立绘图形建造机

@@ -26,7 +26,7 @@ public:
 class C内部载入 {
 public:
 	static void f道具();
-	static void f画子弹();
+	static void f图形管线();
 	static void f子机();
 	static void f玩家子弹();
 	static void f玩家子弹发射();

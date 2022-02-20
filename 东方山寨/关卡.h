@@ -49,12 +49,15 @@ public:
 	void f计算();
 	void f添加事件(std::shared_ptr<C关卡事件状态>);
 	void f设置场景(std::shared_ptr<I场景>);
+	void f事件_开始对话();	//由对话控制调用
+	void f事件_结束对话();	//由对话控制调用
 	void f动作_开始对话(tp对话脚本);	//开始对话,同时暂停经过时间
 	std::shared_ptr<C关卡事件状态> fg事件(int);
 	void f动作_增加难度();
 	void f动作_增加难度(const boost::rational<int> &);
 	void f动作_结束关卡(float 等待时间 = 0);	//当前关卡已经结束,从关卡列表中获取下一关卡并切换,如果没有则回到游戏标题画面
 	float fg经过时间() const;
+	bool fi对话() const;
 private:
 	void f合并事件();
 public:
