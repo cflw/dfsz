@@ -81,6 +81,7 @@ class C王战事件 : public C关卡事件 {
 public:
 	virtual void f事件_王被击破(C敌机 &) {}
 	virtual void f事件_时间到() {}
+	virtual void f事件_王战阶段结束() {}
 public:
 	C王战控制 *m王战 = nullptr;
 	C关卡控制 *m关卡 = nullptr;

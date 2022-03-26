@@ -1,6 +1,12 @@
 ﻿module;
 #include "脚本.h"
 export module 东方山寨.测试关卡;
+using namespace 东方山寨;
+enum E测试关卡 {
+	e测试关卡 = (int)E关卡::e测试,
+	e测试关卡1,
+	e测试子弹类
+};
 class C场景 : public I场景 {
 public:
 	void f接口_初始化() override {
@@ -41,7 +47,10 @@ public:
 class C测试关卡 : public C关卡 {
 public:
 	C测试关卡() {
-		f注册关卡(L"测试关卡");
+		f注册关卡(e测试关卡);
+		//符卡练习
+		static auto v符卡练习 = f符卡练习关卡<C王入场, C王战0_1>();
+		C关卡管理::f注册((int)E关卡::e符卡, v符卡练习.get());
 	}
 	class C弹幕 : public C关卡事件 {
 	public:
@@ -261,7 +270,7 @@ public:
 		};
 		void f事件_执行() override {
 			auto v敌机工厂 = C游戏::fg内容().f工厂_敌机();
-			v敌机工厂.m参数.fs坐标({0, c框架范围y});
+			v敌机工厂.m参数.fs入场({0, c框架范围y});
 			v敌机工厂.m参数.m目标 = t向量2::c零;
 			v敌机工厂.m参数.m移动时间 = 5;
 			v敌机工厂.m参数.m样式 = (int)E敌机::e敌机00蓝;
@@ -389,7 +398,7 @@ public:
 			图形模板::f敌机死亡小爆炸(*v王);
 			v王->f动作_死亡();
 			m王战->f王战_结束();
-			m背景->f动作_结束();
+			m背景->f动作_消失();
 		}
 		std::shared_ptr<C背景> m背景;
 		C计时器 m计时{0.1f};
@@ -399,7 +408,7 @@ public:
 		void f事件_初始化() override {
 			//敌机
 			auto v敌机工厂 = C游戏::fg内容().f工厂_敌机();
-			v敌机工厂.m参数.fs坐标({0, c框架范围y});
+			v敌机工厂.m参数.fs入场({0, c框架范围y});
 			v敌机工厂.m参数.m目标 = t向量2::c零;
 			v敌机工厂.m参数.m移动时间 = 5;
 			v敌机工厂.m参数.m样式 = (int)E敌机::e敌机00蓝;
@@ -413,10 +422,19 @@ public:
 			f动作_结束();
 		}
 	};
+	class C王入场 : public C关卡事件 {
+	public:
+		void f事件_初始化() override {
+			f入场();
+		}
+		static void f入场() {
+			f王入场(E敌机::e敌机00蓝, {0, c框架范围y}, t向量2::c零);
+		}
+	};
 	class C切换关卡 : public C关卡事件 {
 	public:
 		void f事件_执行() override {
-			//m关卡->f切换关卡(C关卡管理::fg关卡(L"测试关卡1"), 1);
+			//m关卡->f切换关卡(C关卡管理::fg关卡(e测试关卡1), 1);
 			f动作_结束();
 			m关卡->f动作_结束关卡(1);
 		}
@@ -457,7 +475,7 @@ public:
 class C测试关卡1 : public C关卡 {
 public:
 	C测试关卡1() {
-		f注册关卡(L"测试关卡1");
+		f注册关卡(e测试关卡1);
 	}
 	void f事件_初始化() override {
 		C关卡脚本 v脚本 = m关卡->fc脚本();
@@ -467,7 +485,7 @@ public:
 class C测试子弹类 : public C关卡 {
 public:
 	C测试子弹类() {
-		f注册关卡(L"测试子弹类");
+		f注册关卡(e测试子弹类);
 	}
 	class C测试普通子弹 : public C关卡事件 {
 	public:

@@ -14,6 +14,7 @@
 #include "图形引擎.h"
 #include "输入.h"
 #include "音频引擎.h"
+import 东方山寨.界面_选择符卡;
 namespace 东方山寨 {
 //==============================================================================
 // 引擎
@@ -42,10 +43,12 @@ public:
 		ma窗口.emplace(E窗口::e主菜单, std::make_unique<W主菜单>());
 		ma窗口.emplace(E窗口::e游戏暂停, std::make_unique<W游戏菜单>(W游戏菜单::E上下文::e游戏暂停));
 		ma窗口.emplace(E窗口::e游戏结束, std::make_unique<W游戏菜单>(W游戏菜单::E上下文::e游戏结束));
+		ma窗口.emplace(E窗口::e游戏通关, std::make_unique<W游戏菜单>(W游戏菜单::E上下文::e游戏通关));
 		ma窗口.emplace(E窗口::e选择模式, std::make_unique<W选择模式>());
 		ma窗口.emplace(E窗口::e选择难度, std::make_unique<W选择难度>());
 		ma窗口.emplace(E窗口::e选择飞机, std::make_unique<W选择自机>());
 		ma窗口.emplace(E窗口::e选择关卡, std::make_unique<W选择关卡>());
+		ma窗口.emplace(E窗口::e选择弹幕, std::make_unique<W选择符卡>());
 		ma窗口.emplace(E窗口::e选项, std::make_unique<W选项>());
 	}
 	void f更新输入() {
@@ -114,5 +117,4 @@ void C界面引擎::f关闭窗口() {
 		v活动窗口->f动作_关闭();
 	}
 }
-
 }	//namespace 东方山寨

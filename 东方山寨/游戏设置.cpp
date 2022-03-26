@@ -15,6 +15,12 @@ void C游戏设置::fs基础难度(int a) {
 void C游戏设置::fs增加难度(int a分子, int a分母) {
 	m增加难度 = a分子 * 100'0000 / a分母;
 }
+void C游戏设置::fs关卡编号(int a) {
+	m关卡编号 = a;
+}
+void C游戏设置::fs符卡编号(int a) {
+	m符卡编号 = a;
+}
 void C游戏设置::fs进入关卡(C关卡 &a关卡) {
 	m关卡 = &a关卡;
 	ma关卡 = &m关卡;

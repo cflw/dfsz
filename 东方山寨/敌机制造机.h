@@ -18,11 +18,13 @@ public:
 		t向量2 m速度;
 		t向量2 m目标;
 		int m生命值 = 100;
-		float m移动时间;
+		float m移动时间 = 1;
 		t属性指针<S敌机属性> m样式;
-		void fs坐标(const t向量2 &);
-		void fs速度(const t向量2 &, float = -1);
-		void fs目标(const t向量2 &, float);
+		void fs坐标(const t向量2 &坐标);	//敌机产生时的坐标
+		void fs入场(const t向量2 &坐标);	//设置一个坐标,计算从边框外进入边框内所需的坐标和目标
+		void fs移动速度(const t向量2 &速度, float 时间 = -1);
+		void fs移动到_时间(const t向量2 &目标, float 时间 = 1);
+		void fs移动到_速度(const t向量2 &目标, float 速度);
 	};
 	class C实现 {
 	public:

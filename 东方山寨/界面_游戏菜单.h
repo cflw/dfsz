@@ -13,12 +13,13 @@ public:
 	enum E上下文 {
 		e游戏暂停,
 		e游戏结束,
+		e游戏通关,
 	};
 	W游戏菜单(E上下文);
 	void f事件_按键(用户界面::W窗口 &, const 用户界面::S按键参数 &) override;
 	void f响应_初始化() override;
 	std::vector<std::unique_ptr<用户界面::W按钮>> ma按钮;
 	用户界面::W标签 w游戏标题;
+	E上下文 m上下文;
 };
-
 }	//namespace 东方山寨

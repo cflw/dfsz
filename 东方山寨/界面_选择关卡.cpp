@@ -1,18 +1,19 @@
 ﻿#include <用户界面_布局.h>
 #include "界面_选择关卡.h"
 #include "界面包含.h"
-#include "关卡列表.h"
 #include "程序.h"
+#include "关卡.h"
+import 东方山寨.关卡标识;
 namespace 东方山寨 {
 W选择关卡::W选择关卡() {
-	const std::tuple<E关卡, std::wstring> va按钮[] = {
-		{E关卡::e测试, L"测试"},
-		{E关卡::e一, L"关卡1"},
-		{E关卡::e二, L"关卡2"},
-		{E关卡::e三, L"关卡3"},
-		{E关卡::e四, L"关卡4"},
-		{E关卡::e五, L"关卡5"},
-		//{E关卡::e六, L"关卡6"},
+	const std::tuple<int, std::wstring> va按钮[] = {
+		{(int)E关卡::e测试, L"测试"},
+		{(int)E关卡::e正式+1, L"关卡1"},
+		{(int)E关卡::e正式+2, L"关卡2"},
+		{(int)E关卡::e正式+3, L"关卡3"},
+		{(int)E关卡::e正式+4, L"关卡4"},
+		{(int)E关卡::e正式+5, L"关卡5"},
+		//{(int)E关卡::e正式+6, L"关卡6"},
 	};
 	constexpr float c上 = 50;
 	用户界面::C单向移动布局 m布局;
@@ -32,10 +33,11 @@ void W选择关卡::f事件_按键(用户界面::W窗口 &a窗口, const 用户�
 	switch (a按键.m按键) {
 	case 用户界面::E按键::e确定:
 		//设置
-		v游戏设置.fs进入关卡(C关卡列表::fg关卡((E关卡)a窗口.m值));
+		v游戏设置.fs关卡编号(a窗口.m值);
 		//下一界面
 		switch (v游戏设置.m游戏模式) {
 		case E游戏模式::e关卡练习:
+			v游戏设置.fs进入关卡(C关卡管理::fg关卡(a窗口.m值));
 			C程序::f切换游戏状态(E游戏状态::e游戏中);
 			break;
 		case E游戏模式::e弹幕练习:

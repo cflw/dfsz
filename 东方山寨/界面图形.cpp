@@ -26,13 +26,19 @@ public:
 	bool fi已消失() const {
 		return m消失 && (m透明度 <= 0);
 	}
-	void f消失() {
+	void f消失(bool a立即 = false) {
 		m消失 = true;
+		if (a立即) {
+			m透明度 = 0;
+		}
 	}
-	void f不消失() {
+	void f出现(bool a立即 = false) {
 		m消失 = false;
+		if (a立即) {
+			m透明度 = 1;
+		}
 	}
-	float m透明度 = 0;
+	float m透明度 = 0;	//0消失,1出现
 	bool m消失 = false;
 };
 //类
@@ -102,25 +108,25 @@ void C界面图形控制::f计算() {
 	m云透明度 = 数学::f夹取<float>(v云透明度, 0, 1);
 }
 void C界面图形控制::f关闭图形() {
-	f背景(false);	//缺乏过渡，以后修改
-	f标题人物(false);
-	f云(false);
+	f背景(false, false);
+	f标题人物(false, false);
+	f云(false, false);
 }
-void C界面图形控制::f背景(bool a) {
-	if (a) {
+void C界面图形控制::f背景(bool a开关, bool a动画) {
+	if (a开关) {
 		if (m背景 == nullptr) {
 			const S纹理 *const v纹理 = C游戏::fg图形().fg纹理()[L"东方月亮船.背景"];
 			m背景 = 图形模板::f全屏静态背景(*v纹理);
 		}
 	} else {
 		if (m背景) {
-			m背景->f动作_结束();
+			m背景->f动作_消失(a动画);
 			m背景 = nullptr;
 		}
 	}
 }
-void C界面图形控制::f标题人物(bool a) {
-	if (a) {
+void C界面图形控制::f标题人物(bool a开关, bool a动画) {
+	if (a开关) {
 		if (!界面图形::fi使用(m标题人物)) {
 			auto v图形工厂 = C游戏::fg资源().f工厂_图形();
 			v图形工厂.m参数.m纹理 = C游戏::fg图形().fg纹理()[L"东方月亮船.灵梦"];
@@ -129,14 +135,14 @@ void C界面图形控制::f标题人物(bool a) {
 			v图形工厂.m参数.m图层 = E图层::e人;
 			m标题人物 = v图形工厂.f产生图形<界面图形::C标题人物>();
 		} else {
-			m标题人物->f不消失();
+			m标题人物->f出现(!a动画);
 		}
 	} else if (界面图形::fi使用(m标题人物)) {
-		m标题人物->f消失();
+		m标题人物->f消失(!a动画);
 	}
 }
-void C界面图形控制::f云(bool a) {
-	if (a) {
+void C界面图形控制::f云(bool a开关, bool a动画) {
+	if (a开关) {
 		auto v图形工厂 = C游戏::fg资源().f工厂_图形();
 		auto v随机工厂 = C游戏::fg资源().f工厂_随机数引擎();
 		const std::uniform_real_distribution<float> c坐标分布x{界面图形::C云::c左边,  界面图形::C云::c右边};
@@ -156,13 +162,13 @@ void C界面图形控制::f云(bool a) {
 				vp云 = v图形工厂.f产生图形<界面图形::C云>();
 				i = (i + 1) % 8;
 			} else {
-				vp云->f不消失();
+				vp云->f出现(!a动画);
 			}
 		}
 	} else {
 		for (auto &vp云 : ma云) {
 			if (fi使用(vp云)) {
-				vp云->f消失();
+				vp云->f消失(!a动画);
 			}
 		}
 	}

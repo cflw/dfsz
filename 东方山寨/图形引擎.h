@@ -91,6 +91,7 @@ public:
 	void f画边框();
 	void f画十字(const t向量2 &, const float &半径 = 16);
 	void f画调试信息(const std::wstring &);
+	void f画黑屏(float 透明度);
 	//画对象
 	std::shared_ptr<二维::C画图形> fc画图形();
 	二维::C画图形 &fg画图形();

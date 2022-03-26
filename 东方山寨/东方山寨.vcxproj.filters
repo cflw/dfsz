@@ -371,9 +371,6 @@
     <ClCompile Include="界面_主菜单.cpp">
       <Filter>界面</Filter>
     </ClCompile>
-    <ClCompile Include="关卡列表.cpp">
-      <Filter>关卡</Filter>
-    </ClCompile>
     <ClCompile Include="图形资源.cpp">
       <Filter>图形引擎\图形基础</Filter>
     </ClCompile>
@@ -427,6 +424,18 @@
     </ClCompile>
     <ClCompile Include="图形_符卡立绘模板.ixx">
       <Filter>游戏本体\抬显</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_选择符卡.ixx">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="关卡练习.ixx">
+      <Filter>游戏本体\关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="关卡标识.ixx">
+      <Filter>游戏本体\关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="脚本.cpp">
+      <Filter>脚本</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -765,9 +774,6 @@
     </ClInclude>
     <ClInclude Include="界面_主菜单.h">
       <Filter>界面</Filter>
-    </ClInclude>
-    <ClInclude Include="关卡列表.h">
-      <Filter>关卡</Filter>
     </ClInclude>
     <ClInclude Include="图形资源.h">
       <Filter>图形引擎\图形基础</Filter>

@@ -11,8 +11,8 @@ enum class E游戏状态 {
 	e载入中,
 	e主菜单,
 	e游戏中,
-	e游戏菜单,
-	e结束游戏,
+	e游戏菜单,	//游戏中弹出菜单
+	e通关,	//进入结局和通关画面
 	e退出程序,
 };
 enum class E游戏标志 {
@@ -20,6 +20,7 @@ enum class E游戏标志 {
 	e载入1,
 	e编译,
 };
+enum class E窗口;	//位于 界面引擎.h
 class C游戏;
 class C输入引擎;
 class C图形引擎;
@@ -40,6 +41,7 @@ public:
 	static void f输入法开关(bool);
 	static int fg渲染间隔();
 	static void f切换游戏状态(E游戏状态);
+	static void f游戏中弹出菜单(E窗口);	//在游戏过程中暂停游戏并弹出菜单
 	static void fs游戏标志(int 标志, bool 值 = true);
 	static void f日志(int 级别, const std::wstring &);
 	static void fs全屏(bool);

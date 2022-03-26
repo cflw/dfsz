@@ -4,15 +4,12 @@
 #include "基础.h"
 #include "对话基础.h"
 namespace 东方山寨 {
-enum class E关卡;	//定义在"关卡列表.h"
 class C关卡事件;
 class C关卡脚本;
 class C场景控制;
 class I场景;
-typedef void(*tf关卡)(C关卡脚本 &);
 class C关卡;
-class C敌机;
-using ta关卡 = std::map<std::wstring, C关卡 *>;
+using ta关卡 = std::map<int, C关卡 *>;
 //==============================================================================
 // 关卡控制
 //==============================================================================
@@ -36,10 +33,14 @@ public:
 class C关卡控制 {
 public:
 	enum E标志 {
+		e使用,	//关卡进行中,如果事件都执行完毕则置0
 		e王战,
 		e对话,
 	};
 	typedef std::vector<std::shared_ptr<C关卡事件状态>> ta事件;
+	void f对象_使用();
+	void f对象_销毁();
+	bool f对象_i使用() const;
 	void f初始化_环境(C场景控制 &, C对话控制 &);
 	void f初始化_在游戏开始(C关卡 *const *, size_t);
 	void f初始化关卡(C关卡 &);	//初始化控制状态,如果有关卡要先结束关卡
@@ -96,19 +97,22 @@ private:
 //==============================================================================
 class C关卡 : public I事件 {
 public:
-	void f注册关卡(const std::wstring &);
+	void f注册关卡(int);
 	C关卡控制 *m关卡 = nullptr;
 };
 class C关卡管理 {
 public:
 	static ta关卡 &fg关卡组();
-	static C关卡 &fg关卡(const std::wstring &);
+	static C关卡 &fg关卡(int);	//传入标识,返回关卡
+	static std::vector<C关卡*> fg关卡列表(const std::vector<int> &);	//传入标识,返回关卡
+	static void f注册(int, C关卡 *);
 };
 //关卡事件
 class C关卡事件 : public I事件 {
 public:
-	void f动作_暂停(float);
-	void f动作_结束();
+	void f事件_执行() override;	//什么都不做,直接结束
+	void f动作_暂停(float);	//暂停执行任何事件
+	void f动作_结束();	//标记为结束,不会立即调用 f事件_结束
 	float fg暂停时间() const;
 public:
 	C关卡事件状态 *m状态 = nullptr;

@@ -24,6 +24,7 @@
 #include "界面音频.h"
 #include "图形_背景.h"
 import 东方山寨.基础_计时器;
+import 东方山寨.关卡标识;
 namespace 东方山寨 {
 namespace 时间 = cflw::时间;
 namespace 视窗 = cflw::视窗;
@@ -75,10 +76,13 @@ public:
 //==============================================================================
 class C程序::C实现 {
 public:
+	static constexpr float c切换渐变速度 = c帧秒<float> * 2;
 	HINSTANCE m实例 = nullptr;
 	HWND m窗口 = nullptr;
 	int m窗口大小[2] = {};
 	float m缩放 = 0;
+	float m切换渐变 = 0;
+	float m黑屏渐变 = 0;
 	时间::C计时器 m计时器;
 	工具::C计次器 m计次器;
 	C图形引擎 m图形;
@@ -127,8 +131,8 @@ public:
 						f更新();
 						mi显示就绪 = true;
 					}
+					f切换计算();
 				}
-				f切换计算();
 			}
 		}	//消息循环结束
 	}
@@ -229,7 +233,7 @@ public:
 			f初始化1();
 			f初始化2();
 			//↓快速开始游戏，如果要进入标题画面则把下面注释掉
-			f快速开始游戏();
+			//f快速开始游戏();
 		} else if (m状态 == E游戏状态::e主菜单) {
 			//const bool v确定 = m输入.m按键组.f按键((输入::t索引)E按键::e确定).f刚按下();
 			//if (v确定) {
@@ -246,7 +250,7 @@ public:
 		m界面图形.f计算();
 		if (m状态 == E游戏状态::e游戏中) {
 			if (m输入.fg按键组().fg按键((输入::t索引)E按键::e菜单).fi刚按下()) {
-				f切换游戏状态(E游戏状态::e游戏菜单);
+				f游戏中弹出菜单(E窗口::e游戏暂停);
 			} else {
 				m游戏.f计算();
 			}
@@ -278,10 +282,11 @@ public:
 			m图形.fs图形管线(nullptr);
 		}
 		m界面.f显示();
+		m图形.f画黑屏(m黑屏渐变);
 		m画帧速率->f显示();
 		m日志->f显示();
 		const auto &v鼠标坐标 = m输入.m鼠标->fg坐标();
-		m图形.f画十字({v鼠标坐标.x, v鼠标坐标.y});
+		m图形.f画十字({v鼠标坐标.x, v鼠标坐标.y});	//调试用
 		m图形.f渲染结束();
 	}
 	void f线程_显示() {
@@ -293,36 +298,53 @@ public:
 			std::this_thread::sleep_for(std::chrono::seconds(0));
 		}
 	}
-	void f切换计算() {
+	void f切换计算() {	//每帧都会调用
 		if (m新状态 != E游戏状态::e无) {
+			m切换渐变 += c切换渐变速度;
+			m黑屏渐变 += c切换渐变速度;
 			const bool vi原游戏中 = f状态_i游戏中();
-			switch (m新状态) {
-			case E游戏状态::e主菜单:
-				m界面.f切换下个窗口(E窗口::e主菜单);
-				break;
-			case E游戏状态::e游戏中:
-				//m任务_资源.wait();
-				m游戏.f开始();
-				m界面.f关闭窗口();
-				m界面图形.f关闭图形();
-				break;
-			case E游戏状态::e游戏菜单:
-				m界面.f切换下个窗口(E窗口::e游戏暂停);
-				break;
-			case E游戏状态::e结束游戏:
-				m新状态 = E游戏状态::e主菜单;	//现在结束游戏没有其它处理,只是单纯地回到主菜单
-				m界面.f切换下个窗口(E窗口::e主菜单);
-				break;
-			case E游戏状态::e退出程序:
-				SendMessageW(m窗口, WM_CLOSE, 0, 0);
-				break;
+			bool vi已切换 = false;
+			if (m切换渐变 >= 1) {	//有些状态要等待渐变
+				switch (m新状态) {
+				case E游戏状态::e主菜单:
+					m界面.f切换下个窗口(E窗口::e主菜单);
+					vi已切换 = true;
+					break;
+				case E游戏状态::e游戏中:
+					//m任务_资源.wait();
+					m游戏.f开始();
+					m界面.f关闭窗口();
+					m界面图形.f关闭图形();
+					vi已切换 = true;
+					break;
+				case E游戏状态::e通关:
+					m新状态 = E游戏状态::e主菜单;	//现在结束游戏没有其它处理,只是单纯地回到主菜单
+					m界面.f切换下个窗口(E窗口::e主菜单);
+					vi已切换 = true;
+					break;
+				case E游戏状态::e退出程序:
+					SendMessageW(m窗口, WM_CLOSE, 0, 0);
+					vi已切换 = true;
+					break;
+				}
+			} else {	//有些状态无渐变
+				switch (m新状态) {
+				case E游戏状态::e游戏菜单:
+					vi已切换 = true;
+					break;
+				}
 			}
-			m状态 = m新状态;
-			m新状态 = E游戏状态::e无;
-			const bool vi新游戏中 = f状态_i游戏中();
-			if (vi原游戏中 && !vi新游戏中) {
-				m游戏.f结束();
+			if (vi已切换) {
+				m状态 = m新状态;
+				m新状态 = E游戏状态::e无;
+				m切换渐变 = 0;
+				const bool vi新游戏中 = f状态_i游戏中();
+				if (vi原游戏中 && !vi新游戏中) {
+					m游戏.f结束();
+				}
 			}
+		} else {	//不在切换中
+			m黑屏渐变 = 数学::f线性渐变<float>(m黑屏渐变, 0, c切换渐变速度);
 		}
 	}
 	void f快速开始游戏() {	//调试用,载入完毕后马上进入游戏
@@ -331,11 +353,12 @@ public:
 		v设置.m子机标识 = (int)E子机::e灵梦诱导;
 		v设置.m火力 = 0;
 		v设置.m基础难度 = 5;
-		static C关卡 *va关卡[] = {
-			&C关卡管理::fg关卡(L"测试关卡"),
-			&C关卡管理::fg关卡(L"测试子弹类"),
-		};
-		v设置.fs进入关卡(va关卡, _countof(va关卡));
+		//static C关卡 *va关卡[] = {
+		//	&C关卡管理::fg关卡((int)E关卡::e测试),
+		//	&C关卡管理::fg关卡((int)E关卡::e测试+2),
+		//};
+		//v设置.fs进入关卡(va关卡, _countof(va关卡));
+		v设置.fs进入关卡(C关卡管理::fg关卡((int)E关卡::e符卡));
 		f切换游戏状态(E游戏状态::e游戏中);
 	}
 	void fs渲染间隔(int a) {
@@ -347,6 +370,10 @@ public:
 	}
 	void f切换游戏状态(E游戏状态 a) {
 		m新状态 = a;
+	}
+	void f游戏中弹出菜单(E窗口 a窗口) {
+		f切换游戏状态(E游戏状态::e游戏菜单);
+		m界面.f切换下个窗口(a窗口);
 	}
 	bool f状态_i游戏中() const {
 		return m状态 == E游戏状态::e游戏中 || m状态 == E游戏状态::e游戏菜单;
@@ -435,6 +462,9 @@ int C程序::fg渲染间隔() {
 }
 void C程序::f切换游戏状态(E游戏状态 a状态) {
 	m实现->f切换游戏状态(a状态);
+}
+void C程序::f游戏中弹出菜单(E窗口 a窗口) {
+	m实现->f游戏中弹出菜单(a窗口);
 }
 void C程序::fs游戏标志(int a标志, bool a值) {
 	m实现->m标志[a标志] = a值;

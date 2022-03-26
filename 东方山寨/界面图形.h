@@ -26,9 +26,9 @@ public:
 	~C界面图形控制();
 	void f计算();
 	void f关闭图形();	//进入游戏后需要关闭
-	void f背景(bool);
-	void f标题人物(bool);
-	void f云(bool);
+	void f背景(bool 开关, bool 动画 = true);
+	void f标题人物(bool 开关, bool 动画 = true);
+	void f云(bool 开关, bool 动画 = true);
 	t标志 m标志;
 	std::shared_ptr<界面图形::C标题人物> m标题人物;
 	std::shared_ptr<界面图形::C云> ma云[c云数];

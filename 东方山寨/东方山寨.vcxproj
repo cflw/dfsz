@@ -251,8 +251,8 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="关卡.cpp" />
-    <ClCompile Include="关卡列表.cpp" />
     <ClCompile Include="关卡效果.cpp" />
+    <ClCompile Include="关卡标识.ixx" />
     <ClCompile Include="判定处理_子弹与玩家炸弹.cpp" />
     <ClCompile Include="判定处理_敌机与玩家子弹.cpp" />
     <ClCompile Include="判定处理_自机与子弹.cpp" />
@@ -260,7 +260,6 @@
     <ClCompile Include="图形_三维.cpp" />
     <ClCompile Include="图形_图片.cpp" />
     <ClCompile Include="动画.cpp" />
-    <ClInclude Include="关卡列表.h" />
     <ClInclude Include="图形_子弹_工具.h" />
     <ClCompile Include="图形_子弹_线条.cpp" />
     <ClCompile Include="图形_对话.cpp" />
@@ -339,6 +338,7 @@
     <ClCompile Include="界面_主菜单.cpp" />
     <ClCompile Include="界面_选择关卡.cpp" />
     <ClCompile Include="界面_选择模式.cpp" />
+    <ClCompile Include="界面_选择符卡.ixx" />
     <ClCompile Include="界面_选择自机.cpp" />
     <ClCompile Include="界面_选择难度.cpp" />
     <ClCompile Include="界面_选项.cpp" />
@@ -347,6 +347,13 @@
     <ClCompile Include="界面音频.cpp" />
     <ClCompile Include="程序.cpp" />
     <ClCompile Include="程序设置.cpp" />
+    <ClCompile Include="关卡练习.ixx">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="脚本.cpp" />
     <ClCompile Include="自机.cpp" />
     <ClCompile Include="自机图形.cpp" />
     <ClCompile Include="轨迹.cpp" />

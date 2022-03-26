@@ -29,7 +29,7 @@ public:
 	void f接口_初始化(const S图形参数 &) override;
 	void f接口_更新() override;
 	bool f接口_i可销毁() const override;
-	void f动作_结束();
+	void f动作_消失(bool 动画 = 1);
 private:
 	const C背景管理 *m背景管理 = nullptr;
 	float m最大透明度 = 1;

@@ -30,8 +30,11 @@ void C背景::f接口_更新() {
 bool C背景::f接口_i可销毁() const {
 	return m消失 >= 1;
 }
-void C背景::f动作_结束() {
+void C背景::f动作_消失(bool a动画) {
 	m标志[e消失] = true;
+	if (!a动画) {
+		m消失 = 1;
+	}
 }
 void C背景::C图形缓冲::f显示() const {
 	auto &v画图片 = C游戏::fg图形().fg画图片();

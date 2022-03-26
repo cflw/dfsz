@@ -3,7 +3,8 @@
 #include "界面包含.h"
 #include "程序.h"
 namespace 东方山寨 {
-W游戏菜单::W游戏菜单(E上下文 a上下文) {
+W游戏菜单::W游戏菜单(E上下文 a上下文):
+	m上下文(a上下文) {
 	const auto &va界面文本 = C游戏::fg资源().fg界面文本();
 	using t按钮元组 = std::tuple<int, std::wstring>;
 	const t按钮元组 va按钮[] = {
@@ -21,7 +22,12 @@ W游戏菜单::W游戏菜单(E上下文 a上下文) {
 		e选项,
 	};
 	const int va游戏结束按钮[] = {
-		e回到游戏,
+		e回到主菜单,
+		e保存录像,
+		e重新开始游戏,
+		e选项,
+	};
+	const int va游戏通关按钮[] = {
 		e回到主菜单,
 		e保存录像,
 		e重新开始游戏,
@@ -30,10 +36,12 @@ W游戏菜单::W游戏菜单(E上下文 a上下文) {
 	const std::span<const int> va目标按钮序号[] = {
 		std::span(va游戏中按钮),
 		std::span(va游戏结束按钮),
+		std::span(va游戏通关按钮),
 	};
 	const std::wstring va菜单标题[] = {
 		va界面文本[L"menu.gamepause"],
 		va界面文本[L"menu.gameover"],
+		va界面文本[L"menu.gameclear"],
 	};
 	用户界面::C单向移动布局 v布局;
 	constexpr float c左对齐 = -120;
@@ -52,7 +60,8 @@ W游戏菜单::W游戏菜单(E上下文 a上下文) {
 	w游戏标题.f属性_s布局({t向量2(c左对齐, 100), t向量2(100, 20)});
 }
 void W游戏菜单::f事件_按键(用户界面::W窗口 &a窗口, const 用户界面::S按键参数 &a参数) {
-	if (a参数.m按键 == 用户界面::E按键::e确定) {
+	switch (a参数.m按键) {
+	case 用户界面::E按键::e确定:
 		switch (a窗口.m标识) {
 		case E标识::e回到游戏:
 			C程序::f切换游戏状态(E游戏状态::e游戏中);
@@ -64,6 +73,17 @@ void W游戏菜单::f事件_按键(用户界面::W窗口 &a窗口, const 用户�
 			C界面引擎::g这->f切换下个窗口(E窗口::e选项);
 			break;
 		}
+		break;
+	case 用户界面::E按键::e取消:
+		if (m上下文 != E上下文::e游戏暂停) {
+			break;
+		}
+		if (a窗口.m标识 == E标识::e回到游戏) {
+			C程序::f切换游戏状态(E游戏状态::e游戏中);
+		} else {
+			ma按钮[0]->f动作_获得焦点();
+		}
+		break;
 	}
 }
 void W游戏菜单::f响应_初始化() {

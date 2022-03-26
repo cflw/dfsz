@@ -2,7 +2,6 @@
 #include "标识.h"
 namespace 东方山寨 {
 class C关卡;
-enum class E关卡;
 enum class E游戏模式 {
 	e传统模式,
 	e完美模式,
@@ -16,6 +15,8 @@ public:
 	void fs炸弹(int);
 	void fs基础难度(int 一);
 	void fs增加难度(int 分子, int 分母 = 1);
+	void fs关卡编号(int);
+	void fs符卡编号(int);
 	void fs进入关卡(C关卡 &);
 	void fs进入关卡(C关卡 *const *, size_t 数量);
 	void fs游戏模式(E游戏模式);
@@ -29,6 +30,8 @@ public:
 	int m最大点 = 10'0000;
 	int m基础难度 = 1;
 	int m增加难度 = 0;
+	int m关卡编号 = 0;
+	int m符卡编号 = 0;
 	C关卡 *m关卡 = nullptr;
 	C关卡 *const *ma关卡 = nullptr;
 	size_t m关卡数量 = 1;

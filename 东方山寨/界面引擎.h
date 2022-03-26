@@ -15,6 +15,7 @@ enum class E窗口 {
 	e选项,
 	e游戏暂停,
 	e游戏结束,
+	e游戏通关,
 };
 class C界面引擎 {
 public:
