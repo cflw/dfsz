@@ -1,7 +1,7 @@
 ﻿#include "图形_三维.h"
 #include "游戏.h"
-#include "程序.h"
 #include "图形引擎.h"
+import 东方山寨.文件系统;
 namespace 东方山寨 {
 //==============================================================================
 // 场景循环
@@ -37,8 +37,8 @@ C画三维管线::C画三维管线(C图形引擎 &a引擎, 三维::C三维 &a三
 	v图形管线.fs输入布局(v顶点格式);
 	着色器::tp着色器 vs, ps;
 	auto v着色器工厂 = a引擎.fg着色器工厂();
-	v着色器工厂.f读取着色器(vs, C程序::f计算路径(L"~/shader/vs_stage0.cso").c_str());
-	v着色器工厂.f读取着色器(ps, C程序::f计算路径(L"~/shader/ps_stage0.cso").c_str());
+	v着色器工厂.f读取着色器(vs, 文件系统::f计算路径(L"~/shader/vs_stage0.cso").c_str());
+	v着色器工厂.f读取着色器(ps, 文件系统::f计算路径(L"~/shader/ps_stage0.cso").c_str());
 	v图形管线.fs顶点着色器(着色器::fc跨度(vs));
 	v图形管线.fs像素着色器(着色器::fc跨度(ps));
 	三维::C渲染状态 &v渲染状态 = a三维.fg渲染状态();

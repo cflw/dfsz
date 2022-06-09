@@ -9,6 +9,8 @@
 #include "程序设置.h"
 #include "取文本.h"
 #include "基础_缓冲数组.h"
+import 东方山寨.游戏输入;
+import 东方山寨.设置管理;
 //关卡
 #include "关卡.h"
 #include "王战.h"
@@ -50,8 +52,8 @@ import 东方山寨.抬显;
 #include "玩家.h"
 #include "标识.h"
 #include "难度.h"
-namespace 东方山寨 {
 namespace 时间 = cflw::时间;
+namespace 东方山寨 {
 using t任务 = std::future<void>;
 //==============================================================================
 // 游戏静态变量
@@ -68,11 +70,11 @@ public:
 	C游戏速度 m游戏速度;
 	bool m编译 = false;
 	C图形引擎 *mp图形 = nullptr;
-	C输入引擎 *mp输入 = nullptr;
 	C音频引擎 *mp音频 = nullptr;
+	I游戏输入 *mp游戏输入 = nullptr;
+	const S游戏设置 *mp游戏设置 = nullptr;
 	std::map<std::wstring, int> ma名称标识;
 	t随机数引擎 m随机数引擎;
-	C游戏设置 m游戏设置;
 	//属性
 	C属性数组<S子弹属性> ma子弹属性;
 	C属性数组<S自机属性> ma自机属性;	//需要编译
@@ -137,12 +139,14 @@ public:
 		m静态立绘管理.f编译(va纹理, va顶点);
 		m编译 = true;
 	}
+	void f输入_更新() {
+		mp游戏输入->f更新();
+	}
 	t向量2 f输入_方向键() {
-		const auto &v方向键 = mp输入->fg方向();
-		return t向量2(v方向键.x, v方向键.y);
+		return mp游戏输入->fg方向();
 	}
 	const 输入::C按键组 &f输入_按键() {
-		return mp输入->fg按键组();
+		return mp游戏输入->fg按键组();
 	}
 };
 //==============================================================================
@@ -185,7 +189,7 @@ public:
 	C边框管理 m边框管理;
 	//函数
 	C实现();
-	void f开始(const C游戏设置 &);
+	void f开始(const S游戏设置 &);
 	void f结束();
 	void f进入关卡(C关卡 &a关卡);
 	void f计算();
@@ -220,7 +224,7 @@ C游戏::C实现::C实现() {
 	m对话.f初始化_环境(m关卡);
 	m场景.f初始化_图形(mp资源->mp图形->fg画三维());
 }
-void C游戏::C实现::f开始(const C游戏设置 &a设置) {
+void C游戏::C实现::f开始(const S游戏设置 &a设置) {
 	m玩家.fs自机(a设置.m自机标识);
 	m玩家.fs子机(a设置.m子机标识);
 	m玩家.fs炸弹(a设置.m炸弹标识);
@@ -260,6 +264,7 @@ void C游戏::C实现::f计算() {
 	if (m新关卡 != m关卡.m关卡) {
 		f实现_进入关卡();
 	}
+	mp资源->f输入_更新();;
 	if (m关卡.f对象_i使用()) {
 		m关卡.f计算();
 		m王战.f计算();
@@ -468,6 +473,7 @@ void C游戏::C实现::f实现_进入关卡() {
 	m玩家.m子机组.f初始化_图形(fg图形().fg图形缓冲数组());
 	ma子弹.f清空();
 	m关卡.f初始化关卡(*m新关卡);
+	mp资源->mp游戏输入->f切换关卡(0, &m玩家.m成绩);
 	m游戏速度.fs速度(1);
 }
 void C游戏::C实现::f更新() {
@@ -599,9 +605,6 @@ C游戏::C资源 &C游戏::fg内部资源() {
 void C游戏::f初始化_图形接口(C图形引擎 &a图形) {
 	fg内部资源().mp图形 = &a图形;
 }
-void C游戏::f初始化_输入接口(C输入引擎 &a输入) {
-	fg内部资源().mp输入 = &a输入;
-}
 void C游戏::f初始化_音频接口(C音频引擎 &a音频) {
 	fg内部资源().mp音频 = &a音频;
 }
@@ -612,7 +615,7 @@ void C游戏::f初始化_在载入结束() {
 	}
 }
 void C游戏::f开始() {
-	mp实现->f开始(mp资源->m游戏设置);
+	mp实现->f开始(*mp资源->mp游戏设置);
 }
 void C游戏::f结束() {
 	mp实现->f结束();
@@ -633,14 +636,17 @@ void C游戏::f推进随机数() {
 	mp实现->m随机数引擎.discard(1000);
 	mp资源->m随机数引擎.discard(1000);
 }
+void C游戏::fs游戏输入(I游戏输入 &a输入) {
+	fg内部资源().mp游戏输入 = &a输入;
+}
+void C游戏::fs游戏设置(const S游戏设置 &a设置) {
+	fg内部资源().mp游戏设置 = &a设置;
+}
 C游戏::C内容 &C游戏::fg内容() {
 	return g内容;
 }
 C游戏::C取资源 &C游戏::fg资源() {
 	return g资源;
-}
-C游戏设置 &C游戏::fg设置() {
-	return mp资源->m游戏设置;
 }
 C图形引擎 &C游戏::fg图形() {
 	return *mp资源->mp图形;
@@ -782,10 +788,10 @@ C取文本 C游戏::C取资源::f取文本数组(const std::wstring &a名称, co
 	return C取文本(f找文本数组(a名称, a语言), a名称);
 }
 C取文本 C游戏::C取资源::fg普通文本() const {
-	return f取文本数组(L"文本", C程序设置::fg这().fg文本语言());
+	return f取文本数组(L"文本", C设置管理::fg程序设置().m文本语言);
 }
 C取文本 C游戏::C取资源::fg界面文本() const {
-	return f取文本数组(L"用户界面", C程序设置::fg这().fg界面语言());
+	return f取文本数组(L"用户界面", C设置管理::fg程序设置().m界面语言);
 }
 C属性数组<S子弹属性> &C游戏::C取资源::fg子弹属性() const {
 	return m资源->ma子弹属性;

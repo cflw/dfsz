@@ -3,17 +3,17 @@
 #include <用户界面接口实现_输入w.h>
 #include <用户界面接口实现_输入x.h>
 #include "界面引擎.h"
-#include "界面_主菜单.h"
-#include "界面_游戏菜单.h"
-#include "界面_选择模式.h"
-#include "界面_选择难度.h"
-#include "界面_选择自机.h"
-#include "界面_选择关卡.h"
-#include "界面_选项.h"
 #include "界面音频.h"
 #include "图形引擎.h"
 #include "输入.h"
 #include "音频引擎.h"
+import 东方山寨.界面_主菜单;
+import 东方山寨.界面_游戏菜单;
+import 东方山寨.界面_选择模式;
+import 东方山寨.界面_选择难度;
+import 东方山寨.界面_选择自机;
+import 东方山寨.界面_选择关卡;
+import 东方山寨.界面_选项;
 import 东方山寨.界面_选择符卡;
 namespace 东方山寨 {
 //==============================================================================

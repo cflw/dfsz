@@ -2,7 +2,7 @@
 #include "图形引擎.h"
 #include "图形资源.h"
 #include "图形资源工厂.h"
-#include "程序.h"
+import 东方山寨.文件系统;
 namespace 东方山寨 {
 //==============================================================================
 // 画图片管线
@@ -17,8 +17,8 @@ C画图片管线::C画图片管线(C图形引擎 &a引擎, 三维::C三维 &a三
 	v顶点格式.f添加("ALPHA", 1);
 	auto &v着色器工厂 = a引擎.fg着色器工厂();
 	着色器::tp着色器 vs, ps;
-	v着色器工厂.f读取着色器(vs, C程序::f计算路径(L"~/shader/vs_image0.cso").c_str());
-	v着色器工厂.f读取着色器(ps, C程序::f计算路径(L"~/shader/ps_image0.cso").c_str());
+	v着色器工厂.f读取着色器(vs, 文件系统::f计算路径(L"~/shader/vs_image0.cso").c_str());
+	v着色器工厂.f读取着色器(ps, 文件系统::f计算路径(L"~/shader/ps_image0.cso").c_str());
 	const auto v顶点跨度 = 着色器::fc跨度(vs);
 	a三维.f创建顶点着色器(m顶点着色器, v顶点跨度);
 	a三维.f创建输入布局(m输入布局, v顶点跨度, v顶点格式);

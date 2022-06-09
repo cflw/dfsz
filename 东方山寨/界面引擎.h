@@ -1,22 +1,11 @@
 ﻿#pragma once
 #include <stack>
 #include <用户界面_基础.h>
+#include "界面常量.h"
 namespace 东方山寨 {
 class C图形引擎;
 class C输入引擎;
 class C音频引擎;
-enum class E窗口 {
-	e主菜单,
-	e选择模式,
-	e选择难度,
-	e选择飞机,
-	e选择关卡,
-	e选择弹幕,
-	e选项,
-	e游戏暂停,
-	e游戏结束,
-	e游戏通关,
-};
 class C界面引擎 {
 public:
 	static C界面引擎 *g这;

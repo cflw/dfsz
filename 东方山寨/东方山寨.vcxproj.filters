@@ -84,12 +84,15 @@
     <Filter Include="游戏本体\抬显">
       <UniqueIdentifier>{1a1ae134-96e1-449e-8205-bee6372b51fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="游戏本体\录像">
+      <UniqueIdentifier>{362590ab-5be7-406b-ba8d-97f25141b52b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="输入引擎">
+      <UniqueIdentifier>{2892560d-e56c-40e9-b98c-a0a4584b03e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="程序.cpp">
-      <Filter>程序</Filter>
-    </ClCompile>
-    <ClCompile Include="输入.cpp">
       <Filter>程序</Filter>
     </ClCompile>
     <ClCompile Include="测试关卡.ixx">
@@ -242,9 +245,6 @@
     <ClCompile Include="敌机图形模板.cpp">
       <Filter>游戏本体\敌机</Filter>
     </ClCompile>
-    <ClCompile Include="程序设置.cpp">
-      <Filter>程序</Filter>
-    </ClCompile>
     <ClCompile Include="取文本.cpp">
       <Filter>游戏本体\游戏基础</Filter>
     </ClCompile>
@@ -259,9 +259,6 @@
     </ClCompile>
     <ClCompile Include="图形工厂.cpp">
       <Filter>图形引擎</Filter>
-    </ClCompile>
-    <ClCompile Include="界面_选项.cpp">
-      <Filter>界面</Filter>
     </ClCompile>
     <ClCompile Include="界面音频.cpp">
       <Filter>音频引擎</Filter>
@@ -353,24 +350,6 @@
     <ClCompile Include="东方月亮船_附加符卡.ixx">
       <Filter>关卡</Filter>
     </ClCompile>
-    <ClCompile Include="界面_选择模式.cpp">
-      <Filter>界面</Filter>
-    </ClCompile>
-    <ClCompile Include="界面_选择自机.cpp">
-      <Filter>界面</Filter>
-    </ClCompile>
-    <ClCompile Include="界面_选择难度.cpp">
-      <Filter>界面</Filter>
-    </ClCompile>
-    <ClCompile Include="界面_选择关卡.cpp">
-      <Filter>界面</Filter>
-    </ClCompile>
-    <ClCompile Include="界面_游戏菜单.cpp">
-      <Filter>界面</Filter>
-    </ClCompile>
-    <ClCompile Include="界面_主菜单.cpp">
-      <Filter>界面</Filter>
-    </ClCompile>
     <ClCompile Include="图形资源.cpp">
       <Filter>图形引擎\图形基础</Filter>
     </ClCompile>
@@ -436,6 +415,66 @@
     </ClCompile>
     <ClCompile Include="脚本.cpp">
       <Filter>脚本</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_选择关卡.ixx">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_选择模式.ixx">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_选择难度.ixx">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_选择自机.ixx">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_游戏菜单.ixx">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_选项.ixx">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_主菜单.ixx">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="录像_结构.ixx">
+      <Filter>游戏本体\录像</Filter>
+    </ClCompile>
+    <ClCompile Include="录像_功能.ixx">
+      <Filter>游戏本体\录像</Filter>
+    </ClCompile>
+    <ClCompile Include="录像_文件.ixx">
+      <Filter>游戏本体\录像</Filter>
+    </ClCompile>
+    <ClCompile Include="输入.cpp">
+      <Filter>输入引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="游戏输入.ixx">
+      <Filter>输入引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="游戏输入_录像.ixx">
+      <Filter>输入引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_帧速率.ixx">
+      <Filter>程序</Filter>
+    </ClCompile>
+    <ClCompile Include="程序实现.cpp">
+      <Filter>程序</Filter>
+    </ClCompile>
+    <ClCompile Include="游戏输入控制.ixx">
+      <Filter>程序</Filter>
+    </ClCompile>
+    <ClCompile Include="游戏状态控制.ixx">
+      <Filter>程序</Filter>
+    </ClCompile>
+    <ClCompile Include="游戏录像管理.ixx">
+      <Filter>程序</Filter>
+    </ClCompile>
+    <ClCompile Include="设置管理.ixx">
+      <Filter>程序</Filter>
+    </ClCompile>
+    <ClCompile Include="文件系统.ixx">
+      <Filter>程序</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -568,9 +607,6 @@
     <ClInclude Include="程序.h">
       <Filter>程序</Filter>
     </ClInclude>
-    <ClInclude Include="输入.h">
-      <Filter>程序</Filter>
-    </ClInclude>
     <ClInclude Include="图形_玩家成绩.h">
       <Filter>游戏本体\玩家</Filter>
     </ClInclude>
@@ -618,9 +654,6 @@
     </ClInclude>
     <ClInclude Include="图形工厂.h">
       <Filter>图形引擎</Filter>
-    </ClInclude>
-    <ClInclude Include="界面_选项.h">
-      <Filter>界面</Filter>
     </ClInclude>
     <ClInclude Include="界面音频.h">
       <Filter>音频引擎</Filter>
@@ -754,25 +787,7 @@
     <ClInclude Include="难度.h">
       <Filter>数学</Filter>
     </ClInclude>
-    <ClInclude Include="界面_选择模式.h">
-      <Filter>界面</Filter>
-    </ClInclude>
-    <ClInclude Include="界面_选择自机.h">
-      <Filter>界面</Filter>
-    </ClInclude>
-    <ClInclude Include="界面_选择难度.h">
-      <Filter>界面</Filter>
-    </ClInclude>
-    <ClInclude Include="界面_选择关卡.h">
-      <Filter>界面</Filter>
-    </ClInclude>
-    <ClInclude Include="界面_游戏菜单.h">
-      <Filter>界面</Filter>
-    </ClInclude>
     <ClInclude Include="界面包含.h">
-      <Filter>界面</Filter>
-    </ClInclude>
-    <ClInclude Include="界面_主菜单.h">
       <Filter>界面</Filter>
     </ClInclude>
     <ClInclude Include="图形资源.h">
@@ -816,6 +831,15 @@
     </ClInclude>
     <ClInclude Include="脚本.h">
       <Filter>脚本</Filter>
+    </ClInclude>
+    <ClInclude Include="输入.h">
+      <Filter>输入引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="程序实现.h">
+      <Filter>程序</Filter>
+    </ClInclude>
+    <ClInclude Include="界面常量.h">
+      <Filter>界面</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

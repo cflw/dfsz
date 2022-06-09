@@ -37,6 +37,7 @@
 #include "玩家炸弹扩展.h"
 //敌机
 #include "敌机基础.h"
+import 东方山寨.文件系统;
 namespace 东方山寨::载入 {
 //==============================================================================
 // 读json
@@ -45,7 +46,7 @@ class C读json文件 {
 public:
 	static bool f读取(boost::property_tree::wptree &a输出树, const std::filesystem::path &a路径) {
 		t属性文件 v文件;
-		const std::filesystem::path v路径 = C程序::f计算路径(a路径, L"");
+		const std::filesystem::path v路径 = 文件系统::f计算路径(a路径, L"");
 		if (v文件.f打开(v路径.c_str())) {
 			v文件.f读取(a输出树);
 			return true;
@@ -55,7 +56,7 @@ public:
 	}
 	static bool f读取(boost::property_tree::wptree &a输出树, const S载入参数 &a参数, const std::filesystem::path &a路径, std::filesystem::path &a输出路径) {
 		t属性文件 v文件;
-		const std::filesystem::path v路径 = C程序::f计算路径(a路径, a参数.m路径);
+		const std::filesystem::path v路径 = 文件系统::f计算路径(a路径, a参数.m路径);
 		if (v文件.f打开(v路径.c_str())) {
 			v文件.f读取(a输出树);
 			a输出路径 = v路径;
@@ -287,7 +288,7 @@ void C载入::f敌机(const S载入参数 &a) {
 		v属性.m判定半径 = v节点0.get<float>(L"判定半径", 16);
 		const auto &v纹理路径 = v节点0.get_optional<std::wstring>(L"纹理.路径");
 		if (v纹理路径) {
-			v纹理工厂.f创建纹理(v敌机标识, C程序::f计算路径(*v纹理路径, a.m路径).native());
+			v纹理工厂.f创建纹理(v敌机标识, 文件系统::f计算路径(*v纹理路径, a.m路径).native());
 			v属性.m纹理 = v敌机标识;
 		} else {
 			v属性.m纹理 = nullptr;
@@ -319,7 +320,7 @@ void C载入::f自机(const S载入参数 &a) {
 		//纹理
 		const auto &v纹理路径 = v节点0.get_optional<std::wstring>(L"纹理.路径");
 		if (v纹理路径) {
-			v纹理工厂.f创建纹理(v自机标识, C程序::f计算路径(*v纹理路径, a.m路径).native());
+			v纹理工厂.f创建纹理(v自机标识, 文件系统::f计算路径(*v纹理路径, a.m路径).native());
 			v属性.m纹理 = v自机标识;
 		} else {
 			v属性.m纹理 = nullptr;
@@ -487,7 +488,7 @@ void C载入::f纹理列表0(const S载入参数 &a) {
 	int v主标识 = -1;
 	for (const auto &[v名称0, v树0] : va数据) {
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, ++v主标识);
-		v纹理工厂.f创建纹理(v名称标识1, C程序::f计算路径(v树0.get_value<std::wstring>(), a.m路径));
+		v纹理工厂.f创建纹理(v名称标识1, 文件系统::f计算路径(v树0.get_value<std::wstring>(), a.m路径));
 	}
 }
 void C载入::f模型列表0(const S载入参数 &a) {
@@ -534,7 +535,7 @@ void C载入::f声音列表0(const S载入参数 &a) {
 	int v主标识 = -1;
 	for (const auto &[v名称0, v树0] : va数据) {
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, ++v主标识);
-		v声音工厂.f创建声音(v名称标识1, C程序::f计算路径(v树0.get_value<std::wstring>(), a.m路径));
+		v声音工厂.f创建声音(v名称标识1, 文件系统::f计算路径(v树0.get_value<std::wstring>(), a.m路径));
 	}
 }
 void C载入::f声音列表1(const S载入参数 &) {

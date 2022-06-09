@@ -15,9 +15,9 @@ typedef std::mt19937 t随机数引擎;
 // 类
 //==============================================================================
 class C游戏;
-class C游戏设置;
+struct S游戏设置;
 class C图形引擎;
-class C输入引擎;
+class I游戏输入;
 class C音频引擎;
 //关卡
 class C关卡脚本;
@@ -79,7 +79,6 @@ public:
 	~C游戏();
 	//
 	void f初始化_图形接口(C图形引擎 &);
-	void f初始化_输入接口(C输入引擎 &);
 	void f初始化_音频接口(C音频引擎 &);
 	void f初始化_在载入结束();
 	void f开始();	//总的开始,进入游戏前调用
@@ -158,9 +157,10 @@ public:	//公开控制
 	private:
 		C资源 *m资源 = nullptr;
 	};
+	static void fs游戏输入(I游戏输入 &);
+	static void fs游戏设置(const S游戏设置 &);
 	static C内容 &fg内容();
 	static C取资源 &fg资源();
-	static C游戏设置 &fg设置();
 	static C图形引擎 &fg图形();
 	static C音频引擎 &fg音频();
 	static C内容 g内容;

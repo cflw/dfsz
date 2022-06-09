@@ -1,21 +1,22 @@
 ﻿module;
 #include "界面包含.h"
-#include "关卡.h"
 #include "程序.h"
-export module 东方山寨.界面_选择符卡;
+#include "关卡.h"
+export module 东方山寨.界面_选择关卡;
 import 东方山寨.关卡标识;
 import 东方山寨.设置管理;
 export namespace 东方山寨 {
-class W选择符卡 : public 用户界面::W窗口框架 {
+class W选择关卡 : public 用户界面::W窗口框架 {
 public:
-	W选择符卡() {
+	W选择关卡() {
 		const std::tuple<int, std::wstring> va按钮[] = {
-			{0, L"测试"},
-			{1, L"测试1"},
-			{2, L"测试2"},
-			{3, L"测试3"},
-			{4, L"测试4"},
-			{5, L"测试5"},
+			{(int)E关卡::e测试, L"测试"},
+			{(int)E关卡::e正式 + 1, L"关卡1"},
+			{(int)E关卡::e正式 + 2, L"关卡2"},
+			{(int)E关卡::e正式 + 3, L"关卡3"},
+			{(int)E关卡::e正式 + 4, L"关卡4"},
+			{(int)E关卡::e正式 + 5, L"关卡5"},
+			//{(int)E关卡::e正式+6, L"关卡6"},
 		};
 		constexpr float c上 = 50;
 		用户界面::C单向移动布局 m布局;
@@ -30,16 +31,23 @@ public:
 			ma按钮.push_back(std::move(v按钮));
 		}
 	}
-	void f事件_按键(用户界面::W窗口 &a窗口, const 用户界面::S按键参数 &a参数) override {
+	void f事件_按键(用户界面::W窗口 & a窗口, const 用户界面::S按键参数 & a按键) override {
 		auto &v游戏设置 = C设置管理::fg游戏设置();
-		switch (a参数.m按键) {
+		switch (a按键.m按键) {
 		case 用户界面::E按键::e确定:
-			switch (a窗口.m标识) {
-			case 0:	//符卡
-				v游戏设置.fs符卡编号(a窗口.m值);
-				v游戏设置.fs进入关卡(C关卡管理::fg关卡((int)E关卡::e符卡 + a窗口.m值));
+			//设置
+			v游戏设置.fs关卡编号(a窗口.m值);
+			//下一界面
+			switch (v游戏设置.m游戏模式) {
+			case E游戏模式::e关卡练习:
+				v游戏设置.fs进入关卡(C关卡管理::fg关卡(a窗口.m值));
 				C程序::f切换游戏状态(E游戏状态::e游戏中);
 				break;
+			case E游戏模式::e弹幕练习:
+				C界面引擎::g这->f切换下个窗口(E窗口::e选择弹幕);
+				break;
+			default:
+				return;
 			}
 			break;
 		case 用户界面::E按键::e取消:
