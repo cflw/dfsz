@@ -10,7 +10,7 @@ import 东方山寨.录像_功能;
 namespace 时间 = cflw::时间;
 namespace 输入 = cflw::输入;
 export namespace 东方山寨 {
-class C游戏输入_录像 : public I游戏输入 {
+class C游戏输入_录像 final : public I游戏输入 {
 public:
 	C游戏输入_录像(C输入引擎 &a输入, const 时间::C计帧器 &a计帧器):
 		mp输入(&a输入),
@@ -28,8 +28,8 @@ public:
 		}
 		mp录像->f录制帧(v帧);
 	}
-	void f切换关卡(int a关卡, const void *a数据) override {
-		mp录像->f新建关卡(a关卡, *(const C玩家::S成绩 *)a数据);
+	void f事件_切换关卡(int a关卡, const void *a保存数据) override {
+		mp录像->f新建关卡(a关卡, *(const C玩家::S成绩 *)a保存数据);
 	}
 	const t向量2 &fg方向() const override {
 		return m方向;
@@ -42,7 +42,35 @@ public:
 	const 时间::C计帧器 *mp计帧器 = nullptr;
 	t向量2 m方向;
 };
-class C游戏输入_回放 : public I游戏输入 {
+class X回放结束 {
+};
+class C游戏输入_回放 final : public I游戏输入 {
 public:
+	C游戏输入_回放(C输入引擎 &a输入) {
+		mp输入 = &a输入;
+	}
+	void f更新() override {
+		if (mp回放->fi结束()) {
+			throw X回放结束();
+		}
+		mp当前帧 = &mp回放->f回放帧();
+		m按键组.f覆盖上次();
+		for (输入::t数量 i = 0; i != c按键数量; ++i) {
+			m按键组.m这次[i] = mp当前帧->m按键[i];
+		}
+	}
+	void f事件_切换关卡(int a关卡, const void *a保存数据) override {
+		mp回放->f回放关卡(a关卡);
+	}
+	const t向量2 &fg方向() const override {
+		return mp当前帧->m方向;
+	}
+	const 输入::C按键组 &fg按键组() const override {
+		return m按键组;
+	}
+	C回放机 *mp回放 = nullptr;
+	const C输入引擎 *mp输入 = nullptr;
+	const S录像帧 *mp当前帧 = nullptr;
+	输入::C按键组 m按键组{c按键数量};
 };
 }	//namespace 东方山寨

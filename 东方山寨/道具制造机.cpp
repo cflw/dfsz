@@ -56,8 +56,8 @@ void C道具制造机::f产生道具(t道具数量 a数量) {
 		const float v最小半径 = v最大半径 / log(v最大半径);
 		const float v间隔弧度 = 数学::c二π<float> / (float)a数量;
 		auto v随机数 = C游戏::fg内容().f工厂_随机数引擎();
-		const auto v半径分布 = std::uniform_real_distribution<float>(v最小半径, v最大半径);
-		const auto v圆周分布 = 数学::c圆周分布r<float>;
+		auto v半径分布 = std::uniform_real_distribution<float>(v最小半径, v最大半径);
+		auto v圆周分布 = 数学::c圆周分布r<float>;
 		float v方向 = v圆周分布(v随机数);
 		for (size_t i = 0; i != a数量; ++i) {
 			m参数.m速度 = t向量2::fc方向r(v半径分布(v随机数), v方向);

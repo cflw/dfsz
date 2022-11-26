@@ -7,12 +7,12 @@ export namespace 东方山寨 {
 class I游戏输入 {	//接收输入并传递到游戏中
 public:
 	virtual ~I游戏输入() = default;
-	virtual void f更新() = 0;	//更新输入数据
-	virtual void f切换关卡(int a关卡, const void *a数据) {}	//用来切换录像和回放的关卡
+	virtual void f更新() = 0;	//更新输入数据,在游戏输入中调用
+	virtual void f事件_切换关卡(int a关卡, const void *a保存数据) {}	//用来切换录像和回放的关卡
 	virtual const t向量2 &fg方向() const = 0;
 	virtual const 输入::C按键组 &fg按键组() const = 0;
 };
-class C游戏输入 : public I游戏输入 {
+class C游戏输入 final : public I游戏输入 {
 public:
 	C游戏输入(C输入引擎 &a输入):
 		mp输入(&a输入) {

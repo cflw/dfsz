@@ -157,12 +157,13 @@ public:	//公开控制
 	private:
 		C资源 *m资源 = nullptr;
 	};
-	static void fs游戏输入(I游戏输入 &);
-	static void fs游戏设置(const S游戏设置 &);
+	static void fs游戏输入(I游戏输入 &);	//开始游戏前设置
+	static void fs游戏设置(const S游戏设置 &);	//开始游戏前设置
 	static C内容 &fg内容();
 	static C取资源 &fg资源();
 	static C图形引擎 &fg图形();
 	static C音频引擎 &fg音频();
+	static I游戏输入 &fg游戏输入();
 	static C内容 g内容;
 	static C取资源 g资源;
 private:	//内部控制

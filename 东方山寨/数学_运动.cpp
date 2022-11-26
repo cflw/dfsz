@@ -96,17 +96,17 @@ void C复杂运动::f运动_相对横坐标随机移动(float a横坐标, float 
 	constexpr float c移动开始 = 0.5f;
 	constexpr float c移动结束 = 0.5f;
 	auto v引擎 = C游戏::fg内容().f工厂_随机数引擎();
-	const auto v纵分布 = std::uniform_real_distribution<float>(a纵平均 - a纵浮动, a纵平均 + a纵浮动);
+	auto v纵分布 = std::uniform_real_distribution<float>(a纵平均 - a纵浮动, a纵平均 + a纵浮动);
 	const float v纵位置0 = v纵分布(v引擎);
 	const float v纵差 = v纵位置0 - m坐标.y;
 	const float v纵位置1 = (abs(v纵差) > a横平均) ? (m坐标.y + 数学::f取符号(v纵差) * a横平均) : v纵位置0;
 	if (a横坐标 == m坐标.x) {
-		const auto v横分布 = std::uniform_real_distribution<float>(-a横平均, a横平均);
+		auto v横分布 = std::uniform_real_distribution<float>(-a横平均, a横平均);
 		const float v横移动 = v横分布(v引擎);
 		const float v横位置 = m坐标.x + v横移动;
 		f运动_平滑移动到({ v横位置, v纵位置1 }, c移动总时间, c移动开始, c移动结束);
 	} else {
-		const auto v横分布 = std::uniform_real_distribution<float>(a横平均 - a横浮动, a横平均 + a横浮动);
+		auto v横分布 = std::uniform_real_distribution<float>(a横平均 - a横浮动, a横平均 + a横浮动);
 		const float v横移动 = v横分布(v引擎);
 		const float v横位置 = m坐标.x + 数学::f取符号(a横坐标 - m坐标.x) * v横移动;
 		f运动_平滑移动到({ v横位置, v纵位置1 }, c移动总时间, c移动开始, c移动结束);

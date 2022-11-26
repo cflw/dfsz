@@ -20,7 +20,7 @@ public:
 	W主菜单() {
 		const int va标题按钮[] = {
 			e开始游戏,
-			//e录像回放,
+			e录像回放,
 			e选项,
 			e退出,
 		};
@@ -50,6 +50,10 @@ public:
 			case e开始游戏:
 				C界面引擎::g这->f切换下个窗口(E窗口::e选择模式);
 				//C程序::f切换游戏状态(E游戏状态::e游戏中);
+				vi界面图形 = false;
+				break;
+			case e录像回放:
+				C界面引擎::g这->f切换下个窗口(E窗口::e选择录像);
 				vi界面图形 = false;
 				break;
 			case e选项:

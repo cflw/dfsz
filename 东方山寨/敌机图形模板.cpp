@@ -22,8 +22,8 @@ void f敌机死亡小爆炸0(const t向量2 &a坐标, const t向量2 &a速度, c
 	};
 	auto v图形工厂 = C游戏::fg资源().f工厂_图形();
 	auto v随机数 = C游戏::fg资源().f工厂_随机数引擎();
-	const auto v圆形分布 = 数学::C圆形分布(t圆形::fc坐标半径(t向量2::c零, 32));
-	const auto v圆周分布 = 数学::c圆周分布r<float>;
+	auto v圆形分布 = 数学::C圆形分布(t圆形::fc坐标半径(t向量2::c零, 32));
+	auto v圆周分布 = 数学::c圆周分布r<float>;
 	v图形工厂.m参数.m坐标 = a坐标;
 	v图形工厂.m参数.m速度 = a速度 * 0.5f;
 	v图形工厂.m参数.m寿命 = 0.25f;

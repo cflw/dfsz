@@ -44,25 +44,24 @@ public:
 	}
 	void f事件_按键(用户界面::W窗口 &a窗口, const 用户界面::S按键参数 &a参数) override {
 		auto &v游戏设置 = C设置管理::fg游戏设置();
-		static std::vector<C关卡 *> va关卡 = C关卡管理::fg关卡列表({(int)E关卡::e正式 + 1, (int)E关卡::e正式 + 2});
 		switch (a参数.m按键) {
 		case 用户界面::E按键::e确定:
 			switch (a窗口.m标识) {
 			case e传统模式:
 				v游戏设置.fs游戏模式(E游戏模式::e传统模式);
-				v游戏设置.fs进入关卡(va关卡.data(), va关卡.size());
+				v游戏设置.fs关卡((int)E关卡::e正式 + 0);	//TODO:增加关卡列表
 				break;
 			case e完美模式:
 				v游戏设置.fs游戏模式(E游戏模式::e完美模式);
-				v游戏设置.fs进入关卡(C关卡管理::fg关卡((int)E关卡::e正式 + 1));
+				v游戏设置.fs关卡((int)E关卡::e正式 + 0);
 				break;
 			case e附加关卡:
 				v游戏设置.fs游戏模式(E游戏模式::e传统模式);
-				v游戏设置.fs进入关卡(C关卡管理::fg关卡((int)E关卡::e正式 + 7));
+				v游戏设置.fs关卡((int)E关卡::e正式 + 7);
 				break;
 			case e附加关卡2:
 				v游戏设置.fs游戏模式(E游戏模式::e传统模式);
-				v游戏设置.fs进入关卡(C关卡管理::fg关卡((int)E关卡::e正式 + 8));
+				v游戏设置.fs关卡((int)E关卡::e正式 + 8);
 				break;
 			case e关卡练习:
 				v游戏设置.fs游戏模式(E游戏模式::e关卡练习);

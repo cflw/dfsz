@@ -4,6 +4,7 @@
 #define 分辨率(a宽, a高) e##a宽##x##a高
 #define t分辨率(a宽, a高) {e##a宽##x##a高, a宽, a高}
 export module 东方山寨.界面_选项;
+import 用户界面.控件;
 export namespace 东方山寨 {
 using t向量2 = cflw::数学::S向量2;
 constexpr float c选项窗口宽 = 300;

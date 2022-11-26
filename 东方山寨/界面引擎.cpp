@@ -15,6 +15,7 @@ import 东方山寨.界面_选择自机;
 import 东方山寨.界面_选择关卡;
 import 东方山寨.界面_选项;
 import 东方山寨.界面_选择符卡;
+import 东方山寨.界面_选择录像;
 namespace 东方山寨 {
 //==============================================================================
 // 引擎
@@ -49,6 +50,7 @@ public:
 		ma窗口.emplace(E窗口::e选择飞机, std::make_unique<W选择自机>());
 		ma窗口.emplace(E窗口::e选择关卡, std::make_unique<W选择关卡>());
 		ma窗口.emplace(E窗口::e选择弹幕, std::make_unique<W选择符卡>());
+		ma窗口.emplace(E窗口::e选择录像, std::make_unique<W选择录像>());
 		ma窗口.emplace(E窗口::e选项, std::make_unique<W选项>());
 	}
 	void f更新输入() {

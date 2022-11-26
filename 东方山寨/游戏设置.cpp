@@ -15,21 +15,8 @@ void S游戏设置::fs基础难度(int a) {
 void S游戏设置::fs增加难度(int a分子, int a分母) {
 	m增加难度 = a分子 * 100'0000 / a分母;
 }
-void S游戏设置::fs关卡编号(int a) {
-	m关卡编号 = a;
-}
-void S游戏设置::fs符卡编号(int a) {
-	m符卡编号 = a;
-}
-void S游戏设置::fs进入关卡(C关卡 &a关卡) {
-	m关卡 = &a关卡;
-	ma关卡 = &m关卡;
-	m关卡数量 = 1;
-}
-void S游戏设置::fs进入关卡(C关卡 *const *aa关卡, size_t a数量) {
-	m关卡 = aa关卡[0];
-	ma关卡 = aa关卡;
-	m关卡数量 = a数量;
+void S游戏设置::fs关卡(int a) {
+	m关卡标识 = a;
 }
 void S游戏设置::fs游戏模式(E游戏模式 a游戏模式) {
 	m游戏模式 = a游戏模式;

@@ -367,6 +367,7 @@
     <ClCompile Include="界面_主菜单.ixx" />
     <ClCompile Include="界面_游戏菜单.ixx" />
     <ClCompile Include="界面_选择关卡.ixx" />
+    <ClCompile Include="界面_选择录像.ixx" />
     <ClCompile Include="界面_选择模式.ixx" />
     <ClCompile Include="界面_选择符卡.ixx" />
     <ClCompile Include="界面_选择自机.ixx" />

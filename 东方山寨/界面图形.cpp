@@ -145,9 +145,9 @@ void C界面图形控制::f云(bool a开关, bool a动画) {
 	if (a开关) {
 		auto v图形工厂 = C游戏::fg资源().f工厂_图形();
 		auto v随机工厂 = C游戏::fg资源().f工厂_随机数引擎();
-		const std::uniform_real_distribution<float> c坐标分布x{界面图形::C云::c左边,  界面图形::C云::c右边};
-		const std::uniform_real_distribution<float> c坐标分布y{-c框架范围y, 0};
-		const std::uniform_real_distribution<float> c速度分布x{100, 200};
+		std::uniform_real_distribution<float> c坐标分布x{界面图形::C云::c左边,  界面图形::C云::c右边};
+		std::uniform_real_distribution<float> c坐标分布y{-c框架范围y, 0};
+		std::uniform_real_distribution<float> c速度分布x{100, 200};
 		v图形工厂.m参数.m纹理 = C游戏::fg图形().fg纹理()[L"东方月亮船.云"];
 		const S顶点矩形 *vp云矩形 = C游戏::fg图形().fg顶点矩形()[L"东方月亮船.云"];
 		int i = 0;

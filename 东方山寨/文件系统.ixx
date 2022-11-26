@@ -6,7 +6,7 @@ export module 东方山寨.文件系统;
 using namespace std::filesystem;
 export namespace 东方山寨::文件系统 {
 std::wstring fg环境变量(const std::wstring &a名称) {
-	wchar_t v缓存[100] = {0};
+	wchar_t v缓存[256] = {0};
 	GetEnvironmentVariableW(a名称.data(), v缓存, sizeof(v缓存));
 	return v缓存;
 }
@@ -22,7 +22,7 @@ const path &fg数据目录() {
 	assert(exists(v数据目录));
 	return v数据目录;
 }
-const path &fg临时目录() {
+const path &fg临时目录() {	//%temp%\cflw
 	static const path v临时目录 = []()->path {
 		path v路径 = fg环境变量(L"temp");
 		v路径 /= L"cflw";
@@ -33,7 +33,7 @@ const path &fg临时目录() {
 	}();
 	return v临时目录;
 }
-const path &fg用户目录() {	//保存设置,存档的位置
+const path &fg用户目录() {	//%appdata%\cflw
 	static const path v用户目录 = []()->path {
 		path v路径 = fg环境变量(L"appdata");
 		v路径 /= L"cflw";

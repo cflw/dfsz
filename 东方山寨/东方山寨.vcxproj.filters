@@ -467,14 +467,17 @@
     <ClCompile Include="游戏状态控制.ixx">
       <Filter>程序</Filter>
     </ClCompile>
-    <ClCompile Include="游戏录像管理.ixx">
-      <Filter>程序</Filter>
-    </ClCompile>
     <ClCompile Include="设置管理.ixx">
       <Filter>程序</Filter>
     </ClCompile>
     <ClCompile Include="文件系统.ixx">
       <Filter>程序</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_选择录像.ixx">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="游戏录像管理.ixx">
+      <Filter>游戏本体\录像</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

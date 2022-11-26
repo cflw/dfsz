@@ -10,8 +10,8 @@ export namespace 东方山寨 {
 //==============================================================================
 class C符卡立绘 : public I图形 {
 public:
-	static constexpr float c最大透明度 = 0.8f;
-	static constexpr float c显示时间 = 3.f;
+	static const float c最大透明度;	//vs17.4.0p2.1初始化会出现链接错误
+	static const float c显示时间;
 	using tf显示参数 = std::function<S动画缓冲(float)>;
 	using t图形缓冲 = C图片动画图形缓冲;
 	C符卡立绘(tf显示参数 af显示参数, float a寿命 = c显示时间):
@@ -38,4 +38,6 @@ private:
 	float m寿命 = 0;
 	tf显示参数 mf显示参数;
 };
+const float C符卡立绘::c最大透明度 = 0.8f;
+const float C符卡立绘::c显示时间 = 3.f;
 }	//namespace 东方山寨
