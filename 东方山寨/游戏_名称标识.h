@@ -16,7 +16,7 @@ public:
 	C名称标识(C名称标识 &&);
 	~C名称标识();
 	operator int() const;
-	C名称标识 f创建层(const std::wstring &名称, int 标识) const;
+	C名称标识 f创建层(const std::wstring &名称, int 标识, bool 创建 = false) const;
 	const std::wstring &fg当前名称() const;
 	const std::wstring &fg计算名称() const;
 	int fg当前标识() const;
@@ -43,7 +43,7 @@ public:
 	static constexpr int c层数 = 4;	//上限
 	C名称标识组();
 	S名称标识层 &operator [](int 层);
-	C名称标识 f创建层(const std::wstring &, int 标识);
+	C名称标识 f创建层(const std::wstring &, int 标识, bool 创建 = false);
 	void f弹出层();
 	int fg当前层号() const;
 	int fg当前层数() const;

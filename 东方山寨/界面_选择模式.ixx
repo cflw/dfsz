@@ -2,6 +2,7 @@
 #include "界面包含.h"
 #include "关卡.h"
 export module 东方山寨.界面_选择模式;
+import 东方山寨.文本管理;
 import 东方山寨.关卡标识;
 import 东方山寨.设置管理;
 enum class E游戏模式;
@@ -30,12 +31,12 @@ public:
 		用户界面::C单向移动布局 v布局;
 		v布局.f属性_s单格布局(t向量2(-200, c上), t向量2(100, 20));
 		v布局.f属性_s倍数移动(0, -1);
-		const auto &va界面文本 = C游戏::fg资源().fg界面文本();
+		const C取文本 &va界面文本 = C文本管理::fg实例().fg界面文本();
 		for (const int &v按钮序号 : va模式按钮) {
 			const auto &[v标识, v文本标识] = ca按钮文本[v按钮序号];
 			std::unique_ptr<用户界面::W按钮> v按钮 = std::make_unique<用户界面::W按钮>(v标识, 0);
 			const std::wstring &v模式文本 = va界面文本[v文本标识];
-			v按钮->f属性_s文本(v模式文本, 16, 用户界面::e居左);
+			v按钮->f属性_s文本(v模式文本, {16, 用户界面::e居左});
 			v按钮->f属性_s布局(v布局.f移动生成矩形());
 			v按钮->m标志[W窗口::e显示边框] = false;
 			v按钮->m标志[W窗口::e显示背景] = false;
@@ -43,7 +44,7 @@ public:
 		}
 	}
 	void f事件_按键(用户界面::W窗口 &a窗口, const 用户界面::S按键参数 &a参数) override {
-		auto &v游戏设置 = C设置管理::fg游戏设置();
+		auto &v游戏设置 = C设置管理::fg实例().fg游戏设置();
 		switch (a参数.m按键) {
 		case 用户界面::E按键::e确定:
 			switch (a窗口.m标识) {

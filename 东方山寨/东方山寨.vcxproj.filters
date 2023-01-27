@@ -90,6 +90,9 @@
     <Filter Include="输入引擎">
       <UniqueIdentifier>{2892560d-e56c-40e9-b98c-a0a4584b03e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="文本">
+      <UniqueIdentifier>{5c7d043c-6526-48fd-aae1-d82b29ab369b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="程序.cpp">
@@ -244,9 +247,6 @@
     </ClCompile>
     <ClCompile Include="敌机图形模板.cpp">
       <Filter>游戏本体\敌机</Filter>
-    </ClCompile>
-    <ClCompile Include="取文本.cpp">
-      <Filter>游戏本体\游戏基础</Filter>
     </ClCompile>
     <ClCompile Include="图形管理.cpp">
       <Filter>图形引擎\图形基础</Filter>
@@ -461,9 +461,6 @@
     <ClCompile Include="程序实现.cpp">
       <Filter>程序</Filter>
     </ClCompile>
-    <ClCompile Include="游戏输入控制.ixx">
-      <Filter>程序</Filter>
-    </ClCompile>
     <ClCompile Include="游戏状态控制.ixx">
       <Filter>程序</Filter>
     </ClCompile>
@@ -478,6 +475,33 @@
     </ClCompile>
     <ClCompile Include="游戏录像管理.ixx">
       <Filter>游戏本体\录像</Filter>
+    </ClCompile>
+    <ClCompile Include="序列化.cpp">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="玩家成绩.cpp">
+      <Filter>游戏本体\玩家</Filter>
+    </ClCompile>
+    <ClCompile Include="取文本.cpp">
+      <Filter>文本</Filter>
+    </ClCompile>
+    <ClCompile Include="程序设置.cpp">
+      <Filter>程序</Filter>
+    </ClCompile>
+    <ClCompile Include="文本管理.ixx">
+      <Filter>文本</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_文本.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="关卡管理.ixx">
+      <Filter>游戏本体\关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="游戏输入管理.ixx">
+      <Filter>输入引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_关卡组.ixx">
+      <Filter>载入</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -642,9 +666,6 @@
     </ClInclude>
     <ClInclude Include="程序设置.h">
       <Filter>程序</Filter>
-    </ClInclude>
-    <ClInclude Include="取文本.h">
-      <Filter>游戏本体\游戏基础</Filter>
     </ClInclude>
     <ClInclude Include="图形基础.h">
       <Filter>图形引擎\图形基础</Filter>
@@ -843,6 +864,15 @@
     </ClInclude>
     <ClInclude Include="界面常量.h">
       <Filter>界面</Filter>
+    </ClInclude>
+    <ClInclude Include="序列化.h">
+      <Filter>载入</Filter>
+    </ClInclude>
+    <ClInclude Include="玩家成绩.h">
+      <Filter>游戏本体\玩家</Filter>
+    </ClInclude>
+    <ClInclude Include="取文本.h">
+      <Filter>文本</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

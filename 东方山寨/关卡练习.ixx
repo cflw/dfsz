@@ -2,8 +2,6 @@
 #include "关卡.h"
 #include "游戏.h"
 #include "王战.h"
-#include "程序.h"
-#include "界面引擎.h"
 export module 东方山寨.关卡练习;	//进入符卡关卡
 export namespace 东方山寨 {
 //符卡练习关卡类
@@ -21,7 +19,7 @@ public:
 		});
 	}
 	void f事件_结束() override {
-		C程序::f游戏中弹出菜单(E窗口::e游戏通关);
+		C游戏::fg内容().f游戏_通关菜单();
 	}
 };
 //创建符卡练习关卡

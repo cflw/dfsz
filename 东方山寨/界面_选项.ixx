@@ -4,6 +4,7 @@
 #define 分辨率(a宽, a高) e##a宽##x##a高
 #define t分辨率(a宽, a高) {e##a宽##x##a高, a宽, a高}
 export module 东方山寨.界面_选项;
+import 东方山寨.文本管理;
 import 用户界面.控件;
 export namespace 东方山寨 {
 using t向量2 = cflw::数学::S向量2;
@@ -43,7 +44,7 @@ public:
 	}
 	void f添加行(const std::wstring_view &a标签, std::unique_ptr<用户界面::W窗口> &&a控制) {
 		std::unique_ptr<用户界面::W标签> v标签 = std::make_unique<用户界面::W标签>();
-		v标签->f属性_s文本(a标签, 16, 用户界面::E对齐::e居左);
+		v标签->f属性_s文本(a标签, {16, 用户界面::E对齐::e居左});
 		auto &v行 = ma行.emplace_back();
 		v行.w名称 = std::move(v标签);
 		v行.w控制 = std::move(a控制);
@@ -57,7 +58,7 @@ public:
 class W玩家帐户 : public W选项列表 {
 public:
 	W玩家帐户() {
-		const auto &va界面文本 = C游戏::fg资源().fg界面文本();
+		const auto &va界面文本 = C文本管理::fg实例().fg界面文本();
 		f添加行(va界面文本[L"option.playername"], std::make_unique<用户界面::W文本框>());
 	}
 };
@@ -102,7 +103,7 @@ public:
 			t分辨率(1440, 900),
 			t分辨率(1920, 1080),	//1080p
 		};
-		const auto &va界面文本 = C游戏::fg资源().fg界面文本();
+		const C取文本 &va界面文本 = C文本管理::fg实例().fg界面文本();
 		auto w分辨率 = std::make_unique<用户界面::W横向选择列表>(e分辨率);
 		for (const auto &[v枚举, v宽, v高] : ca分辨率) {
 			const int v序号 = (int)w分辨率->ma文本.size();
@@ -161,10 +162,10 @@ public:
 	};
 	W选项() {
 		constexpr float c按钮高 = 30;
-		const auto &va界面文本 = C游戏::fg资源().fg界面文本();
+		const C取文本 &va界面文本 = C文本管理::fg实例().fg界面文本();
 		w选项卡组.f属性_s布局({t向量2::c零, t向量2(c宽, c高)});
 		w选项卡组.f属性_s页按钮尺寸(t向量2(80, c按钮高));
-		w选项卡组.f属性_s文本大小(20);
+		//w选项卡组.f属性_s文本大小(20);
 		//选项卡
 		const std::tuple<W选项列表 *, std::wstring_view> va页[] = {
 			{&w玩家帐户, va界面文本[L"tab.player"]},

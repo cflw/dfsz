@@ -51,6 +51,7 @@ import 东方山寨.图形_符卡立绘函数;
 import 东方山寨.图形_符卡立绘模板;
 import 东方山寨.关卡标识;
 import 东方山寨.关卡练习;
+import 东方山寨.关卡管理;
 namespace 东方山寨 {
 using t子弹工厂 = C子弹制造机;
 using t敌机工厂 = C敌机制造机;

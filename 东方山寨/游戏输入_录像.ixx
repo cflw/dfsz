@@ -28,8 +28,8 @@ public:
 		}
 		mp录像->f录制帧(v帧);
 	}
-	void f事件_切换关卡(int a关卡, const void *a保存数据) override {
-		mp录像->f新建关卡(a关卡, *(const C玩家::S成绩 *)a保存数据);
+	void f事件_切换关卡(int a关卡) override {
+		mp录像->f新建关卡(a关卡);
 	}
 	const t向量2 &fg方向() const override {
 		return m方向;
@@ -59,7 +59,7 @@ public:
 			m按键组.m这次[i] = mp当前帧->m按键[i];
 		}
 	}
-	void f事件_切换关卡(int a关卡, const void *a保存数据) override {
+	void f事件_切换关卡(int a关卡) override {
 		mp回放->f回放关卡(a关卡);
 	}
 	const t向量2 &fg方向() const override {

@@ -24,8 +24,8 @@ C名称标识::~C名称标识() {
 C名称标识::operator int() const {
 	return m标识层->m计算标识;
 }
-C名称标识 C名称标识::f创建层(const std::wstring &a名称, int a标识) const {
-	return m标识组->f创建层(a名称, a标识);
+C名称标识 C名称标识::f创建层(const std::wstring &a名称, int a标识, bool a创建) const {
+	return m标识组->f创建层(a名称, a标识, a创建);
 }
 const std::wstring &C名称标识::fg当前名称() const {
 	return m标识层->m当前名称;
@@ -72,7 +72,7 @@ C名称标识组::C名称标识组():
 S名称标识层 &C名称标识组::operator [](int a层) {
 	return ma标识[a层];
 }
-C名称标识 C名称标识组::f创建层(const std::wstring &a名称, int a标识) {
+C名称标识 C名称标识组::f创建层(const std::wstring &a名称, int a标识, bool a创建) {
 	//创建层
 	if (m当前层数 == 0) {
 		ma标识[0].f重置0(a名称, a标识);
@@ -83,7 +83,9 @@ C名称标识 C名称标识组::f创建层(const std::wstring &a名称, int a标
 	++m当前层数;
 	//创建名称标识
 	v当前层.m计算标识 = fg计算标识();
-	C全局名称标识::f创建(v当前层.m计算名称, v当前层.m计算标识);
+	if (a创建) {	//顶层(0)不能创建名称标识,会重复
+		C全局名称标识::f创建(v当前层.m计算名称, v当前层.m计算标识);
+	}
 	return C名称标识(*this, v当前层);
 }
 int C名称标识组::fg当前层号() const {
@@ -135,7 +137,7 @@ void C全局名称标识::f复制(const std::wstring &a入, const std::wstring &
 }
 void C全局名称标识::f创建(const std::wstring &a名称, int a标识) {
 	auto &v映射 = fg映射();
-	//assert(v映射.find(a名称) == v映射.end());
+	assert(v映射.find(a名称) == v映射.end());	//名称不能重复,顶层名称需要停止创建防止重复
 	v映射[a名称] = a标识;
 }
 std::wstring C全局名称标识::f连接名称(const std::wstring &a, const std::wstring &b) {

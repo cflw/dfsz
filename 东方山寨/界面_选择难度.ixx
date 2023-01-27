@@ -1,12 +1,13 @@
 ﻿module;
 #include "界面包含.h"
 export module 东方山寨.界面_选择难度;
+import 东方山寨.文本管理;
 import 东方山寨.设置管理;
 export namespace 东方山寨 {
 class W选择难度 : public 用户界面::W窗口框架 {
 public:
 	W选择难度() {
-		const auto &va界面文本 = C游戏::fg资源().fg界面文本();
+		const C取文本 &va界面文本 = C文本管理::fg实例().fg界面文本();
 		const std::wstring va难度文本[] = {
 			va界面文本[L"difficulty.easy"],
 			va界面文本[L"difficulty.normal"],
@@ -26,7 +27,7 @@ public:
 		constexpr int v难度上限 = 10;
 		for (int i = 0; i != v难度上限; ++i) {
 			std::unique_ptr<用户界面::W按钮> v按钮 = std::make_unique<用户界面::W按钮>(0, i + 1);
-			v按钮->f属性_s文本(va难度文本[i], 16, 用户界面::e居左);
+			v按钮->f属性_s文本(va难度文本[i], {16, 用户界面::e居左});
 			v按钮->f属性_s布局(v布局.f计算生成矩形(i / 5, i % 5));
 			v按钮->m标志[W窗口::e显示边框] = false;
 			v按钮->m标志[W窗口::e显示背景] = false;
@@ -38,7 +39,7 @@ public:
 		case 用户界面::E按键::e确定:
 			switch (a窗口.m标识) {
 			case 0:
-				C设置管理::fg游戏设置().fs基础难度(a窗口.m值);
+				C设置管理::fg实例().fg游戏设置().fs基础难度(a窗口.m值);
 				break;
 			default:
 				return;

@@ -53,7 +53,7 @@ public:
 	const S子机属性 *m子机属性 = nullptr;
 	std::unique_ptr<I子机移动> m子机移动;
 	int m数量 = 0;
-	const boost::rational<int> *m火力 = nullptr;	//指向C玩家::S成绩::m火力
+	const boost::rational<int> *m火力 = nullptr;	//指向S玩家成绩::m火力
 };
 struct S子机属性 : public S图片动画属性 {
 	int m数量上限;

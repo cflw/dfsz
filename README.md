@@ -9,6 +9,7 @@
 * 版权没有，仿冒不究。
 
 项目依赖项：
-* boost库
 * [乘风龙王的代码库(c++)](https://github.com/cflw/cflw_cpp)
 * [用户界面](https://github.com/cflw/ui)
+* [boost](https://boost.org/)
+* [zlib](http://www.zlib.net/)

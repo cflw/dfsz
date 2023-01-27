@@ -45,20 +45,17 @@ namespace 东方山寨::载入 {
 class C读json文件 {
 public:
 	static bool f读取(boost::property_tree::wptree &a输出树, const std::filesystem::path &a路径) {
-		t属性文件 v文件;
 		const std::filesystem::path v路径 = 文件系统::f计算路径(a路径, L"");
-		if (v文件.f打开(v路径.c_str())) {
-			v文件.f读取(a输出树);
+		if (cflw::文件::json::f打开文件(v路径.c_str(), a输出树)) {
 			return true;
 		} else {
+			__debugbreak();
 			return false;
 		}
 	}
 	static bool f读取(boost::property_tree::wptree &a输出树, const S载入参数 &a参数, const std::filesystem::path &a路径, std::filesystem::path &a输出路径) {
-		t属性文件 v文件;
 		const std::filesystem::path v路径 = 文件系统::f计算路径(a路径, a参数.m路径);
-		if (v文件.f打开(v路径.c_str())) {
-			v文件.f读取(a输出树);
+		if (cflw::文件::json::f打开文件(v路径.c_str(), a输出树)) {
 			a输出路径 = v路径;
 			return true;
 		} else {
@@ -143,7 +140,7 @@ void C载入::f图形(const S载入参数 &a) {
 	for (const auto &[v名称0_, v节点0] : a.m树.get_child(L"数据")) {
 		v主标识 = v节点0.get<int>(L"标识", v主标识 + 1);
 		const std::wstring &v图形名称 = v节点0.get<std::wstring>(L"名称", std::wstring(L"图形") + std::to_wstring(v主标识));
-		const C名称标识 v名称标识1 = v名称标识0.f创建层(v图形名称, v主标识);
+		const C名称标识 v名称标识1 = v名称标识0.f创建层(v图形名称, v主标识, true);
 		//纹理
 		const t属性树 &v纹理节点 = v节点0.get_child(L"纹理");
 		if (const std::wstring v纹理路径 = C解析助手::f获取路径(a, v纹理节点); !v纹理路径.empty()) {
@@ -174,11 +171,10 @@ void C载入::f图形(const S载入参数 &a) {
 			v顶点工厂.m参数.fs矩形坐标({v偏移x, v偏移y});
 			int v切片标识 = 0;
 			for (auto &v循环 : v顶点工厂.f循环(v列数, v行数)) {
-				const C名称标识 v名称标识3 = v名称标识2.f创建层(std::to_wstring(v切片标识), v切片标识);
+				const C名称标识 v名称标识3 = v名称标识2.f创建层(std::to_wstring(v切片标识), v切片标识, true);
 				++v切片标识;
 				v循环.f变换_平移(v顶点尺寸);
-				const int v计算切片标识 = v名称标识3;
-				v顶点工厂.f创建矩形(v计算切片标识);
+				v顶点工厂.f创建矩形(v名称标识3);
 			}
 		}
 	}
@@ -195,7 +191,7 @@ void C载入::f动画(const S载入参数 &a) {
 		const auto &v节点0 = v0.second;
 		v主标识 = v节点0.get<int>(L"标识", v主标识 + 1);
 		const std::wstring v动画名称 = v节点0.get<std::wstring>(L"名称", L"");
-		const C名称标识 v名称标识1 = v名称标识0.f创建层(v动画名称, v主标识);
+		const C名称标识 v名称标识1 = v名称标识0.f创建层(v动画名称, v主标识, true);
 		C角色动画::S属性 v属性;
 		const float v变化速度 = v节点0.get<float>(L"变化速度", 8);
 		const float v循环速度 = v节点0.get<float>(L"循环速度", 8);
@@ -228,7 +224,7 @@ void C载入::f子弹(const S载入参数 &a) {
 		const auto &v子弹节点 = v0.second;
 		v主标识 = v子弹节点.get<int>(L"标识", v主标识 + 1);
 		const std::wstring v子弹名称 = v子弹节点.get<std::wstring>(L"名称", L"");
-		const C名称标识 v名称标识1 = v名称标识0.f创建层(v子弹名称, v主标识);
+		const C名称标识 v名称标识1 = v名称标识0.f创建层(v子弹名称, v主标识, true);
 		const int v子弹标识 = v名称标识1;
 		//纹理
 		const t属性树 &v纹理节点 = v子弹节点.get_child(L"纹理");
@@ -282,7 +278,7 @@ void C载入::f敌机(const S载入参数 &a) {
 		const auto &v节点0 = v0.second;
 		v主标识 = v节点0.get<int>(L"标识", v主标识 + 1);
 		const std::wstring v敌机名称 = v节点0.get<std::wstring>(L"名称", L""); 
-		const C名称标识 v名称标识1 = v名称标识0.f创建层(v敌机名称, v主标识);
+		const C名称标识 v名称标识1 = v名称标识0.f创建层(v敌机名称, v主标识, true);
 		const int v敌机标识 = v名称标识1;
 		auto &v属性 = va敌机属性.f取空(v敌机标识);
 		v属性.m判定半径 = v节点0.get<float>(L"判定半径", 16);
@@ -314,7 +310,7 @@ void C载入::f自机(const S载入参数 &a) {
 		const auto &v节点0 = v0.second;
 		v主标识 = v节点0.get<int>(L"标识", v主标识 + 1);
 		const std::wstring v自机名称 = v节点0.get<std::wstring>(L"名称", L"");
-		const C名称标识 v名称标识1 = v名称标识0.f创建层(v自机名称, v主标识);
+		const C名称标识 v名称标识1 = v名称标识0.f创建层(v自机名称, v主标识, true);
 		const int v自机标识 = v名称标识1;
 		auto &v属性 = va自机属性.f取空(v自机标识);
 		//纹理
@@ -355,7 +351,7 @@ void C载入::f子机(const S载入参数 &a) {
 		const auto &v节点0 = v0.second;
 		v主标识 = v节点0.get<int>(L"标识", v主标识 + 1);
 		const std::wstring v子机名称 = v节点0.get<std::wstring>(L"名称", L"");
-		const C名称标识 v名称标识1 = v名称标识0.f创建层(v子机名称, v主标识);
+		const C名称标识 v名称标识1 = v名称标识0.f创建层(v子机名称, v主标识, true);
 		const int v子机标识 = v名称标识1;
 		auto &v子机属性 = va子机.f取空(v子机标识);
 		const int v类型 = v节点0.get<int>(L"类型", 0);
@@ -410,7 +406,7 @@ void C载入::f玩家子弹(const S载入参数 &a) {
 	for (const auto &[v名称0_, v节点0] : va数据) {
 		v主标识 = v节点0.get<int>(L"标识", v主标识 + 1);
 		const std::wstring v玩家子弹名称 = v节点0.get<std::wstring>(L"名称", L"");
-		const C名称标识 v名称标识1 = v名称标识0.f创建层(v玩家子弹名称, v主标识);
+		const C名称标识 v名称标识1 = v名称标识0.f创建层(v玩家子弹名称, v主标识, true);
 		const int v玩家子弹标识 = v名称标识1;
 		auto &v玩家子弹属性 = va玩家子弹属性.f取空(v玩家子弹标识);
 		//图形
@@ -458,7 +454,7 @@ void C载入::f玩家发射(const S载入参数 &a) {
 	int v主标识 = -1;
 	for (const auto &[v名称0, v树0] : va数据) {
 		v主标识 = v树0.get<int>(L"标识", v主标识 + 1);
-		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, v主标识);
+		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, v主标识, true);
 		const int v射击类型 = v树0.get<int>(L"类型");
 		switch (v射击类型) {
 			case 1:
@@ -487,7 +483,7 @@ void C载入::f纹理列表0(const S载入参数 &a) {
 	const C名称标识 v名称标识0 = v名称标识组.f创建层(v全局名称, v全局标识);
 	int v主标识 = -1;
 	for (const auto &[v名称0, v树0] : va数据) {
-		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, ++v主标识);
+		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, ++v主标识, true);
 		v纹理工厂.f创建纹理(v名称标识1, 文件系统::f计算路径(v树0.get_value<std::wstring>(), a.m路径));
 	}
 }
@@ -502,7 +498,7 @@ void C载入::f模型列表0(const S载入参数 &a) {
 	int v主标识 = -1;
 	for (const auto &[v名称0_, v树0] : va数据) {
 		const std::wstring &v名称0 = v树0.get<std::wstring>(L"名称", c模型名称 + std::to_wstring(++v主标识));
-		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, v主标识);
+		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, v主标识, true);
 		std::vector<S三维顶点> va顶点;
 		for (const auto &[v名称1_, v树1] : v树0.get_child(L"顶点")) {
 			S三维顶点 v顶点;
@@ -534,26 +530,12 @@ void C载入::f声音列表0(const S载入参数 &a) {
 	const C名称标识 v名称标识0 = v名称标识组.f创建层(v全局名称, v全局标识);
 	int v主标识 = -1;
 	for (const auto &[v名称0, v树0] : va数据) {
-		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, ++v主标识);
+		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, ++v主标识, true);
 		v声音工厂.f创建声音(v名称标识1, 文件系统::f计算路径(v树0.get_value<std::wstring>(), a.m路径));
 	}
 }
 void C载入::f声音列表1(const S载入参数 &) {
 	//音乐
-}
-void C载入::f文本(const S载入参数 &a) {
-	const int v全局标识 = 计算::fc随机标识();
-	const std::wstring v全局名称 = a.m树.get<std::wstring>(L"全局.名称");
-	const std::wstring v语言 = a.m树.get<std::wstring>(L"全局.语言");
-	const auto &va数据 = a.m树.get_child(L"数据");
-	auto &va文本 = C游戏::fg资源().f新文本数组(v全局名称, v语言);
-	C名称标识组 v名称标识组;
-	const C名称标识 v名称标识0 = v名称标识组.f创建层(v全局名称, v全局标识);
-	int v主标识 = -1;
-	for (const auto &[v名称0, v树0] : va数据) {
-		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, ++v主标识);
-		va文本.f添加(v名称标识1, v树0.get_value<std::wstring>());
-	}
 }
 //==============================================================================
 // 内部载入
@@ -729,6 +711,7 @@ void f载入() {
 	C内部载入::f道具();
 	C内部载入::f动画();
 	C内部载入::f模型();
+	C内部载入::f关卡组();
 	C程序::fs游戏标志((int)E游戏标志::e载入0);
 }
 }	//namespace 东方山寨

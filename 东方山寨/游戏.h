@@ -83,7 +83,6 @@ public:
 	void f初始化_在载入结束();
 	void f开始();	//总的开始,进入游戏前调用
 	void f结束();	//总的结束,回到主菜单前调用
-	void f进入关卡(C关卡 &);
 	void f计算();
 	void f更新();
 	void f显示() const;
@@ -119,9 +118,9 @@ public:	//公开控制
 		t随机数引擎 f工厂_随机数引擎(int = 0) const;
 		//游戏中
 		void f游戏_全屏清弹(const t向量2 & = t向量2::c零, float = 600, bool 道具 = false);
-		void f游戏_进入关卡(C关卡 &);
 		void f游戏_切换边框(const I边框 &);
 		void f游戏_结束游戏();	//结束关卡回到标题画面
+		void f游戏_通关菜单();	//结束关卡弹出菜单
 	private:
 		C实现 *m实现 = nullptr;
 	};
@@ -135,11 +134,6 @@ public:	//公开控制
 		C属性数组<S道具属性> &fg道具属性() const;
 		C属性数组<S玩家子弹属性> &fg玩家子弹属性() const;
 		C属性数组<S敌机属性> &fg敌机属性() const;
-		C属性数组<std::wstring> &f新文本数组(const std::wstring &全局名称, const std::wstring &语言);
-		const C属性数组<std::wstring> &f找文本数组(const std::wstring &全局名称, const std::wstring &语言) const;
-		C取文本 f取文本数组(const std::wstring &全局名称, const std::wstring &语言) const;
-		C取文本 fg普通文本() const;
-		C取文本 fg界面文本() const;
 		C扩展数组<I工厂<C玩家子弹发射器>> &fg玩家发射() const;
 		C扩展数组<I工厂<I子机移动>> &fg子机移动() const;
 		C扩展数组<I工厂<I动画>> &fg动画() const;

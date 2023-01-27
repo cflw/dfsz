@@ -6,7 +6,7 @@
 export module 东方山寨.界面_选择录像;
 export import 用户界面.控件;
 import 东方山寨.游戏录像管理;
-import 东方山寨.游戏输入控制;
+import 东方山寨.游戏输入管理;
 namespace 时间 = cflw::时间;
 export namespace 东方山寨 {
 class W选择录像 : public 用户界面::W窗口框架 {
@@ -39,7 +39,7 @@ public:
 			//先实现点击录像直接播放录像
 			C回放机 &v回放 = v录像管理.f回放录像(vp录像);
 			C游戏::fs游戏设置(v回放.fg游戏设置());
-			C游戏::fs游戏输入(C游戏输入控制::g这->fc回放(v回放));
+			C游戏::fs游戏输入(C游戏输入管理::g这->fc回放(v回放));
 			C程序::f切换游戏状态(E游戏状态::e游戏中);
 		}
 	}
@@ -51,7 +51,7 @@ public:
 			w表格.f新行(c行标识, v序号).f流() << v序号
 				<< vp录像->fg录像标题() 
 				<< vp录像->fg玩家名称() 
-				<< std::format(c标准时间格式, 时间::f本地时间(vp录像->fg结束时间())) 
+				<< std::format(c标准时间格式, 时间::f本地秒(vp录像->fg结束时间())) 
 				<< vp录像->fg机型() 
 				<< vp录像->fg难度() 
 				<< vp录像->fg关卡();

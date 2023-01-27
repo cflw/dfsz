@@ -9,7 +9,7 @@ class C关卡脚本;
 class C场景控制;
 class I场景;
 class C关卡;
-using ta关卡 = std::map<int, C关卡 *>;
+using t关卡组 = std::vector<C关卡*>;
 //==============================================================================
 // 关卡控制
 //==============================================================================
@@ -42,8 +42,11 @@ public:
 	void f对象_销毁();
 	bool f对象_i使用() const;
 	void f初始化_环境(C场景控制 &, C对话控制 &);
-	void f初始化_在游戏开始(C关卡 *const *, size_t);
-	void f初始化关卡(C关卡 &);	//初始化控制状态,如果有关卡要先结束关卡
+	void f切换_关卡(C关卡 &);	//记录即将切换的关卡,在游戏下次计算时切换
+	void f切换_关卡组(const t关卡组 &);
+	bool f切换_计算();	//成功切换返回true
+	void f开始关卡组(const t关卡组 &);	//只设置关卡组状态,不含开始关卡
+	void f开始关卡(C关卡 &);	//初始化控制状态,如果有关卡要先结束关卡
 	void f结束关卡();	//清空控制状态
 	void f切换关卡(C关卡 &关卡, float 等待时间 = 0);	//切换到别的关卡
 	C关卡脚本 fc脚本();
@@ -68,10 +71,13 @@ public:
 	C对话控制 *m对话 = nullptr;
 	t标志 m标志;
 	float m经过时间 = 0;
-	C关卡 *m关卡 = nullptr;
-	C关卡 *const *ma关卡 = &m关卡;
-	size_t m关卡数量 = 1;
-	size_t m当前关卡序号 = 0;
+	C关卡 *m切换_p关卡 = nullptr;
+	const t关卡组 *m切换_p关卡组 = nullptr;
+	C关卡 *mp关卡 = nullptr;
+	const t关卡组 *mp关卡组 = nullptr;
+	unsigned char m当前关卡序号 = 0;
+	unsigned char m关卡数量 = 1;
+	unsigned int m随机数种子 = 0;	//当前关卡的随机数种子,每次初始化关卡时重新设置
 };
 class C关卡脚本 {	//用来增加关卡内容的类
 public:
@@ -99,13 +105,7 @@ class C关卡 : public I事件 {
 public:
 	void f注册关卡(int);
 	C关卡控制 *m关卡 = nullptr;
-};
-class C关卡管理 {
-public:
-	static ta关卡 &fg关卡组();
-	static C关卡 &fg关卡(int);	//传入标识,返回关卡
-	static std::vector<C关卡*> fg关卡列表(const std::vector<int> &);	//传入标识,返回关卡
-	static void f注册(int, C关卡 *);
+	int m标识 = 0;
 };
 //关卡事件
 class C关卡事件 : public I事件 {
@@ -133,8 +133,9 @@ public:
 };
 class C切换关卡事件 : public C关卡事件 {
 public:
-	C切换关卡事件(C关卡 &);
+	C切换关卡事件(C关卡控制 &, C关卡 &);
 	void f事件_执行() override;
+	C关卡控制 *m关卡控制 = nullptr;
 	C关卡 *m关卡 = nullptr;
 };
 //==============================================================================

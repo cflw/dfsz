@@ -10,9 +10,9 @@ namespace 东方山寨 {
 template<typename t> 
 class I工厂 {
 public:
+	virtual ~I工厂() = default;
 	virtual std::unique_ptr<t> f接口_新建u() const = 0;
 	virtual std::shared_ptr<t> f接口_新建s() const = 0;	//共享所有权指针会创建控制块,建议重写,并调用std::make_shared<t>()
-	
 };
 template<typename t基类, typename t派生类 = t基类> requires std::derived_from<t派生类, t基类>
 class C简单工厂 : public I工厂<t基类> {
@@ -61,4 +61,4 @@ class I自动工厂 : public I工厂<t基类>  {
 		//什么都不做
 	}
 };
-}
+}	//namespace 东方山寨

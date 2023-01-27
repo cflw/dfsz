@@ -18,12 +18,14 @@
 import 东方山寨.图形_帧速率;
 import 东方山寨.基础_计时器;
 import 东方山寨.关卡标识;
+import 东方山寨.关卡管理;
 import 东方山寨.游戏状态控制;
-import 东方山寨.游戏输入控制;
+import 东方山寨.游戏输入管理;
 import 东方山寨.设置管理;
 import 东方山寨.游戏录像管理;
 import 东方山寨.录像_结构;
 import 东方山寨.游戏输入_录像;
+import 东方山寨.文本管理;
 namespace 东方山寨 {
 namespace 载入 {
 void f载入();
@@ -32,6 +34,7 @@ C程序实现 *C程序实现::g这 = nullptr;
 C程序实现::C程序实现(HINSTANCE a实例):
 	m实例(a实例),
 	m设置(std::make_unique<C设置管理>()),
+	m文本(std::make_unique<C文本管理>()),
 	m图形(std::make_unique<C图形引擎>()),
 	m输入(std::make_unique<C输入引擎>()),
 	m音频(std::make_unique<C音频引擎>()),
@@ -41,7 +44,7 @@ C程序实现::C程序实现(HINSTANCE a实例):
 	m游戏(std::make_unique<C游戏>()),
 	m游戏状态(std::make_unique<C游戏状态控制>(*this)),
 	m录像管理(std::make_unique<C游戏录像管理>()),
-	m游戏输入(std::make_unique<C游戏输入控制>(*this, *m输入)) {
+	m游戏输入(std::make_unique<C游戏输入管理>(*this, *m输入)) {
 	g这 = this;
 	m游戏->f初始化_图形接口(*m图形);
 	m游戏->f初始化_音频接口(*m音频);
@@ -240,24 +243,20 @@ void C程序实现::f线程_显示() {
 	}
 }
 void C程序实现::f快速开始游戏() {	//调试用,载入完毕后马上进入游戏
-	S游戏设置 &v设置 = C设置管理::fg游戏设置();
+	S游戏设置 &v设置 = C设置管理::fg实例().fg游戏设置();
 	v设置.m自机标识 = (int)E自机::e灵梦;
 	v设置.m子机标识 = (int)E子机::e灵梦诱导;
 	v设置.m火力 = 0;
 	v设置.m基础难度 = 5;
-	v设置.fs关卡((int)E关卡::e符卡);
-	//static C关卡 *va关卡[] = {
-	//	&C关卡管理::fg关卡((int)E关卡::e测试),
-	//	&C关卡管理::fg关卡((int)E关卡::e测试+2),
-	//};
-	//v设置.fs进入关卡(va关卡, _countof(va关卡));
+	//v设置.fs关卡((int)E关卡::e符卡);
+	v设置.fs关卡组((int)E关卡::e测试);
 	C游戏::fs游戏设置(v设置);
 	auto &v录像 = m录像管理->f新建录像();
 	C游戏::fs游戏输入(m游戏输入->fc录像(v录像));
 	f切换游戏状态(E游戏状态::e游戏中);
 }
 void C程序实现::f快速回放录像() {
-	C回放机 &v回放 = m录像管理->f回放录像(m录像管理->f打开录像(L"test.录像"));
+	C回放机 &v回放 = m录像管理->f回放录像(m录像管理->f打开录像(L"test.zip"));
 	C游戏::fs游戏设置(v回放.fg游戏设置());
 	C游戏::fs游戏输入(m游戏输入->fc回放(v回放));
 	f切换游戏状态(E游戏状态::e游戏中);

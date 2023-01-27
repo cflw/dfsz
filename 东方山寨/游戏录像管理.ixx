@@ -10,35 +10,35 @@
 #include "程序设置.h"
 #include "游戏设置.h"
 export module 东方山寨.游戏录像管理;
+import cflw.工具.单例;
 import 东方山寨.录像_结构;
 export import 东方山寨.录像_功能;
 import 东方山寨.录像_文件;
 import 东方山寨.设置管理;
 import 东方山寨.文件系统;
 namespace 时间 = cflw::时间;
+namespace 工具 = cflw::工具;
 using namespace std::string_literals;
 export namespace 东方山寨 {
 inline const std::filesystem::path c录像目录 = 文件系统::fg用户目录();
 //==============================================================================
 // 游戏录像管理
 //==============================================================================
-class C游戏录像管理 {	//管理录像文件和正在录制的录像
+class C游戏录像管理 : public 工具::C弱单例<C游戏录像管理> {	//管理录像文件和正在录制的录像
 public:
-	static C游戏录像管理 *g这;
 	//函数
-	C游戏录像管理() {
-		g这 = this;
-	}
+	C游戏录像管理() = default;
 	C录像机 &f新建录像() {	//在进入游戏前调用
-		m录像.f新建录像(C设置管理::fg程序设置(), C设置管理::fg游戏设置());
+		m录像.f新建录像(C设置管理::fg实例().fg程序设置(), C设置管理::fg实例().fg游戏设置());
 		return m录像;
 	}
 	void f保存录像() {	//保存当前录制的录像
+		m录像.f结束录像();
 		const auto v路径 = c录像目录 / f自动录像文件名();
 		C录像文件::f保存(v路径, *m录像.m录像);
 	}
 	static std::wstring f自动录像文件名() {
-		return L"自动保存"s +  std::format(c紧凑时间格式, 时间::f本地时间()) + L".录像"s;
+		return std::format(c紧凑时间格式, 时间::f本地秒(时间::fg本地现在())) + L".zip"s;
 	}
 	std::shared_ptr<C录像> f打开录像(const std::filesystem::path &a文件名, bool a完整 = true, bool a缓存 = true) {	//读取录像,返回录像
 		if (a缓存) {
@@ -83,7 +83,7 @@ public:
 		int i = 0;
 		for (const auto &v目录条目 : std::filesystem::directory_iterator(c录像目录)) {
 			const auto &v文件名 = v目录条目.path();
-			if (v文件名.extension() == L".录像") {
+			if (v文件名.extension() == L".zip") {
 				const auto vp录像 = f打开录像(v文件名, false);
 				if (vp录像) {
 					ma摘要.emplace(++i, vp录像);
@@ -99,5 +99,4 @@ public:
 	std::thread m线程_刷新列表;
 	std::map<int, std::shared_ptr<C录像>> ma摘要;	//扫描录像目录得到的录像列表,键是文件名顺序
 };
-C游戏录像管理 *C游戏录像管理::g这 = nullptr;
 }	//namespace 东方山寨

@@ -37,7 +37,7 @@ void C载入::f立绘列表1(const S载入参数 &a) {
 	std::vector<int> va组件标识;
 	for (const auto &[v名称0_, v树0] : va数据) {
 		const std::wstring v名称0 = v树0.get<std::wstring>(L"名称");
-		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, ++v主标识);
+		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, ++v主标识, true);
 		S静态立绘属性 &v属性 = v静态立绘管理.ma属性.f取空(v名称标识1);
 		v缩放 = v属性.m缩放 = v树0.get<float>(L"缩放", 1);
 		const int v方向 = v树0.get<int>(L"方向", 0);
@@ -47,7 +47,7 @@ void C载入::f立绘列表1(const S载入参数 &a) {
 		for (const auto &[v名称1_, v树1] : v树0.get_child(L"组件")) {
 			const std::wstring v名称1 = L"组件."s + v树1.get<std::wstring>(L"名称");
 			v组件标识 = v树1.get<int>(L"标识", v组件标识 + 1);
-			const C名称标识 v名称标识2 = v名称标识1.f创建层(v名称1, v组件标识);
+			const C名称标识 v名称标识2 = v名称标识1.f创建层(v名称1, v组件标识, true);
 			va组件标识.push_back(v名称标识2);
 			S静态立绘组件 &v组件 = va组件.emplace_back();
 			if (const S解析纹理 v纹理 = v解析纹理.f解析纹理(v名称标识2, v树1.get_child(L"纹理"))) {
@@ -62,7 +62,7 @@ void C载入::f立绘列表1(const S载入参数 &a) {
 		int v表情标识 = -1;
 		for (const auto &[v名称1_, v树1] : v树0.get_child(L"表情")) {
 			const std::wstring v名称1 = L"表情."s + v名称1_;
-			const C名称标识 v名称标识2 = v名称标识1.f创建层(v名称1, ++v表情标识);
+			const C名称标识 v名称标识2 = v名称标识1.f创建层(v名称1, ++v表情标识, true);
 			S静态立绘属性::S表情映射 v表情映射;
 			int j = 0;
 			for (const auto &[v名称2_, v树2] : v树1.get_child(L"")) {

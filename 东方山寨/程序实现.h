@@ -14,6 +14,7 @@ namespace 视窗 = cflw::视窗;
 namespace 工具 = cflw::工具;
 enum class E窗口;	//位于 界面常量.h
 class C设置管理;
+class C文本管理;
 class C图形引擎;
 class C输入引擎;
 class C音频引擎;
@@ -22,7 +23,7 @@ class C界面图形控制;
 class C界面音频;
 class C游戏;
 class C游戏状态控制;
-class C游戏输入控制;
+class C游戏输入管理;
 class C游戏录像管理;
 class C画帧速率;
 class C日志;
@@ -37,6 +38,7 @@ public:
 	时间::C计时器 m计时器;
 	工具::C计次器 m计次器;
 	std::unique_ptr<C设置管理> m设置;
+	std::unique_ptr<C文本管理> m文本;
 	std::unique_ptr<C图形引擎> m图形;
 	std::unique_ptr<C输入引擎> m输入;
 	std::unique_ptr<C音频引擎> m音频;
@@ -46,7 +48,7 @@ public:
 	std::unique_ptr<C游戏> m游戏;
 	std::unique_ptr<C游戏状态控制> m游戏状态;
 	std::unique_ptr<C游戏录像管理> m录像管理;
-	std::unique_ptr<C游戏输入控制> m游戏输入;
+	std::unique_ptr<C游戏输入管理> m游戏输入;
 	std::unique_ptr<C画帧速率> m画帧速率;
 	std::unique_ptr<C日志> m日志;
 	视窗::C输入法开关 m输入法开关;

@@ -3,6 +3,7 @@
 #include "基础.h"
 #include "输入.h"
 #include "玩家子弹发射基础.h"
+#include "玩家成绩.h"
 #include "自机.h"
 #include "子机.h"
 #include "轨迹.h"
@@ -23,25 +24,6 @@ const float c移动范围r = (float)hypot(c移动范围x, c移动范围y);
 //==============================================================================
 // 各种值
 //==============================================================================
-class C分数值 {
-public:
-	void f计算();
-	void f加分(long long);
-public:
-	long long m实际值 = 0;
-	long long m显示值 = 0;
-};
-class C吸收值 {
-public:
-	static const float c减少速度;
-	static const float c上限;
-	operator int() const;
-	void f计算();
-	void f加();
-	void f满();
-public:
-	float m值 = 0;
-};
 //==============================================================================
 // 玩家
 //==============================================================================
@@ -56,15 +38,6 @@ public:
 		e炸弹,
 		e低速移动,	//按shift
 		e对话,	//对话中,无法射击且无敌
-	};
-	struct S成绩 {
-		long long m得分;
-		boost::rational<int> m残机;
-		boost::rational<int> m炸弹;
-		boost::rational<int> m火力;
-		int m最大点;
-		int m擦弹;
-		C吸收值 m吸收;
 	};
 	static constexpr float c复活时间 = 2;
 	static constexpr float c复活距离 = 64;	//总长
@@ -97,7 +70,7 @@ public:
 public:	//包含自机&子机&成绩
 	C自机 m自机;
 	C子机组 m子机组;
-	S成绩 m成绩;
+	S玩家成绩 m成绩;
 	C实时轨迹 m轨迹;
 	std::mutex m成绩锁;
 public:	//变量

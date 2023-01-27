@@ -6,7 +6,7 @@
 #include "界面图形.h"
 #include "游戏.h"
 export module 东方山寨.游戏状态控制;
-import 东方山寨.游戏输入控制;
+import 东方山寨.游戏输入管理;
 export namespace 东方山寨 {
 class C游戏状态控制 {
 public:

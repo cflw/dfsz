@@ -2,6 +2,7 @@
 #include "界面包含.h"
 #include "程序.h"
 export module 东方山寨.界面_选择自机;
+import 东方山寨.文本管理;
 import 东方山寨.设置管理;
 export namespace 东方山寨 {
 class W选择自机 : public 用户界面::W窗口框架 {
@@ -14,7 +15,7 @@ public:
 		e魔理沙范围,
 	};
 	W选择自机() {
-		const auto &va界面文本 = C游戏::fg资源().fg界面文本();
+		const C取文本 &va界面文本 = C文本管理::fg实例().fg界面文本();
 		const std::tuple<int, std::wstring> va按钮[] = {
 			{e测试, L"测试"},
 			{e灵梦诱导, va界面文本[L"character.reimu"] + L"\n    " + va界面文本[L"character.reimu0"]},
@@ -28,7 +29,7 @@ public:
 		m布局.f属性_s倍数移动(1, -1);
 		for (const auto &[v标识, v文本] : va按钮) {
 			std::unique_ptr<用户界面::W按钮> v按钮 = std::make_unique<用户界面::W按钮>(v标识, 0);
-			v按钮->f属性_s文本(v文本, 16, 用户界面::e居左);
+			v按钮->f属性_s文本(v文本, {16, 用户界面::e居左});
 			v按钮->f属性_s布局(m布局.f计算生成矩形(0, v标识));
 			v按钮->m标志[W窗口::e显示边框] = false;
 			v按钮->m标志[W窗口::e显示背景] = false;
@@ -36,7 +37,7 @@ public:
 		}
 	}
 	void f事件_按键(用户界面::W窗口 &a窗口, const 用户界面::S按键参数 &a按键) override {
-		auto &v设置 = C设置管理::fg游戏设置();
+		auto &v设置 = C设置管理::fg实例().fg游戏设置();
 		const auto f设置玩家 = [&](int a自机, int a子机, int a炸弹) {
 			v设置.fs自机(a自机);
 			v设置.fs子机(a子机);

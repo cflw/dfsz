@@ -4,6 +4,9 @@
 #include "程序常量.h"
 #include "界面图形.h"
 export module 东方山寨.界面_主菜单;
+import 东方山寨.文本管理;
+import 东方山寨.游戏输入管理;
+import 东方山寨.游戏录像管理;
 export namespace 东方山寨 {
 class W主菜单 : public 用户界面::W窗口框架 {
 public:
@@ -28,18 +31,18 @@ public:
 		constexpr float c左对齐 = -200;
 		v布局.f属性_s单格布局(t向量2(c左对齐, 50), t向量2(100, 30));
 		v布局.f属性_s倍数移动(0, -1);
-		const auto &va界面文本 = C游戏::fg资源().fg界面文本();
+		const C取文本 &va界面文本 = C文本管理::fg实例().fg界面文本();
 		for (const int v按钮序号 : va标题按钮) {
 			const auto &[v标识, v文本标识] = ca按钮文本[v按钮序号];
 			std::unique_ptr<用户界面::W按钮> v按钮 = std::make_unique<用户界面::W按钮>(v标识, 0);
 			const std::wstring v文本 = va界面文本[v文本标识];
-			v按钮->f属性_s文本(v文本, 16, 用户界面::e居左);
+			v按钮->f属性_s文本(v文本, {16, 用户界面::e居左});
 			v按钮->f属性_s布局(v布局.f移动生成矩形());
 			v按钮->m标志[W窗口::e显示边框] = false;
 			v按钮->m标志[W窗口::e显示背景] = false;
 			ma按钮.push_back(std::move(v按钮));
 		}
-		w游戏标题.f属性_s文本(va界面文本[c游戏名称标识], 24, 用户界面::e居左);
+		w游戏标题.f属性_s文本(va界面文本[c游戏名称标识], {24, 用户界面::e居左});
 		w游戏标题.f属性_s布局({t向量2(c左对齐, 100), t向量2(100, 20)});
 	}
 	void f事件_按键(用户界面::W窗口 &a窗口, const 用户界面::S按键参数 &a按键) override {
@@ -49,6 +52,7 @@ public:
 			switch (a窗口.m标识) {
 			case e开始游戏:
 				C界面引擎::g这->f切换下个窗口(E窗口::e选择模式);
+				C游戏::fs游戏输入(C游戏输入管理::fg实例().fc录像(C游戏录像管理::fg实例().f新建录像()));
 				//C程序::f切换游戏状态(E游戏状态::e游戏中);
 				vi界面图形 = false;
 				break;

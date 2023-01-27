@@ -1,15 +1,11 @@
 ﻿module;
 #include <cassert>
 #include <filesystem>
-#include <Windows.h>
+#include <cflw视窗.h>
 export module 东方山寨.文件系统;
 using namespace std::filesystem;
+namespace 视窗 = cflw::视窗;
 export namespace 东方山寨::文件系统 {
-std::wstring fg环境变量(const std::wstring &a名称) {
-	wchar_t v缓存[256] = {0};
-	GetEnvironmentVariableW(a名称.data(), v缓存, sizeof(v缓存));
-	return v缓存;
-}
 const path &fg数据目录() {
 	static const path v数据目录 = []()->path {
 		const path v当前目录 = current_path();
@@ -24,7 +20,7 @@ const path &fg数据目录() {
 }
 const path &fg临时目录() {	//%temp%\cflw
 	static const path v临时目录 = []()->path {
-		path v路径 = fg环境变量(L"temp");
+		path v路径 = 视窗::fg环境变量(L"temp");
 		v路径 /= L"cflw";
 		if (!exists(v路径)) {
 			create_directories(v路径);
@@ -35,7 +31,7 @@ const path &fg临时目录() {	//%temp%\cflw
 }
 const path &fg用户目录() {	//%appdata%\cflw
 	static const path v用户目录 = []()->path {
-		path v路径 = fg环境变量(L"appdata");
+		path v路径 = 视窗::fg环境变量(L"appdata");
 		v路径 /= L"cflw";
 		if (!exists(v路径)) {
 			create_directories(v路径);

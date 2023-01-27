@@ -32,5 +32,6 @@ public:
 	static void f玩家子弹发射();
 	static void f动画();
 	static void f模型();
+	static void f关卡组();
 };
 }	//namespace 东方山寨

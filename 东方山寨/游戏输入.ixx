@@ -8,7 +8,7 @@ class I游戏输入 {	//接收输入并传递到游戏中
 public:
 	virtual ~I游戏输入() = default;
 	virtual void f更新() = 0;	//更新输入数据,在游戏输入中调用
-	virtual void f事件_切换关卡(int a关卡, const void *a保存数据) {}	//用来切换录像和回放的关卡
+	virtual void f事件_切换关卡(int a关卡) {}	//用来切换录像和回放的关卡
 	virtual const t向量2 &fg方向() const = 0;
 	virtual const 输入::C按键组 &fg按键组() const = 0;
 };

@@ -9,22 +9,20 @@
 #include "游戏设置.h"
 #include "输入.h"
 export module 东方山寨.设置管理;
+export import cflw.工具.单例;
 namespace 视窗 = cflw::视窗;
+namespace 工具 = cflw::工具;
 //using t属性文件 = cflw::文件::json::C文件;
 //using t属性树 = boost::property_tree::wptree;
 export namespace 东方山寨 {
-class C设置管理 {
+class C设置管理 : public 工具::C弱单例<C设置管理> {
 public:
-	static C设置管理 *g这;
 	static const std::wstring c程序设置文件名;
 	static const std::wstring c游戏设置文件名;
 	static const std::filesystem::path c设置文件目录;
 	static const std::filesystem::path c程序设置文件路径;
 	static const std::filesystem::path c游戏设置文件路径;
-	C设置管理() {
-		assert(g这 == nullptr);
-		g这 = this;
-	}
+	C设置管理() = default;
 	~C设置管理() {
 	}
 	//static bool f写设置文件(const std::filesystem::path &a路径, const t属性树 &a树) {
@@ -131,20 +129,27 @@ public:
 	//	mi保存程序设置 = !v保存结果;
 	//	return v保存结果;
 	//}
-	static S程序设置 &fg程序设置() {
+	S程序设置 &fg程序设置() {
+		if (m载入程序设置) {
+			m程序设置 = S程序设置::fc系统();
+			m载入程序设置 = false;
+		}
 		return g这->m程序设置;
 	}
-	static S游戏设置 &fg游戏设置() {
+	S游戏设置 &fg游戏设置() {
+		if (m载入游戏设置) {
+			m游戏设置 = S游戏设置::fc默认();
+			m载入游戏设置 = false;
+		}
 		return g这->m游戏设置;
 	}
 private:
-	bool mi保存程序设置 = true, mi保存游戏设置 = true;	//保存指示,不修改不保存
+	bool m载入程序设置 = true, m载入游戏设置 = true;	//载入指示,true=需要载入
+	bool m保存程序设置 = true, m保存游戏设置 = true;	//保存指示,true=需要保存
 	//boost::property_tree::wptree m程序设置树, m游戏设置树;	//boost1.79中实例化wptree会报链接错误，以后改用boost/json库
 	S程序设置 m程序设置;
 	S游戏设置 m游戏设置;
 };
-//变量
-C设置管理 *C设置管理::g这 = nullptr;
 //常量
 const std::wstring C设置管理::c程序设置文件名 = std::wstring(L"setting0-") + 视窗::C环境::fg计算机名称() + L".json";
 const std::wstring C设置管理::c游戏设置文件名 = L"stg0.json";

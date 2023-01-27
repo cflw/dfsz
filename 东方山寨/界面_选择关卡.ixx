@@ -24,7 +24,7 @@ public:
 		m布局.f属性_s倍数移动(0, -1);
 		for (const auto &[v关卡, v文本] : va按钮) {
 			std::unique_ptr<用户界面::W按钮> v按钮 = std::make_unique<用户界面::W按钮>(0, (int)v关卡);
-			v按钮->f属性_s文本(v文本, 16, 用户界面::e居左);
+			v按钮->f属性_s文本(v文本, {16, 用户界面::e居左});
 			v按钮->f属性_s布局(m布局.f移动生成矩形());
 			v按钮->m标志[W窗口::e显示边框] = false;
 			v按钮->m标志[W窗口::e显示背景] = false;
@@ -32,7 +32,7 @@ public:
 		}
 	}
 	void f事件_按键(用户界面::W窗口 & a窗口, const 用户界面::S按键参数 & a按键) override {
-		auto &v游戏设置 = C设置管理::fg游戏设置();
+		S游戏设置 &v游戏设置 = C设置管理::fg实例().fg游戏设置();
 		switch (a按键.m按键) {
 		case 用户界面::E按键::e确定:
 			//下一界面
