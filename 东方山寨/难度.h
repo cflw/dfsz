@@ -38,13 +38,26 @@ public:
 	int m基础难度 = 1;
 	int m增加难度 = 0;	//单位1/100 0000
 };
-//难度值
-struct C难度值 {
+//难度值,同时保存难度函数和计算后的值
+template<typename t值>
+class C难度值 {
 public:
-	C难度值(const tf难度 &);
-	void operator ()(float);	//重新计算难度值
-	operator float() const;	//取难度值
-	const tf难度 mf计算;
-	float m值 = 0;
+	C难度值(const tf难度 &af难度):
+		mf难度(af难度) {
+	}
+	C难度值 &operator <<(float a动态难度) {	//重新计算难度值
+		m值 = (t值)(mf难度(a动态难度));
+		return *this;
+	}
+	operator const t值 &() const {	//取难度值
+		return m值;
+	}
+	const tf难度 mf难度;	//计算难度值函数
+	t值 m值;
 };
+template<typename t值>
+float operator >>(float a动态难度, C难度值<t值> &a难度值) {	//用来连续更新难度值
+	a难度值 << a动态难度;
+	return a动态难度;
+}
 }	//namespace 东方山寨

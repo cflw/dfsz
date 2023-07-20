@@ -139,10 +139,11 @@
       <AdditionalIncludeDirectories>$(zlib);$(cflw_develop)\cflw代码库;$(cflw_develop)\用户界面;$(boost);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
-      <EnableModules>true</EnableModules>
+      <EnableModules>false</EnableModules>
       <AdditionalOptions>/await %(AdditionalOptions)</AdditionalOptions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <BuildStlModules>false</BuildStlModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -211,10 +212,11 @@
       <AdditionalIncludeDirectories>$(zlib);$(cflw_develop)\cflw代码库;$(cflw_develop)\用户界面;$(boost);</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
-      <EnableModules>true</EnableModules>
+      <EnableModules>false</EnableModules>
       <AdditionalOptions>/await %(AdditionalOptions)</AdditionalOptions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <BuildStlModules>false</BuildStlModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -236,25 +238,11 @@
     </FxCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="东方月亮船1.ixx">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="东方月亮船2.ixx">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="东方月亮船_附加符卡.ixx">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-    </ClCompile>
+    <ClCompile Include="东方月亮船1.ixx" />
+    <ClCompile Include="东方月亮船2.ixx" />
+    <ClCompile Include="东方月亮船_附加符卡.ixx" />
     <ClCompile Include="关卡.cpp" />
+    <ClCompile Include="关卡工厂.ixx" />
     <ClCompile Include="关卡效果.cpp" />
     <ClCompile Include="关卡标识.ixx" />
     <ClCompile Include="关卡管理.ixx" />
@@ -381,8 +369,13 @@
     <ClCompile Include="界面_选择自机.ixx" />
     <ClCompile Include="界面_选择难度.ixx" />
     <ClCompile Include="界面_选项.ixx" />
+    <ClCompile Include="界面_选项_图形设置.ixx" />
+    <ClCompile Include="界面_选项_玩家账户.ixx" />
+    <ClCompile Include="界面_选项_语言设置.ixx" />
+    <ClCompile Include="界面_选项_选项列表.ixx" />
     <ClCompile Include="界面图形.cpp" />
     <ClCompile Include="界面引擎.cpp" />
+    <ClCompile Include="界面语言.ixx" />
     <ClCompile Include="界面音频.cpp" />
     <ClCompile Include="程序.cpp" />
     <ClCompile Include="程序实现.cpp" />
@@ -401,9 +394,11 @@
     <ClCompile Include="计算.cpp" />
     <ClCompile Include="载入.cpp" />
     <ClCompile Include="载入_关卡组.ixx" />
+    <ClCompile Include="载入_图形.ixx" />
     <ClCompile Include="载入_文本.ixx" />
-    <ClCompile Include="载入_立绘.cpp" />
+    <ClCompile Include="载入_立绘.ixx" />
     <ClCompile Include="载入解析.cpp" />
+    <ClCompile Include="载入解析_图形.cpp" />
     <ClCompile Include="输入.cpp" />
     <ClCompile Include="图形缓冲.cpp" />
     <ClCompile Include="边框基础.cpp" />

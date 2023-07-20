@@ -230,4 +230,10 @@ bool C玩家::fi可复活() const {
 bool C玩家::fi对话() const {
 	return m标志[e对话];
 }
+const C自机 &C玩家::fg自机() const {
+	return m自机;
+}
+const C轨迹 &C玩家::fg自机轨迹() const {
+	return m轨迹;
+}
 }	//namespace 东方山寨

@@ -19,6 +19,7 @@ struct S游戏设置;
 class C图形引擎;
 class I游戏输入;
 class C音频引擎;
+class C随机数工厂;
 //关卡
 class C关卡脚本;
 class C关卡控制;
@@ -137,8 +138,6 @@ public:	//公开控制
 		C扩展数组<I工厂<C玩家子弹发射器>> &fg玩家发射() const;
 		C扩展数组<I工厂<I子机移动>> &fg子机移动() const;
 		C扩展数组<I工厂<I动画>> &fg动画() const;
-		C纹理工厂 &fg纹理工厂() const;
-		C顶点矩形工厂 &fg顶点工厂() const;
 		C静态立绘管理 &fg静态立绘() const;
 		std::map<std::wstring, int> &fg名称标识() const;
 		int fc随机标识() const;

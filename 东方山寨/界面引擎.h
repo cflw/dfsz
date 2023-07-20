@@ -11,6 +11,7 @@ public:
 	static C界面引擎 *g这;
 	C界面引擎();
 	~C界面引擎();
+	static C界面引擎 &fg实例();
 	void f初始化0(C图形引擎 &, C输入引擎 &);	//在程序启动时调用
 	void f初始化0_图形(C图形引擎 &);
 	void f初始化1(C音频引擎 &);	//载入完成时调用
@@ -22,6 +23,7 @@ public:
 	void f切换下个窗口(E窗口);
 	void f切换上个窗口();
 	void f关闭窗口();
+	void f更新界面语言();
 private:
 	class C实现;
 	std::unique_ptr<C实现> m实现;

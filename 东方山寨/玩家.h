@@ -67,6 +67,8 @@ public:
 	bool f发射_i可发射炸弹() const;
 	bool fi可复活() const;
 	bool fi对话() const;
+	const C自机 &fg自机() const;
+	const C轨迹 &fg自机轨迹() const;
 public:	//包含自机&子机&成绩
 	C自机 m自机;
 	C子机组 m子机组;

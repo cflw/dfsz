@@ -6,6 +6,8 @@ class C轨迹 {
 public:
 	void f添加坐标(const t向量2 &);
 	void f填充坐标(const t向量2 &);
+	const t向量2 &fg当前坐标() const;
+	t向量2 fg未来坐标(float 秒 = 1) const;	//根据平均速度计算出未来坐标
 	t向量2 fg平均速度(float 秒 = 1) const;
 	std::deque<t向量2> ma坐标;
 };

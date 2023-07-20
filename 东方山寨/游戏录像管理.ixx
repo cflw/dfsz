@@ -6,12 +6,12 @@
 #include <filesystem>
 #include <cflw时间.h>
 #include "程序.h"
-#include "游戏.h"
+#include "程序常量.h"
 #include "程序设置.h"
 #include "游戏设置.h"
 export module 东方山寨.游戏录像管理;
 import cflw.工具.单例;
-import 东方山寨.录像_结构;
+export import 东方山寨.录像_结构;
 export import 东方山寨.录像_功能;
 import 东方山寨.录像_文件;
 import 东方山寨.设置管理;
@@ -29,7 +29,8 @@ public:
 	//函数
 	C游戏录像管理() = default;
 	C录像机 &f新建录像() {	//在进入游戏前调用
-		m录像.f新建录像(C设置管理::fg实例().fg程序设置(), C设置管理::fg实例().fg游戏设置());
+		C设置管理 &v设置管理 = C设置管理::fg实例();
+		m录像.f新建录像(v设置管理.fg程序设置(), v设置管理.fg游戏设置());
 		return m录像;
 	}
 	void f保存录像() {	//保存当前录制的录像

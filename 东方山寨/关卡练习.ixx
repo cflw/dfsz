@@ -3,13 +3,17 @@
 #include "游戏.h"
 #include "王战.h"
 export module 东方山寨.关卡练习;	//进入符卡关卡
+export import 东方山寨.关卡工厂;
 export namespace 东方山寨 {
 //符卡练习关卡类
 template<typename t初始事件, typename t弹幕事件>	//关卡事件:执行一些初始化
 class C符卡练习关卡 : public C关卡 {
 public:
+	static tp关卡 f创建() {
+		return std::make_unique<C符卡练习关卡<t初始事件, t弹幕事件>>();
+	}
 	void f事件_初始化() override {
-		C关卡脚本 v脚本 = m关卡->fc脚本();
+		C关卡脚本 v脚本 = m控制->fc脚本();
 		v脚本.f事件<t初始事件>();
 		v脚本.f等待(1);
 		v脚本.f事件([]() {
@@ -22,16 +26,7 @@ public:
 		C游戏::fg内容().f游戏_通关菜单();
 	}
 };
-//创建符卡练习关卡
-using tp关卡 = std::unique_ptr<C关卡>;
-template<typename t初始事件, typename t弹幕事件>
-tp关卡 f符卡练习关卡() {
-	return std::make_unique<C符卡练习关卡<t初始事件, t弹幕事件>>();
-}
 //符卡练习关卡工厂
-using tf关卡 = std::function<tp关卡()>;
 template<typename t初始事件, typename t弹幕事件>
-tf关卡 F符卡练习关卡() {
-	return &f符卡练习关卡<t初始事件, t弹幕事件>;
-}
+using C符卡练习关卡工厂 = C关卡工厂<C符卡练习关卡<t初始事件, t弹幕事件>>;
 }	//namespace 东方山寨

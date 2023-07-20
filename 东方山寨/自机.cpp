@@ -129,8 +129,8 @@ t圆形 C自机::fg吃道具点() const {
 float C自机::fg透明度() const {
 	return std::min<float>(m出生时间, 1);
 }
-t向量2 C自机::fg移动预判(float a时间) const {
-	return m坐标 + m移动 * a时间;
+t向量2 C自机::fg未来坐标(float a秒) const {
+	return m坐标 + m移动 * a秒;
 }
 bool C自机::fi无敌() const {
 	return (m无敌时间 > 0) || C游戏::fg内容().fg关卡控制().fi对话() || c调试_自机无敌;

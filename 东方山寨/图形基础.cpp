@@ -11,6 +11,7 @@ void I图形::f接口_计算() {
 void I图形::f接口_更新() {
 }
 void I图形::f接口_初始化(const S图形参数 &a参数) {
+	m标志 = a参数.m标志;
 }
 bool I图形::f接口_i可销毁() const {
 	return m标志[e结束];

@@ -239,9 +239,6 @@
     <ClCompile Include="游戏设置.cpp">
       <Filter>游戏本体\游戏基础</Filter>
     </ClCompile>
-    <ClCompile Include="东方月亮船1.ixx">
-      <Filter>关卡</Filter>
-    </ClCompile>
     <ClCompile Include="玩家子弹图形模板.cpp">
       <Filter>游戏本体\玩家子弹基础</Filter>
     </ClCompile>
@@ -344,12 +341,6 @@
     <ClCompile Include="难度.cpp">
       <Filter>数学</Filter>
     </ClCompile>
-    <ClCompile Include="东方月亮船2.ixx">
-      <Filter>关卡</Filter>
-    </ClCompile>
-    <ClCompile Include="东方月亮船_附加符卡.ixx">
-      <Filter>关卡</Filter>
-    </ClCompile>
     <ClCompile Include="图形资源.cpp">
       <Filter>图形引擎\图形基础</Filter>
     </ClCompile>
@@ -359,10 +350,7 @@
     <ClCompile Include="图形_背景模板.cpp">
       <Filter>游戏本体\图形</Filter>
     </ClCompile>
-    <ClCompile Include="载入解析.cpp">
-      <Filter>载入</Filter>
-    </ClCompile>
-    <ClCompile Include="载入_立绘.cpp">
+    <ClCompile Include="载入_立绘.ixx">
       <Filter>载入</Filter>
     </ClCompile>
     <ClCompile Include="对话.cpp">
@@ -502,6 +490,42 @@
     </ClCompile>
     <ClCompile Include="载入_关卡组.ixx">
       <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_图形.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="载入解析.cpp">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="载入解析_图形.cpp">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="界面语言.ixx">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_选项_选项列表.ixx">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_选项_玩家账户.ixx">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_选项_语言设置.ixx">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="界面_选项_图形设置.ixx">
+      <Filter>界面</Filter>
+    </ClCompile>
+    <ClCompile Include="关卡工厂.ixx">
+      <Filter>游戏本体\关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="东方月亮船_附加符卡.ixx">
+      <Filter>关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="东方月亮船1.ixx">
+      <Filter>关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="东方月亮船2.ixx">
+      <Filter>关卡</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -820,9 +844,6 @@
     <ClInclude Include="图形资源工厂.h">
       <Filter>图形引擎</Filter>
     </ClInclude>
-    <ClInclude Include="载入解析.h">
-      <Filter>载入</Filter>
-    </ClInclude>
     <ClInclude Include="载入基础.h">
       <Filter>载入</Filter>
     </ClInclude>
@@ -873,6 +894,9 @@
     </ClInclude>
     <ClInclude Include="取文本.h">
       <Filter>文本</Filter>
+    </ClInclude>
+    <ClInclude Include="载入解析.h">
+      <Filter>载入</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -12,6 +12,12 @@ void C轨迹::f填充坐标(const t向量2 &a坐标) {
 	std::deque<t向量2> va坐标(c总数量, a坐标);
 	ma坐标.swap(va坐标);
 }
+const t向量2 &C轨迹::fg当前坐标() const {
+	return ma坐标.front();
+}
+t向量2 C轨迹::fg未来坐标(float a秒) const {
+	return fg当前坐标() + fg平均速度(a秒) * a秒;
+}
 t向量2 C轨迹::fg平均速度(float a秒) const {
 	constexpr size_t c总数量 = c计算频率<size_t>;
 	const float v帧 = std::floor(a秒 * c计算频率<float>);

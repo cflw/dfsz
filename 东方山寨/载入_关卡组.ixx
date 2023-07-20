@@ -12,8 +12,7 @@ void C内部载入::f关卡组() {
 	};
 	C关卡管理 &v关卡管理 = C关卡管理::fg实例();
 	for (const auto &[v标识, va关卡] : va关卡组) {
-		std::vector<C关卡 *> v关卡组 = v关卡管理.fg关卡列表(va关卡);
-		v关卡管理.f注册关卡组((int)v标识, std::move(v关卡组));
+		v关卡管理.f注册关卡组((int)v标识, va关卡);
 	}
 }
 }	//namespace 东方山寨::载入

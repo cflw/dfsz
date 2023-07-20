@@ -40,7 +40,7 @@ public:
 	t圆形 fg擦弹点() const;
 	t圆形 fg吸道具点() const;
 	t圆形 fg吃道具点() const;
-	t向量2 fg移动预判(float a时间 = 1) const;
+	t向量2 fg未来坐标(float 秒 = 1) const;
 	float fg透明度() const;
 	bool fi无敌() const;
 	bool fi死亡() const;

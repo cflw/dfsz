@@ -51,6 +51,11 @@ public:
 	bool fi变化() const {
 		return m计数.fi变化();
 	}
+	void fe全部(std::function<void(t &)> af) {
+		std::for_each(std::execution::seq, ma对象.begin(), ma对象.end(), [&af](const t指针 &ap对象) {
+			af(*ap对象);
+		});
+	}
 	void fe使用(std::function<void(t &)> af) {
 		std::for_each(std::execution::seq, ma对象.begin(), ma对象.end(), [&af](const t指针 &ap对象) {
 			if (ap对象->f对象_i使用()) {
@@ -63,6 +68,11 @@ public:
 			if (ap对象->f对象_i使用()) {
 				af(ap对象);
 			}
+		});
+	}
+	void fe全部_并行(std::function<void(t &)> af) {
+		std::for_each(std::execution::par, ma对象.begin(), ma对象.end(), [&af](const t指针 &ap对象) {
+			af(*ap对象);
 		});
 	}
 	void fe使用_并行(std::function<void(t &)> af) {

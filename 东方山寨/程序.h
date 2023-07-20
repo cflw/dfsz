@@ -46,6 +46,7 @@ public:
 	static void f输入法开关(bool);
 	static int fg渲染间隔();
 	static void f切换游戏状态(E游戏状态);
+	static E游戏状态 fg游戏状态();
 	static void f游戏中弹出菜单(E窗口);	//在游戏过程中暂停游戏并弹出菜单
 	static void fs游戏标志(int 标志, bool 值 = true);
 	static void f日志(int 级别, const std::wstring &);
