@@ -38,7 +38,6 @@
 #include "关卡.h"
 #include "场景.h"
 #include "对话.h"
-#include "关卡效果.h"
 #include "王战.h"
 //其它
 #include "玩家.h"
@@ -52,6 +51,7 @@ import 东方山寨.图形_符卡立绘模板;
 import 东方山寨.关卡标识;
 import 东方山寨.关卡工厂;
 import 东方山寨.关卡练习;
+import 东方山寨.关卡效果;
 namespace 东方山寨 {
 using t子弹工厂 = C子弹制造机;
 using t敌机工厂 = C敌机制造机;
@@ -60,7 +60,16 @@ using tp子弹工厂 = std::shared_ptr<C子弹制造机>;
 using tp敌机工厂 = std::shared_ptr<C敌机制造机>;
 using tp图形工厂 = std::shared_ptr<C图形工厂>;
 using 工具::C计次器;
+//实用函数
+namespace 脚本 {
+//资源
+tp模型 fg模型(const std::wstring &);
+tp纹理 fg纹理(const std::wstring &);
+tp静态立绘 fg静态立绘(const std::wstring &);
+//内容
 t向量2 fg自机坐标();
 t向量2 fg自机速度(float 秒 = 0.5f);
 std::shared_ptr<C敌机> f王入场(E敌机, const t向量2 &开始, const t向量2 &结束);
+void f掉落道具(const t道具组 &, const t向量2 &坐标, const t向量2 &速度 = t向量2::c零);
+}	//namespace 脚本
 }	//namespace 东方山寨

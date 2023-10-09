@@ -105,16 +105,11 @@ public:	//公开控制
 		C玩家 &fg玩家() const;
 		const I边框 &fg边框() const;
 		//工厂
-		C子弹制造机 f工厂_子弹() const;
-		C敌机制造机 f工厂_敌机() const;
-		C玩家子弹制造机 f工厂_玩家子弹() const;
-		C道具制造机 f工厂_道具() const;
-		C遮罩工厂 f工厂_遮罩() const;
-		std::shared_ptr<C子弹制造机> f工厂_子弹p() const;
-		std::shared_ptr<C敌机制造机> f工厂_敌机p() const;
-		std::shared_ptr<C玩家子弹制造机> f工厂_玩家子弹p() const;
-		std::shared_ptr<C道具制造机> f工厂_道具p() const;
-		std::shared_ptr<C遮罩工厂> f工厂_遮罩p() const;
+		const C子弹制造机 &f工厂_子弹() const;
+		const C敌机制造机 &f工厂_敌机() const;
+		const C玩家子弹制造机 &f工厂_玩家子弹() const;
+		const C道具制造机 &f工厂_道具() const;
+		const C遮罩工厂 &f工厂_遮罩() const;
 		template<typename t> auto f工厂_随机数f(t &&, int = 0) const;
 		t随机数引擎 f工厂_随机数引擎(int = 0) const;
 		//游戏中
@@ -143,8 +138,7 @@ public:	//公开控制
 		int fc随机标识() const;
 		int fg标识(const std::wstring &) const;
 		C对象数组<I图形> &fg图形数组() const;
-		C图形工厂 f工厂_图形();
-		std::shared_ptr<C图形工厂> f工厂_图形p();
+		C图形工厂 &f工厂_图形();
 		template<typename t> auto f工厂_随机数f(t &&, int = 0) const;
 		t随机数引擎 f工厂_随机数引擎(int = 0) const;
 	private:

@@ -54,8 +54,8 @@ public:
 	void f计算();
 	void f王战_开始(int 事件数);	//血条数=事件数-1
 	void f王战_结束();
-	void f弹幕_s时间(float 时间, float 冻结 = 1);
-	void f弹幕_s符卡(const std::wstring &名称, int 分数, bool 时间符 = false);	//开始流程,显示文字
+	void fs弹幕时间(float 时间, float 冻结 = 1);
+	void f发动符卡(const std::wstring &名称, int 分数, bool 时间符 = false);	//开始流程,显示文字
 	void f总血条减一();
 	//属性
 	t标志::reference fg王战标志();
@@ -65,7 +65,7 @@ public:
 	C敌机 *fg击破的王();	//没有击破则返回空指针
 	C敌机 *fg王(int = 0) const;
 private:
-	void f事件结束();
+	void f事件结束();	//生命值为零或时间到时调用,自动结束当前王战事件
 	C关卡控制 *m关卡控制 = nullptr;
 	C王战时间控制 m时间控制;
 	C符卡控制 m符卡控制 = {m时间控制};

@@ -64,11 +64,11 @@ void C王战控制::f王战_结束() {
 	m弹幕时间 = nullptr;
 	ma王.clear();
 }
-void C王战控制::f弹幕_s时间(float a时间, float a冻结) {
+void C王战控制::fs弹幕时间(float a时间, float a冻结) {
 	m时间控制.fs时间(a时间, a冻结);
 	m弹幕时间->f动作_重置颜色();
 }
-void C王战控制::f弹幕_s符卡(const std::wstring &a名称, int a分数, bool ai时间符) {
+void C王战控制::f发动符卡(const std::wstring &a名称, int a分数, bool ai时间符) {
 	m符卡控制.f开始(a名称, a分数, ai时间符);
 	m符卡文本 = 图形模板::f符卡文本(m符卡控制);
 }
@@ -100,7 +100,7 @@ void C王战控制::fs王(const std::shared_ptr<C敌机> &a王) {
 	fs王(a王.get());
 }
 C敌机 *C王战控制::fg王(int i) const {
-	return ma王[i];
+	return ma王.at(i);
 }
 C敌机 *C王战控制::fg击破的王() {
 	if (m击破) {

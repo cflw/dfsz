@@ -77,16 +77,18 @@ bool C对话控制::fi结束() const {
 }
 void C对话控制::f控制_新对话框(const S对话参数_对话 &a) {
 	f内部_结束对话框();
-	auto v图形工厂 = C游戏::fg资源().f工厂_图形();
-	v图形工厂.m参数.m图层 = (int)E图层::e对话;
-	m当前对话框 = v图形工厂.f产生图形<C对话框>(a);
+	const auto &v图形工厂 = C游戏::fg资源().f工厂_图形();
+	t图形参数 v参数 = t图形参数::c游戏中;
+	v参数.m图层 = (int)E图层::e对话;
+	m当前对话框 = v图形工厂.f产生图形<C对话框>(v参数, a);
 }
 void C对话控制::f控制_显示立绘(const S对话参数_显示立绘 &a) {
 	assert(ma对话立绘.find(a.m标识) == ma对话立绘.end());	//必须没有
-	auto v图形工厂 = C游戏::fg资源().f工厂_图形();
-	v图形工厂.m参数.m图层 = (int)E图层::e立绘;
-	v图形工厂.m参数.m标志[I对话立绘::E初始化标志::e方向] = ft对话方向(a.m方向);
-	auto v图形0 = v图形工厂.f产生图形(*a.m立绘工厂);
+	const auto &v图形工厂 = C游戏::fg资源().f工厂_图形();
+	t图形参数 v参数 = t图形参数::c游戏中;
+	v参数.m图层 = (int)E图层::e立绘;
+	v参数.m标志[I对话立绘::E初始化标志::e方向] = ft对话方向(a.m方向);
+	auto v图形0 = v图形工厂.f产生图形(v参数 , *a.m立绘工厂);
 	assert(v图形0 != nullptr);	//可能因为达到图形上限而导致异常.这里不应该用断言,以后改掉
 	assert(std::dynamic_pointer_cast<I对话立绘>(v图形0));	//检查创建的图形对象是否是对话立绘
 	auto v图形 = std::static_pointer_cast<I对话立绘>(v图形0);

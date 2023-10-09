@@ -197,9 +197,6 @@
     <ClCompile Include="关卡.cpp">
       <Filter>游戏本体\关卡</Filter>
     </ClCompile>
-    <ClCompile Include="关卡效果.cpp">
-      <Filter>游戏本体\关卡</Filter>
-    </ClCompile>
     <ClCompile Include="玩家子弹发射_发散.cpp">
       <Filter>游戏本体\玩家子弹扩展</Filter>
     </ClCompile>
@@ -527,6 +524,12 @@
     <ClCompile Include="东方月亮船2.ixx">
       <Filter>关卡</Filter>
     </ClCompile>
+    <ClCompile Include="图形_关卡标题.ixx">
+      <Filter>游戏本体\抬显</Filter>
+    </ClCompile>
+    <ClCompile Include="关卡效果.ixx">
+      <Filter>游戏本体\关卡</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="子弹基础.h">
@@ -629,9 +632,6 @@
       <Filter>游戏本体\图形</Filter>
     </ClInclude>
     <ClInclude Include="关卡.h">
-      <Filter>游戏本体\关卡</Filter>
-    </ClInclude>
-    <ClInclude Include="关卡效果.h">
       <Filter>游戏本体\关卡</Filter>
     </ClInclude>
     <ClInclude Include="玩家子弹发射_发散.h">
