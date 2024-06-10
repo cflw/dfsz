@@ -287,12 +287,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="录像_文件.ixx">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-    </ClCompile>
+    <ClCompile Include="录像_文件.ixx" />
     <ClCompile Include="录像_结构.ixx">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -359,6 +354,7 @@
     <ClCompile Include="玩家子弹制造机.cpp" />
     <ClCompile Include="玩家子弹扩展_贯穿.cpp" />
     <ClCompile Include="玩家成绩.cpp" />
+    <ClCompile Include="玩家炸弹发射.ixx" />
     <ClCompile Include="玩家炸弹扩展.cpp" />
     <ClCompile Include="玩家炸弹基础.cpp" />
     <ClCompile Include="界面_主菜单.ixx" />
@@ -397,7 +393,9 @@
     <ClCompile Include="载入_关卡组.ixx" />
     <ClCompile Include="载入_图形.ixx" />
     <ClCompile Include="载入_文本.ixx" />
-    <ClCompile Include="载入_立绘.ixx" />
+    <ClCompile Include="载入_立绘.ixx">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="载入解析.cpp" />
     <ClCompile Include="载入解析_图形.cpp" />
     <ClCompile Include="输入.cpp" />
@@ -444,6 +442,7 @@
     <ClInclude Include="图形资源工厂.h" />
     <ClInclude Include="图形基础.h" />
     <ClInclude Include="图形资源.h" />
+    <ClInclude Include="基础_事件.h" />
     <ClInclude Include="基础_动态数组.h" />
     <ClInclude Include="基础_对象工厂.h" />
     <ClInclude Include="基础_对象数组.h" />

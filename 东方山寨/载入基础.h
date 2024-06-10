@@ -4,7 +4,6 @@
 #include <memory>
 #include <cflw文件_json.h>
 namespace 东方山寨::载入 {
-using t属性文件 = cflw::文件::json::C文件;
 using t路径 = std::filesystem::path;
 using t属性树 = boost::property_tree::wptree;
 using tp属性树 = std::unique_ptr<boost::property_tree::wptree>;

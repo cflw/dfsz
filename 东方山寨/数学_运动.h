@@ -26,7 +26,7 @@ public:	//运动
 	void f运动_限速移动过(const t向量2 &, float 速度, float 平滑开始时间 = 0);
 	void f运动_平滑移动到(const t向量2 &, float 总时间, float 平滑开始时间 = 0.5f, float 平滑结束时间 = 0.5f);
 	void f运动_平滑移动过(const t向量2 &, float 总时间, float 平滑开始时间 = 0.5f);
-	void f运动_相对横坐标随机移动(float 横坐标, float 横平均, float 横浮动, float 纵平均 = 100, float 纵浮动 = 5);
+	void f运动_随机移动到(const t向量2 &目标, const t向量2 &移动距离 = {20, 10}, const t向量2 &浮动 = {5, 5});	//小碎步移动
 protected:
 	void f计算运动(float 过秒);
 	void f直接移动(const t向量2 &a目标, float a时间);

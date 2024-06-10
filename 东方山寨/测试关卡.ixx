@@ -42,9 +42,9 @@ public:
 	float m移动 = 0;
 	数学::S相机 m相机;
 };
-class C测试关卡 : public C关卡 {
+class C测试关卡 : public I关卡 {
 public:
-	class C弹幕 : public C关卡事件 {
+	class C弹幕 : public I关卡事件 {
 	public:
 		using t当前弹幕 = C弹幕;
 		class C子弹0 : public C普通子弹 {
@@ -100,7 +100,7 @@ public:
 				v子弹参数.m坐标 = {0, 50};
 				v子弹参数.m速度 = {std::get<0>(c运动0), 0};
 				v子弹参数.m颜色[0] = t颜色::c紫;
-				auto vf随机数 = C游戏::fg内容().f工厂_随机数f(std::uniform_real_distribution<float>(-0.1f, 0.1f));
+				auto vf随机数 = C游戏::fg内容().f工厂_随机数f(std::uniform_real_distribution<float>(-0.1f, 0.1f), 0x42fe);
 				for (auto v循环0 : v子弹参数.f循环(600)) {
 					v循环0.f变换_圆形();
 					const float v圈数 = v循环0.fg百分比() * 12;
@@ -114,7 +114,7 @@ public:
 		C计时器 m计时 = {3, 9999};
 		float m旋转角 = 数学::c半π<float>;
 	};
-	class C弹幕_测试难度 : public C关卡事件 {
+	class C弹幕_测试难度 : public I关卡事件 {
 		void f计算难度() {
 			auto &v难度 = C游戏::fg内容().fg难度();
 			const float v动态难度 = v难度.fg动态难度();
@@ -146,7 +146,7 @@ public:
 		float m速度;
 		C计时器 m计时{0.1f};
 	};
-	class C弹幕_遮罩 : public C关卡事件 {
+	class C弹幕_遮罩 : public I关卡事件 {
 	public:
 		class C子弹0 : public C普通子弹 {
 		public:
@@ -186,7 +186,7 @@ public:
 		float m方向 = 0;
 		C计时器 m计时{0.01f};
 	};
-	class C弹幕_边框 : public C关卡事件 {
+	class C弹幕_边框 : public I关卡事件 {
 	public:
 		class C子弹0 : public C普通子弹 {
 		public:
@@ -226,7 +226,7 @@ public:
 		边框::C矩形 m边框;
 		float m时间 = 0;
 	};
-	class C产生敌机 : public C关卡事件 {
+	class C产生敌机 : public I关卡事件 {
 	public:
 		class C敌机0 : public C敌机 {
 		public:
@@ -235,7 +235,7 @@ public:
 			void f事件_执行() override {
 				if (m计时_移动.f滴答()) {
 					const auto &v自机 = C游戏::fg内容().fg自机();
-					f运动_相对横坐标随机移动(v自机.m坐标.x, 50, 10, 100);
+					f运动_随机移动到({v自机.m坐标.x, 100});
 					//f运动_速度({-100, 0}, 2);
 					//m计时_移动.f停止();
 				}
@@ -270,7 +270,7 @@ public:
 		void f事件_执行() override {
 			const auto &v敌机工厂 = C游戏::fg内容().f工厂_敌机();
 			t敌机参数 v敌机参数;
-			v敌机参数.fs入场({0, c框架范围y});
+			v敌机参数.fs边框外进场({0, c框架范围y});
 			v敌机参数.m目标 = t向量2::c零;
 			v敌机参数.m移动时间 = 5;
 			v敌机参数.m样式 = (int)E敌机::e敌机00蓝;
@@ -282,7 +282,7 @@ public:
 			f动作_结束();
 		}
 	};
-	class C产生道具 : public C关卡事件 {
+	class C产生道具 : public I关卡事件 {
 	public:
 		class C遮罩0 : public C遮罩<遮罩::C圆形> {
 		public:
@@ -320,10 +320,10 @@ public:
 			{E道具::e得点, 10}
 		};
 	};
-	class C产生图形 : public C关卡事件 {
+	class C产生图形 : public I关卡事件 {
 		void f事件_执行() override {
 			if (m计时.f滴答()) {
-				auto f随机x = C游戏::fg资源().f工厂_随机数f(std::uniform_real_distribution<float>(-c边框范围x, c边框范围x));
+				auto f随机x = C游戏::fg资源().f工厂_随机数f(std::uniform_real_distribution<float>(-c边框范围x, c边框范围x), __LINE__);
 				for (int i = 0; i != 1; ++i) {
 					const t向量2 v坐标 = {f随机x(), f随机x()};
 					图形模板::f敌机死亡小爆炸0(v坐标, t向量2::c零, t颜色::c白);
@@ -333,7 +333,7 @@ public:
 		C计时器 m计时{0.02f};
 	};
 	class C王战0_1;
-	class C王战0_0 : public C王战事件 {
+	class C王战0_0 : public I王战事件 {
 		void f事件_初始化() override {
 			C敌机 *v王 = m王战->fg王();
 			v王->fs生命值(1000);
@@ -363,7 +363,7 @@ public:
 		}
 		C计时器 m计时{0.1f};
 	};
-	class C王战0_1 : public C王战事件 {
+	class C王战0_1 : public I王战事件 {
 		void f计算难度() {
 			const float v动态难度 = C游戏::fg内容().fg难度().fg动态难度();
 			m计时.f重置(1 / v动态难度);
@@ -388,7 +388,7 @@ public:
 				//}
 				const auto &v子弹工厂 = C游戏::fg内容().f工厂_子弹();
 				t子弹参数 v子弹参数;
-				auto vf随机方向 = C游戏::fg内容().f工厂_随机数f(std::uniform_real_distribution<float>(0, 数学::c二π<float>));
+				auto vf随机方向 = C游戏::fg内容().f工厂_随机数f(std::uniform_real_distribution<float>(0, 数学::c二π<float>), 0x4474);
 				v子弹参数.m速度 = t向量2::fc方向r(100, vf随机方向());
 				v子弹工厂.f产生子弹<C普通子弹>(v子弹参数);
 			}
@@ -412,12 +412,12 @@ public:
 		C计时器 m计时{0.1f};
 		float m方向 = 0;
 	};
-	class C王战0 : public C关卡事件 {
+	class C王战0 : public I关卡事件 {
 		void f事件_初始化() override {
 			//敌机
 			const auto &v敌机工厂 = C游戏::fg内容().f工厂_敌机();
 			t敌机参数 v敌机参数;
-			v敌机参数.fs入场({0, c框架范围y});
+			v敌机参数.fs边框外进场({0, c框架范围y});
 			v敌机参数.m目标 = t向量2::c零;
 			v敌机参数.m移动时间 = 5;
 			v敌机参数.m样式 = (int)E敌机::e敌机00蓝;
@@ -431,7 +431,7 @@ public:
 			f动作_结束();
 		}
 	};
-	class C王入场 : public C关卡事件 {
+	class C王入场 : public I关卡事件 {
 	public:
 		void f事件_初始化() override {
 			f入场();
@@ -440,7 +440,7 @@ public:
 			脚本::f王入场(E敌机::e敌机00蓝, {0, c框架范围y}, t向量2::c零);
 		}
 	};
-	class C切换关卡 : public C关卡事件 {
+	class C切换关卡 : public I关卡事件 {
 	public:
 		void f事件_执行() override {
 			//m关卡->f切换关卡(C关卡管理::fg关卡(e测试关卡1), 1);
@@ -481,14 +481,14 @@ public:
 		//m关卡->f切换关卡(C关卡管理::fg关卡(L"测试子弹类"));
 	}
 };
-class C测试关卡1 : public C关卡 {
+class C测试关卡1 : public I关卡 {
 public:
-	class C随机子弹 : public C关卡事件 {
+	class C随机子弹 : public I关卡事件 {
 	public:
 		void f事件_执行() override {
 			const auto &v子弹工厂 = C游戏::fg内容().f工厂_子弹();
 			t子弹参数 v子弹参数;
-			auto vf随机方向 = C游戏::fg内容().f工厂_随机数f(std::uniform_real_distribution<float>(0, 数学::c二π<float>));
+			auto vf随机方向 = C游戏::fg内容().f工厂_随机数f(std::uniform_real_distribution<float>(0, 数学::c二π<float>), 0xcda4);
 			v子弹参数.m速度 = t向量2::fc方向r(100, vf随机方向());
 			v子弹工厂.f产生子弹<C普通子弹>(v子弹参数);
 			f动作_结束();
@@ -501,9 +501,9 @@ public:
 		v脚本.f事件(C关卡效果::F显示标题({L"测试关卡1", L"场景1"}));
 	}
 };
-class C测试子弹类 : public C关卡 {
+class C测试子弹类 : public I关卡 {
 public:
-	class C测试普通子弹 : public C关卡事件 {
+	class C测试普通子弹 : public I关卡事件 {
 	public:
 		void f事件_执行() override {
 			const auto &v子弹工厂 = C游戏::fg内容().f工厂_子弹();
@@ -519,7 +519,7 @@ public:
 			f动作_结束();
 		}
 	};
-	class C测试大子弹 : public C关卡事件 {
+	class C测试大子弹 : public I关卡事件 {
 	public:
 		void f事件_执行() override {
 			const auto &v子弹工厂 = C游戏::fg内容().f工厂_子弹();
@@ -537,7 +537,7 @@ public:
 			f动作_结束();
 		}
 	};
-	class C测试曲线激光 : public C关卡事件 {
+	class C测试曲线激光 : public I关卡事件 {
 	public:
 		class C激光0 : public C曲线激光 {
 		public:
@@ -567,7 +567,7 @@ public:
 		C计时器 m计时{1};
 		float m旋转 = 60;
 	};
-	class C测试连续子弹 : public C关卡事件 {
+	class C测试连续子弹 : public I关卡事件 {
 	public:
 		static constexpr int c数量 = 64;
 		void f事件_执行() override {
@@ -587,7 +587,7 @@ public:
 		}
 		C计时器 m计时{1};
 	};
-	class C测试直线激光 : public C关卡事件 {
+	class C测试直线激光 : public I关卡事件 {
 	public:
 		void f事件_执行() override {
 			const auto &v子弹工厂 = C游戏::fg内容().f工厂_子弹();
@@ -603,7 +603,7 @@ public:
 			f动作_结束();
 		}
 	};
-	class C测试射线激光 : public C关卡事件 {
+	class C测试射线激光 : public I关卡事件 {
 	public:
 		class C激光0 : public C射线激光 {
 			void f事件_执行() override {
@@ -629,9 +629,9 @@ public:
 		v脚本.f等待(0.5f);
 		//v脚本.f事件<C测试普通子弹>();
 		//v脚本.f等待(1);
-		v脚本.f事件<C测试大子弹>();
+		//v脚本.f事件<C测试大子弹>();
 		//v脚本.f等待(1);
-		//v脚本.f事件<C测试曲线激光>();
+		v脚本.f事件<C测试曲线激光>();
 		//v脚本.f等待(1);
 		//v脚本.f事件<C测试连续子弹>();
 		//v脚本.f等待(1);

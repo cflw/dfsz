@@ -2,7 +2,7 @@
 #include "载入.h"
 #include "标识.h"
 #include "取文本.h"
-module 东方山寨.载入.文本;
+export module 东方山寨.载入.文本;
 import cflw.字符串;
 import 东方山寨.文本管理;
 namespace 字符串 = cflw::字符串;

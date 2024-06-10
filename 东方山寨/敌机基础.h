@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "基础.h"
+#include "基础_事件.h"
 #include "图形_图片.h"
 #include "动画接口.h"
 #include "对象图形.h"
@@ -34,6 +35,8 @@ public:
 	virtual void f接口_更新();
 	virtual bool f接口_玩家子弹判定(C敌机与玩家子弹判定 &);
 	virtual void f接口_击破();
+	//事件
+	const t向量2 &f事件_g坐标() const override;
 	//属性
 	const S图片动画属性 &fg图片动画属性() const;
 	float fg判定半径() const;

@@ -215,6 +215,7 @@ std::vector<C曲线激光::S节点> &C曲线激光::fe节点() {
 	return {ma节点, a开始, a结束};
 }
 std::experimental::generator<C曲线激光::S节点> C曲线激光::fe节点插值(int a数量) {
+	assert(a数量 > 0);
 	const float v节点上限 = (float)(ma节点.size() - 1);
 	const float v循环上限 = (float)(a数量 - 1);
 	for (int i = 0; i != a数量; ++i) {

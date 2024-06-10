@@ -53,6 +53,8 @@
 //基础
 import 东方山寨.游戏输入;
 import 东方山寨.设置管理;
+//游戏对象
+import 东方山寨.玩家炸弹发射;
 //关卡
 import 东方山寨.抬显;
 import 东方山寨.关卡管理;
@@ -174,9 +176,12 @@ public:
 	C玩家 m玩家;
 	C难度 m难度;
 	t随机数引擎 m随机数引擎;
+	C玩家炸弹发射管理 m玩家炸弹发射管理;
 	C边框管理 m边框管理;
 	//函数
 	C实现();
+	~C实现();
+	void f销毁();
 	void f开始(const S游戏设置 &);
 	void f结束();
 	void f计算();
@@ -201,6 +206,7 @@ C游戏::C实现::C实现() {
 	//玩家子弹工厂
 	m玩家子弹工厂.f初始化_环境(m游戏速度);
 	m玩家子弹工厂.f初始化_数组(ma玩家子弹, mp资源->mp图形->fg图形缓冲数组());
+	m玩家炸弹发射管理.f初始化_环境(m玩家子弹工厂, m玩家);
 	//遮罩工厂
 	m遮罩工厂.f初始化_数组(ma遮罩);
 	//玩家
@@ -210,6 +216,17 @@ C游戏::C实现::C实现() {
 	m王战.f初始化_环境(m关卡);
 	m对话.f初始化_环境(m关卡);
 	m场景.f初始化_图形(mp资源->mp图形->fg画三维());
+}
+C游戏::C实现::~C实现() {
+	f销毁();
+}
+void C游戏::C实现::f销毁() {
+	ma子弹图形缓冲.f清空();
+	ma子弹.f清空();
+	ma玩家子弹.f清空();
+	ma道具.f清空();
+	ma敌机.f清空();
+	ma遮罩.f清空();
 }
 void C游戏::C实现::f开始(const S游戏设置 &a设置) {
 	m玩家.fs自机(a设置.m自机标识);
@@ -612,6 +629,9 @@ void C游戏::f初始化_在载入结束() {
 		mp资源->f编译();
 	}
 }
+void C游戏::f销毁() {
+	mp实现->f销毁();
+}
 void C游戏::f开始() {
 	assert(mp资源->mp游戏设置);
 	assert(mp资源->mp游戏输入);
@@ -691,6 +711,9 @@ C玩家 &C游戏::C内容::fg玩家() const {
 const I边框 &C游戏::C内容::fg边框() const {
 	return *m实现->m边框管理.m边框;
 }
+const C玩家炸弹发射管理 &C游戏::C内容::fg炸弹发射管理() const {
+	return m实现->m玩家炸弹发射管理;
+}
 //工厂
 const C子弹制造机 &C游戏::C内容::f工厂_子弹() const {
 	return m实现->m子弹工厂;
@@ -707,31 +730,12 @@ const C道具制造机 &C游戏::C内容::f工厂_道具() const {
 const C遮罩工厂 &C游戏::C内容::f工厂_遮罩() const {
 	return m实现->m遮罩工厂;
 }
-t随机数引擎 C游戏::C内容::f工厂_随机数引擎(int a推进) const {
+t随机数引擎 C游戏::C内容::f工厂_随机数引擎(unsigned long long a推进) const {
 	auto v引擎 = m实现->m随机数引擎;
 	v引擎.discard(a推进);
 	return v引擎;
 }
 //游戏中
-void C游戏::C内容::f游戏_全屏清弹(const t向量2 &a坐标, float a半径, bool a道具) {
-	class C全屏清弹 {
-	public:
-		C全屏清弹():
-			m工厂(mp实现->m玩家子弹工厂),
-			m发射环境(mp实现->m玩家) {
-			m参数.m发射环境 = &m发射环境;
-		}
-		void f全屏清弹(const t向量2 &a坐标, float a半径, bool a道具) {
-			m参数.m坐标 = a坐标;
-			m工厂.f产生炸弹<玩家炸弹::C全屏清弹>(m参数, a半径, a道具);
-		}
-		const C玩家子弹制造机 &m工厂;
-		S玩家子弹参数 m参数;
-		C玩家发射环境 m发射环境;
-	};
-	static C全屏清弹 v全屏清弹;
-	v全屏清弹.f全屏清弹(a坐标, a半径, a道具);
-}
 void C游戏::C内容::f游戏_切换边框(const I边框 &a边框) {
 	mp实现->m边框管理.f切换边框(a边框);
 }
@@ -795,7 +799,7 @@ C图形工厂 &C游戏::C取资源::f工厂_图形() {
 	auto &v图形工厂 = fg图形().f工厂_图形();
 	return v图形工厂;
 }
-t随机数引擎 C游戏::C取资源::f工厂_随机数引擎(int a推进) const {
+t随机数引擎 C游戏::C取资源::f工厂_随机数引擎(unsigned long long a推进) const {
 	auto v引擎 = m资源->m随机数引擎;
 	v引擎.discard(a推进);
 	return v引擎;

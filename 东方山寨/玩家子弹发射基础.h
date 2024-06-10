@@ -14,6 +14,7 @@ public:
 };
 class C玩家发射环境 : public I玩家发射环境 {
 public:
+	C玩家发射环境() = default;
 	C玩家发射环境(C玩家 &);
 	C玩家 &fg玩家() const override;
 	t向量2 fg发射坐标() const override;
@@ -55,8 +56,9 @@ public:
 protected:
 	//环境
 	std::shared_ptr<I玩家发射环境> m发射环境;
-	std::shared_ptr<C玩家子弹制造机> m子弹制造机;
+	const C玩家子弹制造机 &m工厂;
 	//变量
+	S玩家子弹参数 m参数;
 	float m剩余时间 = 0;	//剩余发射时间
 	float m间隔时间 = 0;	//发射间隔
 	float m发射时间 = 0;	//已发射时间

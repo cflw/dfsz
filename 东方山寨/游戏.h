@@ -24,7 +24,7 @@ class C随机数工厂;
 class C关卡脚本;
 class C关卡控制;
 class C王战控制;
-class C关卡;
+class I关卡;
 class C抬显控制;
 //子弹
 class C子弹;
@@ -36,11 +36,12 @@ struct S敌机属性;
 //玩家子弹
 class C玩家子弹;
 class C玩家子弹制造机;
+class C玩家子弹发射器;
+class C玩家炸弹发射管理;
 //玩家
 class C玩家;
 class C自机;
 class I子机移动;
-class C玩家子弹发射器;
 class C难度;
 //道具
 class C道具;
@@ -82,6 +83,7 @@ public:
 	void f初始化_图形接口(C图形引擎 &);
 	void f初始化_音频接口(C音频引擎 &);
 	void f初始化_在载入结束();
+	void f销毁();	//程序结束时清理
 	void f开始();	//总的开始,进入游戏前调用
 	void f结束();	//总的结束,回到主菜单前调用
 	void f计算();
@@ -104,16 +106,16 @@ public:	//公开控制
 		C难度 &fg难度() const;
 		C玩家 &fg玩家() const;
 		const I边框 &fg边框() const;
+		const C玩家炸弹发射管理 &fg炸弹发射管理() const;
 		//工厂
 		const C子弹制造机 &f工厂_子弹() const;
 		const C敌机制造机 &f工厂_敌机() const;
 		const C玩家子弹制造机 &f工厂_玩家子弹() const;
 		const C道具制造机 &f工厂_道具() const;
 		const C遮罩工厂 &f工厂_遮罩() const;
-		template<typename t> auto f工厂_随机数f(t &&, int = 0) const;
-		t随机数引擎 f工厂_随机数引擎(int = 0) const;
+		template<typename t> auto f工厂_随机数f(t &&, unsigned long long 推进 = 0) const;
+		t随机数引擎 f工厂_随机数引擎(unsigned long long 推进  = 0) const;	//为了保证回放正确,推进值必须是编程阶段就确定的常量
 		//游戏中
-		void f游戏_全屏清弹(const t向量2 & = t向量2::c零, float = 600, bool 道具 = false);
 		void f游戏_切换边框(const I边框 &);
 		void f游戏_结束游戏();	//结束关卡回到标题画面
 		void f游戏_通关菜单();	//结束关卡弹出菜单
@@ -139,8 +141,8 @@ public:	//公开控制
 		int fg标识(const std::wstring &) const;
 		C对象数组<I图形> &fg图形数组() const;
 		C图形工厂 &f工厂_图形();
-		template<typename t> auto f工厂_随机数f(t &&, int = 0) const;
-		t随机数引擎 f工厂_随机数引擎(int = 0) const;
+		template<typename t> auto f工厂_随机数f(t &&, unsigned long long 推进  = 0) const;
+		t随机数引擎 f工厂_随机数引擎(unsigned long long 推进  = 0) const;	//用于图形,所以推进值可以随便取值
 	private:
 		C资源 *m资源 = nullptr;
 	};
@@ -161,10 +163,10 @@ private:	//内部控制
 //==============================================================================
 // 模板实现
 //==============================================================================
-template<typename t> auto C游戏::C内容::f工厂_随机数f(t &&a分布, int a推进) const {
+template<typename t> auto C游戏::C内容::f工厂_随机数f(t &&a分布, unsigned long long a推进) const {
 	return std::bind(a分布, f工厂_随机数引擎(a推进));
 }
-template<typename t> auto C游戏::C取资源::f工厂_随机数f(t &&a分布, int a推进) const {
+template<typename t> auto C游戏::C取资源::f工厂_随机数f(t &&a分布, unsigned long long a推进) const {
 	return std::bind(a分布, f工厂_随机数引擎(a推进));
 }
 }	//namespace 东方山寨

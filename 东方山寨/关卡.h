@@ -2,14 +2,15 @@
 #include <map>
 #include "数学包含.h"
 #include "基础.h"
+#include "基础_事件.h"
 #include "对话基础.h"
 namespace 东方山寨 {
-class C关卡事件;
+class I关卡事件;
 class C关卡脚本;
 class C场景控制;
 class I场景;
-class C关卡;
-using tp关卡 = std::shared_ptr<C关卡>;	//关卡指针
+class I关卡;
+using tp关卡 = std::shared_ptr<I关卡>;	//关卡指针
 using ta关卡 = std::vector<tp关卡>;
 class I关卡工厂;
 using tp关卡工厂 = const I关卡工厂 *;
@@ -23,13 +24,13 @@ enum class E关卡事件状态 {
 };
 class C关卡事件状态 {
 public:
-	C关卡事件状态(const std::shared_ptr<C关卡事件> &);
-	C关卡事件 &fg事件() const;
+	C关卡事件状态(const std::shared_ptr<I关卡事件> &);
+	I关卡事件 &fg事件() const;
 	bool fi存在() const;
 	bool fi结束() const;	//与存在相反
 	void f结束();
 public:
-	std::shared_ptr<C关卡事件> m事件;
+	std::shared_ptr<I关卡事件> m事件;
 	t标志 m标志;
 	float m开始时间 = 0;
 	float m等待 = 0;
@@ -41,7 +42,6 @@ public:
 		e王战,
 		e对话,
 	};
-	typedef std::vector<std::shared_ptr<C关卡事件状态>> ta事件;
 	void f对象_使用();
 	void f对象_销毁();
 	bool f对象_i使用() const;
@@ -56,13 +56,12 @@ public:
 	C关卡脚本 fc脚本();
 	void f计算();
 	//关卡设置
-	void f添加事件(std::shared_ptr<C关卡事件状态>);
+	void f添加事件(std::unique_ptr<C关卡事件状态> &&);
 	void f设置场景(std::shared_ptr<I场景>);
 	void f事件_开始对话();	//由对话控制调用
 	void f事件_结束对话();	//由对话控制调用
 	//在关卡中调用
 	void f动作_开始对话(tp对话脚本);	//开始对话,同时暂停经过时间
-	std::shared_ptr<C关卡事件状态> fg事件(int);
 	void f动作_增加难度();
 	void f动作_增加难度(const boost::rational<int> &);
 	void f动作_结束关卡(float 等待时间 = 0);	//当前关卡已经结束,从关卡列表中获取下一关卡并切换,如果没有则回到游戏标题画面
@@ -71,8 +70,9 @@ public:
 private:
 	void f合并事件();
 public:
-	ta事件 ma事件;
-	ta事件 ma新事件;
+	std::vector<std::unique_ptr<C关卡事件状态>> ma事件状态;
+	std::vector<std::unique_ptr<C关卡事件状态>> ma新事件状态;
+	std::vector<std::shared_ptr<I关卡事件>> ma全部关卡事件;	//为了保证关卡事件的生命周期比子弹长,关卡事件的生命周期到关卡结束
 	C场景控制 *m场景 = nullptr;
 	C对话控制 *m对话 = nullptr;
 	t标志 m标志;
@@ -89,16 +89,16 @@ class C关卡脚本 {	//用来增加关卡内容的类
 public:
 	C关卡脚本(C关卡控制 *);
 	//脚本事件
-	std::shared_ptr<C关卡事件状态> operator ()(const std::function<void()> &);	//和 f事件 一样
-	template<typename t, typename...t参数> std::shared_ptr<C关卡事件状态> f事件(t参数 &&...);
-	std::shared_ptr<C关卡事件状态> f事件(const std::function<void()> &);
-	template<typename t, typename...t参数> std::shared_ptr<C关卡事件状态> f场景(t参数 &&...);
-	std::shared_ptr<C关卡事件状态> f对话(tp对话脚本);
+	std::shared_ptr<I关卡事件> operator ()(const std::function<void()> &);	//和 f事件 一样
+	template<typename t, typename...t参数> std::shared_ptr<I关卡事件> f事件(t参数 &&...);
+	std::shared_ptr<I关卡事件> f事件(const std::function<void()> &);
+	template<typename t, typename...t参数> std::shared_ptr<I关卡事件> f场景(t参数 &&...);
+	std::shared_ptr<I关卡事件> f对话(tp对话脚本);
 	//脚本时间
 	void f时间点(float);
 	void f等待(float);
 private:
-	std::shared_ptr<C关卡事件状态> f新事件_(const std::shared_ptr<C关卡事件> &);
+	void f新事件_(const std::shared_ptr<I关卡事件> &);
 private:
 	C关卡控制 *m关卡控制 = nullptr;
 	float m开始时间 = 0;
@@ -107,7 +107,7 @@ private:
 //==============================================================================
 // 关卡接口
 //==============================================================================
-class C关卡 : public I事件 {
+class I关卡 : public I事件 {
 	friend C关卡控制;
 	friend I关卡工厂;
 public:
@@ -117,7 +117,7 @@ protected:
 	const I关卡工厂 *m工厂 = nullptr;	//工厂对象是全局变量,不用担心生命周期问题
 };
 //关卡事件
-class C关卡事件 : public I事件 {
+class I关卡事件 : public I事件 {
 public:
 	void f事件_执行() override;	//什么都不做,直接结束
 	void f动作_暂停(float);	//暂停执行任何事件
@@ -128,19 +128,19 @@ public:
 	C关卡控制 *m关卡 = nullptr;
 };
 //特殊关卡事件
-class C关卡效果事件 : public C关卡事件 {
+class C关卡效果事件 : public I关卡事件 {
 public:
 	C关卡效果事件(const std::function<void()> &);
 	void f事件_执行() override;
 	std::function<void()> mf;
 };
-class C关卡场景事件 : public C关卡事件 {
+class C关卡场景事件 : public I关卡事件 {
 public:
 	C关卡场景事件(const std::shared_ptr<I场景> &);
 	void f事件_执行() override;
 	std::shared_ptr<I场景> m场景;
 };
-class C切换关卡事件 : public C关卡事件 {
+class C切换关卡事件 : public I关卡事件 {
 public:
 	C切换关卡事件(C关卡控制 &, const tp关卡 &);
 	void f事件_执行() override;
@@ -150,12 +150,16 @@ public:
 //==============================================================================
 // 关卡脚本实现
 //==============================================================================
-template<typename t, typename...t参数> std::shared_ptr<C关卡事件状态> C关卡脚本::f事件(t参数 &&...a参数) {
-	static_assert(std::is_base_of<C关卡事件, t>::value, "必须继承自C关卡事件");
-	return f新事件_(std::make_shared<t>(a参数...));
+template<typename t, typename...t参数> std::shared_ptr<I关卡事件> C关卡脚本::f事件(t参数 &&...a参数) {
+	static_assert(std::is_base_of<I关卡事件, t>::value, "必须继承自C关卡事件");
+	auto vp = std::make_shared<t>(a参数...);
+	f新事件_(vp);
+	return vp;
 }
-template<typename t, typename...t参数> std::shared_ptr<C关卡事件状态> C关卡脚本::f场景(t参数 &&...a参数) {
+template<typename t, typename...t参数> std::shared_ptr<I关卡事件> C关卡脚本::f场景(t参数 &&...a参数) {
 	static_assert(std::is_base_of<I场景, t>::value, "必须继承自I场景");
-	return f新事件_(std::make_shared<C关卡场景事件>(std::make_shared<t>(a参数...)));
+	auto vp = std::make_shared<C关卡场景事件>(std::make_shared<t>(a参数...));
+	f新事件_(vp);
+	return vp;
 }
 }	//namespace 东方山寨

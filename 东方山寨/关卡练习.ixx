@@ -7,7 +7,7 @@ export import 东方山寨.关卡工厂;
 export namespace 东方山寨 {
 //符卡练习关卡类
 template<typename t初始事件, typename t弹幕事件>	//关卡事件:执行一些初始化
-class C符卡练习关卡 : public C关卡 {
+class C符卡练习关卡 : public I关卡 {
 public:
 	static tp关卡 f创建() {
 		return std::make_unique<C符卡练习关卡<t初始事件, t弹幕事件>>();

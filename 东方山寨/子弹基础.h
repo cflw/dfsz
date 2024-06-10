@@ -3,6 +3,7 @@
 #include "图形资源.h"
 #include "数学_形状.h"
 #include "基础.h"
+#include "基础_事件.h"
 #include "基础_数组计数.h"
 #include "基础_数组指针.h"
 #include "判定处理_子弹与玩家炸弹.h"
@@ -62,17 +63,18 @@ public:
 	virtual bool f接口_i可显示() const;
 	virtual bool f接口_i停止炸弹判定() const;
 	//子弹扩展事件
+	const t向量2 &f事件_g坐标() const override;
 	virtual void f事件_遮罩(I遮罩 &);
 	//子弹动作
 	void f动作_结束();	//停止执行动作
 	void f动作_取消产生();
 	void f动作_消失(bool);	//[需要覆盖]
-	void f动作_旋转d(float);
-	void f动作_旋转r(float);
+	void f动作_旋转d(float, float 时间 = 1);
+	void f动作_旋转r(float, float 时间 = 1);
 	bool f动作_限速(float 小, float 大, float 变化, float 时间 = 1);
-	void f动作_加速度(float, float = 1);
-	void f动作_加速度(const t向量2 &, float = 1);
-	void f动作_乘速度(float, float = 1);
+	void f动作_加速度(float, float 时间 = 1);
+	void f动作_加速度(const t向量2 &, float 时间 = 1);
+	void f动作_乘速度(float, float 时间 = 1);
 	int f动作_屏幕反弹(int 方向, int 次数 = 1, const std::function<bool(int)> &判断 = nullptr);
 	void f动作_透明(float, float = 1);
 	//内部使用变量

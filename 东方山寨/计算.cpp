@@ -61,9 +61,9 @@ float f预判自机狙(const t向量2 &a目标坐标, const t向量2 &a目标速
 	//已知问题1：目标坐标与目标速度同向时b>0，t为负。解决方法：b总是取负绝对值
 	//已知问题2：目标坐标与目标速度近似垂直时b≈0，t出现浮动。未解决
 	const t向量2 v目标坐标 = a目标坐标 - a发射坐标;
-	const float a0 = a目标速度.f平方() - std::powf(a发射速度, 2);
+	const float a0 = a目标速度.fg平方() - std::powf(a发射速度, 2);
 	const float b0 = -abs(v目标坐标.f点乘(a目标速度)) * 2;
-	const float c0 = v目标坐标.f平方();
+	const float c0 = v目标坐标.fg平方();
 	const float d0 = b0 * b0 - 4 * a0 * c0;
 	const float v根号 = (d0 > 0) ? std::sqrt(d0) : 0;
 	const float t = (-b0 - v根号) / (2 * a0);

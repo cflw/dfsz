@@ -46,6 +46,9 @@ bool C敌机::f接口_玩家子弹判定(C敌机与玩家子弹判定 &a判定) 
 }
 void C敌机::f接口_击破() {
 }
+const t向量2 &C敌机::f事件_g坐标() const {
+	return m坐标;
+}
 //取值
 bool C敌机::fi在窗口外() const {
 	return 边框::C矩形::c窗口.f判断(m坐标, 32);

@@ -107,6 +107,9 @@ t向量3 C二维图片图形::f接口_g缩放() const {
 float C二维图片图形::f接口_g透明度() const {
 	return fg反生命百分比();
 }
+const t向量2 &C二维图片图形::f事件_g坐标() const {
+	return m坐标;
+}
 bool C二维图片图形::fi纹理() const {
 	return m纹理 != nullptr;
 }
@@ -147,6 +150,9 @@ t向量3 C三维图片图形::f接口_g缩放() const {
 }
 float C三维图片图形::f接口_g透明度() const {
 	return fg反生命百分比();
+}
+const t向量2 &C三维图片图形::f事件_g坐标() const {
+	return m坐标;
 }
 bool C三维图片图形::fi纹理() const {
 	return m纹理 != nullptr;

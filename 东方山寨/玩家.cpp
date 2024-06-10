@@ -10,6 +10,7 @@
 #include "玩家子弹基础.h"
 #include "玩家子弹制造机.h"
 #include "图形_玩家成绩.h"
+import 东方山寨.玩家炸弹发射;
 namespace 东方山寨 {
 class C炸弹发射环境 : public I玩家发射环境 {
 public:
@@ -171,7 +172,7 @@ void C玩家::f发射_抑制发射(float a时间) {
 	f发射_停止发射子弹();
 }
 void C玩家::f复活() {
-	C游戏::fg内容().f游戏_全屏清弹(m自机.fg坐标());
+	C游戏::fg内容().fg炸弹发射管理().f全屏清弹(m自机.fg坐标());
 	m成绩.m残机 -= 1;
 	m标志[e正在复活] = true;
 	m自机.f复活();

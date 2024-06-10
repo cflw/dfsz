@@ -3,7 +3,7 @@
 #include <memory>
 #include "关卡.h"
 namespace 东方山寨 {
-class C王战事件;
+class I王战事件;
 class C敌机;
 class C总血条;
 class C弹幕时间;
@@ -48,8 +48,8 @@ private:
 };
 class C王战控制 {
 public:
-	template<typename t, typename...t参数> std::shared_ptr<C关卡事件状态> f事件(const t参数 &...);
-	std::shared_ptr<C关卡事件状态> f新事件_(const std::shared_ptr<C王战事件> &);
+	template<typename t, typename...t参数> std::shared_ptr<I王战事件> f事件(const t参数 &...);
+	void f新事件_(const std::shared_ptr<I王战事件> &);
 	void f初始化_环境(C关卡控制 &);	//在引擎中调用
 	void f计算();
 	void f王战_开始(int 事件数);	//血条数=事件数-1
@@ -73,21 +73,26 @@ private:
 	std::shared_ptr<C总血条> m总血条;	//图形
 	std::shared_ptr<C弹幕时间> m弹幕时间;	//图形
 	std::shared_ptr<C符卡文本> m符卡文本;	//图形
-	C王战事件 *m事件 = nullptr;
+	I王战事件 *m事件 = nullptr;
 	C敌机 *m击破 = nullptr;
 	bool mi结束 = false;	//保证 王被击破,时间到 只能调用其中一个一次
 };
-class C王战事件 : public C关卡事件 {
+class I王战事件 : virtual public I关卡事件 {
 public:
-	virtual void f事件_王被击破(C敌机 &) {}
-	virtual void f事件_时间到() {}
-	virtual void f事件_王战阶段结束() {}
+	const t向量2 &f事件_g坐标() const override;
+	virtual void f事件_王被击破(C敌机 &);
+	virtual void f事件_时间到();
+	virtual void f事件_王战阶段结束();
 public:
 	C王战控制 *m王战 = nullptr;
-	C关卡控制 *m关卡 = nullptr;
 };
-template<typename t, typename...t参数> std::shared_ptr<C关卡事件状态> C王战控制::f事件(const t参数 &...a参数) {
-	static_assert(std::is_base_of<C王战事件, t>::value, "必须继承自C王战事件");
-	return f新事件_(std::make_shared<t>(a参数...));
+template<typename t关卡事件>
+class C王战事件 : public I王战事件, public t关卡事件 {
+};
+template<typename t, typename...t参数> std::shared_ptr<I王战事件> C王战控制::f事件(const t参数 &...a参数) {
+	static_assert(std::is_base_of<I王战事件, t>::value, "必须继承自I王战事件");
+	auto vp = std::make_shared<t>(a参数...);
+	f新事件_(vp);
+	return vp;
 }
 }	//namespace 东方山寨

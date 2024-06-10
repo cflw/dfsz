@@ -10,7 +10,7 @@
 #include "图形_对话立绘.h"
 #include "图形_静态立绘.h"
 #include "游戏.h"
-module 东方山寨.载入.立绘;
+export module 东方山寨.载入.立绘;
 using namespace std::literals;
 namespace 东方山寨::载入 {
 E立绘表情 f字符串到立绘表情(const std::wstring &a字符串) {
@@ -83,19 +83,20 @@ void C载入::f立绘列表1(const S载入参数 &a) {
 	//创建矩形&添加组件
 	assert(va组件.size() == va组件标识.size());
 	auto &va纹理 = C游戏::fg图形().fg纹理();
-	C顶点矩形工厂 &v顶点工厂 = C程序::fg图形().fg顶点工厂();
+	const C顶点矩形工厂 &v顶点工厂 = C程序::fg图形().fg顶点工厂();
+	t顶点矩形参数 v顶点参数;
 	auto vp组件标识 = va组件标识.begin();
 	for (S静态立绘组件 &v组件 : va组件) {
 		va纹理.f编译(v组件.m纹理);	//载入时数据地址会变,之后还要再编译一次
 		const t向量2 v纹理尺寸 = v组件.m纹理->m尺寸;
-		v顶点工厂.m参数.fs裁剪尺寸(v纹理尺寸);
-		v顶点工厂.m参数.fs纹理尺寸(v纹理尺寸);
-		v顶点工厂.m参数.fs矩形坐标(v组件.m偏移);
-		v顶点工厂.m参数.fs裁剪坐标({});
-		v顶点工厂.m参数.fs相对原点缩放(t向量2::fc相同(v缩放));
+		v顶点参数.fs裁剪尺寸(v纹理尺寸);
+		v顶点参数.fs纹理尺寸(v纹理尺寸);
+		v顶点参数.fs矩形坐标(v组件.m偏移);
+		v顶点参数.fs裁剪坐标({});
+		v顶点参数.fs相对原点缩放(t向量2::fc相同(v缩放));
 		const int v组件标识 = *vp组件标识;
 		v组件.m矩形 = v组件标识;
-		v顶点工厂.f创建矩形(v组件标识);
+		v顶点工厂.f创建矩形(v组件标识, v顶点参数);
 		v静态立绘管理.ma组件.f添加(v组件标识, v组件);
 		++vp组件标识;
 	}

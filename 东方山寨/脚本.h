@@ -62,14 +62,29 @@ using tp图形工厂 = std::shared_ptr<C图形工厂>;
 using 工具::C计次器;
 //实用函数
 namespace 脚本 {
-//资源
+//游戏资源
+tp敌机属性 fg敌机样式(const std::wstring &);
+//图形资源
 tp模型 fg模型(const std::wstring &);
 tp纹理 fg纹理(const std::wstring &);
 tp静态立绘 fg静态立绘(const std::wstring &);
 //内容
+std::function<float()> F随机数(unsigned long long 推进 = 0);
+void f全屏清弹(const t向量2 &坐标 = t向量2::c零, float 最大半径 = 600, bool 产生道具 = false);
+float fg动态难度();
 t向量2 fg自机坐标();
-t向量2 fg自机速度(float 秒 = 0.5f);
+t向量2 fg自机速度(float 秒 = 1);	//平均速度
 std::shared_ptr<C敌机> f王入场(E敌机, const t向量2 &开始, const t向量2 &结束);
 void f掉落道具(const t道具组 &, const t向量2 &坐标, const t向量2 &速度 = t向量2::c零);
+//模板
+template<typename t> auto F均匀随机(t a, t b) {
+	if constexpr (std::is_integral_v<t>) {
+		return C游戏::fg内容().f工厂_随机数f(std::uniform_int_distribution<t>(a, b));
+	} else if constexpr (std::is_floating_point_v<t>) {
+		return C游戏::fg内容().f工厂_随机数f(std::uniform_real_distribution<t>(a, b));
+	} else {
+		return C游戏::fg内容().f工厂_随机数f(std::uniform_real_distribution<t>(a, b));
+	}
+}
 }	//namespace 脚本
 }	//namespace 东方山寨

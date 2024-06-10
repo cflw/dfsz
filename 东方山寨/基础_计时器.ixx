@@ -27,6 +27,9 @@ public:
 		m滴答 = a滴答;
 		m计时 = a时间;
 	}
+	void f单次等待(float a等待) {	//等待一个时间后滴答,之后恢复到正常时间
+		m滴答 = m计时 - a等待;
+	}
 private:
 	float m滴答;
 	float m计时;

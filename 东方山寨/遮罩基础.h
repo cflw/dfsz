@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <concepts>
 #include "基础.h"
+#include "基础_事件.h"
 #include "基础_游戏对象.h"
 #include "数学包含.h"
 namespace 东方山寨 {

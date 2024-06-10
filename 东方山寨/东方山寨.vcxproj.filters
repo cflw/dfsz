@@ -428,9 +428,6 @@
     <ClCompile Include="录像_功能.ixx">
       <Filter>游戏本体\录像</Filter>
     </ClCompile>
-    <ClCompile Include="录像_文件.ixx">
-      <Filter>游戏本体\录像</Filter>
-    </ClCompile>
     <ClCompile Include="输入.cpp">
       <Filter>输入引擎</Filter>
     </ClCompile>
@@ -529,6 +526,12 @@
     </ClCompile>
     <ClCompile Include="关卡效果.ixx">
       <Filter>游戏本体\关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="录像_文件.ixx">
+      <Filter>游戏本体\录像</Filter>
+    </ClCompile>
+    <ClCompile Include="玩家炸弹发射.ixx">
+      <Filter>游戏本体\玩家炸弹扩展</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -897,6 +900,9 @@
     </ClInclude>
     <ClInclude Include="载入解析.h">
       <Filter>载入</Filter>
+    </ClInclude>
+    <ClInclude Include="基础_事件.h">
+      <Filter>游戏本体\游戏基础</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

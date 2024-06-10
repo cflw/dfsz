@@ -15,16 +15,16 @@ constexpr float c最大时间 = 10000;
 void C王战控制::f初始化_环境(C关卡控制 &a) {
 	m关卡控制 = &a;
 }
-std::shared_ptr<C关卡事件状态> C王战控制::f新事件_(const std::shared_ptr<C王战事件> &a) {
+void C王战控制::f新事件_(const std::shared_ptr<I王战事件> &a) {
+	assert(a != nullptr);
 	mi结束 = false;
 	m击破 = nullptr;
 	a->m王战 = this;
 	a->m关卡 = m关卡控制;
 	m事件 = a.get();
-	std::shared_ptr<C关卡事件状态> v新 = std::make_shared<C关卡事件状态>(a);
-	m关卡控制->f添加事件(v新);
+	std::unique_ptr<C关卡事件状态> v新 = std::make_unique<C关卡事件状态>(a);
 	v新->m开始时间 = -1;
-	return v新;
+	m关卡控制->f添加事件(std::move(v新));
 }
 void C王战控制::f计算() {
 	if (m事件 && m事件->m状态->m标志[(int)E关卡事件状态::e初始化]) {	//初始化了才能计算
@@ -202,5 +202,17 @@ bool C符卡控制::fi发动() const {
 }
 bool C符卡控制::fi时间符() const {
 	return m标志[e时间符];
+}
+//==============================================================================
+// 王战事件
+//==============================================================================
+const t向量2 &I王战事件::f事件_g坐标() const {
+	return m王战->fg王()->m坐标;
+}
+void I王战事件::f事件_王被击破(C敌机 &) {
+}
+void I王战事件::f事件_时间到() {
+}
+void I王战事件::f事件_王战阶段结束() {
 }
 }	//namespace 东方山寨

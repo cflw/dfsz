@@ -146,7 +146,7 @@ void C界面图形控制::f云(bool a开关, bool a动画) {
 	if (a开关) {
 		const auto &v图形工厂 = C游戏::fg资源().f工厂_图形();
 		t图形参数 v参数 = t图形参数::c界面;
-		auto v随机工厂 = C游戏::fg资源().f工厂_随机数引擎();
+		auto v随机工厂 = C游戏::fg资源().f工厂_随机数引擎(0x6f8c);
 		std::uniform_real_distribution<float> c坐标分布x{界面图形::C云::c左边,  界面图形::C云::c右边};
 		std::uniform_real_distribution<float> c坐标分布y{-c框架范围y, 0};
 		std::uniform_real_distribution<float> c速度分布x{100, 200};

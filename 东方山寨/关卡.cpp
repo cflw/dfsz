@@ -11,11 +11,11 @@ namespace 东方山寨 {
 //==============================================================================
 // 关卡事件状态
 //==============================================================================
-C关卡事件状态::C关卡事件状态(const std::shared_ptr<C关卡事件> &a事件):
+C关卡事件状态::C关卡事件状态(const std::shared_ptr<I关卡事件> &a事件):
 	m事件(a事件) {
 	a事件->m状态 = this;
 }
-C关卡事件 &C关卡事件状态::fg事件() const {
+I关卡事件 &C关卡事件状态::fg事件() const {
 	return *m事件;
 }
 bool C关卡事件状态::fi存在() const {
@@ -83,8 +83,9 @@ void C关卡控制::f结束关卡() {
 		mp关卡->f事件_结束();
 		mp关卡 = nullptr;
 	}
-	ma事件.clear();
-	ma新事件.clear();
+	ma事件状态.clear();
+	ma新事件状态.clear();
+	ma全部关卡事件.clear();
 	f对象_销毁();
 }
 void C关卡控制::f切换关卡(const tp关卡 &a关卡, float a时间) {
@@ -108,8 +109,8 @@ void C关卡控制::f计算() {
 	bool vi删除 = false;
 	mp关卡->f事件_执行();
 	f合并事件();
-	for (auto &v事件状态 : ma事件) {
-		C关卡事件 &v事件 = v事件状态->fg事件();
+	for (auto &v事件状态 : ma事件状态) {
+		I关卡事件 &v事件 = v事件状态->fg事件();
 		bool vi可执行 = false;
 		if (m经过时间 >= v事件状态->m开始时间) {
 			auto v初始化标志 = v事件状态->m标志[(int)E关卡事件状态::e初始化];
@@ -136,35 +137,34 @@ void C关卡控制::f计算() {
 	}
 	//删除
 	if (vi删除) {
-		const auto f删除 = [](const std::shared_ptr<C关卡事件状态> &a)->bool {
+		const auto f删除 = [](const std::unique_ptr<C关卡事件状态> &a)->bool {
 			return a == nullptr;
 		};
-		ma事件.erase(std::remove_if(ma事件.begin(), ma事件.end(), f删除), ma事件.end());
+		ma事件状态.erase(std::remove_if(ma事件状态.begin(), ma事件状态.end(), f删除), ma事件状态.end());
 	}
-	if (ma事件.empty() && ma新事件.empty()) {	//没有事件了,自动结束关卡
+	if (ma事件状态.empty() && ma新事件状态.empty()) {	//没有事件了,自动结束关卡
 		mp关卡->f事件_结束();
 		mp关卡 = nullptr;
 		f对象_销毁();
 	}
 }
 void C关卡控制::f合并事件() {
-	if (!ma新事件.empty()) {
-		ma事件.insert(ma事件.end(), ma新事件.begin(), ma新事件.end());
-		ma新事件.clear();
+	if (!ma新事件状态.empty()) {
+		std::move(ma新事件状态.begin(), ma新事件状态.end(), std::back_inserter(ma事件状态));
+		ma新事件状态.clear();
 	}
 }
-void C关卡控制::f添加事件(std::shared_ptr<C关卡事件状态> a) {
-	ma新事件.push_back(a);
+void C关卡控制::f添加事件(std::unique_ptr<C关卡事件状态> &&a) {
+	assert(a != nullptr);
+	ma全部关卡事件.push_back(a->m事件);
+	ma新事件状态.push_back(std::move(a));
+	assert(ma全部关卡事件.size() < 100);	//防止事件过多
 }
 void C关卡控制::f设置场景(std::shared_ptr<I场景> a) {
 	m场景->f设置场景(a);
 }
 void C关卡控制::f动作_开始对话(tp对话脚本 a) {
 	m对话->f开始(a);
-}
-std::shared_ptr<C关卡事件状态> C关卡控制::fg事件(int a) {
-	f合并事件();
-	return ma事件.at(a);
 }
 void C关卡控制::f事件_开始对话() {
 	m标志[E标志::e对话] = true;
@@ -223,22 +223,25 @@ bool C关卡控制::fi对话() const {
 C关卡脚本::C关卡脚本(C关卡控制 *a控制) :
 	m关卡控制(a控制), m经过时间(a控制->m经过时间){
 }
-std::shared_ptr<C关卡事件状态> C关卡脚本::f新事件_(const std::shared_ptr<C关卡事件> &a) {
-	std::shared_ptr<C关卡事件状态> v新 = std::make_shared<C关卡事件状态>(a);
+void C关卡脚本::f新事件_(const std::shared_ptr<I关卡事件> &a) {
+	std::unique_ptr<C关卡事件状态> v新 = std::make_unique<C关卡事件状态>(a);
 	a->m状态 = v新.get();
 	a->m关卡 = m关卡控制;
-	m关卡控制->f添加事件(v新);
 	v新->m开始时间 = m开始时间 + m经过时间;
-	return v新;
+	m关卡控制->f添加事件(std::move(v新));
 }
-std::shared_ptr<C关卡事件状态> C关卡脚本::operator ()(const std::function<void()> &af) {
-	return f新事件_(std::make_shared<C关卡效果事件>(af));
+std::shared_ptr<I关卡事件> C关卡脚本::operator ()(const std::function<void()> &af) {
+	auto vp事件 = std::make_shared<C关卡效果事件>(af);
+	f新事件_(vp事件);
+	return vp事件;
 }
-std::shared_ptr<C关卡事件状态> C关卡脚本::f事件(const std::function<void()> &af) {
-	return f新事件_(std::make_shared<C关卡效果事件>(af));
+std::shared_ptr<I关卡事件> C关卡脚本::f事件(const std::function<void()> &af) {
+	auto vp事件 = std::make_shared<C关卡效果事件>(af);
+	f新事件_(vp事件);
+	return vp事件;
 }
-std::shared_ptr<C关卡事件状态> C关卡脚本::f对话(tp对话脚本 a) {
-	class C关卡对话事件 : public C关卡事件 {
+std::shared_ptr<I关卡事件> C关卡脚本::f对话(tp对话脚本 a) {
+	class C关卡对话事件 : public I关卡事件 {
 	public:
 		C关卡对话事件(tp对话脚本 a) {
 			m对话脚本 = a;
@@ -249,7 +252,9 @@ std::shared_ptr<C关卡事件状态> C关卡脚本::f对话(tp对话脚本 a) {
 		}
 		tp对话脚本 m对话脚本;
 	};
-	return f新事件_(std::make_shared<C关卡对话事件>(a));
+	auto vp = std::make_shared<C关卡对话事件>(a);
+	f新事件_(vp);
+	return vp;
 }
 void C关卡脚本::f时间点(float a时间) {
 	m开始时间 = a时间;
@@ -260,19 +265,19 @@ void C关卡脚本::f等待(float a时间) {
 //==============================================================================
 // 关卡接口
 //==============================================================================
-int C关卡::fg标识() const {
+int I关卡::fg标识() const {
 	return m工厂->fg标识();
 }
-void C关卡事件::f事件_执行() {
+void I关卡事件::f事件_执行() {
 	f动作_结束();
 }
-void C关卡事件::f动作_暂停(float a) {
+void I关卡事件::f动作_暂停(float a) {
 	m状态->m等待 = a;
 }
-void C关卡事件::f动作_结束() {
+void I关卡事件::f动作_结束() {
 	m状态->f结束();
 }
-float C关卡事件::fg暂停时间() const {
+float I关卡事件::fg暂停时间() const {
 	return m状态->m等待;
 }
 //==============================================================================

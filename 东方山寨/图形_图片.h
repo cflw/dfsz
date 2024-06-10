@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "基础_事件.h"
 #include "基础_数组指针.h"
 #include "基础_对象工厂.h"
 #include "图形基础.h"
@@ -70,6 +71,7 @@ public:
 	t向量3 f接口_g旋转() const override;
 	t向量3 f接口_g缩放() const override;
 	float f接口_g透明度() const override;
+	const t向量2 &f事件_g坐标() const override;
 	bool fi纹理() const;
 	const S顶点矩形 &fg顶点矩形() const;
 protected:
@@ -99,6 +101,7 @@ public:
 	t向量3 f接口_g旋转() const override;
 	t向量3 f接口_g缩放() const override;
 	float f接口_g透明度() const override;
+	const t向量2 &f事件_g坐标() const override;
 	bool fi纹理() const;
 	const S顶点矩形 &fg顶点矩形() const;
 protected:

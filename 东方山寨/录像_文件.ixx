@@ -23,6 +23,7 @@ export namespace 东方山寨 {
 inline const std::string c录像文件名 = "replay.json";
 enum class E录像读写结果 {
 	e成功,
+	e未知错误,
 	e文件不存在,
 	e写入失败,
 	e版本不匹配,

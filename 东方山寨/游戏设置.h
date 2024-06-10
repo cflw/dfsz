@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include "标识.h"
 namespace 东方山寨 {
-class C关卡;
 enum class E游戏模式 {
 	e无,
 	e传统模式,
