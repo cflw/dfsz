@@ -3,10 +3,10 @@
 #include "敌机基础.h"
 #include "玩家.h"
 #include "玩家子弹基础.h"
-#include "计算.h"
 #include "玩家子弹图形.h"
 #include "玩家子弹图形模板.h"
 #include "边框形状.h"
+import 东方山寨.计算;
 namespace 东方山寨 {
 //==============================================================================
 // 玩家子弹
@@ -47,8 +47,11 @@ C复杂形状 C玩家子弹::f基础_g判定形状() const {
 bool C玩家子弹::f基础_i炸弹() const {
 	return m标志[e炸弹];
 }
-int C玩家子弹::f属性_g伤害() const {
+float C玩家子弹::f属性_g伤害() const {
 	return f基础_g子弹属性().m伤害;
+}
+bool C玩家子弹::f属性_i秒伤() const {
+	return f基础_g子弹属性().mi秒伤;
 }
 float C玩家子弹::f基础_g出现透明度() const {
 	return (m出现 < c出现透明度达到最大时间) ? ((m出现 / c出现透明度达到最大时间) * c透明度) : c透明度;

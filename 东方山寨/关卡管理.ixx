@@ -1,6 +1,6 @@
-﻿module;
-#include "关卡.h"
-export module 东方山寨.关卡管理;
+﻿export module 东方山寨.关卡管理;
+import <cassert>;
+export import 东方山寨.关卡;
 import 东方山寨.关卡工厂;
 import cflw.工具.单例;
 namespace 工具 = cflw::工具;

@@ -6,15 +6,13 @@ class C全屏清弹 : public C玩家炸弹 {
 public:
 	static constexpr float c最大半径 = c框架范围r * 1.5f;
 	C全屏清弹() = default;
-	C全屏清弹(float, bool);
+	C全屏清弹(float 扩散速度, bool 道具, bool 伤害);
 	void f接口_计算() override;
 	float f接口_g判定半径() const override;
-	bool f接口_i产生道具() const override;
 private:	//扩展
 	float m扩散速度 = c最大半径;
 	float m半径 = 0;
 	float m寿命 = 1;
-	bool m道具 = false;
 };
 //测试用炸弹
 class C风神录 : public C玩家炸弹 {

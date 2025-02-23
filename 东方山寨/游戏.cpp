@@ -11,17 +11,17 @@
 #include "取文本.h"
 #include "基础_缓冲数组.h"
 //关卡
-#include "关卡.h"
-#include "王战.h"
+import 东方山寨.关卡;
+import 东方山寨.王战;
 #include "场景.h"
-#include "对话.h"
+import 东方山寨.对话控制;
 //图形
 #include "图层.h"
 #include "图形引擎.h"
 #include "图形资源工厂.h"
 #include "图形工厂.h"
 #include "图形_画边框.h"
-#include "图形_静态立绘.h"
+import 东方山寨.图形.静态立绘;
 //判定处理
 #include "判定处理_敌机与玩家子弹.h"
 #include "判定处理_子弹与玩家炸弹.h"
@@ -49,7 +49,7 @@
 //玩家 自机 子机
 #include "玩家.h"
 #include "标识.h"
-#include "难度.h"
+import 东方山寨.难度;
 //基础
 import 东方山寨.游戏输入;
 import 东方山寨.设置管理;
@@ -221,8 +221,8 @@ C游戏::C实现::~C实现() {
 	f销毁();
 }
 void C游戏::C实现::f销毁() {
-	ma子弹图形缓冲.f清空();
 	ma子弹.f清空();
+	ma子弹图形缓冲.f清空();
 	ma玩家子弹.f清空();
 	ma道具.f清空();
 	ma敌机.f清空();
@@ -347,16 +347,17 @@ void C游戏::C实现::f计算() {
 		}
 	});
 	//敌机与玩家子弹判定
-	std::atomic<int> v伤害分数 = 0;
+	std::atomic<float> v伤害分数 = 0;
 	ma敌机.fe使用_并行([&](C敌机 &a当前敌机) {
 		//敌机与玩家子弹相交判定
 		C敌机与玩家子弹判定 v判定0;
 		v判定0.f绑定敌机(a当前敌机);
+		v判定0.f绑定游戏速度(m游戏速度.fg速度());
 		ma玩家子弹.fe使用_并行([&](C玩家子弹 &a玩家子弹) {
 			C敌机与玩家子弹判定 v判定1 = v判定0;
 			v判定1.f绑定玩家子弹(a玩家子弹);
 			v判定1.f计算判定();
-			if (const int v伤害分数1 = v判定1.f结算_g造成伤害()) {
+			if (const float v伤害分数1 = v判定1.f结算_g造成伤害()) {
 				v伤害分数 += v伤害分数1;
 			}
 		});
@@ -367,7 +368,7 @@ void C游戏::C实现::f计算() {
 			return;
 		}
 	});
-	m玩家.m成绩.m得分 += v伤害分数;
+	m玩家.m成绩.m得分 += (long long)v伤害分数;	//存在严重精度损失,以后修复
 	//道具
 	std::vector<I遮罩 *> va道具遮罩 = fg交互遮罩(I遮罩::e道具);
 	const t圆形 v自机吸道具点 = m玩家.m自机.fg吸道具点();
@@ -490,6 +491,7 @@ void C游戏::C实现::f事件_进入关卡() {
 	mp资源->mp游戏输入->f事件_切换关卡(m关卡.mp关卡->fg标识());
 	m游戏速度.fs速度(1);
 	m随机数引擎.seed(m关卡.m随机数种子);
+	m关卡.f初始化关卡();
 }
 void C游戏::C实现::f更新() {
 	const auto f简单更新 = [](t任务 &a任务, auto &a对象, auto af更新) {

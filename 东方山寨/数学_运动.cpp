@@ -1,7 +1,7 @@
 ﻿#include "数学_运动.h"
-#include "计算.h"
 #include "游戏.h"
 #include "游戏常量.h"
+import 东方山寨.计算;
 namespace 东方山寨 {
 //运动
 const t向量2 &C复杂运动::fg坐标() const {
@@ -31,14 +31,17 @@ float C复杂运动::f剩余运动时间(float a时间) const {
 	return a时间 - m运动时间;
 }
 void C复杂运动::f计算运动(float a过秒) {
+	m运动时间 += a过秒;
 	if (mf运动) {
 		m速度 = mf运动(*this);
 	}
-	m运动时间 += a过秒;
 	计算::f基本运动计算(m坐标, m速度, a过秒);
 }
 void C复杂运动::f直接移动(const t向量2 &a目标, float a时间) {
 	m速度 = 计算::f到目标速度(m坐标, a目标, a时间);
+}
+void C复杂运动::f运动_结束() {
+	mf运动 = nullptr;
 }
 void C复杂运动::f运动_速度(const t向量2 &a速度, float a时间) {
 	if (a时间 > 0) {
@@ -113,6 +116,20 @@ void C复杂运动::f运动_随机移动到(const t向量2 &a目标, const t向�
 	const float v目标y = f计算目标位置(m坐标.y, a目标.y, a移动.y, a浮动.y, 0x4fa0);
 	f运动_平滑移动到({v目标x, v目标y}, c移动总时间, c移动开始, c移动结束);
 }
+void C复杂运动::f运动_圆周运动(bool a顺时针, float a时间, float a圈数) {
+	const float v方向 = m速度.fg方向r();
+	const float v角速度 = 数学::c二π<float> *(a顺时针 ? -1 : 1) / a时间 * a圈数;
+	const float v线速度 = m速度.fg大小();
+	const float v半径 = 计算::f圆周运动半径(v线速度, v角速度);
+	const float v到圆心方向 = (a顺时针 ? -1 : 1) * 数学::c半π<float> + v方向;
+	const t向量2 v圆心 = m坐标 + t向量2::fc方向r(v半径, v到圆心方向);
+	const float v起点方向 = v到圆心方向 + 数学::cπ<float>;
+	fs运动(F圆周运动(v圆心, v半径, v起点方向, v角速度));
+}
+void C复杂运动::f运动_圆周运动(const t向量2 &a圆心, float a半径, float a起点方向, bool a顺时针, float a时间, float a周数) {
+	const float v角速度 = 数学::c二π<float> * (a顺时针 ? -1 : 1) / a时间 / a周数;
+	fs运动(F圆周运动(a圆心, a半径, a起点方向, v角速度));
+}
 //==============================================================================
 // 运动
 //==============================================================================
@@ -155,5 +172,12 @@ tf复杂运动 C复杂运动::F平滑移动过(const t向量2 &a最高速度, fl
 		}
 	};
 }
-
+tf复杂运动 C复杂运动::F圆周运动(const t向量2 &a圆心, float a半径, float a起点方向, float a角速度) {
+	return [=](const C复杂运动 &a运动)->t向量2 {
+		const float v运动时间 = a运动.m运动时间;
+		const float v目标方向 = a起点方向 + a角速度 * v运动时间;
+		const t向量2 v目标坐标 = a圆心 + t向量2::fc方向r(a半径, v目标方向);
+		return (v目标坐标 - a运动.fg坐标()) * c计算频率<float>;
+	};
+}
 }	//namespace 东方山寨

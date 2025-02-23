@@ -2,9 +2,7 @@
 #include <cassert>
 #include <string>
 #include <filesystem>
-//#include <boost/property_tree/json_parser.hpp>
 #include <cflw视窗.h>
-//#include <cflw文件_json.h>
 #include "程序设置.h"
 #include "游戏设置.h"
 #include "输入.h"
@@ -12,8 +10,6 @@ export module 东方山寨.设置管理;
 export import cflw.工具.单例;
 namespace 视窗 = cflw::视窗;
 namespace 工具 = cflw::工具;
-//using t属性文件 = cflw::文件::json::C文件;
-//using t属性树 = boost::property_tree::wptree;
 export namespace 东方山寨 {
 class C设置管理 : public 工具::C弱单例<C设置管理> {
 public:

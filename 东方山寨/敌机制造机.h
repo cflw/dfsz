@@ -20,10 +20,12 @@ struct S敌机参数 {
 	t向量2 m坐标;
 	t向量2 m速度;
 	t向量2 m目标;
-	int m生命值 = 100;
-	float m移动时间 = 1;
+	float m生命值 = 1;
+	float m移动时间 = 0;	//0表示无限移动
+	float m无敌时间 = 0.5f;	//防止瞬间击破
 	t属性指针<S敌机属性> m样式;
 	void fs坐标(const t向量2 &坐标);	//敌机产生时的坐标
+	void fs坐标_边框外(const t向量2 &坐标);		//设置一个坐标,计算最近的边框外坐标
 	void fs边框外进场(const t向量2 &开始坐标);	//设置一个坐标,计算从边框外进入边框内所需的坐标和目标
 	void fs进场(const t向量2 &开始, const t向量2 &结束, float 时间 = 1);
 	void fs移动速度(const t向量2 &速度, float 时间 = -1);

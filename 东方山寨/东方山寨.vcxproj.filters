@@ -194,9 +194,6 @@
     <ClCompile Include="动画.cpp">
       <Filter>游戏本体\图形</Filter>
     </ClCompile>
-    <ClCompile Include="关卡.cpp">
-      <Filter>游戏本体\关卡</Filter>
-    </ClCompile>
     <ClCompile Include="玩家子弹发射_发散.cpp">
       <Filter>游戏本体\玩家子弹扩展</Filter>
     </ClCompile>
@@ -208,9 +205,6 @@
     </ClCompile>
     <ClCompile Include="游戏_名称标识.cpp">
       <Filter>游戏本体\游戏基础</Filter>
-    </ClCompile>
-    <ClCompile Include="王战.cpp">
-      <Filter>游戏本体\关卡</Filter>
     </ClCompile>
     <ClCompile Include="图形_三维.cpp">
       <Filter>游戏本体\图形</Filter>
@@ -238,9 +232,6 @@
     </ClCompile>
     <ClCompile Include="玩家子弹图形模板.cpp">
       <Filter>游戏本体\玩家子弹基础</Filter>
-    </ClCompile>
-    <ClCompile Include="敌机图形模板.cpp">
-      <Filter>游戏本体\敌机</Filter>
     </ClCompile>
     <ClCompile Include="图形管理.cpp">
       <Filter>图形引擎\图形基础</Filter>
@@ -284,9 +275,6 @@
     <ClCompile Include="道具图形.cpp">
       <Filter>游戏本体\道具</Filter>
     </ClCompile>
-    <ClCompile Include="敌机图形.cpp">
-      <Filter>游戏本体\敌机</Filter>
-    </ClCompile>
     <ClCompile Include="道具制造机.cpp">
       <Filter>游戏本体\道具</Filter>
     </ClCompile>
@@ -320,9 +308,6 @@
     <ClCompile Include="边框形状.cpp">
       <Filter>游戏本体\遮罩</Filter>
     </ClCompile>
-    <ClCompile Include="计算.cpp">
-      <Filter>数学</Filter>
-    </ClCompile>
     <ClCompile Include="数学_运动.cpp">
       <Filter>数学</Filter>
     </ClCompile>
@@ -334,9 +319,6 @@
     </ClCompile>
     <ClCompile Include="敌机模板.cpp">
       <Filter>游戏本体\敌机</Filter>
-    </ClCompile>
-    <ClCompile Include="难度.cpp">
-      <Filter>数学</Filter>
     </ClCompile>
     <ClCompile Include="图形资源.cpp">
       <Filter>图形引擎\图形基础</Filter>
@@ -350,18 +332,6 @@
     <ClCompile Include="载入_立绘.ixx">
       <Filter>载入</Filter>
     </ClCompile>
-    <ClCompile Include="对话.cpp">
-      <Filter>游戏本体\对话</Filter>
-    </ClCompile>
-    <ClCompile Include="图形_对话.cpp">
-      <Filter>游戏本体\对话</Filter>
-    </ClCompile>
-    <ClCompile Include="图形_对话立绘.cpp">
-      <Filter>游戏本体\对话</Filter>
-    </ClCompile>
-    <ClCompile Include="图形_静态立绘.cpp">
-      <Filter>游戏本体\对话</Filter>
-    </ClCompile>
     <ClCompile Include="基础_结构.ixx">
       <Filter>游戏本体\游戏基础</Filter>
     </ClCompile>
@@ -369,12 +339,6 @@
       <Filter>游戏本体\游戏基础</Filter>
     </ClCompile>
     <ClCompile Include="抬显.ixx">
-      <Filter>游戏本体\抬显</Filter>
-    </ClCompile>
-    <ClCompile Include="图形_抬显.cpp">
-      <Filter>游戏本体\抬显</Filter>
-    </ClCompile>
-    <ClCompile Include="图形_抬显模板.cpp">
       <Filter>游戏本体\抬显</Filter>
     </ClCompile>
     <ClCompile Include="图形_画边框.cpp">
@@ -397,9 +361,6 @@
     </ClCompile>
     <ClCompile Include="关卡标识.ixx">
       <Filter>游戏本体\关卡</Filter>
-    </ClCompile>
-    <ClCompile Include="脚本.cpp">
-      <Filter>脚本</Filter>
     </ClCompile>
     <ClCompile Include="界面_选择关卡.ixx">
       <Filter>界面</Filter>
@@ -458,9 +419,6 @@
     <ClCompile Include="游戏录像管理.ixx">
       <Filter>游戏本体\录像</Filter>
     </ClCompile>
-    <ClCompile Include="序列化.cpp">
-      <Filter>载入</Filter>
-    </ClCompile>
     <ClCompile Include="玩家成绩.cpp">
       <Filter>游戏本体\玩家</Filter>
     </ClCompile>
@@ -486,12 +444,6 @@
       <Filter>载入</Filter>
     </ClCompile>
     <ClCompile Include="载入_图形.ixx">
-      <Filter>载入</Filter>
-    </ClCompile>
-    <ClCompile Include="载入解析.cpp">
-      <Filter>载入</Filter>
-    </ClCompile>
-    <ClCompile Include="载入解析_图形.cpp">
       <Filter>载入</Filter>
     </ClCompile>
     <ClCompile Include="界面语言.ixx">
@@ -532,6 +484,108 @@
     </ClCompile>
     <ClCompile Include="玩家炸弹发射.ixx">
       <Filter>游戏本体\玩家炸弹扩展</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_xml.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_子弹.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_动画.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_自机.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_敌机.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_子机.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_玩家子弹.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_纹理.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_模型.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_声音.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="xml_序列化.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="xml_解析.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="敌机图形模板.ixx">
+      <Filter>游戏本体\敌机</Filter>
+    </ClCompile>
+    <ClCompile Include="脚本.ixx">
+      <Filter>脚本</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_内部.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_道具.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_玩家子弹发射.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="载入_图形管线.ixx">
+      <Filter>载入</Filter>
+    </ClCompile>
+    <ClCompile Include="计算.ixx">
+      <Filter>数学</Filter>
+    </ClCompile>
+    <ClCompile Include="难度.ixx">
+      <Filter>数学</Filter>
+    </ClCompile>
+    <ClCompile Include="关卡.ixx">
+      <Filter>游戏本体\关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="王战.ixx">
+      <Filter>游戏本体\关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="关卡_实现.ixx">
+      <Filter>游戏本体\关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="敌机图形.ixx">
+      <Filter>游戏本体\敌机</Filter>
+    </ClCompile>
+    <ClCompile Include="对话基础.ixx">
+      <Filter>游戏本体\对话</Filter>
+    </ClCompile>
+    <ClCompile Include="对话控制.ixx">
+      <Filter>游戏本体\对话</Filter>
+    </ClCompile>
+    <ClCompile Include="对话脚本.ixx">
+      <Filter>游戏本体\对话</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_对话框.ixx">
+      <Filter>游戏本体\对话</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_对话立绘.ixx">
+      <Filter>游戏本体\对话</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_静态立绘.ixx">
+      <Filter>游戏本体\对话</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_抬显模板.ixx">
+      <Filter>游戏本体\抬显</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_抬显.ixx">
+      <Filter>游戏本体\抬显</Filter>
+    </ClCompile>
+    <ClCompile Include="王战_实现.ixx">
+      <Filter>游戏本体\关卡</Filter>
+    </ClCompile>
+    <ClCompile Include="图形_角色标题.ixx">
+      <Filter>游戏本体\对话</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -613,9 +667,6 @@
     <ClInclude Include="图形引擎.h">
       <Filter>图形引擎</Filter>
     </ClInclude>
-    <ClInclude Include="载入.h">
-      <Filter>载入</Filter>
-    </ClInclude>
     <ClInclude Include="标识.h">
       <Filter>游戏本体\游戏基础</Filter>
     </ClInclude>
@@ -634,9 +685,6 @@
     <ClInclude Include="动画.h">
       <Filter>游戏本体\图形</Filter>
     </ClInclude>
-    <ClInclude Include="关卡.h">
-      <Filter>游戏本体\关卡</Filter>
-    </ClInclude>
     <ClInclude Include="玩家子弹发射_发散.h">
       <Filter>游戏本体\玩家子弹扩展</Filter>
     </ClInclude>
@@ -648,9 +696,6 @@
     </ClInclude>
     <ClInclude Include="游戏_名称标识.h">
       <Filter>游戏本体\游戏基础</Filter>
-    </ClInclude>
-    <ClInclude Include="王战.h">
-      <Filter>游戏本体\关卡</Filter>
     </ClInclude>
     <ClInclude Include="图形_三维.h">
       <Filter>游戏本体\图形</Filter>
@@ -687,9 +732,6 @@
     </ClInclude>
     <ClInclude Include="玩家子弹图形模板.h">
       <Filter>游戏本体\玩家子弹基础</Filter>
-    </ClInclude>
-    <ClInclude Include="敌机图形模板.h">
-      <Filter>游戏本体\敌机</Filter>
     </ClInclude>
     <ClInclude Include="程序设置.h">
       <Filter>程序</Filter>
@@ -766,9 +808,6 @@
     <ClInclude Include="道具图形.h">
       <Filter>游戏本体\道具</Filter>
     </ClInclude>
-    <ClInclude Include="敌机图形.h">
-      <Filter>游戏本体\敌机</Filter>
-    </ClInclude>
     <ClInclude Include="道具制造机.h">
       <Filter>游戏本体\道具</Filter>
     </ClInclude>
@@ -814,9 +853,6 @@
     <ClInclude Include="边框形状.h">
       <Filter>游戏本体\遮罩</Filter>
     </ClInclude>
-    <ClInclude Include="计算.h">
-      <Filter>数学</Filter>
-    </ClInclude>
     <ClInclude Include="数学包含.h">
       <Filter>数学</Filter>
     </ClInclude>
@@ -835,9 +871,6 @@
     <ClInclude Include="图形_子弹_工具.h">
       <Filter>游戏本体\子弹基础</Filter>
     </ClInclude>
-    <ClInclude Include="难度.h">
-      <Filter>数学</Filter>
-    </ClInclude>
     <ClInclude Include="界面包含.h">
       <Filter>界面</Filter>
     </ClInclude>
@@ -847,38 +880,14 @@
     <ClInclude Include="图形资源工厂.h">
       <Filter>图形引擎</Filter>
     </ClInclude>
-    <ClInclude Include="载入基础.h">
-      <Filter>载入</Filter>
-    </ClInclude>
     <ClInclude Include="图形管线接口.h">
       <Filter>图形引擎\图形基础</Filter>
     </ClInclude>
     <ClInclude Include="图形建造机.h">
       <Filter>图形引擎</Filter>
     </ClInclude>
-    <ClInclude Include="对话.h">
-      <Filter>游戏本体\对话</Filter>
-    </ClInclude>
-    <ClInclude Include="对话基础.h">
-      <Filter>游戏本体\对话</Filter>
-    </ClInclude>
-    <ClInclude Include="图形_对话.h">
-      <Filter>游戏本体\对话</Filter>
-    </ClInclude>
-    <ClInclude Include="图形_对话立绘.h">
-      <Filter>游戏本体\对话</Filter>
-    </ClInclude>
-    <ClInclude Include="图形_静态立绘.h">
-      <Filter>游戏本体\对话</Filter>
-    </ClInclude>
-    <ClInclude Include="图形_抬显.h">
-      <Filter>游戏本体\抬显</Filter>
-    </ClInclude>
     <ClInclude Include="图形_画边框.h">
       <Filter>游戏本体\抬显</Filter>
-    </ClInclude>
-    <ClInclude Include="脚本.h">
-      <Filter>脚本</Filter>
     </ClInclude>
     <ClInclude Include="输入.h">
       <Filter>输入引擎</Filter>
@@ -889,17 +898,11 @@
     <ClInclude Include="界面常量.h">
       <Filter>界面</Filter>
     </ClInclude>
-    <ClInclude Include="序列化.h">
-      <Filter>载入</Filter>
-    </ClInclude>
     <ClInclude Include="玩家成绩.h">
       <Filter>游戏本体\玩家</Filter>
     </ClInclude>
     <ClInclude Include="取文本.h">
       <Filter>文本</Filter>
-    </ClInclude>
-    <ClInclude Include="载入解析.h">
-      <Filter>载入</Filter>
     </ClInclude>
     <ClInclude Include="基础_事件.h">
       <Filter>游戏本体\游戏基础</Filter>

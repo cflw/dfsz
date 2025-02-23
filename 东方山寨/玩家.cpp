@@ -6,10 +6,10 @@
 #include "玩家.h"
 #include "自机.h"
 #include "子机.h"
-#include "难度.h"
 #include "玩家子弹基础.h"
 #include "玩家子弹制造机.h"
 #include "图形_玩家成绩.h"
+import 东方山寨.难度;
 import 东方山寨.玩家炸弹发射;
 namespace 东方山寨 {
 class C炸弹发射环境 : public I玩家发射环境 {

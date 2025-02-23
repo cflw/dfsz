@@ -2,7 +2,7 @@
 #include "游戏常量.h"
 #include "自机.h"
 #include "游戏.h"
-#include "关卡.h"
+import 东方山寨.关卡;
 #include "玩家.h"
 #include "自机图形.h"
 #include "边框基础.h"

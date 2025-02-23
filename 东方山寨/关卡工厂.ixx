@@ -1,7 +1,6 @@
-﻿module;
-#include "关卡.h"
-#include "基础_对象工厂.h"
-export module 东方山寨.关卡工厂;
+﻿export module 东方山寨.关卡工厂;
+import "基础_对象工厂.h";
+export import 东方山寨.关卡;
 export namespace 东方山寨 {
 void f注册关卡(int a标识, const I关卡工厂 &a关卡工厂);	//定义在 关卡管理.ixx
 class I关卡工厂 : public I工厂<I关卡> {

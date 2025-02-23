@@ -9,12 +9,12 @@ class C角色动画 : public I动画 {
 public:
 	struct S属性 {
 		struct S动画方向 {
-			int m序号;
-			int m循环;
-			int m帧数;
-			float m变化速度;
-			float m循环速度;
-			bool m境像;
+			int m顶点偏移;	//该方向第一个顶点在顶点指针中的偏移量
+			int m循环位置;	//该方向第一个循环在开始中的偏移量
+			int m帧数;	//开始+循环的总帧数
+			float m变化速度;	//开始部分的速度
+			float m循环速度;	//循环部分的速度
+			bool m镜像;	//顶点是否垂直反转
 		};
 		S动画方向 m正常, m左移, m右移;
 	};
@@ -29,16 +29,14 @@ public:
 	void f接口_动作(const E动画动作 &, const t动画动作值 &) override;
 	int f接口_g顶点序号() const override;
 	t向量3 f接口_g缩放() const override;
-	float f接口_g透明度() const override;
+	//动作,可以在计算中调用
 	void f动作_正常();
 	void f动作_水平移动(float);
 	void f动作_左移();
 	void f动作_右移();
-	void f动作_透明度(float);
 private:
 	std::shared_ptr<S属性> m属性 = nullptr;
 	float m动画帧 = 0;
-	float m透明度 = 0;
 	const S属性::S动画方向 *m动画方向 = nullptr;
 	const S属性::S动画方向 *m目标方向 = nullptr;
 };
@@ -71,5 +69,4 @@ public:
 	t向量3 m缩放 = t向量3::c一;
 	tf计算 mf计算 = nullptr;
 };
-
-}
+}	//namespace 东方山寨

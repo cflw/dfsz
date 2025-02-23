@@ -1,18 +1,22 @@
-﻿module;
-#include <string>
-#include <map>
-#include "载入.h"
-#include "载入解析.h"
-#include "标识.h"
-#include "程序.h"
-#include "图形引擎.h"
-#include "图形资源工厂.h"
-#include "图形_对话立绘.h"
-#include "图形_静态立绘.h"
-#include "游戏.h"
-export module 东方山寨.载入.立绘;
+﻿export module 东方山寨.载入.立绘;
+import <string>;
+import <map>;
+import <experimental/generator>;
+import "载入.h";
+import "标识.h";
+import "程序.h";
+import "图形引擎.h";
+import "图形资源工厂.h";
+import "游戏.h";
+import cflw.字符串;
+import cflw.字符串.数字;
+import 东方山寨.载入.xml;
+import 东方山寨.载入.纹理;
+import 东方山寨.图形.对话立绘;
+import 东方山寨.图形.静态立绘;
 using namespace std::literals;
-namespace 东方山寨::载入 {
+namespace 字符串 = cflw::字符串;
+namespace 东方山寨::xml {
 E立绘表情 f字符串到立绘表情(const std::wstring &a字符串) {
 	static const std::map<std::wstring, E立绘表情> ca表情 = {
 		{L"无", E立绘表情::e无},
@@ -26,52 +30,58 @@ E立绘表情 f字符串到立绘表情(const std::wstring &a字符串) {
 	}
 	return E立绘表情::e无;
 }
-void C载入::f立绘列表1(const S载入参数 &a) {
+void C载入::f立绘(const S载入参数 &a参数) {
 	//由多张图片拼成的静态立绘
-	const int v全局标识 = a.m树.get<int>(L"全局.标识", 计算::fc随机标识());
-	const std::wstring v全局名称 = a.m树.get<std::wstring>(L"全局.名称");
+	const t节点 &v头部节点 = a参数.m根.child(L"头部");
+	const int v全局标识 = v头部节点.attribute(L"标识").as_int(计算::fc随机标识());
+	const std::wstring v全局名称 = v头部节点.attribute(L"名称").as_string();
 	C名称标识组 v名称标识组;
 	const C名称标识 v名称标识0 = v名称标识组.f创建层(v全局名称, v全局标识);
 	auto &v静态立绘管理 = C游戏::fg资源().fg静态立绘();
 	//数据
-	C解析纹理 v解析纹理{a};
-	const auto &va数据 = a.m树.get_child(L"数据");
+	C解析纹理 v解析纹理{a参数};
 	int v主标识 = -1;
 	float v缩放 = 1;
 	std::vector<S静态立绘组件> va组件;
 	std::vector<int> va组件标识;
-	for (const auto &[v名称0_, v树0] : va数据) {
-		const std::wstring v名称0 = v树0.get<std::wstring>(L"名称");
+	for (const t节点 &v立绘节点 : a参数.m根.child(L"数据").children(L"立绘")) {
+		const std::wstring v名称0 = v立绘节点.attribute(L"名称").as_string();
 		const C名称标识 v名称标识1 = v名称标识0.f创建层(v名称0, ++v主标识, true);
 		S静态立绘属性 &v属性 = v静态立绘管理.ma属性.f取空(v名称标识1);
-		v缩放 = v属性.m缩放 = v树0.get<float>(L"缩放", 1);
-		const int v方向 = v树0.get<int>(L"方向", 0);
-		v属性.m方向 = (E对话方向)v方向;
+		v缩放 = v属性.m缩放 = v立绘节点.child(L"缩放").text().as_float(1);
+		const std::wstring_view v方向 = v立绘节点.child(L"方向").text().as_string();
+		if (v方向 == L"从右向左") {
+			v属性.m方向 = E对话方向::e从右向左;
+		} else if (v方向 == L"从左向右") {
+			v属性.m方向 = E对话方向::e从左向右;
+		}
 		int v组件标识 = -1;
 		//读取组件
-		for (const auto &[v名称1_, v树1] : v树0.get_child(L"组件")) {
-			const std::wstring v名称1 = L"组件."s + v树1.get<std::wstring>(L"名称");
-			v组件标识 = v树1.get<int>(L"标识", v组件标识 + 1);
+		for (const t节点 &v组件节点 : v立绘节点.children(L"组件")) {
+			const std::wstring v名称1 = L"组件."s + v组件节点.attribute(L"名称").as_string();
+			v组件标识 = v组件节点.attribute(L"标识").as_int(v组件标识 + 1);
 			const C名称标识 v名称标识2 = v名称标识1.f创建层(v名称1, v组件标识, true);
 			va组件标识.push_back(v名称标识2);
 			S静态立绘组件 &v组件 = va组件.emplace_back();
-			if (const S解析纹理 v纹理 = v解析纹理.f解析纹理(v名称标识2, v树1.get_child(L"纹理"))) {
+			if (const S解析纹理 &v纹理 = v解析纹理.f解析纹理(v名称标识2, v组件节点.child(L"纹理"))) {
 				v组件.m纹理 = v名称标识2;
 				const t向量2 &v纹理尺寸 = v纹理.fg尺寸();
 			}
-			if (const auto &v树2 = v树1.get_child_optional(L"偏移")) {
-				v组件.m偏移 = C解析助手::f获取向量2(*v树2);
+			if (const t节点 &v偏移节点 = v组件节点.child(L"偏移")) {
+				v组件.m偏移 = 解析::f向量2(v偏移节点);
 			}
 		}
 		//读取表情
 		int v表情标识 = -1;
-		for (const auto &[v名称1_, v树1] : v树0.get_child(L"表情")) {
+		for (const t节点 &v表情节点 : v立绘节点.children(L"表情")) {
+			const std::wstring v名称1_ = v表情节点.attribute(L"名称").as_string();
 			const std::wstring v名称1 = L"表情."s + v名称1_;
 			const C名称标识 v名称标识2 = v名称标识1.f创建层(v名称1, ++v表情标识, true);
 			S静态立绘属性::S表情映射 v表情映射;
 			int j = 0;
-			for (const auto &[v名称2_, v树2] : v树1.get_child(L"")) {
-				int v子标识 = v树2.get_value<int>();
+			const std::wstring_view &v值 = v表情节点.text().as_string();
+			for (const std::wstring_view &v子标识s : 字符串::fe分离(v值, L',')) {
+				const int v子标识 = 字符串::f到数字<int>(v子标识s);
 				int v计算标识 = 计算::f标识(v全局标识, v主标识, v子标识);
 				v表情映射.ma组件[j] = v计算标识;
 				++j;
@@ -101,4 +111,4 @@ void C载入::f立绘列表1(const S载入参数 &a) {
 		++vp组件标识;
 	}
 }
-}	//namespace 东方山寨::载入
+}	//namespace 东方山寨::xml

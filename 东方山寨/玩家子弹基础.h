@@ -24,9 +24,10 @@ public:
 	enum E标志 {
 		e使用,
 		e命中可销毁,
+		e伤害,	//是否可以对敌机造成伤害
 		//炸弹
-		e炸弹,
-		e产生道具,
+		e炸弹,	//标记为炸弹,让敌机可以免疫炸弹而不免疫子弹的伤害
+		e产生道具,	//炸弹消除子弹和敌机会产生道具
 		//自定义
 		e自定义,
 	};
@@ -39,7 +40,8 @@ public:
 	void f基础_计算时间();
 	C复杂形状 f基础_g判定形状() const;
 	bool f基础_i炸弹() const;
-	int f属性_g伤害() const;
+	float f属性_g伤害() const;
+	bool f属性_i秒伤() const;
 	float f基础_g出现透明度() const;
 	virtual void f接口_初始化(const S玩家子弹参数 &);
 	virtual void f接口_初始化图形(C缓冲数组<I图形缓冲> &);
@@ -54,7 +56,7 @@ public:
 public:
 	t向量2 m坐标;
 	t向量2 m速度;
-	t标志 m标志;
+	t标志 m标志{0b100};
 	C玩家 *m玩家 = nullptr;
 	const S玩家子弹属性 *m子弹属性 = nullptr;
 	C数组计数 *m计数指针 = nullptr;
@@ -74,6 +76,7 @@ struct S玩家子弹属性 {
 	t属性指针<S顶点矩形> m消失顶点;
 	int m动画帧数 = 0;
 	int m消失帧数 = 0;
-	int m伤害 = 10;
+	float m伤害 = 10;	//秒伤伤害可能是小数
+	bool mi秒伤 = false;
 };
-}
+}	//class C玩家子弹

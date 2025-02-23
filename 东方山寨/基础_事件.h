@@ -1,18 +1,18 @@
-#pragma once
-#include <cflwÊýÑ§_ÏòÁ¿.h>
-namespace ¶«·½É½Õ¯ {
-using tÏòÁ¿2 = cflw::ÊýÑ§::SÏòÁ¿2;
+ï»¿#pragma once
+#include <cflwæ•°å­¦_å‘é‡.h>
+namespace ä¸œæ–¹å±±å¯¨ {
+using tå‘é‡2 = cflw::æ•°å­¦::Så‘é‡2;
 //==============================================================================
-// ÊÂ¼þ¹ý³Ì
+// äº‹ä»¶è¿‡ç¨‹
 //==============================================================================
-class IÊÂ¼þ {
+class Iäº‹ä»¶ {
 public:
-	virtual void fÊÂ¼þ_³õÊ¼»¯();	//¹¤³§´´½¨¶ÔÏó²¢¸³Öµºóµ÷ÓÃ
-	virtual void fÊÂ¼þ_Ö´ÐÐ();	//Ã¿Ö¡µ÷ÓÃÒ»´Î,¿ÉÒÔÓëÆäËü¶ÔÏó½»»¥,Ð¡ÐÄÊý¾Ý¾ºÕù. ÔÚ f½Ó¿Ú_¼ÆËã Ö®Ç°µ÷ÓÃ
-	virtual void fÊÂ¼þ_½áËã();	//¼ÆËã½áÊøºóµ÷ÓÃ,²»ÓëÆäËü¶ÔÏó½»»¥.ÓÃÀ´±Ü¿ª²¢ÐÐ¼ÆËã¹ý³ÌÖÐ´æÔÚµÄË³ÐòÎÊÌâ, ÔÚ f½Ó¿Ú_½áËã Ö®Ç°µ÷ÓÃ
-	virtual void fÊÂ¼þ_Ïú»Ù();	//¼´½«´ÓÄÚ´æÖÐÏú»ÙÊ±µ÷ÓÃ. ÔÚ f½Ó¿Ú_Ïú»Ù Ö®Ç°µ÷ÓÃ
-	virtual void fÊÂ¼þ_½áÊø();	//¹Ø¿¨ÊÂ¼þ½áÊøÊ±,µÐ»úÀë³¡Ê±
-	virtual void fÊÂ¼þ_»÷ÆÆ();	//µÐ»ú±»»÷ÆÆÊ±µ÷ÓÃ
-	virtual const tÏòÁ¿2 &fÊÂ¼þ_g×ø±ê() const;	//·µ»ØÖ´ÐÐ¸ÃÊÂ¼þµÄ¶ÔÏóµÄÖÐÐÄ×ø±ê
+	virtual void fäº‹ä»¶_åˆå§‹åŒ–();	//å·¥åŽ‚åˆ›å»ºå¯¹è±¡å¹¶èµ‹å€¼åŽè°ƒç”¨
+	virtual void fäº‹ä»¶_æ‰§è¡Œ();	//æ¯å¸§è°ƒç”¨ä¸€æ¬¡,å¯ä»¥ä¸Žå…¶å®ƒå¯¹è±¡äº¤äº’,å°å¿ƒæ•°æ®ç«žäº‰. åœ¨ fæŽ¥å£_è®¡ç®— ä¹‹å‰è°ƒç”¨
+	virtual void fäº‹ä»¶_ç»“ç®—();	//è®¡ç®—ç»“æŸåŽè°ƒç”¨,ä¸ä¸Žå…¶å®ƒå¯¹è±¡äº¤äº’.ç”¨æ¥é¿å¼€å¹¶è¡Œè®¡ç®—è¿‡ç¨‹ä¸­å­˜åœ¨çš„é¡ºåºé—®é¢˜, åœ¨ fæŽ¥å£_ç»“ç®— ä¹‹å‰è°ƒç”¨
+	virtual void fäº‹ä»¶_é”€æ¯();	//å³å°†ä»Žå†…å­˜ä¸­é”€æ¯æ—¶è°ƒç”¨. åœ¨ fæŽ¥å£_é”€æ¯ ä¹‹å‰è°ƒç”¨
+	virtual void fäº‹ä»¶_ç»“æŸ();	//å…³å¡äº‹ä»¶ç»“æŸæ—¶,æ•Œæœºç¦»åœºæ—¶
+	virtual void fäº‹ä»¶_å‡»ç ´();	//æ•Œæœºè¢«å‡»ç ´æ—¶è°ƒç”¨
+	virtual const tå‘é‡2 &fäº‹ä»¶_gåæ ‡() const;	//è¿”å›žæ‰§è¡Œè¯¥äº‹ä»¶çš„å¯¹è±¡çš„ä¸­å¿ƒåæ ‡
 };
-}	//namespace ¶«·½É½Õ¯
+}	//namespace ä¸œæ–¹å±±å¯¨

@@ -1,8 +1,8 @@
 ﻿module;
 #include "界面包含.h"
-#include "关卡.h"
 #include "程序.h"
 export module 东方山寨.界面_选择符卡;
+import 东方山寨.关卡;
 import 东方山寨.关卡标识;
 import 东方山寨.设置管理;
 import 东方山寨.文本管理;

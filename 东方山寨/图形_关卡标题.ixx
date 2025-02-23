@@ -1,17 +1,16 @@
-﻿module;
-#include "图形包含.h"
-#include "图形基础.h"
-#include "图形缓冲.h"
-#include "边框常量.h"
-#include "游戏.h"
-#include "图形引擎.h"
-#include "图形_抬显.h"
-export module 东方山寨.图形_关卡标题;
+﻿export module 东方山寨.图形.关卡标题;
+export import "图形包含.h";
+export import "图形基础.h";
+export import "图形缓冲.h";
+import "游戏.h";
+import "图形引擎.h";
+import "图形工厂.h";
 import 东方山寨.抬显;
+import 东方山寨.图形.抬显;
 export namespace 东方山寨 {
-struct S关卡标题 {
+struct S关卡标题 {	//写成结构,方便后续扩展
 	std::wstring m标题;
-	std::wstring m场景;
+	std::wstring m场景;	//"stage x xxxxxxxxxx"
 };
 class C关卡标题 : public I粒子 {
 public:
@@ -31,6 +30,9 @@ public:
 private:
 	S关卡标题 m标题;
 };
+namespace 图形模板 {
+std::shared_ptr<C关卡标题> f关卡标题(const S关卡标题 &a关卡标题);
+}	//namespace 图形模板
 }	//namespace 东方山寨
 module : private;
 namespace 东方山寨 {
@@ -67,4 +69,13 @@ void C关卡标题::C图形缓冲::f显示() const {
 	v画文本.fs透明度(m透明度);
 	v画文本.f绘制文本布局(m布局.Get());
 }
+namespace 图形模板 {
+std::shared_ptr<C关卡标题> f关卡标题(const S关卡标题 &a关卡标题) {
+	const auto &v图形工厂 = C游戏::fg资源().f工厂_图形();
+	t图形参数 v参数 = t图形参数::c游戏中;
+	v参数.m寿命 = 5;
+	v参数.m图层 = (int)E图层::e抬显;
+	return v图形工厂.f产生图形<C关卡标题>(v参数, a关卡标题);
+}
+}	//namespace 图形模板
 }	//namespace 东方山寨

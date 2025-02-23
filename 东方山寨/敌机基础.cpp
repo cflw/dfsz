@@ -1,9 +1,10 @@
 ﻿#include "游戏常量.h"
 #include "游戏.h"
 #include "敌机基础.h"
-#include "计算.h"
 #include "图形引擎.h"
 #include "边框形状.h"
+import 东方山寨.计算;
+import 东方山寨.敌机图形;
 namespace 东方山寨 {
 //==============================================================================
 // 敌机类
@@ -11,9 +12,6 @@ namespace 东方山寨 {
 C敌机::C敌机() {
 }
 C敌机::~C敌机() {
-}
-C敌机::C敌机(int a生命值):
-	m生命值(a生命值) {
 }
 void C敌机::f对象_使用() {
 	this->f接口_初始化();
@@ -34,6 +32,12 @@ void C敌机::f接口_初始化() {
 }
 void C敌机::f接口_计算() {
 	const float v帧秒 = m游戏速度->fg秒();
+	const float v目标透明度 = m标志[e消失] ? 0 : 1;
+	m透明度 = 数学::f线性渐变<float>(m透明度, v目标透明度, 2 * v帧秒);
+	if (m透明度 == 0) {
+		f对象_销毁();
+		return;
+	}
 	m无敌时间 -= v帧秒;
 	f计算运动(v帧秒);
 	m图形->f计算();
@@ -57,10 +61,10 @@ bool C敌机::fi死亡() const {
 	return m生命值.m当前 <= 0;
 }
 bool C敌机::fi王() const {
-	return m标志[E标志::e王];
+	return m标志[e王];
 }
 bool C敌机::fi无敌() const {
-	return m无敌时间 > 0 || m标志[E标志::e无敌];
+	return m无敌时间 > 0 || m标志[e无敌];
 }
 const S图片动画属性 &C敌机::fg图片动画属性() const {
 	return *m敌机属性;
@@ -71,13 +75,21 @@ float C敌机::fg判定半径() const {
 t圆形 C敌机::fg判定点() const {
 	return {m坐标, fg判定半径()};
 }
-void C敌机::f中弹(int a伤害) {
+float C敌机::fg透明度() const {
+	return m透明度;
+}
+bool C敌机::fi消失中() const {
+	return m标志[e消失];
+}
+void C敌机::f中弹(float a伤害) {
 	//无敌时不会计算伤害
 	m生命值.m当前 -= a伤害;
 }
 //初始化
-void C敌机::fs生命值(int a生命值, float a无敌时间) {
+void C敌机::fs生命值(float a生命值) {
 	m生命值.f重置(a生命值);
+}
+void C敌机::fs无敌时间(float a无敌时间) {
 	m无敌时间 = a无敌时间;
 }
 //动作
@@ -88,5 +100,11 @@ void C敌机::f动作_死亡() {
 	this->f事件_击破();
 	this->f对象_销毁();
 }
-
+void C敌机::f动作_消失(bool a动画) {
+	if (a动画) {
+		m标志[e消失] = true;
+	} else {
+		f对象_销毁();
+	}
+}
 }	//namespace 东方山寨

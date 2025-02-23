@@ -86,7 +86,7 @@ enum class E玩家子弹 {
 	e魔理沙范围,
 };
 enum class E玩家炸弹 {
-	e普通 = c玩家炸弹标识,
+	e测试炸弹 = c玩家炸弹标识,
 	e全屏清弹,
 };
 enum class E玩家发射 {

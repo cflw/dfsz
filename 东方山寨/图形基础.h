@@ -2,7 +2,7 @@
 #include "数学包含.h"
 #include "基础.h"
 #include "基础_数组计数.h"
-import 东方山寨.基础_结构;
+import 东方山寨.基础.结构;
 namespace 东方山寨 {
 struct S图形参数;
 class I图形缓冲;

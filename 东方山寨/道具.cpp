@@ -1,10 +1,10 @@
 ﻿#include <boost/rational.hpp>
 #include "道具.h"
 #include "玩家.h"
-#include "计算.h"
 #include "预设图形.h"
 #include "道具图形.h"
 #include "边框形状.h"
+import 东方山寨.计算;
 namespace 东方山寨 {
 //==============================================================================
 // 道具

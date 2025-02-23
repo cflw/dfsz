@@ -1,7 +1,6 @@
-﻿module;
-#include "载入.h"
-#include "关卡.h"
-export module 东方山寨.载入.关卡组;
+﻿export module 东方山寨.载入.关卡组;
+import 东方山寨.载入.内部;
+import 东方山寨.关卡;
 import 东方山寨.关卡标识;
 import 东方山寨.关卡管理;
 namespace 东方山寨::载入 {

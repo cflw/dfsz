@@ -11,9 +11,9 @@
 #include "图形_背景.h"
 #include "图形管理.h"
 #include "游戏.h"
-#include "计算.h"
 #include "玩家.h"
 #include "程序.h"
+import 东方山寨.计算;
 namespace 东方山寨 {
 namespace 视窗 = cflw::视窗;
 //==============================================================================

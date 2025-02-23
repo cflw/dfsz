@@ -136,7 +136,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(zlib);$(cflw_develop)\cflw代码库;$(cflw_develop)\用户界面;$(boost);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(pugixml)\src;$(zlib);$(cflw_develop)\cflw代码库;$(cflw_develop)\用户界面;$(boost);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
       <EnableModules>false</EnableModules>
@@ -209,7 +209,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>$(zlib);$(cflw_develop)\cflw代码库;$(cflw_develop)\用户界面;$(boost);</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(pugixml)\src;$(zlib);$(cflw_develop)\cflw代码库;$(cflw_develop)\用户界面;$(boost)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
       <EnableModules>false</EnableModules>
@@ -241,7 +241,8 @@
     <ClCompile Include="东方月亮船1.ixx" />
     <ClCompile Include="东方月亮船2.ixx" />
     <ClCompile Include="东方月亮船_附加符卡.ixx" />
-    <ClCompile Include="关卡.cpp" />
+    <ClCompile Include="关卡.ixx" />
+    <ClCompile Include="关卡_实现.ixx" />
     <ClCompile Include="关卡工厂.ixx" />
     <ClCompile Include="关卡效果.ixx" />
     <ClCompile Include="关卡标识.ixx" />
@@ -256,11 +257,11 @@
     <ClCompile Include="动画.cpp" />
     <ClInclude Include="图形_子弹_工具.h" />
     <ClCompile Include="图形_子弹_线条.cpp" />
-    <ClCompile Include="图形_对话.cpp" />
-    <ClCompile Include="图形_对话立绘.cpp" />
+    <ClCompile Include="图形_对话框.ixx" />
+    <ClCompile Include="图形_对话立绘.ixx" />
     <ClCompile Include="图形_帧速率.ixx" />
-    <ClCompile Include="图形_抬显.cpp" />
-    <ClCompile Include="图形_抬显模板.cpp" />
+    <ClCompile Include="图形_抬显.ixx" />
+    <ClCompile Include="图形_抬显模板.ixx" />
     <ClCompile Include="图形_玩家成绩.cpp" />
     <ClCompile Include="图形_画图片.cpp" />
     <ClCompile Include="图形_画边框.cpp" />
@@ -269,7 +270,8 @@
     <ClCompile Include="图形_符卡立绘模板.ixx" />
     <ClCompile Include="图形_背景.cpp" />
     <ClCompile Include="图形_背景模板.cpp" />
-    <ClCompile Include="图形_静态立绘.cpp" />
+    <ClCompile Include="图形_角色标题.ixx" />
+    <ClCompile Include="图形_静态立绘.ixx" />
     <ClCompile Include="图形基础.cpp" />
     <ClCompile Include="图形管理.cpp" />
     <ClCompile Include="图形工厂.cpp" />
@@ -280,7 +282,10 @@
     <ClCompile Include="基础_计时器.ixx" />
     <ClCompile Include="子弹图形缓冲.cpp" />
     <ClCompile Include="子机图形.cpp" />
-    <ClCompile Include="序列化.cpp" />
+    <ClCompile Include="xml_序列化.ixx" />
+    <ClCompile Include="对话基础.ixx" />
+    <ClCompile Include="对话控制.ixx" />
+    <ClCompile Include="对话脚本.ixx" />
     <ClCompile Include="录像_功能.ixx">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -295,8 +300,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="抬显.ixx" />
-    <ClCompile Include="敌机图形.cpp" />
-    <ClCompile Include="敌机图形模板.cpp" />
     <ClCompile Include="场景.cpp" />
     <ClCompile Include="基础.cpp" />
     <ClCompile Include="子弹_大子弹.cpp" />
@@ -311,7 +314,8 @@
     <ClCompile Include="子机.cpp" />
     <ClCompile Include="子机移动_位置.cpp" />
     <ClCompile Include="子机移动接口.cpp" />
-    <ClCompile Include="对话.cpp" />
+    <ClCompile Include="敌机图形.ixx" />
+    <ClCompile Include="敌机图形模板.ixx" />
     <ClCompile Include="敌机基础.cpp" />
     <ClCompile Include="敌机制造机.cpp" />
     <ClCompile Include="敌机扩展.cpp" />
@@ -340,7 +344,8 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="游戏输入管理.ixx" />
-    <ClCompile Include="王战.cpp" />
+    <ClCompile Include="王战.ixx" />
+    <ClCompile Include="王战_实现.ixx" />
     <ClCompile Include="玩家.cpp" />
     <ClCompile Include="玩家子弹发射扩展.cpp" />
     <ClCompile Include="玩家子弹发射_发散.cpp" />
@@ -383,21 +388,34 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="程序设置.cpp" />
-    <ClCompile Include="脚本.cpp" />
+    <ClCompile Include="脚本.ixx" />
     <ClCompile Include="自机.cpp" />
     <ClCompile Include="自机图形.cpp" />
+    <ClCompile Include="xml_解析.ixx" />
+    <ClCompile Include="计算.ixx" />
     <ClCompile Include="设置管理.ixx" />
     <ClCompile Include="轨迹.cpp" />
-    <ClCompile Include="计算.cpp" />
     <ClCompile Include="载入.cpp" />
+    <ClCompile Include="载入_内部.ixx" />
+    <ClCompile Include="载入_xml.ixx" />
     <ClCompile Include="载入_关卡组.ixx" />
+    <ClCompile Include="载入_动画.ixx" />
     <ClCompile Include="载入_图形.ixx" />
+    <ClCompile Include="载入_图形管线.ixx" />
+    <ClCompile Include="载入_声音.ixx" />
+    <ClCompile Include="载入_子弹.ixx" />
+    <ClCompile Include="载入_子机.ixx" />
+    <ClCompile Include="载入_敌机.ixx" />
     <ClCompile Include="载入_文本.ixx" />
+    <ClCompile Include="载入_模型.ixx" />
+    <ClCompile Include="载入_玩家子弹.ixx" />
+    <ClCompile Include="载入_玩家子弹发射.ixx" />
     <ClCompile Include="载入_立绘.ixx">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="载入解析.cpp" />
-    <ClCompile Include="载入解析_图形.cpp" />
+    <ClCompile Include="载入_纹理.ixx" />
+    <ClCompile Include="载入_自机.ixx" />
+    <ClCompile Include="载入_道具.ixx" />
     <ClCompile Include="输入.cpp" />
     <ClCompile Include="图形缓冲.cpp" />
     <ClCompile Include="边框基础.cpp" />
@@ -409,12 +427,11 @@
     <ClCompile Include="遮罩形状.cpp" />
     <ClCompile Include="遮罩基础.cpp" />
     <ClCompile Include="遮罩工厂.cpp" />
-    <ClCompile Include="难度.cpp" />
+    <ClCompile Include="难度.ixx" />
     <ClCompile Include="音频引擎.cpp" />
     <ClCompile Include="预设图形.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="关卡.h" />
     <ClInclude Include="判定处理_子弹与玩家炸弹.h" />
     <ClInclude Include="判定处理_敌机与玩家子弹.h" />
     <ClInclude Include="判定处理_自机与子弹.h" />
@@ -424,15 +441,11 @@
     <ClInclude Include="图形_图片.h" />
     <ClInclude Include="动画.h" />
     <ClInclude Include="动画接口.h" />
-    <ClInclude Include="图形_对话.h" />
-    <ClInclude Include="图形_对话立绘.h" />
-    <ClInclude Include="图形_抬显.h" />
     <ClInclude Include="图形_玩家成绩.h" />
     <ClInclude Include="图形_画图片.h" />
     <ClInclude Include="图形_画边框.h" />
     <ClInclude Include="图形_子弹_线条.h" />
     <ClInclude Include="图形_背景.h" />
-    <ClInclude Include="图形_静态立绘.h" />
     <ClInclude Include="图形包含.h" />
     <ClInclude Include="图形建造机.h" />
     <ClInclude Include="图形管理.h" />
@@ -455,13 +468,8 @@
     <ClInclude Include="子弹图形缓冲.h" />
     <ClInclude Include="子机图形.h" />
     <ClInclude Include="对象图形.h" />
-    <ClInclude Include="序列化.h" />
-    <ClInclude Include="敌机图形.h" />
-    <ClInclude Include="敌机图形模板.h" />
     <ClInclude Include="场景.h" />
     <ClInclude Include="基础.h" />
-    <ClInclude Include="对话.h" />
-    <ClInclude Include="对话基础.h" />
     <ClInclude Include="敌机扩展.h" />
     <ClInclude Include="敌机模板.h" />
     <ClInclude Include="数学_运动.h" />
@@ -487,7 +495,6 @@
     <ClInclude Include="游戏.h" />
     <ClInclude Include="游戏_名称标识.h" />
     <ClInclude Include="游戏设置.h" />
-    <ClInclude Include="王战.h" />
     <ClInclude Include="玩家.h" />
     <ClInclude Include="玩家子弹发射扩展.h" />
     <ClInclude Include="玩家子弹发射_发散.h" />
@@ -512,14 +519,9 @@
     <ClInclude Include="程序实现.h" />
     <ClInclude Include="程序常量.h" />
     <ClInclude Include="程序设置.h" />
-    <ClInclude Include="脚本.h" />
     <ClInclude Include="自机.h" />
     <ClInclude Include="自机图形.h" />
     <ClInclude Include="轨迹.h" />
-    <ClInclude Include="计算.h" />
-    <ClInclude Include="载入.h" />
-    <ClInclude Include="载入基础.h" />
-    <ClInclude Include="载入解析.h" />
     <ClInclude Include="输入.h" />
     <ClInclude Include="图形缓冲.h" />
     <ClInclude Include="边框基础.h" />
@@ -532,7 +534,6 @@
     <ClInclude Include="遮罩形状.h" />
     <ClInclude Include="遮罩基础.h" />
     <ClInclude Include="遮罩工厂.h" />
-    <ClInclude Include="难度.h" />
     <ClInclude Include="音频包含.h" />
     <ClInclude Include="音频引擎.h" />
     <ClInclude Include="预设图形.h" />
@@ -543,6 +544,9 @@
     </ProjectReference>
     <ProjectReference Include="..\用户界面\用户界面.vcxproj">
       <Project>{b241c66b-8a81-4160-be52-a3fdaac8e6af}</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:\cflw\develop\cpp\pugixml-1.14\scripts\pugixml_vs2022_static.vcxproj">
+      <Project>{07cf01c0-b887-499d-ad9c-799cb6a9fe64}</Project>
     </ProjectReference>
     <ProjectReference Include="D:\cflw\develop\cpp\zlib-1.2.13\contrib\vstudio\vc14\zlibvc.vcxproj">
       <Project>{8fd826f8-3739-44e6-8cc8-997122e53b8d}</Project>
@@ -562,10 +566,10 @@
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ps_image</EntryPointName>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
@@ -584,10 +588,10 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
@@ -606,10 +610,10 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
@@ -628,20 +632,20 @@
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">vs_image</EntryPointName>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </FxCompile>
     <FxCompile Include="着色器\vs_tint0.hlsl">
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">vs_tint</EntryPointName>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">vs_tint</EntryPointName>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
@@ -672,10 +676,10 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
@@ -694,10 +698,10 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\~\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\assets\shader\%(Filename).cso</ObjectFileOutput>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>

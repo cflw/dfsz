@@ -84,6 +84,8 @@ void C二维图片图形::f接口_计算() {
 	f计算_生命();
 }
 void C二维图片图形::f接口_更新() {
+	assert(m顶点);
+	assert(m纹理);
 	t图形缓冲 *v缓冲 = static_cast<t图形缓冲 *>(m图形缓冲);
 	v缓冲->m坐标 = m坐标;
 	v缓冲->m旋转 = m旋转;
@@ -97,6 +99,7 @@ void C二维图片图形::f接口_初始化(const S图形参数 &a参数) {
 	m纹理 = a参数.m纹理.m指针;
 	assert(m纹理);
 	m顶点 = a参数.m顶点.m指针;
+	assert(m顶点);
 }
 t向量3 C二维图片图形::f接口_g旋转() const {
 	return {0, 0, m旋转};

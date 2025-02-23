@@ -1,8 +1,8 @@
 ﻿module;
-#include "关卡.h"
-#include "游戏.h"
-#include "王战.h"
 export module 东方山寨.关卡练习;	//进入符卡关卡
+import "游戏.h";
+import 东方山寨.关卡;
+import 东方山寨.王战;
 export import 东方山寨.关卡工厂;
 export namespace 东方山寨 {
 //符卡练习关卡类

@@ -20,12 +20,12 @@ public:
 	enum E标志 {
 		e使用,
 		e无动作,	//不调用 f事件_执行
+		e消失,	//敌机正在消失
 		e王,	//击破后不会自动销毁
 		e无敌,	//扩展生命给予目标敌机无敌, 和 m无敌时间 并列存在
 	};
 	C敌机();
 	~C敌机();
-	C敌机(int 生命值);
 	void f对象_使用();
 	void f对象_销毁();
 	bool f对象_i使用() const;
@@ -45,20 +45,24 @@ public:
 	bool fi死亡() const;
 	bool fi王() const;
 	bool fi无敌() const;
-	void fs生命值(int = 1, float 无敌 = 0);
+	void fs生命值(float);
+	void fs无敌时间(float);
+	float fg透明度() const;	//由出现消失所决定的透明度
+	bool fi消失中() const;
 	//状态
-	void f中弹(int 伤害);
+	void f中弹(float 伤害);
 	//动作
 	void f动作_结束();
 	void f动作_死亡();	//强制死亡,无视其它因素,会调用击破事件
+	void f动作_消失(bool 动画 = true);	//离场,不会调用击破事件
 public:
-	int m编号 = 0;
 	t标志 m标志;
 	const C游戏速度 *m游戏速度 = nullptr;
 	C数组计数 *m计数指针 = nullptr;
 	const S敌机属性 *m敌机属性 = nullptr;
-	数学::S有限值<int> m生命值 = {1};
+	数学::S有限值<float> m生命值 = {1};
 	float m无敌时间 = 0;
+	float m透明度 = 1;
 	std::unique_ptr<I对象图形<C敌机>> m图形;
 };
 //==============================================================================

@@ -1,5 +1,4 @@
-﻿#include <boost/property_tree/json_parser.hpp>
-#include "程序实现.h"
+﻿#include "程序实现.h"
 #include "程序常量.h"
 #include "边框常量.h"
 #include "程序.h"
@@ -8,7 +7,7 @@
 #include "音频引擎.h"
 #include "输入.h"
 #include "游戏.h"
-#include "关卡.h"
+import 东方山寨.关卡;
 #include "日志.h"
 #include "游戏设置.h"
 #include "图形管理.h"
@@ -247,10 +246,11 @@ void C程序实现::f快速开始游戏() {	//调试用,载入完毕后马上进
 	S游戏设置 &v设置 = C设置管理::fg实例().fg游戏设置();
 	v设置.m自机标识 = (int)E自机::e灵梦;
 	v设置.m子机标识 = (int)E子机::e灵梦诱导;
-	v设置.m火力 = 0;
-	v设置.m基础难度 = 5;
-	v设置.fs关卡((int)E关卡::e测试);
-	//v设置.fs关卡组((int)E关卡::e测试);
+	v设置.m残机 = 9;
+	v设置.m火力 = 4;
+	v设置.m基础难度 = 3;
+	//v设置.fs关卡((int)E关卡::e东方月亮船+1);
+	v设置.fs关卡组((int)E关卡::e测试);
 	C游戏::fs游戏设置(v设置);
 	C游戏::fs游戏输入(m游戏输入->fc直接());
 	//auto &v录像 = m录像管理->f新建录像();
